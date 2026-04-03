@@ -1,0 +1,1303 @@
+date,product,price,change,unit,source,time_scraped
+27-03-2026,Xăng RON 95-III,24330,-5620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:52.886665
+27-03-2026,Xăng E10 RON 95-III,23690,-4330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:52.906337
+27-03-2026,Xăng E5 RON 92-II,23320,-4750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:52.935894
+27-03-2026,"Dầu DO 0,05S-II",35440,-2450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:52.955942
+27-03-2026,"Dầu DO 0,001S-V",35640,-2450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:52.979550
+25-03-2026,Xăng RON 95-III,29950,-3890,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:56.111568
+25-03-2026,Xăng E10 RON 95-III,28020,-3400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:56.131640
+25-03-2026,Xăng E5 RON 92-II,28070,-2040,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:56.156103
+25-03-2026,"Dầu DO 0,05S-II",37890,-1770,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:56.176045
+25-03-2026,"Dầu DO 0,001S-V",38090,-1770,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:56.197116
+24-03-2026,Xăng RON 95-III,33840,+3150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:59.317710
+24-03-2026,Xăng E10 RON 95-III,31420,+2760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:59.336221
+24-03-2026,Xăng E5 RON 92-II,30110,+2940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:59.357774
+24-03-2026,"Dầu DO 0,05S-II",39660,+6240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:59.377818
+24-03-2026,"Dầu DO 0,001S-V",39860,+6240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:53:59.396067
+19-03-2026,Xăng RON 95-III,30690,+5120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:02.517872
+19-03-2026,Xăng E10 RON 95-III,28660,+4600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:02.538896
+19-03-2026,Xăng E5 RON 92-II,27170,+4670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:02.557657
+19-03-2026,"Dầu DO 0,05S-II",33420,+6400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:02.576173
+19-03-2026,"Dầu DO 0,001S-V",33620,+6400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:02.594535
+12-03-2026,Xăng RON 95-III,25570,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:05.722449
+12-03-2026,Xăng E10 RON 95-III,24060,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:05.741696
+12-03-2026,Xăng E5 RON 92-II,22500,-450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:05.759445
+12-03-2026,"Dầu DO 0,05S-II",27020,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:05.777463
+12-03-2026,"Dầu DO 0,001S-V",27220,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:05.794055
+11-03-2026,Xăng RON 95-III,25240,-1800,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:08.923852
+11-03-2026,Xăng E10 RON 95-III,23770,-2080,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:08.944046
+11-03-2026,Xăng E5 RON 92-II,22950,-2270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:08.961661
+11-03-2026,"Dầu DO 0,05S-II",26470,-3760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:08.979471
+11-03-2026,"Dầu DO 0,001S-V",26670,-3860,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:08.998397
+07-03-2026,Xăng RON 95-III,27040,+4700,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:12.129252
+07-03-2026,Xăng E10 RON 95-III,25850,+4120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:12.152689
+07-03-2026,Xăng E5 RON 92-II,25220,+3780,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:12.170708
+07-03-2026,"Dầu DO 0,05S-II",30230,+7200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:12.188728
+07-03-2026,"Dầu DO 0,001S-V",30530,+7200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:12.206238
+07-03-2026,Dầu KO,35090,+8490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:12.223427
+05-03-2026,Xăng RON 95-III,22340,+2190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:15.355014
+05-03-2026,Xăng E10 RON 95-III,21730,+1910,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:15.375980
+05-03-2026,Xăng E5 RON 92-II,21440,+1920,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:15.400819
+05-03-2026,"Dầu DO 0,05S-II",23030,+3760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:15.420082
+05-03-2026,"Dầu DO 0,001S-V",23330,+3760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:15.439250
+05-03-2026,Dầu KO,26600,+7140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:15.458269
+26-02-2026,Xăng RON 95-III,20150,+1000,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:18.593928
+26-02-2026,Xăng E10 RON 95-III,19820,+880,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:18.612956
+26-02-2026,Xăng E5 RON 92-II,19520,+890,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:18.630982
+26-02-2026,"Dầu DO 0,05S-II",19270,+750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:18.648522
+26-02-2026,"Dầu DO 0,001S-V",19570,+700,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:18.671551
+26-02-2026,Dầu KO,19460,+850,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:18.689228
+20-02-2026,Xăng RON 95-III,19150,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:21.815976
+20-02-2026,Xăng E10 RON 95-III,18940,-130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:21.836119
+20-02-2026,Xăng E5 RON 92-II,18630,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:21.856842
+20-02-2026,"Dầu DO 0,05S-II",18520,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:21.875971
+20-02-2026,"Dầu DO 0,001S-V",18870,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:21.888904
+20-02-2026,Dầu KO,18610,+100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:21.905794
+12-02-2026,Xăng RON 95-III,19290,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:25.056065
+12-02-2026,Xăng E10 RON 95-III,19070,+370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:25.080396
+12-02-2026,Xăng E5 RON 92-II,18830,+400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:25.097711
+12-02-2026,"Dầu DO 0,05S-II",18460,+10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:25.116104
+12-02-2026,"Dầu DO 0,001S-V",18810,+10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:25.135945
+12-02-2026,Dầu KO,18510,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:25.156053
+05-02-2026,Xăng RON 95-III,18880,+40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:28.295862
+05-02-2026,Xăng E10 RON 95-III,18700,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:28.314037
+05-02-2026,Xăng E5 RON 92-II,18430,+100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:28.331156
+05-02-2026,"Dầu DO 0,05S-II",18450,+280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:28.351244
+05-02-2026,"Dầu DO 0,001S-V",18800,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:28.367955
+05-02-2026,Dầu KO,18390,+220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:28.386233
+29-01-2026,Xăng RON 95-III,18840,+210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:31.524392
+29-01-2026,Xăng E10 RON 95-III,18710,+190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:31.542411
+29-01-2026,Xăng E5 RON 92-II,18330,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:31.559958
+29-01-2026,"Dầu DO 0,05S-II",18170,+470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:31.577656
+29-01-2026,"Dầu DO 0,001S-V",18670,+470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:31.594300
+29-01-2026,Dầu KO,18170,+220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:31.612318
+22-01-2026,Xăng RON 95-III,18630,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:34.756589
+22-01-2026,Xăng E10 RON 95-III,18520,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:34.775116
+22-01-2026,Xăng E5 RON 92-II,18280,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:34.792140
+22-01-2026,"Dầu DO 0,05S-II",17700,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:34.810167
+22-01-2026,"Dầu DO 0,001S-V",18200,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:34.827194
+22-01-2026,Dầu KO,17950,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:34.844815
+15-01-2026,Xăng RON 95-III,18710,+150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:38.026304
+15-01-2026,Xăng E10 RON 95-III,18590,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:38.051894
+15-01-2026,Xăng E5 RON 92-II,18370,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:38.071102
+15-01-2026,"Dầu DO 0,05S-II",17280,+220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:38.089971
+15-01-2026,"Dầu DO 0,001S-V",17880,+220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:38.108496
+15-01-2026,Dầu KO,17690,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:38.127517
+08-01-2026,Xăng RON 95-III,18560,-350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:41.290697
+08-01-2026,Xăng E10 RON 95-III,18460,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:41.310750
+08-01-2026,Xăng E5 RON 92-II,18230,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:41.329903
+08-01-2026,"Dầu DO 0,05S-II",17060,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:41.347919
+08-01-2026,"Dầu DO 0,001S-V",17660,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:41.366443
+08-01-2026,Dầu KO,17550,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:41.384961
+31-12-2025,Xăng RON 95-III,18910,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:44.541943
+31-12-2025,Xăng E10 RON 95-III,18800,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:44.560470
+31-12-2025,Xăng E5 RON 92-II,18430,-280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:44.579232
+31-12-2025,"Dầu DO 0,05S-II",17250,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:44.597250
+31-12-2025,"Dầu DO 0,001S-V",17950,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:44.614761
+31-12-2025,Dầu KO,17690,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:44.631502
+25-12-2025,Xăng RON 95-III,19000,-620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:47.805161
+25-12-2025,Xăng E10 RON 95-III,18870,-540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:47.827735
+25-12-2025,Xăng E5 RON 92-II,18710,-520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:47.848851
+25-12-2025,"Dầu DO 0,05S-II",17250,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:47.870128
+25-12-2025,"Dầu DO 0,001S-V",17750,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:47.892052
+25-12-2025,Dầu KO,17700,-230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:47.912998
+18-12-2025,Xăng RON 95-III,19620,-460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:51.098853
+18-12-2025,Xăng E10 RON 95-III,19410,-410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:51.117871
+18-12-2025,Xăng E5 RON 92-II,19230,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:51.138511
+18-12-2025,"Dầu DO 0,05S-II",17470,-680,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:51.156020
+18-12-2025,"Dầu DO 0,001S-V",18000,-710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:51.175921
+18-12-2025,Dầu KO,17930,-710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:51.196814
+11-12-2025,Xăng RON 95-III,20080,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:54.399362
+11-12-2025,Xăng E10 RON 95-III,19820,-330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:54.420385
+11-12-2025,Xăng E5 RON 92-II,19610,-210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:54.442448
+11-12-2025,"Dầu DO 0,05S-II",18150,-230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:54.461432
+11-12-2025,"Dầu DO 0,001S-V",18710,-300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:54.479022
+11-12-2025,Dầu KO,18640,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:54.498118
+04-12-2025,Xăng RON 95-III,20460,+460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:57.672630
+04-12-2025,Xăng E10 RON 95-III,20150,+500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:57.695130
+04-12-2025,Xăng E5 RON 92-II,19820,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:57.711647
+04-12-2025,"Dầu DO 0,05S-II",18380,-420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:57.728037
+04-12-2025,"Dầu DO 0,001S-V",19010,-480,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:57.746039
+04-12-2025,Dầu KO,18890,-580,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:54:57.766661
+27-11-2025,Xăng RON 95-III,20000,-540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:00.962219
+27-11-2025,Xăng E10 RON 95-III,19650,-470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:00.980747
+27-11-2025,Xăng E5 RON 92-II,19280,-520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:00.998791
+27-11-2025,"Dầu DO 0,05S-II",18800,-1020,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:01.016817
+27-11-2025,"Dầu DO 0,001S-V",19490,-1020,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:01.037849
+27-11-2025,Dầu KO,19470,-810,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:01.055968
+20-11-2025,Xăng RON 95-III,20540,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:04.238786
+20-11-2025,Xăng E10 RON 95-III,20120,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:04.259331
+20-11-2025,Xăng E5 RON 92-II,19800,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:04.277350
+20-11-2025,"Dầu DO 0,05S-II",19820,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:04.294947
+20-11-2025,"Dầu DO 0,001S-V",20510,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:04.312220
+20-11-2025,Dầu KO,20280,+350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:04.328893
+13-11-2025,Xăng RON 95-III,20570,+160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:07.514912
+13-11-2025,Xăng E10 RON 95-III,20150,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:07.535858
+13-11-2025,Xăng E5 RON 92-II,19840,+160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:07.555912
+13-11-2025,"Dầu DO 0,05S-II",19860,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:07.575933
+13-11-2025,"Dầu DO 0,001S-V",20550,+610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:07.595710
+13-11-2025,Dầu KO,19930,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:07.615934
+06-11-2025,Xăng RON 95-III,20410,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:10.799395
+06-11-2025,Xăng E10 RON 95-III,20010,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:10.818926
+06-11-2025,Xăng E5 RON 92-II,19680,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:10.837726
+06-11-2025,"Dầu DO 0,05S-II",19320,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:10.854304
+06-11-2025,"Dầu DO 0,001S-V",19940,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:10.872870
+06-11-2025,Dầu KO,19390,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:10.890105
+30-10-2025,Xăng RON 95-III,20480,+760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:14.076647
+30-10-2025,Xăng E10 RON 95-III,20120,+670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:14.095775
+30-10-2025,Xăng E5 RON 92-II,19760,+710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:14.113924
+30-10-2025,"Dầu DO 0,05S-II",19200,+1320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:14.130949
+30-10-2025,"Dầu DO 0,001S-V",19820,+1320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:14.148972
+30-10-2025,Dầu KO,19270,+1160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:14.166812
+23-10-2025,Xăng RON 95-III,19720,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:17.369863
+23-10-2025,Xăng E10 RON 95-III,19450,-230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:17.394418
+23-10-2025,Xăng E5 RON 92-II,19050,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:17.414981
+23-10-2025,"Dầu DO 0,05S-II",17880,-540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:17.432616
+23-10-2025,"Dầu DO 0,001S-V",18500,-440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:17.449864
+23-10-2025,Dầu KO,18110,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:17.467279
+16-10-2025,Xăng RON 95-III,19900,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:20.659278
+16-10-2025,Xăng E10 RON 95-III,19680,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:20.678296
+16-10-2025,Xăng E5 RON 92-II,19220,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:20.695815
+16-10-2025,"Dầu DO 0,05S-II",18420,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:20.713331
+16-10-2025,"Dầu DO 0,001S-V",18940,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:20.731352
+16-10-2025,Dầu KO,18400,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:20.748982
+09-10-2025,Xăng RON 95-III,19720,-480,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:23.958448
+09-10-2025,Xăng E10 RON 95-III,19500,-420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:23.980470
+09-10-2025,Xăng E5 RON 92-II,19130,-490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:23.999732
+09-10-2025,"Dầu DO 0,05S-II",18600,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:24.020770
+09-10-2025,"Dầu DO 0,001S-V",19130,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:24.040794
+09-10-2025,Dầu KO,18430,-570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:24.059808
+02-10-2025,Xăng RON 95-III,20200,+40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:27.252588
+02-10-2025,Xăng E10 RON 95-III,19920,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:27.272554
+02-10-2025,Xăng E5 RON 92-II,19620,+10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:27.292704
+02-10-2025,"Dầu DO 0,05S-II",19030,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:27.310251
+02-10-2025,"Dầu DO 0,001S-V",19560,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:27.330276
+02-10-2025,Dầu KO,19000,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:27.351994
+25-09-2025,Xăng RON 95-III,20160,-440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:30.560643
+25-09-2025,Xăng E10 RON 95-III,19830,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:30.580113
+25-09-2025,Xăng E5 RON 92-II,19610,-370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:30.605745
+25-09-2025,"Dầu DO 0,05S-II",18650,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:30.627880
+25-09-2025,"Dầu DO 0,001S-V",19180,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:30.649466
+25-09-2025,Dầu KO,18620,+80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:30.669496
+18-09-2025,Xăng RON 95-III,20600,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:33.876537
+18-09-2025,Xăng E10 RON 95-III,20220,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:33.899120
+18-09-2025,Xăng E5 RON 92-II,19980,+230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:33.918670
+18-09-2025,"Dầu DO 0,05S-II",18700,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:33.941813
+18-09-2025,"Dầu DO 0,001S-V",19230,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:33.961544
+18-09-2025,Dầu KO,18540,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:33.980994
+11-09-2025,Xăng RON 95-III,20400,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:37.213578
+11-09-2025,Xăng E10 RON 95-III,20040,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:37.231596
+11-09-2025,Xăng E5 RON 92-II,19750,-100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:37.250847
+11-09-2025,"Dầu DO 0,05S-II",18640,+170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:37.278472
+11-09-2025,"Dầu DO 0,001S-V",19170,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:37.297003
+11-09-2025,Dầu KO,18360,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:37.315565
+04-09-2025,Xăng RON 95-III,20430,+70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:40.523154
+04-09-2025,Xăng E10 RON 95-III,20070,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:40.542176
+04-09-2025,Xăng E5 RON 92-II,19850,+80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:40.560197
+04-09-2025,"Dầu DO 0,05S-II",18470,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:40.578214
+04-09-2025,"Dầu DO 0,001S-V",19030,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:40.595799
+04-09-2025,Dầu KO,18310,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:40.613822
+28-08-2025,Xăng RON 95-III,20360,+270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:43.827796
+28-08-2025,Xăng E10 RON 95-III,20080,+240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:43.847895
+28-08-2025,Xăng E5 RON 92-II,19770,+310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:43.865907
+28-08-2025,"Dầu DO 0,05S-II",18350,+450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:43.884616
+28-08-2025,"Dầu DO 0,001S-V",18910,+450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:43.902477
+28-08-2025,Dầu KO,18220,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:43.921588
+21-08-2025,Xăng RON 95-III,20090,+210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:47.133870
+21-08-2025,Xăng E10 RON 95-III,19840,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:47.152465
+21-08-2025,Xăng E5 RON 92-II,19460,+110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:47.172994
+21-08-2025,"Dầu DO 0,05S-II",17900,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:47.195536
+21-08-2025,"Dầu DO 0,001S-V",18460,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:47.213675
+21-08-2025,Dầu KO,17810,-210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:47.231695
+14-08-2025,Xăng RON 95-III,19880,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:50.450288
+14-08-2025,Xăng E10 RON 95-III,19660,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:50.473321
+14-08-2025,Xăng E5 RON 92-II,19350,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:50.491340
+14-08-2025,"Dầu DO 0,05S-II",18070,-730,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:50.508357
+14-08-2025,"Dầu DO 0,001S-V",18630,-570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:50.526880
+14-08-2025,Dầu KO,18020,-640,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:50.544469
+07-08-2025,Xăng RON 95-III,20070,+230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:53.772865
+07-08-2025,Xăng E10 RON 95-III,19830,+230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:53.792500
+07-08-2025,Xăng E5 RON 92-II,19600,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:53.811438
+07-08-2025,"Dầu DO 0,05S-II",18800,-260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:53.830981
+07-08-2025,"Dầu DO 0,001S-V",19200,-160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:53.849009
+07-08-2025,Dầu KO,18660,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:53.868040
+31-07-2025,Xăng RON 95-III,19840,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:57.186343
+31-07-2025,Xăng E10 RON 95-III,19600,+19600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:57.209415
+31-07-2025,Xăng E5 RON 92-II,19400,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:57.236965
+31-07-2025,"Dầu DO 0,05S-II",19060,-60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:57.259616
+31-07-2025,"Dầu DO 0,001S-V",19360,-60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:57.285779
+31-07-2025,Dầu KO,18710,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:55:57.307901
+24-07-2025,Xăng RON 95-III,19700,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:00.577591
+24-07-2025,Xăng E5 RON 92-II,19270,-210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:00.598165
+24-07-2025,"Dầu DO 0,05S-II",19120,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:00.617764
+24-07-2025,"Dầu DO 0,001S-V",19420,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:00.635900
+24-07-2025,Dầu KO,18620,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:00.654494
+17-07-2025,Xăng RON 95-III,19920,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:03.896763
+17-07-2025,Xăng E5 RON 92-II,19480,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:03.916638
+17-07-2025,"Dầu DO 0,05S-II",18790,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:03.938769
+17-07-2025,"Dầu DO 0,001S-V",19090,-60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:03.958540
+17-07-2025,Dầu KO,18420,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:03.976795
+10-07-2025,Xăng RON 95-III,20090,+190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:07.213942
+10-07-2025,Xăng E5 RON 92-II,19650,+210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:07.237079
+10-07-2025,"Dầu DO 0,05S-II",18830,+430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:07.257816
+10-07-2025,"Dầu DO 0,001S-V",19150,+430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:07.278076
+10-07-2025,Dầu KO,18370,+240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:07.300103
+03-07-2025,Xăng RON 95-III,19900,-1210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:10.597569
+03-07-2025,Xăng E5 RON 92-II,19440,-1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:10.616933
+03-07-2025,"Dầu DO 0,05S-II",18400,-940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:10.639876
+03-07-2025,"Dầu DO 0,001S-V",18720,-980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:10.658548
+03-07-2025,Dầu KO,18130,-930,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:10.677857
+01-07-2025,Xăng RON 95-III,21110,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:13.938569
+01-07-2025,Xăng E5 RON 92-II,20530,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:13.960028
+01-07-2025,"Dầu DO 0,05S-II",19340,-360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:13.978654
+01-07-2025,"Dầu DO 0,001S-V",19700,-360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:13.997222
+01-07-2025,Dầu KO,19060,-350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:14.015730
+26-06-2025,Xăng RON 95-III,21500,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:17.254785
+26-06-2025,Xăng E5 RON 92-II,20910,+280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:17.276311
+26-06-2025,"Dầu DO 0,05S-II",19700,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:17.297339
+26-06-2025,"Dầu DO 0,001S-V",20060,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:17.317359
+26-06-2025,Dầu KO,19410,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:17.336883
+19-06-2025,Xăng RON 95-III,21240,+1280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:20.584126
+19-06-2025,Xăng E5 RON 92-II,20630,+1170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:20.602998
+19-06-2025,"Dầu DO 0,05S-II",19150,+1450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:20.628400
+19-06-2025,"Dầu DO 0,001S-V",19510,+1450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:20.658616
+19-06-2025,Dầu KO,18920,+1410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:20.693309
+12-06-2025,Xăng RON 95-III,19960,+270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:23.981717
+12-06-2025,Xăng E5 RON 92-II,19460,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:24.000694
+12-06-2025,"Dầu DO 0,05S-II",17700,+280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:24.018813
+12-06-2025,"Dầu DO 0,001S-V",18060,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:24.035783
+12-06-2025,Dầu KO,17510,+230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:24.066840
+05-06-2025,Xăng RON 95-III,19690,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:27.338064
+05-06-2025,Xăng E5 RON 92-II,19260,+70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:27.360652
+05-06-2025,"Dầu DO 0,05S-II",17420,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:27.375755
+05-06-2025,"Dầu DO 0,001S-V",17970,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:27.395345
+05-06-2025,Dầu KO,17280,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:27.416928
+29-05-2025,Xăng RON 95-III,19560,+30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:30.654292
+29-05-2025,Xăng E5 RON 92-II,19190,+70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:30.672138
+29-05-2025,"Dầu DO 0,05S-II",17130,-270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:30.685645
+29-05-2025,"Dầu DO 0,001S-V",17680,-270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:30.705630
+29-05-2025,Dầu KO,17100,-210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:30.727666
+22-05-2025,Xăng RON 95-III,19530,-60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:34.062210
+22-05-2025,Xăng E5 RON 92-II,19120,-60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:34.093373
+22-05-2025,"Dầu DO 0,05S-II",17400,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:34.105341
+22-05-2025,"Dầu DO 0,001S-V",17950,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:34.125414
+22-05-2025,Dầu KO,17310,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:34.152614
+15-05-2025,Xăng RON 95-III,19590,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:37.465699
+15-05-2025,Xăng E5 RON 92-II,19180,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:37.475518
+15-05-2025,"Dầu DO 0,05S-II",17220,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:37.495618
+15-05-2025,"Dầu DO 0,001S-V",17770,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:37.518938
+15-05-2025,Dầu KO,17220,+280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:37.535664
+08-05-2025,Xăng RON 95-III,19170,-410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:40.785708
+08-05-2025,Xăng E5 RON 92-II,18770,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:40.805324
+08-05-2025,"Dầu DO 0,05S-II",16800,-550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:40.825421
+08-05-2025,"Dầu DO 0,001S-V",17430,-550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:40.847715
+08-05-2025,Dầu KO,16940,-620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:40.865367
+05-05-2025,Xăng RON 95-III,19580,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:44.142335
+05-05-2025,Xăng E5 RON 92-II,19150,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:44.161499
+05-05-2025,"Dầu DO 0,05S-II",17350,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:44.185539
+05-05-2025,"Dầu DO 0,001S-V",17980,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:44.213093
+05-05-2025,Dầu KO,17560,-150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:44.247831
+24-04-2025,Xăng RON 95-III,19630,+780,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:47.539081
+24-04-2025,Xăng E5 RON 92-II,19230,+740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:47.558740
+24-04-2025,"Dầu DO 0,05S-II",17520,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:47.576205
+24-04-2025,"Dầu DO 0,001S-V",18150,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:47.588799
+24-04-2025,Dầu KO,17710,+530,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:47.611975
+17-04-2025,Xăng RON 95-III,18850,-350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:50.925240
+17-04-2025,Xăng E5 RON 92-II,18490,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:50.943640
+17-04-2025,"Dầu DO 0,05S-II",17030,-210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:50.965657
+17-04-2025,"Dầu DO 0,001S-V",17660,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:50.985518
+17-04-2025,Dầu KO,17180,-230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:51.006658
+10-04-2025,Xăng RON 95-III,19200,-1710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:54.320328
+10-04-2025,Xăng E5 RON 92-II,18880,-1490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:54.340558
+10-04-2025,"Dầu DO 0,05S-II",17240,-1230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:54.359095
+10-04-2025,"Dầu DO 0,001S-V",17880,-1330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:54.377312
+10-04-2025,Dầu KO,17410,-1320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:54.396503
+03-04-2025,Xăng RON 95-III,20910,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:57.680840
+03-04-2025,Xăng E5 RON 92-II,20370,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:57.699577
+03-04-2025,"Dầu DO 0,05S-II",18470,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:57.719133
+03-04-2025,"Dầu DO 0,001S-V",19210,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:57.739218
+03-04-2025,Dầu KO,18730,+210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:56:57.759599
+27-03-2025,Xăng RON 95-III,20420,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:01.050338
+27-03-2025,Xăng E5 RON 92-II,20030,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:01.070771
+27-03-2025,"Dầu DO 0,05S-II",18210,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:01.091212
+27-03-2025,"Dầu DO 0,001S-V",18650,+270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:01.110236
+27-03-2025,Dầu KO,18520,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:01.129566
+20-03-2025,Xăng RON 95-III,20080,+440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:04.417249
+20-03-2025,Xăng E5 RON 92-II,19690,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:04.433910
+20-03-2025,"Dầu DO 0,05S-II",17890,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:04.463636
+20-03-2025,"Dầu DO 0,001S-V",18380,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:04.482968
+20-03-2025,Dầu KO,18110,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:04.500521
+13-03-2025,Xăng RON 95-III,19640,-760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:07.817758
+13-03-2025,Xăng E5 RON 92-II,19280,-680,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:07.833999
+13-03-2025,"Dầu DO 0,05S-II",17890,-440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:07.850215
+13-03-2025,"Dầu DO 0,001S-V",18360,-310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:07.866874
+13-03-2025,Dầu KO,18090,-480,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:07.884771
+06-03-2025,Xăng RON 95-III,20400,-710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:11.194210
+06-03-2025,Xăng E5 RON 92-II,19960,-690,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:11.211870
+06-03-2025,"Dầu DO 0,05S-II",18330,-620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:11.229544
+06-03-2025,"Dầu DO 0,001S-V",18670,-600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:11.247924
+06-03-2025,Dầu KO,18570,-760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:11.265926
+27-02-2025,Xăng RON 95-III,21110,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:14.559417
+27-02-2025,Xăng E5 RON 92-II,20650,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:14.586037
+27-02-2025,"Dầu DO 0,05S-II",18950,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:14.607244
+27-02-2025,"Dầu DO 0,001S-V",19270,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:14.626243
+27-02-2025,Dầu KO,19330,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:14.644243
+20-02-2025,Xăng RON 95-III,21330,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:17.925023
+20-02-2025,Xăng E5 RON 92-II,20850,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:17.942022
+20-02-2025,"Dầu DO 0,05S-II",19060,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:17.959029
+20-02-2025,"Dầu DO 0,001S-V",19470,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:17.976608
+20-02-2025,Dầu KO,19510,+40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:17.993609
+13-02-2025,Xăng RON 95-III,21070,+150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:21.271882
+13-02-2025,Xăng E5 RON 92-II,20590,+150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:21.288472
+13-02-2025,"Dầu DO 0,05S-II",19070,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:21.305313
+13-02-2025,"Dầu DO 0,001S-V",19330,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:21.322534
+13-02-2025,Dầu KO,19470,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:21.339632
+06-02-2025,Xăng RON 95-III,20920,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:24.651968
+06-02-2025,Xăng E5 RON 92-II,20440,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:24.667594
+06-02-2025,"Dầu DO 0,05S-II",19050,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:24.693027
+06-02-2025,"Dầu DO 0,001S-V",19190,-230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:24.712028
+06-02-2025,Dầu KO,19410,-20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:24.730444
+01-02-2025,Xăng RON 95-III,21000,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:28.020251
+01-02-2025,Xăng E5 RON 92-II,20390,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:28.038546
+01-02-2025,"Dầu DO 0,05S-II",19240,-950,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:28.056219
+01-02-2025,"Dầu DO 0,001S-V",19420,-1010,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:28.073847
+01-02-2025,Dầu KO,19430,-680,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:28.091362
+23-01-2025,Xăng RON 95-III,21140,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:31.385696
+23-01-2025,Xăng E5 RON 92-II,20590,-160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:31.404552
+23-01-2025,"Dầu DO 0,05S-II",20190,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:31.423194
+23-01-2025,"Dầu DO 0,001S-V",20430,+450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:31.440837
+23-01-2025,Dầu KO,20110,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:31.459836
+16-01-2025,Xăng RON 95-III,21220,+210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:34.768440
+16-01-2025,Xăng E5 RON 92-II,20750,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:34.787747
+16-01-2025,"Dầu DO 0,05S-II",19780,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:34.807929
+16-01-2025,"Dầu DO 0,001S-V",19980,+470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:34.826860
+16-01-2025,Dầu KO,19700,+460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:34.846897
+09-01-2025,Xăng RON 95-III,21010,+270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:38.152163
+09-01-2025,Xăng E5 RON 92-II,20430,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:38.169825
+09-01-2025,"Dầu DO 0,05S-II",19240,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:38.187501
+09-01-2025,"Dầu DO 0,001S-V",19510,+500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:38.205153
+09-01-2025,Dầu KO,19240,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:38.222152
+02-01-2025,Xăng RON 95-III,20740,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:41.530043
+02-01-2025,Xăng E5 RON 92-II,20050,+240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:41.548486
+02-01-2025,"Dầu DO 0,05S-II",18750,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:41.565160
+02-01-2025,"Dầu DO 0,001S-V",19010,+170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:41.582801
+02-01-2025,Dầu KO,18830,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:41.600460
+26-12-2024,Xăng RON 95-III,20540,-460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:44.910762
+26-12-2024,Xăng E5 RON 92-II,19810,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:44.929761
+26-12-2024,"Dầu DO 0,05S-II",18630,-100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:44.949004
+26-12-2024,"Dầu DO 0,001S-V",18840,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:44.967388
+26-12-2024,Dầu KO,18700,-260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:44.985395
+19-12-2024,Xăng RON 95-III,21000,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:48.297109
+19-12-2024,Xăng E5 RON 92-II,20240,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:48.314823
+19-12-2024,"Dầu DO 0,05S-II",18730,+480,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:48.332483
+19-12-2024,"Dầu DO 0,001S-V",18980,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:48.351147
+19-12-2024,Dầu KO,18960,+400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:48.369792
+12-12-2024,Xăng RON 95-III,20590,+30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:51.683719
+12-12-2024,Xăng E5 RON 92-II,19860,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:51.699729
+12-12-2024,"Dầu DO 0,05S-II",18250,-130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:51.715360
+12-12-2024,"Dầu DO 0,001S-V",18440,-130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:51.730986
+12-12-2024,Dầu KO,18560,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:51.746611
+05-12-2024,Xăng RON 95-III,20560,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:55.061524
+05-12-2024,Xăng E5 RON 92-II,19860,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:55.078147
+05-12-2024,"Dầu DO 0,05S-II",18380,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:55.100752
+05-12-2024,"Dầu DO 0,001S-V",18570,-360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:55.111560
+05-12-2024,Dầu KO,18810,-330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:55.137003
+28-11-2024,Xăng RON 95-III,20850,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:58.448262
+28-11-2024,Xăng E5 RON 92-II,19840,+500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:58.465262
+28-11-2024,"Dầu DO 0,05S-II",18770,+270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:58.480916
+28-11-2024,"Dầu DO 0,001S-V",18930,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:58.496540
+28-11-2024,Dầu KO,19140,+220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:57:58.516628
+21-11-2024,Xăng RON 95-III,20520,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:01.823459
+21-11-2024,Xăng E5 RON 92-II,19340,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:01.839085
+21-11-2024,"Dầu DO 0,05S-II",18500,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:01.855842
+21-11-2024,"Dầu DO 0,001S-V",18610,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:01.870347
+21-11-2024,Dầu KO,18920,-60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:01.885979
+14-11-2024,Xăng RON 95-III,20600,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:05.211867
+14-11-2024,Xăng E5 RON 92-II,19450,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:05.214918
+14-11-2024,"Dầu DO 0,05S-II",18570,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:05.246170
+14-11-2024,"Dầu DO 0,001S-V",18660,-460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:05.261795
+14-11-2024,Dầu KO,18980,-310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:05.277420
+07-11-2024,Xăng RON 95-III,20850,+350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:08.595630
+07-11-2024,Xăng E5 RON 92-II,19740,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:08.612704
+07-11-2024,"Dầu DO 0,05S-II",18910,+770,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:08.620217
+07-11-2024,"Dầu DO 0,001S-V",19120,+760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:08.635879
+07-11-2024,Dầu KO,19290,+460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:08.651505
+31-10-2024,Xăng RON 95-III,20500,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:11.995761
+31-10-2024,Xăng E5 RON 92-II,19400,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:12.018894
+31-10-2024,"Dầu DO 0,05S-II",18140,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:12.038686
+31-10-2024,"Dầu DO 0,001S-V",18360,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:12.058021
+31-10-2024,Dầu KO,18830,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:12.066646
+24-10-2024,Xăng RON 95-III,20890,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:15.402987
+24-10-2024,Xăng E5 RON 92-II,19690,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:15.424124
+24-10-2024,"Dầu DO 0,05S-II",18050,-270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:15.444711
+24-10-2024,"Dầu DO 0,001S-V",18310,-260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:15.448714
+24-10-2024,Dầu KO,18570,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:15.480007
+17-10-2024,Xăng RON 95-III,20960,-100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:18.820248
+17-10-2024,Xăng E5 RON 92-II,19730,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:18.829952
+17-10-2024,"Dầu DO 0,05S-II",18320,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:18.856614
+17-10-2024,"Dầu DO 0,001S-V",18570,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:18.873314
+17-10-2024,Dầu KO,18620,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:18.879932
+10-10-2024,Xăng RON 95-III,21060,+1260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:22.251193
+10-10-2024,Xăng E5 RON 92-II,19840,+990,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:22.263594
+10-10-2024,"Dầu DO 0,05S-II",18500,+1100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:22.286954
+10-10-2024,"Dầu DO 0,001S-V",18600,+1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:22.303931
+10-10-2024,Dầu KO,18790,+1280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:22.323941
+03-10-2024,Xăng RON 95-III,19800,-710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:25.644859
+03-10-2024,Xăng E5 RON 92-II,18850,-770,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:25.677539
+03-10-2024,"Dầu DO 0,05S-II",17400,-100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:25.697185
+03-10-2024,"Dầu DO 0,001S-V",17510,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:25.716289
+03-10-2024,Dầu KO,17510,-360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:25.736862
+26-09-2024,Xăng RON 95-III,20510,+750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:29.104981
+26-09-2024,Xăng E5 RON 92-II,19620,+680,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:29.120605
+26-09-2024,"Dầu DO 0,05S-II",17500,+460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:29.137235
+26-09-2024,"Dầu DO 0,001S-V",17850,+17850,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:29.155310
+26-09-2024,Dầu KO,17870,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:29.167309
+19-09-2024,Xăng RON 95-III,19760,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:32.528127
+19-09-2024,Xăng E5 RON 92-II,18940,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:32.623686
+19-09-2024,"Dầu DO 0,05S-II",17040,-120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:32.647202
+19-09-2024,Dầu KO,17550,-240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:32.668644
+12-09-2024,Xăng RON 95-III,19630,-1190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:36.027426
+12-09-2024,Xăng E5 RON 92-II,18890,-1080,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:36.043442
+12-09-2024,"Dầu DO 0,05S-II",17160,-930,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:36.059073
+12-09-2024,Dầu KO,17790,-930,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:36.074699
+05-09-2024,Xăng RON 95-III,20820,-280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:39.417379
+05-09-2024,Xăng E5 RON 92-II,19970,-360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:39.433005
+05-09-2024,"Dầu DO 0,05S-II",18090,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:39.464719
+05-09-2024,Dầu KO,18720,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:39.482719
+29-08-2024,Xăng RON 95-III,21100,-210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:42.824360
+29-08-2024,Xăng E5 RON 92-II,20330,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:42.851492
+29-08-2024,"Dầu DO 0,05S-II",18470,-300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:42.869066
+29-08-2024,Dầu KO,19060,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:42.885721
+22-08-2024,Xăng RON 95-III,21310,-540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:46.241305
+22-08-2024,Xăng E5 RON 92-II,20420,-460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:46.255850
+22-08-2024,"Dầu DO 0,05S-II",18770,-460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:46.276988
+22-08-2024,Dầu KO,19140,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:46.292612
+15-08-2024,Xăng RON 95-III,21850,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:49.651569
+15-08-2024,Xăng E5 RON 92-II,20880,+170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:49.667579
+15-08-2024,"Dầu DO 0,05S-II",19230,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:49.683211
+15-08-2024,Dầu KO,19570,+430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:49.698837
+08-08-2024,Xăng RON 95-III,21670,-930,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:53.079664
+08-08-2024,Xăng E5 RON 92-II,20710,-900,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:53.095185
+08-08-2024,"Dầu DO 0,05S-II",19140,-730,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:53.128464
+08-08-2024,Dầu KO,19140,-950,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:53.147460
+01-08-2024,Xăng RON 95-III,22600,-280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:56.511616
+01-08-2024,Xăng E5 RON 92-II,21610,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:56.527241
+01-08-2024,"Dầu DO 0,05S-II",19870,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:56.542864
+01-08-2024,Dầu KO,20090,-230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:56.564499
+25-07-2024,Xăng RON 95-III,22880,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:59.967698
+25-07-2024,Xăng E5 RON 92-II,21900,-270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:58:59.976277
+25-07-2024,"Dầu DO 0,05S-II",20190,-310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:00.008583
+25-07-2024,Dầu KO,20320,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:00.030440
+18-07-2024,Xăng RON 95-III,23170,-120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:03.442186
+18-07-2024,Xăng E5 RON 92-II,22170,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:03.461379
+18-07-2024,"Dầu DO 0,05S-II",20500,-330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:03.480539
+18-07-2024,Dầu KO,20660,-370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:03.499183
+11-07-2024,Xăng RON 95-III,23290,-260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:06.923718
+11-07-2024,Xăng E5 RON 92-II,22280,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:06.940718
+11-07-2024,"Dầu DO 0,05S-II",20830,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:06.956759
+11-07-2024,Dầu KO,21030,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:06.972288
+04-07-2024,Xăng RON 95-III,23550,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:10.370396
+04-07-2024,Xăng E5 RON 92-II,22460,+450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:10.387958
+04-07-2024,"Dầu DO 0,05S-II",21170,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:10.404801
+04-07-2024,Dầu KO,21210,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:10.421318
+27-06-2024,Xăng RON 95-III,23010,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:13.819344
+27-06-2024,Xăng E5 RON 92-II,22010,+510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:13.836730
+27-06-2024,"Dầu DO 0,05S-II",20680,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:13.853674
+27-06-2024,Dầu KO,20610,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:13.869706
+20-06-2024,Xăng RON 95-III,22460,+230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:17.318029
+20-06-2024,Xăng E5 RON 92-II,21500,+190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:17.334630
+20-06-2024,"Dầu DO 0,05S-II",20360,+720,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:17.351344
+20-06-2024,Dầu KO,20350,+500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:17.383444
+13-06-2024,Xăng RON 95-III,22230,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:20.809546
+13-06-2024,Xăng E5 RON 92-II,21310,+170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:20.827594
+13-06-2024,"Dầu DO 0,05S-II",19640,+220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:20.845544
+13-06-2024,Dầu KO,19850,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:20.849156
+06-06-2024,Xăng RON 95-III,21970,-540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:24.239761
+06-06-2024,Xăng E5 RON 92-II,21140,-610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:24.244761
+06-06-2024,"Dầu DO 0,05S-II",19420,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:24.267263
+06-06-2024,Dầu KO,19550,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:24.291902
+30-05-2024,Xăng RON 95-III,22510,-700,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:27.651943
+30-05-2024,Xăng E5 RON 92-II,21750,-520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:27.683193
+30-05-2024,"Dầu DO 0,05S-II",19740,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:27.703315
+30-05-2024,Dầu KO,19930,+30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:27.720340
+30-05-2024,"Dầu FO 3,5%S",17530,+17530,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:27.737340
+23-05-2024,Xăng RON 95-III,23210,+80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:31.121301
+23-05-2024,Xăng E5 RON 92-II,22270,+160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:31.145668
+23-05-2024,"Dầu DO 0,05S-II",19830,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:31.161822
+23-05-2024,Dầu KO,19900,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:31.180136
+16-05-2024,Xăng RON 95-III,23130,-410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:34.591723
+16-05-2024,Xăng E5 RON 92-II,22110,-510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:34.608232
+16-05-2024,"Dầu DO 0,05S-II",19870,+30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:34.626681
+16-05-2024,Dầu KO,19900,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:34.644570
+09-05-2024,Xăng RON 95-III,23540,-1410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:38.037292
+09-05-2024,Xăng E5 RON 92-II,22620,-1290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:38.056261
+09-05-2024,"Dầu DO 0,05S-II",19840,-760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:38.074018
+09-05-2024,Dầu KO,19700,-840,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:38.089021
+02-05-2024,Xăng RON 95-III,24950,+40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:41.472908
+02-05-2024,Xăng E5 RON 92-II,23910,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:41.488561
+02-05-2024,"Dầu DO 0,05S-II",20600,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:41.504067
+02-05-2024,Dầu KO,20540,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:41.533794
+25-04-2024,Xăng RON 95-III,24910,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:44.938655
+25-04-2024,Xăng E5 RON 92-II,23910,-310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:44.957655
+25-04-2024,"Dầu DO 0,05S-II",20710,-730,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:44.974869
+25-04-2024,Dầu KO,20680,-730,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:44.992235
+17-04-2024,Xăng RON 95-III,25230,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:48.385014
+17-04-2024,Xăng E5 RON 92-II,24220,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:48.416650
+17-04-2024,"Dầu DO 0,05S-II",21440,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:48.432282
+17-04-2024,Dầu KO,21410,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:48.447907
+11-04-2024,Xăng RON 95-III,24820,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:51.834029
+11-04-2024,Xăng E5 RON 92-II,23840,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:51.866301
+11-04-2024,"Dầu DO 0,05S-II",21610,+630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:51.885840
+11-04-2024,Dầu KO,21590,+580,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:51.904690
+04-04-2024,Xăng RON 95-III,24800,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:55.332523
+04-04-2024,Xăng E5 RON 92-II,23910,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:55.349126
+04-04-2024,"Dầu DO 0,05S-II",20980,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:55.365885
+04-04-2024,Dầu KO,21010,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:55.382415
+28-03-2024,Xăng RON 95-III,24810,+530,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:58.836342
+28-03-2024,Xăng E5 RON 92-II,23620,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:58.852989
+28-03-2024,"Dầu DO 0,05S-II",20690,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:58.869656
+28-03-2024,Dầu KO,20870,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 01:59:58.880525
+21-03-2024,Xăng RON 95-III,24280,+740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:02.324861
+21-03-2024,Xăng E5 RON 92-II,23210,+720,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:02.346620
+21-03-2024,"Dầu DO 0,05S-II",21010,+470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:02.354620
+21-03-2024,Dầu KO,21260,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:02.370279
+14-03-2024,Xăng RON 95-III,23540,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:05.793425
+14-03-2024,Xăng E5 RON 92-II,22490,-20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:05.810429
+14-03-2024,"Dầu DO 0,05S-II",20540,+70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:05.828042
+14-03-2024,Dầu KO,20700,+100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:05.844140
+07-03-2024,Xăng RON 95-III,23550,-370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:09.246311
+07-03-2024,Xăng E5 RON 92-II,22510,-240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:09.261944
+07-03-2024,"Dầu DO 0,05S-II",20470,-300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:09.277567
+07-03-2024,Dầu KO,20600,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:09.293193
+29-02-2024,Xăng RON 95-III,23920,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:12.735241
+29-02-2024,Xăng E5 RON 92-II,22750,-840,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:12.746430
+29-02-2024,"Dầu DO 0,05S-II",20770,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:12.774366
+29-02-2024,Dầu KO,20780,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:12.792365
+22-02-2024,Xăng RON 95-III,23590,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:16.235647
+22-02-2024,Xăng E5 RON 92-II,23590,+760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:16.252929
+22-02-2024,"Dầu DO 0,05S-II",20910,-450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:16.269465
+22-02-2024,Dầu KO,20920,-300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:16.286851
+15-02-2024,Xăng RON 95-III,23910,+650,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:19.714934
+15-02-2024,Xăng E5 RON 92-II,22830,+710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:19.737455
+15-02-2024,"Dầu DO 0,05S-II",21360,+660,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:19.755246
+15-02-2024,Dầu KO,21220,+640,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:19.771085
+08-02-2024,Xăng RON 95-III,23260,-900,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:23.200011
+08-02-2024,Xăng E5 RON 92-II,22120,-790,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:23.215645
+08-02-2024,"Dầu DO 0,05S-II",20700,-290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:23.247280
+08-02-2024,Dầu KO,20580,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:23.262911
+01-02-2024,Xăng RON 95-III,24160,+760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:26.743258
+01-02-2024,Xăng E5 RON 92-II,22910,+740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:26.748790
+01-02-2024,"Dầu DO 0,05S-II",20990,+620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:26.776927
+01-02-2024,Dầu KO,20920,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:26.794010
+25-01-2024,Xăng RON 95-III,23400,+920,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:30.231871
+25-01-2024,Xăng E5 RON 92-II,22170,+760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:30.248579
+25-01-2024,"Dầu DO 0,05S-II",20370,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:30.265102
+25-01-2024,Dầu KO,20540,+10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:30.281716
+18-01-2024,Xăng RON 95-III,22480,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:33.763482
+18-01-2024,Xăng E5 RON 92-II,21410,+370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:33.795726
+18-01-2024,"Dầu DO 0,05S-II",20190,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:33.814451
+18-01-2024,Dầu KO,20530,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:33.833519
+11-01-2024,Xăng RON 95-III,21930,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:37.297539
+11-01-2024,Xăng E5 RON 92-II,21040,+40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:37.316202
+11-01-2024,"Dầu DO 0,05S-II",19700,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:37.334176
+11-01-2024,Dầu KO,20330,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:37.351816
+04-01-2024,Xăng RON 95-III,21910,-230,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:40.868252
+04-01-2024,Xăng E5 RON 92-II,21000,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:40.886153
+04-01-2024,"Dầu DO 0,05S-II",19360,-420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:40.904269
+04-01-2024,Dầu KO,19950,-500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:40.922259
+28-12-2023,Xăng RON 95-III,22140,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:44.362840
+28-12-2023,Xăng E5 RON 92-II,21180,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:44.386476
+28-12-2023,"Dầu DO 0,05S-II",19780,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:44.402101
+28-12-2023,Dầu KO,20450,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:44.417727
+21-12-2023,Xăng RON 95-III,22140,+740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:47.866220
+21-12-2023,Xăng E5 RON 92-II,21190,+680,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:47.882675
+21-12-2023,"Dầu DO 0,05S-II",19520,+510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:47.889298
+21-12-2023,Dầu KO,20490,+530,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:47.916883
+14-12-2023,Xăng RON 95-III,21400,-920,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:51.371302
+14-12-2023,Xăng E5 RON 92-II,20510,-780,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:51.381306
+14-12-2023,"Dầu DO 0,05S-II",19010,-710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:51.412086
+14-12-2023,Dầu KO,19960,-960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:51.417086
+07-12-2023,Xăng RON 95-III,22320,-670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:54.880422
+07-12-2023,Xăng E5 RON 92-II,21290,-500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:54.898780
+07-12-2023,"Dầu DO 0,05S-II",19720,-470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:54.915557
+07-12-2023,Dầu KO,20920,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:54.919557
+30-11-2023,Xăng RON 95-III,22990,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:58.384157
+30-11-2023,Xăng E5 RON 92-II,21790,+100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:58.402105
+30-11-2023,"Dầu DO 0,05S-II",20190,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:58.421147
+30-11-2023,Dầu KO,21110,+170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:00:58.440091
+23-11-2023,Xăng RON 95-III,23020,-510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:01.901521
+23-11-2023,Xăng E5 RON 92-II,21690,-580,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:01.917146
+23-11-2023,"Dầu DO 0,05S-II",20280,-600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:01.932771
+23-11-2023,Dầu KO,20940,-570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:01.948396
+13-11-2023,Xăng RON 95-III,23530,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:05.429437
+13-11-2023,Xăng E5 RON 92-II,22270,-340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:05.449239
+13-11-2023,"Dầu DO 0,05S-II",20880,-1060,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:05.469602
+13-11-2023,Dầu KO,21510,-790,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:05.490004
+01-11-2023,Xăng RON 95-III,23920,+880,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:09.030482
+01-11-2023,Xăng E5 RON 92-II,22610,+710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:09.047240
+01-11-2023,"Dầu DO 0,05S-II",21940,-470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:09.063420
+01-11-2023,Dầu KO,22300,-160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:09.095422
+11-10-2023,Xăng RON 95-III,23040,-1800,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:12.577106
+11-10-2023,Xăng E5 RON 92-II,21900,-1600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:12.596677
+11-10-2023,"Dầu DO 0,05S-II",22410,-1180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:12.608713
+11-10-2023,Dầu KO,22460,-1350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:12.640003
+02-10-2023,Xăng RON 95-III,24840,-900,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:16.159265
+02-10-2023,Xăng E5 RON 92-II,23500,-690,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:16.175590
+02-10-2023,"Dầu DO 0,05S-II",23590,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:16.199270
+02-10-2023,Dầu KO,23810,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:16.209408
+21-09-2023,Xăng RON 95-III,25740,+870,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:19.777260
+21-09-2023,Xăng E5 RON 92-II,24190,+720,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:19.808897
+21-09-2023,"Dầu DO 0,05S-II",23590,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:19.827600
+21-09-2023,Dầu KO,23810,+630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:19.838599
+11-09-2023,Xăng RON 95-III,24870,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:23.322155
+11-09-2023,Xăng E5 RON 92-II,23470,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:23.339650
+11-09-2023,"Dầu DO 0,05S-II",23050,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:23.353656
+11-09-2023,Dầu KO,23180,+370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:23.384912
+05-09-2023,Xăng RON 95-III,24870,+270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:26.895588
+05-09-2023,Xăng E5 RON 92-II,23470,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:26.912315
+05-09-2023,"Dầu DO 0,05S-II",22640,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:26.927321
+05-09-2023,Dầu KO,22810,+510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:26.958577
+21-08-2023,Xăng RON 95-III,24600,+610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:30.474142
+21-08-2023,Xăng E5 RON 92-II,23330,+510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:30.497874
+21-08-2023,"Dầu DO 0,05S-II",22350,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:30.515294
+21-08-2023,Dầu KO,22300,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:30.535088
+11-08-2023,Xăng RON 95-III,23990,+30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:34.060780
+11-08-2023,Xăng E5 RON 92-II,22820,+30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:34.077479
+11-08-2023,"Dầu DO 0,05S-II",22420,+1810,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:34.082955
+11-08-2023,Dầu KO,21880,+1610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:34.117678
+01-08-2023,Xăng RON 95-III,23960,+1170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:37.687914
+01-08-2023,Xăng E5 RON 92-II,22790,+1160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:37.717536
+01-08-2023,"Dầu DO 0,05S-II",20610,+1110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:37.736094
+01-08-2023,Dầu KO,20270,+1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:37.765711
+21-07-2023,Xăng RON 95-III,22790,+1300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:41.400182
+21-07-2023,Xăng E5 RON 92-II,21630,+1220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:41.418170
+21-07-2023,"Dầu DO 0,05S-II",19500,+890,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:41.429409
+21-07-2023,Dầu KO,19180,+860,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:41.452529
+11-07-2023,Xăng RON 95-III,21490,+70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:44.980856
+11-07-2023,Xăng E5 RON 92-II,20410,-60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:45.016207
+11-07-2023,"Dầu DO 0,05S-II",18610,+450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:45.053248
+11-07-2023,Dầu KO,18320,+400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:45.073244
+03-07-2023,Xăng RON 95-III,21420,-590,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:48.626972
+03-07-2023,Xăng E5 RON 92-II,20470,-400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:48.644054
+03-07-2023,"Dầu DO 0,05S-II",18160,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:48.660363
+03-07-2023,Dầu KO,17920,-30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:48.676964
+21-06-2023,Xăng RON 95-III,22010,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:52.223721
+21-06-2023,Xăng E5 RON 92-II,20870,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:52.239791
+21-06-2023,"Dầu DO 0,05S-II",18170,+150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:52.255423
+21-06-2023,Dầu KO,17950,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:52.271063
+12-06-2023,Xăng RON 95-III,22010,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:55.949027
+12-06-2023,Xăng E5 RON 92-II,20870,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:55.964114
+12-06-2023,"Dầu DO 0,05S-II",18020,+80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:55.988872
+12-06-2023,Dầu KO,17820,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:56.011463
+01-06-2023,Xăng RON 95-III,22010,+520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:59.503970
+01-06-2023,Xăng E5 RON 92-II,20870,+390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:59.537357
+01-06-2023,"Dầu DO 0,05S-II",17940,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:59.559695
+01-06-2023,Dầu KO,17770,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:01:59.576505
+22-05-2023,Xăng RON 95-III,21490,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:03.102468
+22-05-2023,Xăng E5 RON 92-II,20480,+350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:03.138188
+22-05-2023,"Dầu DO 0,05S-II",17950,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:03.170555
+22-05-2023,Dầu KO,17960,-10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:03.185565
+11-05-2023,Xăng RON 95-III,21000,-1320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:06.759434
+11-05-2023,Xăng E5 RON 92-II,20130,-1300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:06.775066
+11-05-2023,"Dầu DO 0,05S-II",17650,-600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:06.790692
+11-05-2023,Dầu KO,17970,-550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:06.823482
+04-05-2023,Xăng RON 95-III,22320,-1310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:10.411008
+04-05-2023,Xăng E5 RON 92-II,21430,-1250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:10.426634
+04-05-2023,"Dầu DO 0,05S-II",18250,-1140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:10.455765
+04-05-2023,Dầu KO,18520,-960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:10.458269
+21-04-2023,Xăng RON 95-III,23630,-610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:13.998700
+21-04-2023,Xăng E5 RON 92-II,22680,-490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:14.013839
+21-04-2023,"Dầu DO 0,05S-II",19390,-750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:14.031333
+21-04-2023,Dầu KO,19480,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:14.061820
+11-04-2023,Xăng RON 95-III,24240,+1120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:17.602907
+11-04-2023,Xăng E5 RON 92-II,23170,+1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:17.623647
+11-04-2023,"Dầu DO 0,05S-II",20140,+710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:17.643674
+11-04-2023,Dầu KO,19730,+700,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:17.662500
+03-04-2023,Xăng RON 95-III,23120,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:21.257599
+03-04-2023,Xăng E5 RON 92-II,22080,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:21.273610
+03-04-2023,"Dầu DO 0,05S-II",19430,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:21.306054
+03-04-2023,Dầu KO,19030,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:21.326333
+21-03-2023,Xăng RON 95-III,23030,-780,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:24.890594
+21-03-2023,Xăng E5 RON 92-II,22020,-780,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:24.906684
+21-03-2023,"Dầu DO 0,05S-II",19300,-1200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:24.922315
+21-03-2023,Dầu KO,19460,-1250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:24.937941
+13-03-2023,Xăng RON 95-III,23810,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:28.486194
+13-03-2023,Xăng E5 RON 92-II,22800,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:28.506353
+13-03-2023,"Dầu DO 0,05S-II",20500,+250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:28.528114
+13-03-2023,Dầu KO,20710,+240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:28.546113
+01-03-2023,Xăng RON 95-III,23320,-120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:32.080257
+01-03-2023,Xăng E5 RON 92-II,22420,-120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:32.087637
+01-03-2023,"Dầu DO 0,05S-II",20250,-550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:32.118889
+01-03-2023,Dầu KO,20470,-370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:32.134514
+21-02-2023,Xăng RON 95-III,23440,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:35.709971
+21-02-2023,Xăng E5 RON 92-II,22540,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:35.728573
+21-02-2023,"Dầu DO 0,05S-II",20800,-760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:35.747281
+21-02-2023,Dầu KO,20840,-750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:35.765880
+13-02-2023,Xăng RON 95-III,23760,+620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:39.329408
+13-02-2023,Xăng E5 RON 92-II,22860,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:39.334016
+13-02-2023,"Dầu DO 0,05S-II",21560,-960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:39.365185
+13-02-2023,Dầu KO,21590,-980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:39.380839
+30-01-2023,Xăng RON 95-III,23140,+990,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:42.950532
+30-01-2023,Xăng E5 RON 92-II,22320,+970,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:42.967560
+30-01-2023,"Dầu DO 0,05S-II",22520,+890,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:42.990473
+30-01-2023,Dầu KO,22570,+770,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:43.000339
+11-01-2023,Xăng RON 95-III,22150,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:46.598611
+11-01-2023,Xăng E5 RON 92-II,21350,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:46.629885
+11-01-2023,"Dầu DO 0,05S-II",21630,-520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:46.648577
+11-01-2023,Dầu KO,21800,-960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:46.665151
+03-01-2023,Xăng RON 95-III,22150,+350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:50.281609
+03-01-2023,Xăng E5 RON 92-II,21350,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:50.301065
+03-01-2023,"Dầu DO 0,05S-II",22150,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:50.321147
+03-01-2023,Dầu KO,22760,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:50.339567
+01-01-2023,Xăng RON 95-III,21800,+1100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:53.921814
+01-01-2023,Xăng E5 RON 92-II,21020,+1050,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:53.939813
+01-01-2023,"Dầu DO 0,05S-II",22150,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:53.962158
+01-01-2023,Dầu KO,22160,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:53.980787
+21-12-2022,Xăng RON 95-III,20700,-500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:57.562349
+21-12-2022,Xăng E5 RON 92-II,19970,-370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:57.583009
+21-12-2022,"Dầu DO 0,05S-II",21600,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:57.601189
+21-12-2022,Dầu KO,21830,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:02:57.619314
+12-12-2022,Xăng RON 95-III,21200,-1500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:01.183237
+12-12-2022,Xăng E5 RON 92-II,20340,-1330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:01.202852
+12-12-2022,"Dầu DO 0,05S-II",21670,-1540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:01.223363
+12-12-2022,Dầu KO,21900,-1660,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:01.241832
+01-12-2022,Xăng RON 95-III,22700,-1080,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:04.807826
+01-12-2022,Xăng E5 RON 92-II,21670,-1000,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:04.823863
+01-12-2022,"Dầu DO 0,05S-II",23210,-1590,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:04.839496
+01-12-2022,Dầu KO,23560,-1080,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:04.855120
+21-11-2022,Xăng RON 95-III,23780,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:08.411938
+21-11-2022,Xăng E5 RON 92-II,22670,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:08.417944
+21-11-2022,"Dầu DO 0,05S-II",24800,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:08.449201
+21-11-2022,Dầu KO,24640,-100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:08.464826
+11-11-2022,Xăng RON 95-III,23860,+1110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:12.072879
+11-11-2022,Xăng E5 RON 92-II,22710,+840,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:12.104160
+11-11-2022,"Dầu DO 0,05S-II",24980,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:12.120172
+11-11-2022,Dầu KO,24740,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:12.135804
+01-11-2022,Xăng RON 95-III,22750,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:15.708347
+01-11-2022,Xăng E5 RON 92-II,21870,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:15.727489
+01-11-2022,"Dầu DO 0,05S-II",25070,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:15.746764
+01-11-2022,Dầu KO,23780,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:15.764295
+21-10-2022,Xăng RON 95-III,22340,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:19.481167
+21-10-2022,Xăng E5 RON 92-II,21490,+200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:19.497854
+21-10-2022,"Dầu DO 0,05S-II",24780,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:19.514451
+21-10-2022,Dầu KO,23660,+840,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:19.531108
+11-10-2022,Xăng RON 95-III,22000,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:23.199130
+11-10-2022,Xăng E5 RON 92-II,21290,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:23.229329
+11-10-2022,"Dầu DO 0,05S-II",24180,+1980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:23.245995
+11-10-2022,Dầu KO,22820,+1140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:23.261620
+03-10-2022,Xăng RON 95-III,21440,-1140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:26.856783
+03-10-2022,Xăng E5 RON 92-II,20730,-1050,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:26.874445
+03-10-2022,"Dầu DO 0,05S-II",22200,-330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:26.892100
+03-10-2022,Dầu KO,21680,-760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:26.910472
+21-09-2022,Xăng RON 95-III,22580,-630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:30.500988
+21-09-2022,Xăng E5 RON 92-II,21780,-450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:30.518635
+21-09-2022,"Dầu DO 0,05S-II",22530,-1650,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:30.536145
+21-09-2022,Dầu KO,22440,-1970,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:30.553143
+12-09-2022,Xăng RON 95-III,23210,-1020,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:34.141056
+12-09-2022,Xăng E5 RON 92-II,22230,-1120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:34.158819
+12-09-2022,"Dầu DO 0,05S-II",24180,-1000,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:34.177650
+12-09-2022,Dầu KO,24410,-1030,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:34.196566
+05-09-2022,Xăng RON 95-III,24230,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:37.807867
+05-09-2022,Xăng E5 RON 92-II,23350,-370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:37.831623
+05-09-2022,"Dầu DO 0,05S-II",25180,+1430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:37.850424
+05-09-2022,Dầu KO,25440,+1390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:37.856425
+22-08-2022,Xăng RON 95-III,24660,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:41.468916
+22-08-2022,Xăng E5 RON 92-II,23720,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:41.484818
+22-08-2022,"Dầu DO 0,05S-II",23750,+850,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:41.501976
+22-08-2022,Dầu KO,24050,+730,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:41.519825
+11-08-2022,Xăng RON 95-III,24660,-940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:45.090383
+11-08-2022,Xăng E5 RON 92-II,23720,-900,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:45.106008
+11-08-2022,"Dầu DO 0,05S-II",22900,-1000,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:45.133706
+11-08-2022,Dầu KO,23320,-1210,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:45.152101
+01-08-2022,Xăng RON 95-III,25600,-470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:48.776335
+01-08-2022,Xăng E5 RON 92-II,24620,-450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:48.807587
+01-08-2022,"Dầu DO 0,05S-II",23900,-950,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:48.823183
+01-08-2022,Dầu KO,24530,-710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:48.838808
+21-07-2022,Xăng RON 95-III,26070,-3600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:52.450710
+21-07-2022,Xăng E5 RON 92-II,25070,-2710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:52.472873
+21-07-2022,"Dầu DO 0,05S-II",24850,-1740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:52.490743
+21-07-2022,Dầu KO,25240,-1100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:52.508531
+11-07-2022,Xăng RON 95-III,29670,-3090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:56.118063
+11-07-2022,Xăng E5 RON 92-II,27780,-3110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:56.135302
+11-07-2022,"Dầu DO 0,05S-II",26590,-3020,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:56.145856
+11-07-2022,Dầu KO,26340,-2010,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:56.161398
+01-07-2022,Xăng RON 95-III,32760,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:59.752556
+01-07-2022,Xăng E5 RON 92-II,30890,-410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:59.771582
+01-07-2022,"Dầu DO 0,05S-II",29610,-400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:59.789629
+01-07-2022,Dầu KO,28350,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:03:59.807610
+21-06-2022,Xăng RON 95-III,32870,+500,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:03.426061
+21-06-2022,Xăng E5 RON 92-II,31300,+190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:03.443310
+21-06-2022,"Dầu DO 0,05S-II",30010,+990,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:03.460953
+21-06-2022,Dầu KO,28780,+950,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:03.478621
+13-06-2022,Xăng RON 95-III,32370,+800,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:07.087821
+13-06-2022,Xăng E5 RON 92-II,31110,+880,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:07.103447
+13-06-2022,"Dầu DO 0,05S-II",29020,+2630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:07.119071
+13-06-2022,Dầu KO,27830,+2490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:07.134696
+01-06-2022,Xăng RON 95-III,31570,+920,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:10.761231
+01-06-2022,Xăng E5 RON 92-II,30230,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:10.777241
+01-06-2022,"Dầu DO 0,05S-II",26390,+840,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:10.792873
+01-06-2022,Dầu KO,25340,+940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:10.808498
+23-05-2022,Xăng RON 95-III,30650,+670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:14.420124
+23-05-2022,Xăng E5 RON 92-II,29630,+680,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:14.438774
+23-05-2022,"Dầu DO 0,05S-II",25550,-1100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:14.457442
+23-05-2022,Dầu KO,24400,-760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:14.473951
+11-05-2022,Xăng RON 95-III,29980,+1550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:18.077220
+11-05-2022,Xăng E5 RON 92-II,28950,+1490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:18.089756
+11-05-2022,"Dầu DO 0,05S-II",26650,+1120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:18.105421
+11-05-2022,Dầu KO,25160,+1340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:18.121042
+04-05-2022,Xăng RON 95-III,28430,+440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:21.752180
+04-05-2022,Xăng E5 RON 92-II,27460,+330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:21.770603
+04-05-2022,"Dầu DO 0,05S-II",25530,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:21.788936
+04-05-2022,Dầu KO,23820,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:21.805872
+21-04-2022,Xăng RON 95-III,27990,+680,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:25.661847
+21-04-2022,Xăng E5 RON 92-II,27130,+660,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:25.677473
+21-04-2022,"Dầu DO 0,05S-II",25350,+970,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:25.693484
+21-04-2022,Dầu KO,23820,+800,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:25.709116
+12-04-2022,Xăng RON 95-III,27310,-840,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:29.349948
+12-04-2022,Xăng E5 RON 92-II,26470,-830,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:29.366880
+12-04-2022,"Dầu DO 0,05S-II",24380,-700,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:29.384012
+12-04-2022,Dầu KO,23020,-740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:29.401835
+01-04-2022,Xăng RON 95-III,28150,-1040,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:33.029216
+01-04-2022,Xăng E5 RON 92-II,27300,-1030,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:33.050631
+01-04-2022,"Dầu DO 0,05S-II",25080,+1450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:33.067748
+01-04-2022,Dầu KO,23760,+1520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:33.092892
+21-03-2022,Xăng RON 95-III,29190,-630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:36.744371
+21-03-2022,Xăng E5 RON 92-II,28330,-650,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:36.762199
+21-03-2022,"Dầu DO 0,05S-II",23630,-1630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:36.776199
+21-03-2022,Dầu KO,22240,-1670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:36.797748
+11-03-2022,Xăng RON 95-III,29820,+2990,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:40.442805
+11-03-2022,Xăng E5 RON 92-II,28980,+2910,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:40.474118
+11-03-2022,"Dầu DO 0,05S-II",25260,+3950,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:40.492484
+11-03-2022,Dầu KO,23910,+3940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:40.524229
+01-03-2022,Xăng RON 95-III,26830,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:44.313873
+01-03-2022,Xăng E5 RON 92-II,26070,+540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:44.345130
+01-03-2022,"Dầu DO 0,05S-II",21310,+510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:44.360755
+01-03-2022,Dầu KO,19970,+470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:44.376381
+21-02-2022,Xăng RON 95-III,26280,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:48.122369
+21-02-2022,Xăng E5 RON 92-II,25530,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:48.144540
+21-02-2022,"Dầu DO 0,05S-II",20800,+940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:48.158181
+21-02-2022,Dầu KO,19500,+750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:48.171473
+11-02-2022,Xăng RON 95-III,25320,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:51.853236
+11-02-2022,Xăng E5 RON 92-II,24570,+980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:51.870606
+11-02-2022,"Dầu DO 0,05S-II",19860,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:51.885282
+11-02-2022,Dầu KO,18750,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:51.903619
+21-01-2022,Xăng RON 95-III,24360,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:55.555519
+21-01-2022,Xăng E5 RON 92-II,23590,+440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:55.586768
+21-01-2022,"Dầu DO 0,05S-II",18900,+670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:55.602392
+21-01-2022,Dầu KO,17790,+660,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:55.618017
+11-01-2022,Xăng RON 95-III,23870,+580,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:59.249752
+11-01-2022,Xăng E5 RON 92-II,23150,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:59.268704
+11-01-2022,"Dầu DO 0,05S-II",18230,+660,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:59.287462
+11-01-2022,Dầu KO,17130,+620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:04:59.304730
+25-12-2021,Xăng RON 95-III,23290,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:02.933237
+25-12-2021,Xăng E5 RON 92-II,22550,+470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:02.964516
+25-12-2021,"Dầu DO 0,05S-II",17570,+240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:02.980139
+25-12-2021,Dầu KO,16510,+190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:02.995766
+10-12-2021,Xăng RON 95-III,22800,-1100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:06.723287
+10-12-2021,Xăng E5 RON 92-II,22080,-830,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:06.741796
+10-12-2021,"Dầu DO 0,05S-II",17330,-1050,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:06.761290
+10-12-2021,Dầu KO,16320,-870,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:06.779434
+25-11-2021,Xăng RON 95-III,23900,-1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:10.428839
+25-11-2021,Xăng E5 RON 92-II,22910,-750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:10.443023
+25-11-2021,"Dầu DO 0,05S-II",18380,-330,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:10.459670
+25-11-2021,Dầu KO,17190,-440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:10.476371
+10-11-2021,Xăng RON 95-III,24990,+660,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:14.148599
+10-11-2021,Xăng E5 RON 92-II,23660,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:14.166225
+10-11-2021,"Dầu DO 0,05S-II",18710,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:14.184225
+10-11-2021,Dầu KO,17630,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:14.201496
+26-10-2021,Xăng RON 95-III,24330,+1460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:17.945443
+26-10-2021,Xăng E5 RON 92-II,23110,+1430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:17.961561
+26-10-2021,"Dầu DO 0,05S-II",18710,+1170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:17.978261
+26-10-2021,Dầu KO,17630,+1010,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:17.994981
+11-10-2021,Xăng RON 95-III,22870,+930,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:21.679172
+11-10-2021,Xăng E5 RON 92-II,21680,+970,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:21.687172
+11-10-2021,"Dầu DO 0,05S-II",17540,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:21.702823
+11-10-2021,Dầu KO,16620,+980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:21.718447
+25-09-2021,Xăng RON 95-III,21940,+550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:25.382204
+25-09-2021,Xăng E5 RON 92-II,20710,+570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:25.397829
+25-09-2021,"Dầu DO 0,05S-II",16580,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:25.413454
+25-09-2021,Dầu KO,15640,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:25.429079
+10-09-2021,Xăng RON 95-III,21390,+260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:29.079407
+10-09-2021,Xăng E5 RON 92-II,20140,+250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:29.110656
+10-09-2021,"Dầu DO 0,05S-II",16020,+360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:29.126281
+10-09-2021,Dầu KO,15080,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:29.141905
+26-08-2021,Xăng RON 95-III,21130,-550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:32.898609
+26-08-2021,Xăng E5 RON 92-II,19890,-600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:32.928599
+26-08-2021,"Dầu DO 0,05S-II",15660,-510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:32.945304
+26-08-2021,Dầu KO,14760,-410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:32.948305
+11-08-2021,Xăng RON 95-III,21680,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:36.650687
+11-08-2021,Xăng E5 RON 92-II,20490,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:36.670819
+11-08-2021,"Dầu DO 0,05S-II",16170,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:36.682340
+11-08-2021,Dầu KO,15170,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:36.713599
+27-07-2021,Xăng RON 95-III,21680,-100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:40.438523
+27-07-2021,Xăng E5 RON 92-II,20490,-120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:40.455222
+27-07-2021,"Dầu DO 0,05S-II",16370,-160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:40.461223
+27-07-2021,Dầu KO,15390,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:40.476756
+12-07-2021,Xăng RON 95-III,21780,+870,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:44.147410
+12-07-2021,Xăng E5 RON 92-II,20610,+850,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:44.163063
+12-07-2021,"Dầu DO 0,05S-II",16530,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:44.181666
+12-07-2021,Dầu KO,15500,+450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:44.194701
+26-06-2021,Xăng RON 95-III,20910,+750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:47.892304
+26-06-2021,Xăng E5 RON 92-II,19760,+720,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:47.912112
+26-06-2021,"Dầu DO 0,05S-II",16110,+670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:47.930130
+26-06-2021,Dầu KO,15050,+640,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:47.949090
+11-06-2021,Xăng RON 95-III,20160,+630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:51.638959
+11-06-2021,Xăng E5 RON 92-II,19040,+620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:51.656737
+11-06-2021,"Dầu DO 0,05S-II",15440,+670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:51.674507
+11-06-2021,Dầu KO,14410,+590,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:51.693010
+27-05-2021,Xăng RON 95-III,19530,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:55.417191
+27-05-2021,Xăng E5 RON 92-II,18420,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:55.435505
+27-05-2021,"Dầu DO 0,05S-II",14770,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:55.461776
+27-05-2021,Dầu KO,13820,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:55.482433
+12-05-2021,Xăng RON 95-III,19530,+370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:59.216576
+12-05-2021,Xăng E5 RON 92-II,18420,+440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:59.241804
+12-05-2021,"Dầu DO 0,05S-II",14770,+450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:59.251439
+12-05-2021,Dầu KO,13820,+570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:05:59.266444
+27-04-2021,Xăng RON 95-III,19160,+190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:02.977387
+27-04-2021,Xăng E5 RON 92-II,17980,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:02.994144
+27-04-2021,"Dầu DO 0,05S-II",14320,+180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:03.010967
+27-04-2021,Dầu KO,13250,+430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:03.028969
+12-04-2021,Xăng RON 95-III,18970,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:06.725434
+12-04-2021,Xăng E5 RON 92-II,17800,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:06.743432
+12-04-2021,"Dầu DO 0,05S-II",14140,-100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:06.760754
+12-04-2021,Dầu KO,12820,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:06.778459
+27-03-2021,Xăng RON 95-III,19040,+160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:10.552150
+27-03-2021,Xăng E5 RON 92-II,17850,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:10.569208
+27-03-2021,"Dầu DO 0,05S-II",14240,-160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:10.573208
+27-03-2021,Dầu KO,13000,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:10.588862
+12-03-2021,Xăng RON 95-III,18880,+800,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:14.302785
+12-03-2021,Xăng E5 RON 92-II,17720,+690,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:14.310319
+12-03-2021,"Dầu DO 0,05S-II",14400,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:14.323824
+12-03-2021,Dầu KO,13170,+560,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:14.339456
+25-02-2021,Xăng RON 95-III,18080,+810,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:18.113187
+25-02-2021,Xăng E5 RON 92-II,17030,+730,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:18.136164
+25-02-2021,"Dầu DO 0,05S-II",13840,+800,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:18.161829
+25-02-2021,Dầu KO,12610,+710,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:18.180936
+10-02-2021,Xăng RON 95-III,17270,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:21.991732
+10-02-2021,Xăng E5 RON 92-II,16300,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:22.023512
+10-02-2021,"Dầu DO 0,05S-II",13040,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:22.040635
+10-02-2021,Dầu KO,11900,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:22.063829
+26-01-2021,Xăng RON 95-III,17270,+340,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:25.829565
+26-01-2021,Xăng E5 RON 92-II,16300,+360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:25.845198
+26-01-2021,"Dầu DO 0,05S-II",13040,+400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:25.860822
+26-01-2021,Dầu KO,11900,+350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:25.876448
+11-01-2021,Xăng RON 95-III,16930,+460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:29.598726
+11-01-2021,Xăng E5 RON 92-II,15940,+430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:29.614352
+11-01-2021,"Dầu DO 0,05S-II",12640,+270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:29.630365
+11-01-2021,Dầu KO,11550,+370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:29.645996
+26-12-2020,Xăng RON 95-III,16470,+470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:33.442437
+26-12-2020,Xăng E5 RON 92-II,15510,+390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:33.458777
+26-12-2020,"Dầu DO 0,05S-II",12370,+480,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:33.485462
+26-12-2020,Dầu KO,11180,+410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:33.506123
+11-12-2020,Xăng RON 95-III,16000,+650,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:37.268358
+11-12-2020,Xăng E5 RON 92-II,15120,+630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:37.282988
+11-12-2020,"Dầu DO 0,05S-II",11890,+460,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:37.300303
+11-12-2020,Dầu KO,10770,+640,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:37.317322
+26-11-2020,Xăng RON 95-III,15350,+650,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:41.115402
+26-11-2020,Xăng E5 RON 92-II,14490,+610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:41.136000
+26-11-2020,"Dầu DO 0,05S-II",11430,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:41.147627
+26-11-2020,Dầu KO,10130,+570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:41.164264
+11-11-2020,Xăng RON 95-III,14700,-240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:44.968172
+11-11-2020,Xăng E5 RON 92-II,13880,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:44.984162
+11-11-2020,"Dầu DO 0,05S-II",10830,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:45.015046
+11-11-2020,Dầu KO,9560,-150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:45.036694
+27-10-2020,Xăng RON 95-III,14940,-180,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:48.762763
+27-10-2020,Xăng E5 RON 92-II,14100,-160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:48.783493
+27-10-2020,"Dầu DO 0,05S-II",11210,+90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:48.803496
+27-10-2020,Dầu KO,9710,+120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:48.825253
+12-10-2020,Xăng RON 95-III,15120,+140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:52.653398
+12-10-2020,Xăng E5 RON 92-II,14260,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:52.673475
+12-10-2020,"Dầu DO 0,05S-II",11120,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:52.692962
+12-10-2020,Dầu KO,9590,+150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:52.712091
+26-09-2020,Xăng RON 95-III,14980,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:56.652722
+26-09-2020,Xăng E5 RON 92-II,14210,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:56.679844
+26-09-2020,"Dầu DO 0,05S-II",11120,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:56.696670
+26-09-2020,Dầu KO,9440,-150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:06:56.706240
+11-09-2020,Xăng RON 95-III,14980,-130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:00.486670
+11-09-2020,Xăng E5 RON 92-II,14260,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:00.495670
+11-09-2020,"Dầu DO 0,05S-II",11510,-450,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:00.511347
+11-09-2020,Dầu KO,9590,-530,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:00.526953
+27-08-2020,Xăng RON 95-III,15110,+190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:04.262143
+27-08-2020,Xăng E5 RON 92-II,14400,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:04.285858
+27-08-2020,"Dầu DO 0,05S-II",11960,-240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:04.291858
+27-08-2020,Dầu KO,10120,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:04.323138
+12-08-2020,Xăng RON 95-III,14920,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:08.042422
+12-08-2020,Xăng E5 RON 92-II,14400,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:08.070256
+12-08-2020,"Dầu DO 0,05S-II",12200,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:08.088171
+12-08-2020,Dầu KO,10200,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:08.101260
+28-07-2020,Xăng RON 95-III,14970,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:11.848711
+28-07-2020,Xăng E5 RON 92-II,14400,+150,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:11.868887
+28-07-2020,"Dầu DO 0,05S-II",12390,+280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:11.888396
+28-07-2020,Dầu KO,10270,+240,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:11.905048
+13-07-2020,Xăng RON 95-III,14970,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:15.670651
+13-07-2020,Xăng E5 RON 92-II,14250,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:15.691139
+13-07-2020,"Dầu DO 0,05S-II",12110,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:15.702917
+13-07-2020,Dầu KO,10030,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:15.729475
+27-06-2020,Xăng RON 95-III,14970,+890,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:19.537946
+27-06-2020,Xăng E5 RON 92-II,14250,+860,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:19.561578
+27-06-2020,"Dầu DO 0,05S-II",12110,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:19.582233
+27-06-2020,Dầu KO,10030,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:19.597002
+12-06-2020,Xăng RON 95-III,14080,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:23.433108
+12-06-2020,Xăng E5 RON 92-II,13390,+990,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:23.448735
+12-06-2020,"Dầu DO 0,05S-II",11510,+770,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:23.473423
+12-06-2020,Dầu KO,9610,+860,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:23.490933
+28-05-2020,Xăng RON 95-III,13120,+890,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:27.243070
+28-05-2020,Xăng E5 RON 92-II,12400,+880,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:27.264204
+28-05-2020,"Dầu DO 0,05S-II",10740,+890,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:27.281242
+28-05-2020,Dầu KO,8750,+870,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:27.303048
+13-05-2020,Xăng RON 95-III,12230,+600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:31.055936
+13-05-2020,Xăng E5 RON 92-II,11520,+580,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:31.072541
+13-05-2020,"Dầu DO 0,05S-II",9850,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:31.088051
+13-05-2020,Dầu KO,7880,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:31.103682
+28-04-2020,Xăng RON 95-III,11630,-300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:34.890368
+28-04-2020,Xăng E5 RON 92-II,10940,-400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:34.907457
+28-04-2020,"Dầu DO 0,05S-II",9940,-880,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:34.924267
+28-04-2020,Dầu KO,7960,-670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:34.952375
+13-04-2020,Xăng RON 95-III,11930,-630,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:38.729845
+13-04-2020,Xăng E5 RON 92-II,11340,-610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:38.745469
+13-04-2020,"Dầu DO 0,05S-II",10820,-430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:38.769194
+13-04-2020,Dầu KO,8630,-510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:38.776190
+29-03-2020,Xăng RON 95-III,12560,-4250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:42.543012
+29-03-2020,Xăng E5 RON 92-II,11950,-4100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:42.558667
+29-03-2020,"Dầu DO 0,05S-II",11250,-1780,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:42.593450
+29-03-2020,Dầu KO,9140,-2700,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:42.604959
+15-03-2020,Xăng RON 95-III,16810,-2310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:46.379650
+15-03-2020,Xăng E5 RON 92-II,16050,-2290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:46.403226
+15-03-2020,"Dầu DO 0,05S-II",13030,-1750,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:46.421614
+15-03-2020,Dầu KO,11840,-1830,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:46.440607
+29-02-2020,Xăng RON 95-III,19120,-260,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:50.245377
+29-02-2020,Xăng E5 RON 92-II,18340,-160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:50.276626
+29-02-2020,"Dầu DO 0,05S-II",14780,-390,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:50.293598
+29-02-2020,Dầu KO,13670,-280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:50.313030
+14-02-2020,Xăng RON 95-III,19380,-740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:54.109668
+14-02-2020,Xăng E5 RON 92-II,18500,-760,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:54.135898
+14-02-2020,"Dầu DO 0,05S-II",15170,-960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:54.152045
+14-02-2020,Dầu KO,13950,-1110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:54.167702
+30-01-2020,Xăng RON 95-III,20120,-790,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:58.043395
+30-01-2020,Xăng E5 RON 92-II,19260,-580,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:58.059024
+30-01-2020,"Dầu DO 0,05S-II",16130,-410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:58.080729
+30-01-2020,Dầu KO,15060,-470,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:07:58.088731
+15-01-2020,Xăng RON 95-III,20910,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:01.901889
+15-01-2020,Xăng E5 RON 92-II,19840,-40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:01.919550
+15-01-2020,"Dầu DO 0,05S-II",16540,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:01.933555
+15-01-2020,Dầu KO,15530,-50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:01.949188
+31-12-2019,Xăng RON 95-III,20990,+110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:05.750137
+31-12-2019,Xăng E5 RON 92-II,19880,+160,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:05.768218
+31-12-2019,"Dầu DO 0,05S-II",16590,+530,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:05.785279
+31-12-2019,Dầu KO,15580,+570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:05.802344
+16-12-2019,Xăng RON 95-III,20880,-190,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:09.599882
+16-12-2019,Xăng E5 RON 92-II,19720,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:09.631521
+16-12-2019,"Dầu DO 0,05S-II",16060,+80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:09.647153
+16-12-2019,Dầu KO,15010,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:09.668880
+30-11-2019,Xăng RON 95-III,21070,+280,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:13.461456
+30-11-2019,Xăng E5 RON 92-II,19810,+310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:13.479477
+30-11-2019,"Dầu DO 0,05S-II",15980,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:13.497480
+30-11-2019,Dầu KO,14960,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:13.516488
+30-11-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:13.534819
+30-11-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:13.552614
+15-11-2019,Xăng RON 95-III,20790,+350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:17.361063
+15-11-2019,Xăng E5 RON 92-II,19500,+250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:17.378675
+15-11-2019,"Dầu DO 0,05S-II",15960,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:17.396317
+15-11-2019,Dầu KO,14960,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:17.413947
+15-11-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:17.430578
+15-11-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:17.449252
+31-10-2019,Xăng RON 95-III,20440,-350,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:21.260908
+31-10-2019,Xăng E5 RON 92-II,19250,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:21.276532
+31-10-2019,"Dầu DO 0,05S-II",16050,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:21.292156
+31-10-2019,Dầu KO,15130,-120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:21.307781
+31-10-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:21.323406
+31-10-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:21.353483
+16-10-2019,Xăng RON 95-III,20790,-270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:25.179492
+16-10-2019,Xăng E5 RON 92-II,19470,-310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:25.198425
+16-10-2019,"Dầu DO 0,05S-II",16220,-410,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:25.217438
+16-10-2019,Dầu KO,15250,-530,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:25.236427
+16-10-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:25.255521
+16-10-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:25.274409
+01-10-2019,Xăng RON 95-III,21060,+920,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:29.120396
+01-10-2019,Xăng E5 RON 92-II,19780,+670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:29.144058
+01-10-2019,"Dầu DO 0,05S-II",16630,+430,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:29.152063
+01-10-2019,Dầu KO,15780,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:29.167695
+01-10-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:29.198946
+01-10-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:29.217639
+16-09-2019,Xăng RON 95-III,20140,-90,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:33.040498
+16-09-2019,Xăng E5 RON 92-II,19110,-110,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:33.058081
+16-09-2019,"Dầu DO 0,05S-II",16200,-130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:33.073204
+16-09-2019,Dầu KO,15360,+40,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:33.088862
+16-09-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:33.104487
+16-09-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:33.120112
+31-08-2019,Xăng RON 95-III,20230,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:36.917029
+31-08-2019,Xăng E5 RON 92-II,19220,-130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:36.932654
+31-08-2019,"Dầu DO 0,05S-II",16330,-170,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:36.953786
+31-08-2019,Dầu KO,15320,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:36.981993
+31-08-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:36.994993
+31-08-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:37.026276
+16-08-2019,Xăng RON 95-III,20400,-510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:40.883399
+16-08-2019,Xăng E5 RON 92-II,19350,-550,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:40.901546
+16-08-2019,"Dầu DO 0,05S-II",16500,-520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:40.919341
+16-08-2019,Dầu KO,15390,-570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:40.937895
+16-08-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:40.954522
+16-08-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:40.970032
+01-08-2019,Xăng RON 95-III,20910,-320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:44.806197
+01-08-2019,Xăng E5 RON 92-II,19900,-370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:44.822877
+01-08-2019,"Dầu DO 0,05S-II",17020,+30,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:44.839451
+01-08-2019,Dầu KO,15960,+10,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:44.872701
+01-08-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:44.889437
+01-08-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:44.915553
+17-07-2019,Xăng RON 95-III,21230,+720,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:48.764329
+17-07-2019,Xăng E5 RON 92-II,20270,+620,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:48.782304
+17-07-2019,"Dầu DO 0,05S-II",16990,+50,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:48.801614
+17-07-2019,Dầu KO,15950,+20,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:48.820338
+17-07-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:48.838320
+17-07-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:48.859337
+02-07-2019,Xăng RON 95-III,20510,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:52.680157
+02-07-2019,Xăng E5 RON 92-II,19650,+420,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:52.697217
+02-07-2019,"Dầu DO 0,05S-II",16940,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:52.716985
+02-07-2019,Dầu KO,15930,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:52.729989
+02-07-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:52.745650
+02-07-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:52.769282
+17-06-2019,Xăng RON 95-III,20130,-1080,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:56.590868
+17-06-2019,Xăng E5 RON 92-II,19230,-980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:56.620593
+17-06-2019,"Dầu DO 0,05S-II",16650,-740,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:56.636247
+17-06-2019,Dầu KO,15610,-610,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:56.651873
+17-06-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:56.673504
+17-06-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:08:56.701234
+01-06-2019,Xăng RON 95-III,21210,-380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:00.558101
+01-06-2019,Xăng E5 RON 92-II,20210,-270,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:00.577761
+01-06-2019,"Dầu DO 0,05S-II",17390,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:00.589767
+01-06-2019,Dầu KO,16220,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:00.621024
+01-06-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:00.636648
+01-06-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:00.660341
+17-05-2019,Xăng RON 95-III,21590,-600,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:04.513604
+17-05-2019,Xăng E5 RON 92-II,20480,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:04.527226
+17-05-2019,"Dầu DO 0,05S-II",17610,-80,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:04.543622
+17-05-2019,Dầu KO,16420,-200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:04.578671
+17-05-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:04.595392
+17-05-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:04.616576
+02-05-2019,Xăng RON 95-III,22190,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:08.466774
+02-05-2019,Xăng E5 RON 92-II,20680,+980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:08.487251
+02-05-2019,"Dầu DO 0,05S-II",17690,+310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:08.505631
+02-05-2019,Dầu KO,16620,+360,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:08.522679
+02-05-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:08.541738
+02-05-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:08.559739
+17-04-2019,Xăng RON 95-III,21230,+1200,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:12.463831
+17-04-2019,Xăng E5 RON 92-II,19700,+1120,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:12.488634
+17-04-2019,"Dầu DO 0,05S-II",17380,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:12.513674
+17-04-2019,Dầu KO,16260,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:12.536521
+17-04-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:12.556457
+17-04-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:12.585175
+02-04-2019,Xăng RON 95-III,20030,+1490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:16.469121
+02-04-2019,Xăng E5 RON 92-II,18580,+1370,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:16.487811
+02-04-2019,"Dầu DO 0,05S-II",17080,+1220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:16.504749
+02-04-2019,Dầu KO,15970,+1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:16.521631
+02-04-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:16.541292
+02-04-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:16.570163
+18-03-2019,Xăng RON 95-III,18540,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:20.551880
+18-03-2019,Xăng E5 RON 92-II,17210,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:20.585278
+18-03-2019,"Dầu DO 0,05S-II",15860,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:20.601846
+18-03-2019,Dầu KO,14880,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:20.618509
+18-03-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:20.635192
+18-03-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:20.651856
+02-03-2019,Xăng RON 95-III,18540,+940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:24.566224
+02-03-2019,Xăng E5 RON 92-II,17210,+940,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:24.592138
+02-03-2019,"Dầu DO 0,05S-II",15860,+960,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:24.610747
+02-03-2019,Dầu KO,14880,+700,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:24.618069
+02-03-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:24.652728
+02-03-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:24.666103
+15-02-2019,Xăng RON 95-III,17600,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:28.530849
+15-02-2019,Xăng E5 RON 92-II,16270,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:28.556702
+15-02-2019,"Dầu DO 0,05S-II",14900,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:28.574188
+15-02-2019,Dầu KO,14180,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:28.582393
+15-02-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:28.610869
+15-02-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:28.630840
+31-01-2019,Xăng RON 95-III,17600,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:32.634074
+31-01-2019,Xăng E5 RON 92-II,16270,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:32.646732
+31-01-2019,"Dầu DO 0,05S-II",14900,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:32.680214
+31-01-2019,Dầu KO,14180,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:32.700508
+31-01-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:32.721174
+31-01-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:32.741813
+16-01-2019,Xăng RON 95-III,17600,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:36.664734
+16-01-2019,Xăng E5 RON 92-II,16270,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:36.681369
+16-01-2019,"Dầu DO 0,05S-II",14900,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:36.710223
+16-01-2019,Dầu KO,14180,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:36.733046
+16-01-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:36.748098
+16-01-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:36.764501
+01-01-2019,Xăng RON 95-III,17600,-540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.655106
+01-01-2019,Xăng E5 RON 92-II,16270,-510,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.670730
+01-01-2019,"Dầu DO 0,05S-II",14900,-1100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.694391
+01-01-2019,Xăng RON 95-IV,17800,-540,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.716926
+01-01-2019,"Dầu DO 0,005S-IV",14950,-1100,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.741485
+01-01-2019,Dầu KO,14180,-820,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.760417
+01-01-2019,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.779113
+01-01-2019,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:40.797136
+21-12-2018,Xăng RON 95-III,18140,-310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.775305
+21-12-2018,Xăng E5 RON 92-II,16780,-400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.798102
+21-12-2018,"Dầu DO 0,05S-II",16000,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.823681
+21-12-2018,Xăng RON 95-IV,18340,-310,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.843680
+21-12-2018,"Dầu DO 0,005S-IV",16050,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.862153
+21-12-2018,Dầu KO,15000,-250,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.872824
+21-12-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.887830
+21-12-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:44.903462
+06-12-2018,Xăng RON 95-III,18450,-1520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.811154
+06-12-2018,Xăng E5 RON 92-II,17180,-1440,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.830663
+06-12-2018,"Dầu DO 0,05S-II",16250,-1380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.849184
+06-12-2018,Xăng RON 95-IV,18650,-1520,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.869199
+06-12-2018,"Dầu DO 0,005S-IV",16300,-1380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.891434
+06-12-2018,Dầu KO,15250,-990,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.909440
+06-12-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.928891
+06-12-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:48.947449
+21-11-2018,Xăng RON 95-III,19970,-1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:52.951316
+21-11-2018,Xăng E5 RON 92-II,18620,-980,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:52.964314
+21-11-2018,"Dầu DO 0,05S-II",17630,-910,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:52.979971
+21-11-2018,Xăng RON 95-IV,20170,-1090,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:53.011223
+21-11-2018,"Dầu DO 0,005S-IV",17680,-910,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:53.029853
+21-11-2018,Dầu KO,16240,-840,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:53.056970
+21-11-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:53.073052
+21-11-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:53.088711
+06-11-2018,Xăng RON 95-III,21060,-1140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:56.959215
+06-11-2018,Xăng E5 RON 92-II,19600,-1080,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:56.976864
+06-11-2018,"Dầu DO 0,05S-II",18540,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:56.993862
+06-11-2018,Xăng RON 95-IV,21260,-1140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:57.011340
+06-11-2018,"Dầu DO 0,005S-IV",18590,-70,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:57.038365
+06-11-2018,Dầu KO,17080,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:57.056458
+06-11-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:57.074338
+06-11-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:09:57.092270
+22-10-2018,Xăng RON 95-III,22200,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:00.977630
+22-10-2018,Xăng E5 RON 92-II,20680,-220,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:00.993254
+22-10-2018,"Dầu DO 0,05S-II",18610,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:01.021014
+22-10-2018,Xăng RON 95-IV,22400,-140,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:01.042059
+22-10-2018,"Dầu DO 0,005S-IV",18660,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:01.057693
+22-10-2018,Dầu KO,17080,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:01.073319
+22-10-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:01.088944
+22-10-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:01.111707
+06-10-2018,Xăng RON 95-III,22340,+570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.103056
+06-10-2018,Xăng E5 RON 92-II,20900,+670,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.120056
+06-10-2018,"Dầu DO 0,05S-II",18610,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.137127
+06-10-2018,Xăng RON 95-IV,22540,+570,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.151635
+06-10-2018,"Dầu DO 0,005S-IV",18660,+490,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.167296
+06-10-2018,Dầu KO,17080,+400,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.182923
+06-10-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.198548
+06-10-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:05.229828
+21-09-2018,Xăng RON 95-III,21770,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.119964
+21-09-2018,Xăng E5 RON 92-II,20230,+320,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.144629
+21-09-2018,"Dầu DO 0,05S-II",18120,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.151637
+21-09-2018,Xăng RON 95-IV,21970,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.182898
+21-09-2018,"Dầu DO 0,005S-IV",18170,+60,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.202577
+21-09-2018,Dầu KO,16680,+130,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.219653
+21-09-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.229654
+21-09-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:09.245698
+06-09-2018,Xăng RON 95-III,21470,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.142693
+06-09-2018,Xăng E5 RON 92-II,19910,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.152202
+06-09-2018,"Dầu DO 0,05S-II",18060,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.168581
+06-09-2018,Xăng RON 95-IV,21670,+300,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.183587
+06-09-2018,"Dầu DO 0,005S-IV",18110,+380,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.215926
+06-09-2018,Dầu KO,16550,+290,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.234932
+06-09-2018,Dầu FO 3%S,0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.254629
+06-09-2018,"Dầu FO 3,5%S",0,0,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:13.261691
+22-08-2018,Xăng RON 95-III,21170,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.168149
+22-08-2018,Xăng E5 RON 92-II,19610,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.183812
+22-08-2018,"Dầu DO 0,05S-II",17680,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.199439
+22-08-2018,Xăng RON 95-IV,21370,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.215063
+22-08-2018,"Dầu DO 0,005S-IV",17730,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.239755
+22-08-2018,Dầu KO,16260,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.260181
+22-08-2018,Dầu FO 3%S,0,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.273614
+22-08-2018,"Dầu FO 3,5%S",0,,VND/liter,https://www.pvoil.com.vn/tin-gia-xang-dau,2026-03-29 02:10:17.341977
