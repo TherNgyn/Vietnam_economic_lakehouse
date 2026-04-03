@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 import time
 
-url = "https://www.pvoil.com.vn/tin-gia-xang-dau"  # Thay bằng URL thực tế của trang giá xăng
+url = "https://www.pvoil.com.vn/tin-gia-xang-dau"  
 
 options = Options()
 options.add_argument('--no-sandbox')
@@ -51,10 +51,13 @@ try:
                     price = cols[2].text.strip().replace(" đ", "").replace(".", "").replace(",", "")
                     change = cols[3].text.strip()
                     data.append({
-                        "Date": date_text,
-                        "Product": item,
-                        "Price": price,
-                        "Change": change
+                        "date": date_text,
+                        "product": item,
+                        "price": price,
+                        "change": change,
+                        "unit": "VND/liter",
+                        "source": url,
+                        "time_scraped": pd.Timestamp.now()
                     })
         df = pd.DataFrame(data)
         df.to_csv("historical_dataset/gasoline_prices.csv", index=False)

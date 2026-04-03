@@ -46,15 +46,16 @@ try:
     for page in range(1, 2):
         while True:
             rows = driver.find_elements(By.CSS_SELECTOR, "table tbody tr")
-            row_clicked = False
-            for row in rows:
+            for i in range(len(rows)):
+                # Sau mỗi lần click và quay lại, phải lấy lại danh sách rows
+                rows = driver.find_elements(By.CSS_SELECTOR, "table tbody tr")
+                row = rows[i]
                 cols = row.find_elements(By.TAG_NAME, "td")
                 if len(cols) >= 2:
                     date_text = cols[0].text
                     links = cols[1].find_elements(By.TAG_NAME, "a")
                     if links:
-                        xem = links[0]
-                        driver.execute_script("arguments[0].click();", xem)
+                        driver.execute_script("arguments[0].click();", links[0])
                         time.sleep(1)
                         # Lấy bảng chi tiết
                         detail_rows = driver.find_elements(By.CSS_SELECTOR, "#detail-view table tbody tr")
@@ -65,22 +66,24 @@ try:
                                     "date": date_text,
                                     "term": dcols[0].text.strip(),
                                     "interest_rate": dcols[1].text.strip(),
-                                    "volume": dcols[2].text.strip()
+                                    "volume": dcols[2].text.strip(),
+                                    "source": url,
+                                    "time_scraped": pd.Timestamp.now()
                                 })
-                        # Quay lại
-                        driver.find_element(By.ID, "btn-back").click()
                         time.sleep(1)
-                        row_clicked = True
-                        break  # Sau khi click phải lấy lại rows mới
-            if not row_clicked:
-                break  # Không còn dòng nào để click, thoát vòng while
-        # Sang trang tiếp theo nếu có
-        try:
-            next_btn = driver.find_element(By.XPATH, f"//button[text()='{page+1}']")
-            driver.execute_script("arguments[0].click();", next_btn)
-            time.sleep(2)
-        except Exception:
-            break
+                        # Quay lại
+                        back_btn = driver.find_element(By.ID, "btn-back")
+                        driver.execute_script("arguments[0].click();", back_btn)
+                        time.sleep(1)
+            # Sau khi xử lý hết các dòng, chuyển trang nếu còn
+            try:
+                next_btn = driver.find_element(By.XPATH, "//div[@id='pagination']//button[contains(text(),'Sau')]")
+                if next_btn.get_attribute("disabled"):
+                    break
+                driver.execute_script("arguments[0].click();", next_btn)
+                time.sleep(2)
+            except Exception:
+                break
 
     # 3. Xuất ra file CSV
     df = pd.DataFrame(all_data)

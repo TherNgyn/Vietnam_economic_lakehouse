@@ -1,0 +1,25 @@
+indices:
+  - symbol: S&P500
+    yf_ticker: "^GSPC"
+    name: "S&P 500 Index"
+    exchange: "US"
+  - symbol: DOWJONES
+    yf_ticker: "^DJI"
+    name: "Dow Jones Industrial Average"
+    exchange: "US"
+  - symbol: NASDAQ
+    yf_ticker: "^IXIC"
+    name: "Nasdaq Composite"
+    exchange: "US"
+  - symbol: NIKKEI225
+    yf_ticker: "^N225"
+    name: "Nikkei 225"
+    exchange: "JP"
+  - symbol: HANGSENG
+    yf_ticker: "^HSI"
+    name: "Hang Seng Index"
+    exchange: "HK"
+  - symbol: DAX
+    yf_ticker: "^GDAXI"
+    name: "DAX Performance Index"
+    exchange: "DE"

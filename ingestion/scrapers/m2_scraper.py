@@ -55,7 +55,10 @@ try:
 
     m2_data = dict(zip(months, values))
 
-    df = pd.DataFrame(list(m2_data.items()), columns=["Month", "M2"])
+    df = pd.DataFrame(list(m2_data.items()), columns=["month", "m2"])
+    df["unit"] = "Billion VND"
+    df["source"] = url 
+    df["time_scraped"] = pd.Timestamp.now()
     df.to_csv("historical_dataset/money_supply_m2.csv", index=False)
     print(df)
 
