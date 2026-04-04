@@ -1,24 +1,6 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:13
-    container_name: postgres_airflow
-    environment:
-      POSTGRES_USER: airflow
-      POSTGRES_PASSWORD: airflow
-      POSTGRES_DB: airflow
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U airflow"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    restart: always
-
   minio:
     image: minio/minio:latest
     container_name: minio_lakehouse
@@ -33,69 +15,91 @@ services:
     command: server /data --console-address ":9001"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
+      interval: 10s
+      timeout: 5s
+      retries: 5
     restart: always
 
-  airflow-webserver:
-    build:
-      context: .
-      dockerfile: ./infra_configs/airflow/Dockerfile
-    container_name: airflow_webserver
-    depends_on:
-      postgres:
-        condition: service_healthy
-      minio:
-        condition: service_healthy
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: zookeeper
     environment:
-      AIRFLOW_HOME: /airflow
-      AIRFLOW__CORE__DAGS_FOLDER: /airflow/dags
-      AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
-      AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
-      AIRFLOW__CORE__LOAD_DEFAULT_CONNECTIONS: 'False'
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_SYNC_LIMIT: 2
+      ZOOKEEPER_INIT_LIMIT: 5
+    restart: always
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0 
+    container_name: kafka
+    depends_on:
+      - zookeeper
     ports:
-      - "8080:8080"
-    volumes:
-      - ./dags:/airflow/dags
-      - ./ingestion:/airflow/ingestion
-      - ./historical_dataset:/airflow/historical_dataset
-      - airflow_logs:/airflow/logs
-    user: "0:0"
-    command: >
-      bash -c "mkdir -p /airflow/logs && 
-               chmod -R 777 /airflow/logs &&
-               airflow db init && 
-               airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com || true &&
-               airflow webserver"
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     restart: always
 
-  airflow-scheduler:
+  influxdb:
+    image: influxdb:1.8                    
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      INFLUXDB_DB: grafana
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: admin123
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+    restart: always
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - influxdb
+    restart: always
+
+  pipeline:
     build:
       context: .
-      dockerfile: ./infra_configs/airflow/Dockerfile
-    container_name: airflow_scheduler
+      dockerfile: ./infra_configs/Dockerfile
+    container_name: runner
     depends_on:
-      postgres:
-        condition: service_healthy
-      minio:
-        condition: service_healthy
+      - minio
+      - kafka
+      - influxdb
     environment:
-      AIRFLOW_HOME: /airflow
-      AIRFLOW__CORE__DAGS_FOLDER: /airflow/dags
-      AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+      AWS_ENDPOINT_URL: http://minio:9000
+      AWS_ACCESS_KEY_ID: minioadmin
+      AWS_SECRET_ACCESS_KEY: minioadmin123
+      MINIO_HOST: minio:9000
+      KAFKA_BROKER: kafka:29092
+      KAFKA_TOPIC: ticker.realtime
+      INFLUXDB_HOST: influxdb
+      INFLUXDB_PORT: 8086
+      INFLUXDB_DB: grafana
     volumes:
-      - ./dags:/airflow/dags
-      - ./ingestion:/airflow/ingestion
-      - ./historical_dataset:/airflow/historical_dataset
-      - airflow_logs:/airflow/logs
-    user: "0:0"
-    command: bash -c "chmod -R 777 /airflow/logs && airflow db init && airflow scheduler"
-    restart: always
+      - ./historical_dataset:/app/historical_dataset
+      - ./1_bronze:/app/1_bronze
+      - ./2_silver:/app/2_silver
+      - ./kafka:/app/kafka
+      - ./dags:/app/dags
+    command: tail -f /dev/null
 
 volumes:
   minio_data:
-  postgres_data:
-  airflow_logs:
+  influxdb_data:
+  grafana_data:

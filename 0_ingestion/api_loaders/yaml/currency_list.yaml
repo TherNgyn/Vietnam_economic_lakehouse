@@ -1,0 +1,14 @@
+currencies:
+  - symbol: USDVND
+    tradingview: USDVND
+    investing: usd-vnd
+  - symbol: CNYVND
+    tradingview: CNYVND
+    investing: cny-vnd
+  - symbol: JPYVND
+    tradingview: JPYVND
+    investing: jpy-vnd
+  - symbol: EURVND
+    tradingview: EURVND
+    investing: eur-vnd
+  
