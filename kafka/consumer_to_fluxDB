@@ -1,0 +1,74 @@
+import os
+import json
+from kafka import KafkaConsumer
+from influxdb import InfluxDBClient
+
+KAFKA_BROKER = os.getenv("KAFKA_BROKER", "kafka:29092")
+KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "ticker.realtime")
+INFLUXDB_HOST = os.getenv("INFLUXDB_HOST", "influxdb")
+INFLUXDB_PORT = int(os.getenv("INFLUXDB_PORT", 8086))
+INFLUXDB_DB = os.getenv("INFLUXDB_DB", "grafana")
+# Mỗi phút
+print(f"Kafka: {KAFKA_BROKER}/{KAFKA_TOPIC}")
+print(f"InfluxDB: {INFLUXDB_HOST}:{INFLUXDB_PORT}/{INFLUXDB_DB}")
+print("-" * 60)
+
+influx_client = InfluxDBClient(
+    host=INFLUXDB_HOST,
+    port=INFLUXDB_PORT,
+    username='admin',
+    password='admin123',
+    database=INFLUXDB_DB
+)
+
+try:
+    influx_client.ping()
+    print("InfluxDB connected\n")
+except Exception as e:
+    print(f"InfluxDB error: {e}")
+    exit(1)
+
+consumer = KafkaConsumer(
+    KAFKA_TOPIC,
+    bootstrap_servers=[KAFKA_BROKER],
+    value_deserializer=lambda m: json.loads(m.decode('utf-8')),
+    auto_offset_reset='latest', 
+    group_id='influxdb_consumer',
+    consumer_timeout_ms=60000  
+)
+
+print(f"Listening to {KAFKA_TOPIC}...\n")
+
+msg_count = 0
+
+for msg in consumer:
+    tick = msg.value
+    msg_count += 1
+    
+    try:
+        point = {
+            "measurement": "ticker",
+            "tags": {
+                "symbol": tick['symbol'],
+                "asset_class": tick['asset_class'],
+                "unit": tick['unit'],
+            },
+            "fields": {
+                "close": float(tick['lastPrice']),
+                "prev_close": float(tick['previousClose']),
+                "open": float(tick['open']),
+                "high": float(tick['dayHigh']),
+                "low": float(tick['dayLow']),
+                "volume": float(tick['volume']),
+                "change": round(tick['lastPrice'] - tick['previousClose'], 4),
+                "change_pct": round((tick['lastPrice'] - tick['previousClose']) / tick['previousClose'] * 100, 2) if tick['previousClose'] else 0,
+            },
+            "time": tick['timestamp']
+        }
+        
+        influx_client.write_points([point])
+        
+        print(f"[{msg_count}] {tick['symbol']}: {tick['lastPrice']} VND → InfluxDB")
+        
+    except Exception as e:
+        print(f"Error: {e}")
