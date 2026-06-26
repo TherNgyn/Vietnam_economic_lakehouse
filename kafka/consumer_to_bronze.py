@@ -7,7 +7,7 @@ from deltalake import write_deltalake
 from collections import defaultdict
 
 KAFKA_BROKER = os.getenv("KAFKA_BROKER", "kafka:29092")
-KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "ticker.realtime")
+KAFKA_TOPIC = "ticker-realtime"
 MINIO_BUCKET = os.getenv("MINIO_BUCKET", "bronze")
 
 STORAGE_OPTIONS = {

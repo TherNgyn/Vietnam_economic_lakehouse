@@ -1,0 +1,90 @@
+currencies:
+  - symbol: USDVND
+    yf_ticker: VND=X
+    bronze_path: "historical/currency/USD_VND.csv"
+  - symbol: CNYVND
+    yf_ticker: CNY=X
+    bronze_path: "historical/currency/CNY_VND.csv"
+  - symbol: JPYVND
+    yf_ticker: JPY=X
+    bronze_path: "historical/currency/JPY_VND.csv"
+  - symbol: EURVND
+    yf_ticker: EUR=X
+    bronze_path: "historical/currency/EUR_VND.csv"
+
+indices:
+  - symbol: S&P500
+    yf_ticker: "^GSPC"
+    exchange: "US"
+    bronze_path: "historical/index/SP500.csv"
+  - symbol: DOWJONES
+    yf_ticker: "^DJI"
+    exchange: "US"
+    bronze_path: "historical/index/DOW.csv"
+  - symbol: NASDAQ
+    yf_ticker: "^IXIC"
+    exchange: "US"
+    bronze_path: "historical/index/NASDAQ.csv"
+  - symbol: NIKKEI225
+    yf_ticker: "^N225"
+    exchange: "JP"
+    bronze_path: "historical/index/NIKKEI225.csv"
+  - symbol: HANGSENG
+    yf_ticker: "^HSI"
+    exchange: "HK"
+    bronze_path: "historical/index/HANGSENG.csv"
+  - symbol: DAX
+    yf_ticker: "^GDAXI"
+    exchange: "DE"
+    bronze_path: "historical/index/DAX.csv"
+
+
+products:
+  - brent: 
+      name: "Brent Crude Oil"
+      symbol: "BZ=F"
+      currency: "USD"
+      description: "Brent Crude Oil is a major trading classification of sweet light crude oil that serves as a benchmark for oil prices worldwide. It is extracted from the North Sea and is known for its high quality and low sulfur content."
+      unit: "USD/barrel"
+      source: "yfinance"
+      bronze_path: "historical/product/crude_oil_Brent.csv"
+  - wti:
+      name: "WTI Crude Oil"
+      symbol: "CL=F"
+      currency: "USD"
+      description: "WTI (West Texas Intermediate) Crude Oil is a high-quality, light sweet crude oil that serves as a benchmark for oil prices in the United States. It is primarily extracted from oil fields in Texas and is known for its low sulfur content."
+      unit: "USD/barrel"
+      source: "yfinance"
+      bronze_path: "historical/product/crude_oil_WTI.csv"
+  - gasoline:
+      name: "Gasoline"
+      symbol: "RB=F"
+      currency: "USD"
+      description: "Gasoline is a refined petroleum product used primarily as fuel in internal combustion engines. It is derived from crude oil and is a key component of the global energy market."
+      unit: "USD/gallon"
+      source: "yfinance"
+      bronze_path: "historical/product/gasoline.csv"
+  - natural_gas:
+      name: "Natural Gas"
+      symbol: "NG=F"
+      currency: "USD"
+      description: "Natural Gas is a fossil fuel used for heating, electricity generation, and as an industrial feedstock. It is primarily composed of methane and is considered a cleaner alternative to other fossil fuels."
+      unit: "USD/MMBtu"
+      source: "yfinance"
+      bronze_path: "historical/product/natural_gas.csv"
+  - gold:
+      name: "Gold"
+      symbol: "GC=F"
+      currency: "USD"
+      description: "Gold is a precious metal that has been used as a store of value and medium of exchange for thousands of years. It is widely traded in financial markets and is often seen as a safe-haven asset during times of economic uncertainty."
+      unit: "USD/ounce"
+      source: "yfinance"
+      bronze_path: "historical/product/gold.csv"
+  - silver:
+      name: "Silver"
+      symbol: "SI=F"
+      currency: "USD"
+      description: "Silver is a precious metal that is widely used in jewelry, electronics, and as an investment asset. It is known for its high conductivity and is often considered a more affordable alternative to gold."
+      unit: "USD/ounce"
+      source: "yfinance"
+      bronze_path: "historical/product/silver.csv"

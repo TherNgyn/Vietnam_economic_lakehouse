@@ -1,0 +1,21 @@
+vietnam_indices:
+  - symbol: HNX
+    name: "HNX Index"
+    local_path: "historical/vietnam_index/HNX_index.csv"
+    unit: "point"
+  - symbol: VNINDEX
+    name: "VNIndex"
+    local_path: "historical/vietnam_index/VN_index.csv"
+    unit: "point"
+  - symbol: UPCOM
+    name: "UpCOM Index"
+    local_path: "historical/vietnam_index/UPCOME_index.csv"
+    unit: "point"
+  - symbol: VN30
+    name: "VN30 Index"
+    local_path: "historical/vietnam_index/VN30_index.csv"
+    unit: "point"
+  - symbol: HNX30
+    name: "HNX30 Index"
+    local_path: "historical/vietnam_index/HNX30_index.csv"
+    unit: "point"
