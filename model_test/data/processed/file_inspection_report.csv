@@ -1,0 +1,25 @@
+filename,size_kb,rows,columns,data_type,date_range,date_count,value_cols,missing_values,status
+cpi_mom.csv,27.4970703125,360,"['date', 'indicator', 'cpi', 'inflation', 'avg_year', 'unit', 'processing_date']",Economic,1995-01-01 to 2024-12-01,360,"['cpi', 'inflation']",0,✓ OK
+core_inflation_rate.csv,6.2978515625,131,"['date', 'indicator', 'value', 'unit', 'processing_date']",Currency,2015-04-01 to 2026-02-01,131,['value'],0,✓ OK
+cpi_base_year.csv,2.1708984375,30,"['date', 'indicator', 'prev_year_base', 'base_2000', 'base_2005', 'base_2010', 'unit', 'processing_date']",Economic,1995-01-01 to 2024-01-01,30,['base_2010'],0,✓ OK
+interest_rate.csv,48.7353515625,765,"['date', 'term', 'symbol', 'interest_rate', 'volume', 'source', 'processing_date']",Economic,2014-04-01 to 2026-04-14,765,['interest_rate'],0,✓ OK
+ppi_qoq.csv,1.4970703125,40,"['date', 'indicator', 'value', 'unit', 'processing_date']",Economic,2016-01-01 to 2025-10-01,40,['value'],0,✓ OK
+m2.csv,13.42578125,195,"['date', 'indicator', 'value', 'unit', 'source', 'processing_date']",Economic,2009-03-01 to 2026-01-01,195,['value'],0,✓ OK
+brent.csv,682.7265625,4658,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Commodity,2007-07-30 to 2026-04-17,4658,['close'],0,✓ OK
+wti.csv,945.828125,9260,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Commodity,1990-01-02 to 2026-04-17,9260,['close'],0,✓ OK
+gasoline.csv,72.064453125,1107,"['date', 'type', 'product', 'price', 'change', 'unit', 'source', 'processing_date']",Commodity,2018-06-09 to 2026-12-03,494,['price'],0,✓ OK
+gasoline_world.csv,815.837890625,6395,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Commodity,2000-01-11 to 2026-12-03,2534,['close'],0,✓ OK
+natural_gas.csv,992.9248046875,6437,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Commodity,2000-08-30 to 2026-04-17,6437,['close'],0,✓ OK
+gold.csv,855.2734375,6431,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Commodity,2000-08-30 to 2026-04-17,6431,['close'],0,✓ OK
+silver.csv,940.873046875,6433,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Commodity,2000-08-30 to 2026-04-17,6433,['close'],0,✓ OK
+VNINDEX.csv,636.5908203125,6240,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'change', 'source']",VN_Stock,2000-07-31 to 2026-03-18,6240,['close'],0,✓ OK
+VN30.csv,424.5673828125,4290,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'change', 'source']",VN_Stock,2009-01-05 to 2026-03-18,4290,['close'],0,✓ OK
+HNX.csv,484.7275390625,5071,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'change', 'source']",VN_Stock,2005-07-18 to 2026-03-18,5071,['close'],0,✓ OK
+UPCOM.csv,394.787109375,4177,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'change', 'source']",VN_Stock,2009-06-25 to 2026-03-18,4177,['close'],0,✓ OK
+NASDAQ.csv,1911.9423828125,13916,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Global_Stock,1971-02-05 to 2026-04-17,13916,['close'],0,✓ OK
+S&P500.csv,3449.123046875,24690,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Global_Stock,1927-12-30 to 2026-04-17,24690,['close'],0,✓ OK
+DAX.csv,1261.5263671875,9683,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Global_Stock,1987-12-30 to 2026-04-17,9683,['close'],0,✓ OK
+DOWJONES.csv,1160.9404296875,8634,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Currency,1992-01-02 to 2026-04-17,8634,['close'],0,✓ OK
+NIKKEI225.csv,1978.1005859375,15067,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Global_Stock,1965-01-05 to 2026-04-17,15067,['close'],0,✓ OK
+HANGSENG.csv,1256.2451171875,9696,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Global_Stock,1986-12-31 to 2026-04-17,9696,['close'],0,✓ OK
+USDVND.csv,812.5263671875,8264,"['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']",Currency,1994-08-05 to 2026-04-17,8264,['close'],0,✓ OK

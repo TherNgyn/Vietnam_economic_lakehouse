@@ -17,7 +17,6 @@ minio_client = Minio(
 
 MINIO_BUCKET = os.getenv("MINIO_BUCKET_BRONZE", "bronze")
 
-
 def _ensure_bucket():
     if not minio_client.bucket_exists(MINIO_BUCKET):
         minio_client.make_bucket(MINIO_BUCKET)

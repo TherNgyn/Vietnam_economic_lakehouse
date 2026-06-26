@@ -21,8 +21,7 @@ def clean_realtime_to_silver(asset_class='currency', symbol='USDVND', target_dat
     print(f"Cleaning {symbol} ({asset_class}) for {target_date}...")
     
     bronze_path = f"s3://{MINIO_BUCKET_BRONZE}/realtime/{asset_class}"
-    silver_path = f"s3://{MINIO_BUCKET_SILVER}/{asset_class}/{symbol}"  # ← Unified path
-    
+    silver_path = f"s3://{MINIO_BUCKET_SILVER}/{asset_class}/{symbol}" 
     # Read from Bronze
     try:
         dt = DeltaTable(bronze_path, storage_options=STORAGE_OPTIONS)

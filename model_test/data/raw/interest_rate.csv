@@ -1,0 +1,766 @@
+date,term,symbol,interest_rate,volume,source,processing_date
+2014-04-01,1 Month,1M,2.95,571,Viet Nam Central Bank,2026-04-18
+2014-04-01,1 Week,1W,2.48,4248,Viet Nam Central Bank,2026-04-18
+2014-04-01,2 Weeks,2W,2.69,1617,Viet Nam Central Bank,2026-04-18
+2014-04-01,3 Months,3M,3.85,20,Viet Nam Central Bank,2026-04-18
+2014-04-01,6 Months,6M,5.81,238,Viet Nam Central Bank,2026-04-18
+2014-04-01,9 Months,9M,7.0,22,Viet Nam Central Bank,2026-04-18
+2014-04-01,Overnight,ON,1.95,3124,Viet Nam Central Bank,2026-04-18
+2014-07-01,1 Month,1M,3.7,2865,Viet Nam Central Bank,2026-04-18
+2014-07-01,1 Week,1W,2.69,2974,Viet Nam Central Bank,2026-04-18
+2014-07-01,2 Weeks,2W,3.0,2567,Viet Nam Central Bank,2026-04-18
+2014-07-01,3 Months,3M,4.28,7627,Viet Nam Central Bank,2026-04-18
+2014-07-01,6 Months,6M,5.77,454,Viet Nam Central Bank,2026-04-18
+2014-07-01,9 Months,9M,7.0,4,Viet Nam Central Bank,2026-04-18
+2014-07-01,Overnight,ON,2.31,3240,Viet Nam Central Bank,2026-04-18
+2014-08-01,1 Month,1M,3.39,715,Viet Nam Central Bank,2026-04-18
+2014-08-01,1 Week,1W,2.8,8995,Viet Nam Central Bank,2026-04-18
+2014-08-01,2 Weeks,2W,3.09,4784,Viet Nam Central Bank,2026-04-18
+2014-08-01,3 Months,3M,4.23,3475,Viet Nam Central Bank,2026-04-18
+2014-08-01,6 Months,6M,6.0,513,Viet Nam Central Bank,2026-04-18
+2014-08-01,9 Months,9M,5.8,9,Viet Nam Central Bank,2026-04-18
+2014-08-01,Overnight,ON,2.42,5193,Viet Nam Central Bank,2026-04-18
+2014-10-01,1 Month,1M,2.47,853,Viet Nam Central Bank,2026-04-18
+2014-10-01,1 Week,1W,1.73,8496,Viet Nam Central Bank,2026-04-18
+2014-10-01,2 Weeks,2W,2.29,1751,Viet Nam Central Bank,2026-04-18
+2014-10-01,3 Months,3M,3.77,660,Viet Nam Central Bank,2026-04-18
+2014-10-01,6 Months,6M,4.31,374,Viet Nam Central Bank,2026-04-18
+2014-10-01,9 Months,9M,5.0,280,Viet Nam Central Bank,2026-04-18
+2014-10-01,Overnight,ON,1.42,6670,Viet Nam Central Bank,2026-04-18
+2014-12-01,1 Month,1M,4.1,88,Viet Nam Central Bank,2026-04-18
+2014-12-01,1 Week,1W,3.48,8406,Viet Nam Central Bank,2026-04-18
+2014-12-01,2 Weeks,2W,3.66,3196,Viet Nam Central Bank,2026-04-18
+2014-12-01,3 Months,3M,4.12,991,Viet Nam Central Bank,2026-04-18
+2014-12-01,6 Months,6M,4.5,100,Viet Nam Central Bank,2026-04-18
+2014-12-01,9 Months,9M,6.0,10,Viet Nam Central Bank,2026-04-18
+2014-12-01,Overnight,ON,3.14,6133,Viet Nam Central Bank,2026-04-18
+2015-04-01,1 Month,1M,4.7,1970,Viet Nam Central Bank,2026-04-18
+2015-04-01,1 Week,1W,3.85,11247,Viet Nam Central Bank,2026-04-18
+2015-04-01,2 Weeks,2W,4.14,2700,Viet Nam Central Bank,2026-04-18
+2015-04-01,3 Months,3M,4.55,450,Viet Nam Central Bank,2026-04-18
+2015-04-01,6 Months,6M,4.79,700,Viet Nam Central Bank,2026-04-18
+2015-04-01,9 Months,9M,4.27,35,Viet Nam Central Bank,2026-04-18
+2015-04-01,Overnight,ON,3.4,4805,Viet Nam Central Bank,2026-04-18
+2015-06-01,1 Month,1M,3.8,1882,Viet Nam Central Bank,2026-04-18
+2015-06-01,1 Week,1W,2.5,6088,Viet Nam Central Bank,2026-04-18
+2015-06-01,2 Weeks,2W,2.88,1237,Viet Nam Central Bank,2026-04-18
+2015-06-01,3 Months,3M,4.15,410,Viet Nam Central Bank,2026-04-18
+2015-06-01,6 Months,6M,4.5,124,Viet Nam Central Bank,2026-04-18
+2015-06-01,9 Months,9M,6.95,739,Viet Nam Central Bank,2026-04-18
+2015-06-01,Overnight,ON,1.85,6907,Viet Nam Central Bank,2026-04-18
+2015-07-01,1 Month,1M,4.0,1910,Viet Nam Central Bank,2026-04-18
+2015-07-01,1 Week,1W,3.55,6188,Viet Nam Central Bank,2026-04-18
+2015-07-01,2 Weeks,2W,4.03,795,Viet Nam Central Bank,2026-04-18
+2015-07-01,3 Months,3M,4.48,312,Viet Nam Central Bank,2026-04-18
+2015-07-01,6 Months,6M,5.2,100,Viet Nam Central Bank,2026-04-18
+2015-07-01,9 Months,9M,5.2,200,Viet Nam Central Bank,2026-04-18
+2015-07-01,Overnight,ON,3.11,7185,Viet Nam Central Bank,2026-04-18
+2015-09-01,1 Month,1M,4.31,1430,Viet Nam Central Bank,2026-04-18
+2015-09-01,1 Week,1W,4.17,11402,Viet Nam Central Bank,2026-04-18
+2015-09-01,2 Weeks,2W,4.34,1929,Viet Nam Central Bank,2026-04-18
+2015-09-01,3 Months,3M,4.1,1211,Viet Nam Central Bank,2026-04-18
+2015-09-01,6 Months,6M,4.88,87,Viet Nam Central Bank,2026-04-18
+2015-09-01,9 Months,9M,5.2,200,Viet Nam Central Bank,2026-04-18
+2015-09-01,Overnight,ON,4.11,8474,Viet Nam Central Bank,2026-04-18
+2015-10-01,1 Month,1M,4.21,620,Viet Nam Central Bank,2026-04-18
+2015-10-01,1 Week,1W,3.56,12958,Viet Nam Central Bank,2026-04-18
+2015-10-01,2 Weeks,2W,3.82,2352,Viet Nam Central Bank,2026-04-18
+2015-10-01,3 Months,3M,4.71,170,Viet Nam Central Bank,2026-04-18
+2015-10-01,6 Months,6M,4.9,300,Viet Nam Central Bank,2026-04-18
+2015-10-01,9 Months,9M,5.2,200,Viet Nam Central Bank,2026-04-18
+2015-10-01,Overnight,ON,3.1,4048,Viet Nam Central Bank,2026-04-18
+2015-12-01,1 Month,1M,4.12,2065,Viet Nam Central Bank,2026-04-18
+2015-12-01,1 Week,1W,4.02,7993,Viet Nam Central Bank,2026-04-18
+2015-12-01,2 Weeks,2W,4.22,2314,Viet Nam Central Bank,2026-04-18
+2015-12-01,3 Months,3M,4.66,603,Viet Nam Central Bank,2026-04-18
+2015-12-01,6 Months,6M,4.6,15,Viet Nam Central Bank,2026-04-18
+2015-12-01,9 Months,9M,6.5,1100,Viet Nam Central Bank,2026-04-18
+2015-12-01,Overnight,ON,3.49,5843,Viet Nam Central Bank,2026-04-18
+2016-02-01,1 Month,1M,5.6,2528,Viet Nam Central Bank,2026-04-18
+2016-02-01,1 Week,1W,5.22,4830,Viet Nam Central Bank,2026-04-18
+2016-02-01,2 Weeks,2W,5.5,2793,Viet Nam Central Bank,2026-04-18
+2016-02-01,3 Months,3M,5.62,110,Viet Nam Central Bank,2026-04-18
+2016-02-01,6 Months,6M,5.4,300,Viet Nam Central Bank,2026-04-18
+2016-02-01,9 Months,9M,6.5,1100,Viet Nam Central Bank,2026-04-18
+2016-02-01,Overnight,ON,5.38,9523,Viet Nam Central Bank,2026-04-18
+2016-03-01,1 Month,1M,4.18,935,Viet Nam Central Bank,2026-04-18
+2016-03-01,1 Week,1W,2.85,7820,Viet Nam Central Bank,2026-04-18
+2016-03-01,2 Weeks,2W,3.21,6260,Viet Nam Central Bank,2026-04-18
+2016-03-01,3 Months,3M,4.66,670,Viet Nam Central Bank,2026-04-18
+2016-03-01,6 Months,6M,4.58,57,Viet Nam Central Bank,2026-04-18
+2016-03-01,9 Months,9M,5.4,300,Viet Nam Central Bank,2026-04-18
+2016-03-01,Overnight,ON,2.4,8887,Viet Nam Central Bank,2026-04-18
+2016-04-01,1 Month,1M,4.51,1760,Viet Nam Central Bank,2026-04-18
+2016-04-01,1 Week,1W,4.29,6785,Viet Nam Central Bank,2026-04-18
+2016-04-01,2 Weeks,2W,4.59,4277,Viet Nam Central Bank,2026-04-18
+2016-04-01,3 Months,3M,4.51,929,Viet Nam Central Bank,2026-04-18
+2016-04-01,6 Months,6M,5.05,200,Viet Nam Central Bank,2026-04-18
+2016-04-01,9 Months,9M,5.4,300,Viet Nam Central Bank,2026-04-18
+2016-04-01,Overnight,ON,4.03,5798,Viet Nam Central Bank,2026-04-18
+2016-06-01,1 Month,1M,2.75,1650,Viet Nam Central Bank,2026-04-18
+2016-06-01,1 Week,1W,1.64,4248,Viet Nam Central Bank,2026-04-18
+2016-06-01,2 Weeks,2W,2.23,2010,Viet Nam Central Bank,2026-04-18
+2016-06-01,3 Months,3M,4.33,243,Viet Nam Central Bank,2026-04-18
+2016-06-01,6 Months,6M,4.7,10,Viet Nam Central Bank,2026-04-18
+2016-06-01,9 Months,9M,5.4,300,Viet Nam Central Bank,2026-04-18
+2016-06-01,Overnight,ON,1.35,4593,Viet Nam Central Bank,2026-04-18
+2016-07-01,1 Month,1M,2.4,2200,Viet Nam Central Bank,2026-04-18
+2016-07-01,1 Week,1W,1.65,10431,Viet Nam Central Bank,2026-04-18
+2016-07-01,2 Weeks,2W,2.03,2389,Viet Nam Central Bank,2026-04-18
+2016-07-01,3 Months,3M,4.12,260,Viet Nam Central Bank,2026-04-18
+2016-07-01,6 Months,6M,4.95,160,Viet Nam Central Bank,2026-04-18
+2016-07-01,9 Months,9M,5.4,300,Viet Nam Central Bank,2026-04-18
+2016-07-01,Overnight,ON,1.57,6835,Viet Nam Central Bank,2026-04-18
+2016-08-01,1 Month,1M,2.32,1261,Viet Nam Central Bank,2026-04-18
+2016-08-01,1 Week,1W,1.51,7823,Viet Nam Central Bank,2026-04-18
+2016-08-01,2 Weeks,2W,1.81,3659,Viet Nam Central Bank,2026-04-18
+2016-08-01,3 Months,3M,4.66,876,Viet Nam Central Bank,2026-04-18
+2016-08-01,6 Months,6M,5.0,12,Viet Nam Central Bank,2026-04-18
+2016-08-01,9 Months,9M,6.0,389,Viet Nam Central Bank,2026-04-18
+2016-08-01,Overnight,ON,1.49,6758,Viet Nam Central Bank,2026-04-18
+2016-09-01,1 Month,1M,1.28,1028,Viet Nam Central Bank,2026-04-18
+2016-09-01,1 Week,1W,0.6,18754,Viet Nam Central Bank,2026-04-18
+2016-09-01,2 Weeks,2W,0.78,8554,Viet Nam Central Bank,2026-04-18
+2016-09-01,3 Months,3M,3.6,48,Viet Nam Central Bank,2026-04-18
+2016-09-01,6 Months,6M,4.9,120,Viet Nam Central Bank,2026-04-18
+2016-09-01,9 Months,9M,6.0,470,Viet Nam Central Bank,2026-04-18
+2016-09-01,Overnight,ON,0.46,1010,Viet Nam Central Bank,2026-04-18
+2016-09-01,Unknown,Unknown,0.0,0,Viet Nam Central Bank,2026-04-18
+2016-11-01,1 Month,1M,1.5,1277,Viet Nam Central Bank,2026-04-18
+2016-11-01,1 Week,1W,1.08,5424,Viet Nam Central Bank,2026-04-18
+2016-11-01,2 Weeks,2W,1.2,740,Viet Nam Central Bank,2026-04-18
+2016-11-01,3 Months,3M,3.56,1594,Viet Nam Central Bank,2026-04-18
+2016-11-01,6 Months,6M,4.38,326,Viet Nam Central Bank,2026-04-18
+2016-11-01,9 Months,9M,4.75,7,Viet Nam Central Bank,2026-04-18
+2016-11-01,Overnight,ON,0.92,9645,Viet Nam Central Bank,2026-04-18
+2016-12-01,1 Month,1M,3.52,2215,Viet Nam Central Bank,2026-04-18
+2016-12-01,1 Week,1W,3.28,10764,Viet Nam Central Bank,2026-04-18
+2016-12-01,2 Weeks,2W,3.5,2458,Viet Nam Central Bank,2026-04-18
+2016-12-01,3 Months,3M,4.73,1885,Viet Nam Central Bank,2026-04-18
+2016-12-01,6 Months,6M,5.12,415,Viet Nam Central Bank,2026-04-18
+2016-12-01,9 Months,9M,4.75,8,Viet Nam Central Bank,2026-04-18
+2016-12-01,Overnight,ON,2.77,11905,Viet Nam Central Bank,2026-04-18
+2017-03-01,1 Month,1M,4.57,650,Viet Nam Central Bank,2026-04-18
+2017-03-01,1 Week,1W,4.17,8381,Viet Nam Central Bank,2026-04-18
+2017-03-01,2 Weeks,2W,4.32,3438,Viet Nam Central Bank,2026-04-18
+2017-03-01,3 Months,3M,5.03,54,Viet Nam Central Bank,2026-04-18
+2017-03-01,6 Months,6M,5.0,10,Viet Nam Central Bank,2026-04-18
+2017-03-01,9 Months,9M,5.8,10,Viet Nam Central Bank,2026-04-18
+2017-03-01,Overnight,ON,3.65,10635,Viet Nam Central Bank,2026-04-18
+2017-06-01,1 Month,1M,3.43,1272,Viet Nam Central Bank,2026-04-18
+2017-06-01,1 Week,1W,2.47,15212,Viet Nam Central Bank,2026-04-18
+2017-06-01,2 Weeks,2W,2.86,2460,Viet Nam Central Bank,2026-04-18
+2017-06-01,3 Months,3M,4.36,1680,Viet Nam Central Bank,2026-04-18
+2017-06-01,6 Months,6M,5.0,150,Viet Nam Central Bank,2026-04-18
+2017-06-01,9 Months,9M,5.8,10,Viet Nam Central Bank,2026-04-18
+2017-06-01,Overnight,ON,2.13,11509,Viet Nam Central Bank,2026-04-18
+2017-08-01,1 Month,1M,1.81,1103,Viet Nam Central Bank,2026-04-18
+2017-08-01,1 Week,1W,0.83,7428,Viet Nam Central Bank,2026-04-18
+2017-08-01,2 Weeks,2W,1.14,4767,Viet Nam Central Bank,2026-04-18
+2017-08-01,3 Months,3M,3.4,947,Viet Nam Central Bank,2026-04-18
+2017-08-01,6 Months,6M,4.4,150,Viet Nam Central Bank,2026-04-18
+2017-08-01,9 Months,9M,5.2,25,Viet Nam Central Bank,2026-04-18
+2017-08-01,Overnight,ON,0.58,11751,Viet Nam Central Bank,2026-04-18
+2017-08-01,Unknown,Unknown,0.0,0,Viet Nam Central Bank,2026-04-18
+2017-09-01,1 Month,1M,1.56,1324,Viet Nam Central Bank,2026-04-18
+2017-09-01,1 Week,1W,0.66,17169,Viet Nam Central Bank,2026-04-18
+2017-09-01,2 Weeks,2W,0.98,7554,Viet Nam Central Bank,2026-04-18
+2017-09-01,3 Months,3M,3.31,1940,Viet Nam Central Bank,2026-04-18
+2017-09-01,6 Months,6M,5.2,40,Viet Nam Central Bank,2026-04-18
+2017-09-01,9 Months,9M,5.2,25,Viet Nam Central Bank,2026-04-18
+2017-09-01,Overnight,ON,0.61,13171,Viet Nam Central Bank,2026-04-18
+2017-11-01,1 Month,1M,1.52,590,Viet Nam Central Bank,2026-04-18
+2017-11-01,1 Week,1W,1.06,8579,Viet Nam Central Bank,2026-04-18
+2017-11-01,2 Weeks,2W,1.08,5315,Viet Nam Central Bank,2026-04-18
+2017-11-01,3 Months,3M,3.44,662,Viet Nam Central Bank,2026-04-18
+2017-11-01,6 Months,6M,4.5,8,Viet Nam Central Bank,2026-04-18
+2017-11-01,9 Months,9M,4.5,6,Viet Nam Central Bank,2026-04-18
+2017-11-01,Overnight,ON,0.87,9662,Viet Nam Central Bank,2026-04-18
+2017-12-01,1 Month,1M,2.26,855,Viet Nam Central Bank,2026-04-18
+2017-12-01,1 Week,1W,1.52,5251,Viet Nam Central Bank,2026-04-18
+2017-12-01,2 Weeks,2W,1.29,3660,Viet Nam Central Bank,2026-04-18
+2017-12-01,3 Months,3M,4.6,"1,714",Viet Nam Central Bank,2026-04-18
+2017-12-01,6 Months,6M,5.23,80,Viet Nam Central Bank,2026-04-18
+2017-12-01,9 Months,9M,4.85,500,Viet Nam Central Bank,2026-04-18
+2017-12-01,Overnight,ON,0.88,15962,Viet Nam Central Bank,2026-04-18
+2018-02-01,1 Month,1M,3.62,2203,Viet Nam Central Bank,2026-04-18
+2018-02-01,1 Week,1W,1.7,9005,Viet Nam Central Bank,2026-04-18
+2018-02-01,2 Weeks,2W,2.06,310,Viet Nam Central Bank,2026-04-18
+2018-02-01,3 Months,3M,3.98,348,Viet Nam Central Bank,2026-04-18
+2018-02-01,6 Months,6M,4.95,40,Viet Nam Central Bank,2026-04-18
+2018-02-01,9 Months,9M,4.5,11,Viet Nam Central Bank,2026-04-18
+2018-02-01,Overnight,ON,1.76,10647,Viet Nam Central Bank,2026-04-18
+2018-03-01,1 Month,1M,3.36,2360,Viet Nam Central Bank,2026-04-18
+2018-03-01,1 Week,1W,1.33,9109,Viet Nam Central Bank,2026-04-18
+2018-03-01,2 Weeks,2W,1.6,3249,Viet Nam Central Bank,2026-04-18
+2018-03-01,3 Months,3M,3.3,624,Viet Nam Central Bank,2026-04-18
+2018-03-01,6 Months,6M,4.55,40,Viet Nam Central Bank,2026-04-18
+2018-03-01,9 Months,9M,4.5,11,Viet Nam Central Bank,2026-04-18
+2018-03-01,Overnight,ON,1.18,10468,Viet Nam Central Bank,2026-04-18
+2018-06-01,1 Month,1M,2.29,1025,Viet Nam Central Bank,2026-04-18
+2018-06-01,1 Week,1W,1.7,11524,Viet Nam Central Bank,2026-04-18
+2018-06-01,2 Weeks,2W,1.83,3148,Viet Nam Central Bank,2026-04-18
+2018-06-01,3 Months,3M,3.22,161,Viet Nam Central Bank,2026-04-18
+2018-06-01,6 Months,6M,4.29,51,Viet Nam Central Bank,2026-04-18
+2018-06-01,9 Months,9M,4.5,11,Viet Nam Central Bank,2026-04-18
+2018-06-01,Overnight,ON,1.6,16515,Viet Nam Central Bank,2026-04-18
+2018-08-01,1 Month,1M,3.3,652,Viet Nam Central Bank,2026-04-18
+2018-08-01,1 Week,1W,2.27,9806,Viet Nam Central Bank,2026-04-18
+2018-08-01,2 Weeks,2W,2.57,3588,Viet Nam Central Bank,2026-04-18
+2018-08-01,3 Months,3M,4.67,338,Viet Nam Central Bank,2026-04-18
+2018-08-01,6 Months,6M,5.1,40,Viet Nam Central Bank,2026-04-18
+2018-08-01,9 Months,9M,4.95,20,Viet Nam Central Bank,2026-04-18
+2018-08-01,Overnight,ON,1.89,10219,Viet Nam Central Bank,2026-04-18
+2018-10-01,1 Month,1M,3.9,1580,Viet Nam Central Bank,2026-04-18
+2018-10-01,1 Week,1W,3.27,6261,Viet Nam Central Bank,2026-04-18
+2018-10-01,2 Weeks,2W,3.44,2641,Viet Nam Central Bank,2026-04-18
+2018-10-01,3 Months,3M,4.43,260,Viet Nam Central Bank,2026-04-18
+2018-10-01,6 Months,6M,5.36,15,Viet Nam Central Bank,2026-04-18
+2018-10-01,9 Months,9M,4.9,20,Viet Nam Central Bank,2026-04-18
+2018-10-01,Overnight,ON,3.15,16497,Viet Nam Central Bank,2026-04-18
+2018-11-01,1 Month,1M,4.74,1582,Viet Nam Central Bank,2026-04-18
+2018-11-01,1 Week,1W,4.67,17223,Viet Nam Central Bank,2026-04-18
+2018-11-01,2 Weeks,2W,4.69,1399,Viet Nam Central Bank,2026-04-18
+2018-11-01,3 Months,3M,4.86,1530,Viet Nam Central Bank,2026-04-18
+2018-11-01,6 Months,6M,5.0,700,Viet Nam Central Bank,2026-04-18
+2018-11-01,9 Months,9M,5.12,3,Viet Nam Central Bank,2026-04-18
+2018-11-01,Overnight,ON,4.69,15604,Viet Nam Central Bank,2026-04-18
+2019-02-01,1 Month,1M,4.96,2791,Viet Nam Central Bank,2026-04-18
+2019-02-01,1 Week,1W,5.6,50,Viet Nam Central Bank,2026-04-18
+2019-02-01,2 Weeks,2W,5.03,47112,Viet Nam Central Bank,2026-04-18
+2019-02-01,3 Months,3M,6.28,218,Viet Nam Central Bank,2026-04-18
+2019-02-01,6 Months,6M,6.0,35,Viet Nam Central Bank,2026-04-18
+2019-02-01,9 Months,9M,5.26,300,Viet Nam Central Bank,2026-04-18
+2019-02-01,Overnight,ON,4.82,21940,Viet Nam Central Bank,2026-04-18
+2019-03-01,1 Month,1M,4.48,2741,Viet Nam Central Bank,2026-04-18
+2019-03-01,1 Week,1W,4.14,17172,Viet Nam Central Bank,2026-04-18
+2019-03-01,2 Weeks,2W,4.19,4530,Viet Nam Central Bank,2026-04-18
+2019-03-01,3 Months,3M,5.24,485,Viet Nam Central Bank,2026-04-18
+2019-03-01,6 Months,6M,5.78,30,Viet Nam Central Bank,2026-04-18
+2019-03-01,9 Months,9M,4.92,15,Viet Nam Central Bank,2026-04-18
+2019-03-01,Overnight,ON,4.12,30593,Viet Nam Central Bank,2026-04-18
+2019-04-01,1 Month,1M,4.21,2611,Viet Nam Central Bank,2026-04-18
+2019-04-01,1 Week,1W,4.37,9906,Viet Nam Central Bank,2026-04-18
+2019-04-01,2 Weeks,2W,4.36,3470,Viet Nam Central Bank,2026-04-18
+2019-04-01,3 Months,3M,4.22,927,Viet Nam Central Bank,2026-04-18
+2019-04-01,6 Months,6M,4.68,20,Viet Nam Central Bank,2026-04-18
+2019-04-01,9 Months,9M,4.5,1,Viet Nam Central Bank,2026-04-18
+2019-04-01,Overnight,ON,4.31,36415,Viet Nam Central Bank,2026-04-18
+2019-07-01,1 Month,1M,4.7,200,Viet Nam Central Bank,2026-04-18
+2019-07-01,1 Week,1W,3.97,10020,Viet Nam Central Bank,2026-04-18
+2019-07-01,2 Weeks,2W,3.87,4682,Viet Nam Central Bank,2026-04-18
+2019-07-01,3 Months,3M,4.38,1120,Viet Nam Central Bank,2026-04-18
+2019-07-01,6 Months,6M,5.31,119,Viet Nam Central Bank,2026-04-18
+2019-07-01,9 Months,9M,5.2,8,Viet Nam Central Bank,2026-04-18
+2019-07-01,Overnight,ON,4.05,49344,Viet Nam Central Bank,2026-04-18
+2019-08-01,1 Month,1M,3.53,600,Viet Nam Central Bank,2026-04-18
+2019-08-01,1 Week,1W,3.0,11160,Viet Nam Central Bank,2026-04-18
+2019-08-01,2 Weeks,2W,3.02,5981,Viet Nam Central Bank,2026-04-18
+2019-08-01,3 Months,3M,4.72,920,Viet Nam Central Bank,2026-04-18
+2019-08-01,6 Months,6M,5.17,40,Viet Nam Central Bank,2026-04-18
+2019-08-01,9 Months,9M,4.9,13,Viet Nam Central Bank,2026-04-18
+2019-08-01,Overnight,ON,2.88,31115,Viet Nam Central Bank,2026-04-18
+2019-10-01,1 Month,1M,3.19,325,Viet Nam Central Bank,2026-04-18
+2019-10-01,1 Week,1W,2.46,7881,Viet Nam Central Bank,2026-04-18
+2019-10-01,2 Weeks,2W,2.74,2755,Viet Nam Central Bank,2026-04-18
+2019-10-01,3 Months,3M,4.15,280,Viet Nam Central Bank,2026-04-18
+2019-10-01,6 Months,6M,5.35,52,Viet Nam Central Bank,2026-04-18
+2019-10-01,9 Months,9M,5.72,1,Viet Nam Central Bank,2026-04-18
+2019-10-01,Overnight,ON,2.2,30614,Viet Nam Central Bank,2026-04-18
+2019-11-01,1 Month,1M,2.36,1310,Viet Nam Central Bank,2026-04-18
+2019-11-01,1 Week,1W,2.02,8325,Viet Nam Central Bank,2026-04-18
+2019-11-01,2 Weeks,2W,2.12,8418,Viet Nam Central Bank,2026-04-18
+2019-11-01,3 Months,3M,4.56,730,Viet Nam Central Bank,2026-04-18
+2019-11-01,6 Months,6M,4.63,1287,Viet Nam Central Bank,2026-04-18
+2019-11-01,9 Months,9M,4.65,9,Viet Nam Central Bank,2026-04-18
+2019-11-01,Overnight,ON,1.74,29119,Viet Nam Central Bank,2026-04-18
+2020-04-01,1 Month,1M,3.57,930,Viet Nam Central Bank,2026-04-18
+2020-04-01,1 Week,1W,3.07,5760,Viet Nam Central Bank,2026-04-18
+2020-04-01,2 Weeks,2W,2.71,315,Viet Nam Central Bank,2026-04-18
+2020-04-01,3 Months,3M,3.48,942,Viet Nam Central Bank,2026-04-18
+2020-04-01,6 Months,6M,5.14,28,Viet Nam Central Bank,2026-04-18
+2020-04-01,9 Months,9M,5.53,100,Viet Nam Central Bank,2026-04-18
+2020-04-01,Overnight,ON,3.27,45683,Viet Nam Central Bank,2026-04-18
+2020-06-01,1 Month,1M,1.41,502,Viet Nam Central Bank,2026-04-18
+2020-06-01,1 Week,1W,0.61,7778,Viet Nam Central Bank,2026-04-18
+2020-06-01,2 Weeks,2W,0.82,2207,Viet Nam Central Bank,2026-04-18
+2020-06-01,3 Months,3M,2.91,189,Viet Nam Central Bank,2026-04-18
+2020-06-01,6 Months,6M,4.44,121,Viet Nam Central Bank,2026-04-18
+2020-06-01,9 Months,9M,4.84,4,Viet Nam Central Bank,2026-04-18
+2020-06-01,Overnight,ON,0.46,46267,Viet Nam Central Bank,2026-04-18
+2020-07-01,1 Month,1M,1.1,500,Viet Nam Central Bank,2026-04-18
+2020-07-01,1 Week,1W,0.33,6533,Viet Nam Central Bank,2026-04-18
+2020-07-01,2 Weeks,2W,0.35,4025,Viet Nam Central Bank,2026-04-18
+2020-07-01,3 Months,3M,2.16,532,Viet Nam Central Bank,2026-04-18
+2020-07-01,6 Months,6M,4.09,89,Viet Nam Central Bank,2026-04-18
+2020-07-01,9 Months,9M,4.7,1,Viet Nam Central Bank,2026-04-18
+2020-07-01,Overnight,ON,0.13,39161,Viet Nam Central Bank,2026-04-18
+2020-09-01,1 Month,1M,0.4,1768,Viet Nam Central Bank,2026-04-18
+2020-09-01,1 Week,1W,0.28,12016,Viet Nam Central Bank,2026-04-18
+2020-09-01,2 Weeks,2W,0.29,2203,Viet Nam Central Bank,2026-04-18
+2020-09-01,3 Months,3M,3.58,235,Viet Nam Central Bank,2026-04-18
+2020-09-01,6 Months,6M,3.17,100,Viet Nam Central Bank,2026-04-18
+2020-09-01,9 Months,9M,3.3,3,Viet Nam Central Bank,2026-04-18
+2020-09-01,Overnight,ON,0.16,46180,Viet Nam Central Bank,2026-04-18
+2020-10-01,1 Month,1M,0.5,1501,Viet Nam Central Bank,2026-04-18
+2020-10-01,1 Week,1W,0.17,9678,Viet Nam Central Bank,2026-04-18
+2020-10-01,2 Weeks,2W,0.23,7311,Viet Nam Central Bank,2026-04-18
+2020-10-01,3 Months,3M,1.26,278,Viet Nam Central Bank,2026-04-18
+2020-10-01,6 Months,6M,3.44,27,Viet Nam Central Bank,2026-04-18
+2020-10-01,9 Months,9M,4.42,28,Viet Nam Central Bank,2026-04-18
+2020-10-01,Overnight,ON,0.11,40595,Viet Nam Central Bank,2026-04-18
+2020-12-01,1 Month,1M,0.62,295,Viet Nam Central Bank,2026-04-18
+2020-12-01,1 Week,1W,0.14,9086,Viet Nam Central Bank,2026-04-18
+2020-12-01,2 Weeks,2W,0.2,6474,Viet Nam Central Bank,2026-04-18
+2020-12-01,3 Months,3M,1.2,4598,Viet Nam Central Bank,2026-04-18
+2020-12-01,6 Months,6M,2.76,81,Viet Nam Central Bank,2026-04-18
+2020-12-01,9 Months,9M,3.33,1,Viet Nam Central Bank,2026-04-18
+2020-12-01,Overnight,ON,0.1,47548,Viet Nam Central Bank,2026-04-18
+2021-02-01,1 Month,1M,1.34,5191,Viet Nam Central Bank,2026-04-18
+2021-02-01,1 Week,1W,0.66,14190,Viet Nam Central Bank,2026-04-18
+2021-02-01,2 Weeks,2W,1.4,100,Viet Nam Central Bank,2026-04-18
+2021-02-01,3 Months,3M,1.37,4232,Viet Nam Central Bank,2026-04-18
+2021-02-01,6 Months,6M,3.58,6,Viet Nam Central Bank,2026-04-18
+2021-02-01,9 Months,9M,4.22,4,Viet Nam Central Bank,2026-04-18
+2021-02-01,Overnight,ON,0.6,88468,Viet Nam Central Bank,2026-04-18
+2021-03-01,1 Month,1M,0.75,3699,Viet Nam Central Bank,2026-04-18
+2021-03-01,1 Week,1W,0.56,9328,Viet Nam Central Bank,2026-04-18
+2021-03-01,2 Weeks,2W,0.58,8111,Viet Nam Central Bank,2026-04-18
+2021-03-01,3 Months,3M,2.25,2131,Viet Nam Central Bank,2026-04-18
+2021-03-01,6 Months,6M,2.66,301,Viet Nam Central Bank,2026-04-18
+2021-03-01,9 Months,9M,4.03,7,Viet Nam Central Bank,2026-04-18
+2021-03-01,Overnight,ON,0.4,77539,Viet Nam Central Bank,2026-04-18
+2021-04-01,1 Month,1M,0.74,1022,Viet Nam Central Bank,2026-04-18
+2021-04-01,1 Week,1W,0.35,17202,Viet Nam Central Bank,2026-04-18
+2021-04-01,2 Weeks,2W,0.43,7048,Viet Nam Central Bank,2026-04-18
+2021-04-01,3 Months,3M,1.27,403,Viet Nam Central Bank,2026-04-18
+2021-04-01,6 Months,6M,2.59,79,Viet Nam Central Bank,2026-04-18
+2021-04-01,9 Months,9M,2.79,118,Viet Nam Central Bank,2026-04-18
+2021-04-01,Overnight,ON,0.25,81252,Viet Nam Central Bank,2026-04-18
+2021-06-01,1 Month,1M,1.77,3316,Viet Nam Central Bank,2026-04-18
+2021-06-01,1 Week,1W,1.63,13100,Viet Nam Central Bank,2026-04-18
+2021-06-01,2 Weeks,2W,1.7,5375,Viet Nam Central Bank,2026-04-18
+2021-06-01,3 Months,3M,1.98,1614,Viet Nam Central Bank,2026-04-18
+2021-06-01,6 Months,6M,2.63,284,Viet Nam Central Bank,2026-04-18
+2021-06-01,9 Months,9M,3.17,4,Viet Nam Central Bank,2026-04-18
+2021-06-01,Overnight,ON,1.54,72439,Viet Nam Central Bank,2026-04-18
+2021-07-01,1 Month,1M,1.93,1500,Viet Nam Central Bank,2026-04-18
+2021-07-01,1 Week,1W,1.29,11436,Viet Nam Central Bank,2026-04-18
+2021-07-01,2 Weeks,2W,1.32,7118,Viet Nam Central Bank,2026-04-18
+2021-07-01,3 Months,3M,2.01,667,Viet Nam Central Bank,2026-04-18
+2021-07-01,6 Months,6M,2.67,350,Viet Nam Central Bank,2026-04-18
+2021-07-01,9 Months,9M,2.95,23,Viet Nam Central Bank,2026-04-18
+2021-07-01,Overnight,ON,1.09,115543,Viet Nam Central Bank,2026-04-18
+2021-09-01,1 Month,1M,2.89,485,Viet Nam Central Bank,2026-04-18
+2021-09-01,1 Week,1W,0.7,109759,Viet Nam Central Bank,2026-04-18
+2021-09-01,2 Weeks,2W,0.91,6442,Viet Nam Central Bank,2026-04-18
+2021-09-01,3 Months,3M,1.77,1532,Viet Nam Central Bank,2026-04-18
+2021-09-01,6 Months,6M,3.18,248,Viet Nam Central Bank,2026-04-18
+2021-09-01,9 Months,9M,3.73,19,Viet Nam Central Bank,2026-04-18
+2021-09-01,Overnight,ON,0.5,800,Viet Nam Central Bank,2026-04-18
+2021-10-01,1 Month,1M,1.58,3491,Viet Nam Central Bank,2026-04-18
+2021-10-01,1 Week,1W,0.78,13785,Viet Nam Central Bank,2026-04-18
+2021-10-01,2 Weeks,2W,0.89,6245,Viet Nam Central Bank,2026-04-18
+2021-10-01,3 Months,3M,1.66,46,Viet Nam Central Bank,2026-04-18
+2021-10-01,6 Months,6M,2.44,285,Viet Nam Central Bank,2026-04-18
+2021-10-01,9 Months,9M,3.7,18,Viet Nam Central Bank,2026-04-18
+2021-10-01,Overnight,ON,0.66,107672,Viet Nam Central Bank,2026-04-18
+2021-11-01,1 Month,1M,1.06,920,Viet Nam Central Bank,2026-04-18
+2021-11-01,1 Week,1W,0.67,15250,Viet Nam Central Bank,2026-04-18
+2021-11-01,2 Weeks,2W,0.81,4108,Viet Nam Central Bank,2026-04-18
+2021-11-01,3 Months,3M,2.65,1305,Viet Nam Central Bank,2026-04-18
+2021-11-01,6 Months,6M,2.95,205,Viet Nam Central Bank,2026-04-18
+2021-11-01,9 Months,9M,3.6,20,Viet Nam Central Bank,2026-04-18
+2021-11-01,Overnight,ON,0.6,109835,Viet Nam Central Bank,2026-04-18
+2021-12-01,1 Month,1M,1.16,1900,Viet Nam Central Bank,2026-04-18
+2021-12-01,1 Week,1W,0.75,13598,Viet Nam Central Bank,2026-04-18
+2021-12-01,2 Weeks,2W,0.88,5643,Viet Nam Central Bank,2026-04-18
+2021-12-01,3 Months,3M,2.23,1100,Viet Nam Central Bank,2026-04-18
+2021-12-01,6 Months,6M,2.56,423,Viet Nam Central Bank,2026-04-18
+2021-12-01,9 Months,9M,3.8,5,Viet Nam Central Bank,2026-04-18
+2021-12-01,Overnight,ON,0.65,117690,Viet Nam Central Bank,2026-04-18
+2022-03-01,1 Month,1M,2.66,4300,Viet Nam Central Bank,2026-04-18
+2022-03-01,1 Week,1W,2.6,12980,Viet Nam Central Bank,2026-04-18
+2022-03-01,2 Weeks,2W,2.62,4200,Viet Nam Central Bank,2026-04-18
+2022-03-01,3 Months,3M,2.85,1655,Viet Nam Central Bank,2026-04-18
+2022-03-01,6 Months,6M,3.81,300,Viet Nam Central Bank,2026-04-18
+2022-03-01,9 Months,9M,3.96,7,Viet Nam Central Bank,2026-04-18
+2022-03-01,Overnight,ON,2.54,178381,Viet Nam Central Bank,2026-04-18
+2022-04-01,1 Month,1M,2.63,1431,Viet Nam Central Bank,2026-04-18
+2022-04-01,1 Week,1W,2.25,11209,Viet Nam Central Bank,2026-04-18
+2022-04-01,2 Weeks,2W,2.47,7060,Viet Nam Central Bank,2026-04-18
+2022-04-01,3 Months,3M,3.33,1771,Viet Nam Central Bank,2026-04-18
+2022-04-01,6 Months,6M,3.67,330,Viet Nam Central Bank,2026-04-18
+2022-04-01,9 Months,9M,4.02,2,Viet Nam Central Bank,2026-04-18
+2022-04-01,Overnight,ON,2.08,174268,Viet Nam Central Bank,2026-04-18
+2022-06-01,1 Month,1M,2.33,1860,Viet Nam Central Bank,2026-04-18
+2022-06-01,1 Week,1W,1.24,17890,Viet Nam Central Bank,2026-04-18
+2022-06-01,2 Weeks,2W,1.78,2010,Viet Nam Central Bank,2026-04-18
+2022-06-01,3 Months,3M,3.09,2820,Viet Nam Central Bank,2026-04-18
+2022-06-01,6 Months,6M,3.8,515,Viet Nam Central Bank,2026-04-18
+2022-06-01,9 Months,9M,4.28,7,Viet Nam Central Bank,2026-04-18
+2022-06-01,Overnight,ON,0.48,169047,Viet Nam Central Bank,2026-04-18
+2022-07-01,1 Month,1M,2.21,1316,Viet Nam Central Bank,2026-04-18
+2022-07-01,1 Week,1W,1.42,13180,Viet Nam Central Bank,2026-04-18
+2022-07-01,2 Weeks,2W,1.84,3095,Viet Nam Central Bank,2026-04-18
+2022-07-01,3 Months,3M,3.13,3042,Viet Nam Central Bank,2026-04-18
+2022-07-01,6 Months,6M,4.31,480,Viet Nam Central Bank,2026-04-18
+2022-07-01,9 Months,9M,4.38,30,Viet Nam Central Bank,2026-04-18
+2022-07-01,Overnight,ON,0.87,179944,Viet Nam Central Bank,2026-04-18
+2022-08-01,1 Month,1M,4.54,490,Viet Nam Central Bank,2026-04-18
+2022-08-01,1 Week,1W,4.34,15439,Viet Nam Central Bank,2026-04-18
+2022-08-01,2 Weeks,2W,4.52,2230,Viet Nam Central Bank,2026-04-18
+2022-08-01,3 Months,3M,5.44,326,Viet Nam Central Bank,2026-04-18
+2022-08-01,6 Months,6M,5.75,196,Viet Nam Central Bank,2026-04-18
+2022-08-01,9 Months,9M,5.79,15,Viet Nam Central Bank,2026-04-18
+2022-08-01,Overnight,ON,4.18,244507,Viet Nam Central Bank,2026-04-18
+2022-11-01,1 Month,1M,11.25,760,Viet Nam Central Bank,2026-04-18
+2022-11-01,1 Week,1W,7.28,2185,Viet Nam Central Bank,2026-04-18
+2022-11-01,2 Weeks,2W,6.01,3400,Viet Nam Central Bank,2026-04-18
+2022-11-01,3 Months,3M,9.43,1031,Viet Nam Central Bank,2026-04-18
+2022-11-01,6 Months,6M,9.9,132,Viet Nam Central Bank,2026-04-18
+2022-11-01,9 Months,9M,7.65,95,Viet Nam Central Bank,2026-04-18
+2022-11-01,Overnight,ON,6.61,175677,Viet Nam Central Bank,2026-04-18
+2023-02-01,1 Month,1M,7.81,2460,Viet Nam Central Bank,2026-04-18
+2023-02-01,1 Week,1W,6.64,21823,Viet Nam Central Bank,2026-04-18
+2023-02-01,2 Weeks,2W,6.0,4921,Viet Nam Central Bank,2026-04-18
+2023-02-01,3 Months,3M,8.11,3003,Viet Nam Central Bank,2026-04-18
+2023-02-01,6 Months,6M,11.62,40,Viet Nam Central Bank,2026-04-18
+2023-02-01,9 Months,9M,9.61,120,Viet Nam Central Bank,2026-04-18
+2023-02-01,Overnight,ON,6.26,219291,Viet Nam Central Bank,2026-04-18
+2023-03-01,1 Month,1M,7.18,842,Viet Nam Central Bank,2026-04-18
+2023-03-01,1 Week,1W,6.28,22480,Viet Nam Central Bank,2026-04-18
+2023-03-01,2 Weeks,2W,5.91,5600,Viet Nam Central Bank,2026-04-18
+2023-03-01,3 Months,3M,7.65,884,Viet Nam Central Bank,2026-04-18
+2023-03-01,6 Months,6M,9.91,398,Viet Nam Central Bank,2026-04-18
+2023-03-01,9 Months,9M,9.61,120,Viet Nam Central Bank,2026-04-18
+2023-03-01,Overnight,ON,5.97,158129,Viet Nam Central Bank,2026-04-18
+2023-06-01,1 Month,1M,5.7,590,Viet Nam Central Bank,2026-04-18
+2023-06-01,1 Week,1W,4.2,19415,Viet Nam Central Bank,2026-04-18
+2023-06-01,2 Weeks,2W,4.29,11887,Viet Nam Central Bank,2026-04-18
+2023-06-01,3 Months,3M,6.1,1197,Viet Nam Central Bank,2026-04-18
+2023-06-01,6 Months,6M,7.47,57,Viet Nam Central Bank,2026-04-18
+2023-06-01,9 Months,9M,8.76,3,Viet Nam Central Bank,2026-04-18
+2023-06-01,Overnight,ON,4.07,163545,Viet Nam Central Bank,2026-04-18
+2023-08-01,1 Month,1M,1.32,1390,Viet Nam Central Bank,2026-04-18
+2023-08-01,1 Week,1W,0.54,14717,Viet Nam Central Bank,2026-04-18
+2023-08-01,2 Weeks,2W,0.61,9370,Viet Nam Central Bank,2026-04-18
+2023-08-01,3 Months,3M,3.51,1005,Viet Nam Central Bank,2026-04-18
+2023-08-01,6 Months,6M,6.53,318,Viet Nam Central Bank,2026-04-18
+2023-08-01,9 Months,9M,7.59,6,Viet Nam Central Bank,2026-04-18
+2023-08-01,Overnight,ON,0.22,226894,Viet Nam Central Bank,2026-04-18
+2023-11-01,1 Month,1M,2.08,1740,Viet Nam Central Bank,2026-04-18
+2023-11-01,1 Week,1W,1.49,13604,Viet Nam Central Bank,2026-04-18
+2023-11-01,2 Weeks,2W,1.68,2289,Viet Nam Central Bank,2026-04-18
+2023-11-01,3 Months,3M,3.69,2582,Viet Nam Central Bank,2026-04-18
+2023-11-01,6 Months,6M,5.22,108,Viet Nam Central Bank,2026-04-18
+2023-11-01,9 Months,9M,6.6,5,Viet Nam Central Bank,2026-04-18
+2023-11-01,Overnight,ON,1.05,221035,Viet Nam Central Bank,2026-04-18
+2024-02-01,1 Month,1M,1.74,8740,Viet Nam Central Bank,2026-04-18
+2024-02-01,1 Week,1W,1.12,5905,Viet Nam Central Bank,2026-04-18
+2024-02-01,2 Weeks,2W,1.93,8310,Viet Nam Central Bank,2026-04-18
+2024-02-01,3 Months,3M,2.75,291,Viet Nam Central Bank,2026-04-18
+2024-02-01,6 Months,6M,4.07,358,Viet Nam Central Bank,2026-04-18
+2024-02-01,9 Months,9M,5.46,7,Viet Nam Central Bank,2026-04-18
+2024-02-01,Overnight,ON,1.05,298803,Viet Nam Central Bank,2026-04-18
+2024-03-01,1 Month,1M,1.94,500,Viet Nam Central Bank,2026-04-18
+2024-03-01,1 Week,1W,1.68,27380,Viet Nam Central Bank,2026-04-18
+2024-03-01,2 Weeks,2W,1.68,13960,Viet Nam Central Bank,2026-04-18
+2024-03-01,3 Months,3M,2.86,815,Viet Nam Central Bank,2026-04-18
+2024-03-01,6 Months,6M,3.93,231,Viet Nam Central Bank,2026-04-18
+2024-03-01,9 Months,9M,5.45,8,Viet Nam Central Bank,2026-04-18
+2024-03-01,Overnight,ON,1.47,299541,Viet Nam Central Bank,2026-04-18
+2024-04-01,1 Month,1M,3.66,1250,Viet Nam Central Bank,2026-04-18
+2024-04-01,1 Week,1W,3.78,9807,Viet Nam Central Bank,2026-04-18
+2024-04-01,2 Weeks,2W,3.52,10520,Viet Nam Central Bank,2026-04-18
+2024-04-01,3 Months,3M,3.97,1375,Viet Nam Central Bank,2026-04-18
+2024-04-01,6 Months,6M,4.41,104,Viet Nam Central Bank,2026-04-18
+2024-04-01,9 Months,9M,5.14,114,Viet Nam Central Bank,2026-04-18
+2024-04-01,Overnight,ON,3.45,272026,Viet Nam Central Bank,2026-04-18
+2024-07-01,1 Month,1M,4.63,4260,Viet Nam Central Bank,2026-04-18
+2024-07-01,1 Week,1W,4.86,8140,Viet Nam Central Bank,2026-04-18
+2024-07-01,2 Weeks,2W,4.63,2700,Viet Nam Central Bank,2026-04-18
+2024-07-01,3 Months,3M,5.63,12,Viet Nam Central Bank,2026-04-18
+2024-07-01,6 Months,6M,5.85,19,Viet Nam Central Bank,2026-04-18
+2024-07-01,9 Months,9M,5.93,25,Viet Nam Central Bank,2026-04-18
+2024-07-01,Overnight,ON,4.76,284482,Viet Nam Central Bank,2026-04-18
+2024-08-01,1 Month,1M,4.66,6970,Viet Nam Central Bank,2026-04-18
+2024-08-01,1 Week,1W,4.66,27865,Viet Nam Central Bank,2026-04-18
+2024-08-01,2 Weeks,2W,4.76,3880,Viet Nam Central Bank,2026-04-18
+2024-08-01,3 Months,3M,5.81,751,Viet Nam Central Bank,2026-04-18
+2024-08-01,6 Months,6M,5.37,144,Viet Nam Central Bank,2026-04-18
+2024-08-01,9 Months,9M,6.14,1,Viet Nam Central Bank,2026-04-18
+2024-08-01,Overnight,ON,4.6,286740,Viet Nam Central Bank,2026-04-18
+2024-10-01,1 Month,1M,4.32,4015,Viet Nam Central Bank,2026-04-18
+2024-10-01,1 Week,1W,4.31,16810,Viet Nam Central Bank,2026-04-18
+2024-10-01,2 Weeks,2W,4.2,6086,Viet Nam Central Bank,2026-04-18
+2024-10-01,3 Months,3M,4.53,990,Viet Nam Central Bank,2026-04-18
+2024-10-01,6 Months,6M,5.34,29,Viet Nam Central Bank,2026-04-18
+2024-10-01,9 Months,9M,5.82,6,Viet Nam Central Bank,2026-04-18
+2024-10-01,Overnight,ON,4.31,345310,Viet Nam Central Bank,2026-04-18
+2024-11-01,1 Month,1M,4.81,3900,Viet Nam Central Bank,2026-04-18
+2024-11-01,1 Week,1W,4.16,16798,Viet Nam Central Bank,2026-04-18
+2024-11-01,2 Weeks,2W,4.04,3410,Viet Nam Central Bank,2026-04-18
+2024-11-01,3 Months,3M,4.95,1702,Viet Nam Central Bank,2026-04-18
+2024-11-01,6 Months,6M,5.1,58,Viet Nam Central Bank,2026-04-18
+2024-11-01,9 Months,9M,5.58,6,Viet Nam Central Bank,2026-04-18
+2024-11-01,Overnight,ON,4.02,309271,Viet Nam Central Bank,2026-04-18
+2025-04-01,1 Month,1M,4.68,1150,Viet Nam Central Bank,2026-04-18
+2025-04-01,1 Week,1W,4.69,7400,Viet Nam Central Bank,2026-04-18
+2025-04-01,2 Weeks,2W,4.58,5364,Viet Nam Central Bank,2026-04-18
+2025-04-01,3 Months,3M,5.52,1487,Viet Nam Central Bank,2026-04-18
+2025-04-01,6 Months,6M,5.25,9489,Viet Nam Central Bank,2026-04-18
+2025-04-01,9 Months,9M,5.0,300,Viet Nam Central Bank,2026-04-18
+2025-04-01,Overnight,ON,4.56,420395,Viet Nam Central Bank,2026-04-18
+2025-07-01,1 Month,1M,4.04,1670,Viet Nam Central Bank,2026-04-18
+2025-07-01,1 Week,1W,4.97,11400,Viet Nam Central Bank,2026-04-18
+2025-07-01,2 Weeks,2W,4.49,1943,Viet Nam Central Bank,2026-04-18
+2025-07-01,3 Months,3M,5.01,2180,Viet Nam Central Bank,2026-04-18
+2025-07-01,6 Months,6M,4.75,100,Viet Nam Central Bank,2026-04-18
+2025-07-01,9 Months,9M,5.3,2,Viet Nam Central Bank,2026-04-18
+2025-07-01,Overnight,ON,4.84,572700,Viet Nam Central Bank,2026-04-18
+2025-08-01,1 Month,1M,4.51,2540,Viet Nam Central Bank,2026-04-18
+2025-08-01,1 Week,1W,5.35,11080,Viet Nam Central Bank,2026-04-18
+2025-08-01,2 Weeks,2W,5.07,2455,Viet Nam Central Bank,2026-04-18
+2025-08-01,3 Months,3M,5.46,4610,Viet Nam Central Bank,2026-04-18
+2025-08-01,6 Months,6M,5.1,102,Viet Nam Central Bank,2026-04-18
+2025-08-01,9 Months,9M,5.44,2,Viet Nam Central Bank,2026-04-18
+2025-08-01,Overnight,ON,5.36,549255,Viet Nam Central Bank,2026-04-18
+2025-10-01,1 Month,1M,4.99,1660,Viet Nam Central Bank,2026-04-18
+2025-10-01,1 Week,1W,4.78,15875,Viet Nam Central Bank,2026-04-18
+2025-10-01,2 Weeks,2W,4.87,3977,Viet Nam Central Bank,2026-04-18
+2025-10-01,3 Months,3M,4.9,2648,Viet Nam Central Bank,2026-04-18
+2025-10-01,6 Months,6M,5.7,395,Viet Nam Central Bank,2026-04-18
+2025-10-01,9 Months,9M,5.02,50,Viet Nam Central Bank,2026-04-18
+2025-10-01,Overnight,ON,4.51,579457,Viet Nam Central Bank,2026-04-18
+2026-02-23,1 Month,1M,7.1,100,Viet Nam Central Bank,2026-04-18
+2026-02-23,1 Week,1W,6.91,17248,Viet Nam Central Bank,2026-04-18
+2026-02-23,2 Weeks,2W,6.38,1960,Viet Nam Central Bank,2026-04-18
+2026-02-23,3 Months,3M,7.42,312,Viet Nam Central Bank,2026-04-18
+2026-02-23,6 Months,6M,7.82,70,Viet Nam Central Bank,2026-04-18
+2026-02-23,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-02-23,Overnight,ON,6.39,920090,Viet Nam Central Bank,2026-04-18
+2026-02-24,1 Month,1M,6.81,1423,Viet Nam Central Bank,2026-04-18
+2026-02-24,1 Week,1W,5.54,34759,Viet Nam Central Bank,2026-04-18
+2026-02-24,2 Weeks,2W,6.09,27350,Viet Nam Central Bank,2026-04-18
+2026-02-24,3 Months,3M,7.44,5300,Viet Nam Central Bank,2026-04-18
+2026-02-24,6 Months,6M,7.82,70,Viet Nam Central Bank,2026-04-18
+2026-02-24,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-02-24,Overnight,ON,4.47,436522,Viet Nam Central Bank,2026-04-18
+2026-02-25,1 Month,1M,7.24,8548,Viet Nam Central Bank,2026-04-18
+2026-02-25,1 Week,1W,5.7,117616,Viet Nam Central Bank,2026-04-18
+2026-02-25,2 Weeks,2W,6.28,40660,Viet Nam Central Bank,2026-04-18
+2026-02-25,3 Months,3M,7.42,11944,Viet Nam Central Bank,2026-04-18
+2026-02-25,6 Months,6M,8.65,363,Viet Nam Central Bank,2026-04-18
+2026-02-25,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-02-25,Overnight,ON,3.67,870135,Viet Nam Central Bank,2026-04-18
+2026-02-26,1 Month,1M,7.31,4201,Viet Nam Central Bank,2026-04-18
+2026-02-26,1 Week,1W,5.62,92459,Viet Nam Central Bank,2026-04-18
+2026-02-26,2 Weeks,2W,6.36,12220,Viet Nam Central Bank,2026-04-18
+2026-02-26,3 Months,3M,7.4,5864,Viet Nam Central Bank,2026-04-18
+2026-02-26,6 Months,6M,8.0,130,Viet Nam Central Bank,2026-04-18
+2026-02-26,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-02-26,Overnight,ON,2.83,850103,Viet Nam Central Bank,2026-04-18
+2026-02-27,1 Month,1M,7.19,3262,Viet Nam Central Bank,2026-04-18
+2026-02-27,1 Week,1W,6.56,39565,Viet Nam Central Bank,2026-04-18
+2026-02-27,2 Weeks,2W,6.36,8875,Viet Nam Central Bank,2026-04-18
+2026-02-27,3 Months,3M,7.29,6027,Viet Nam Central Bank,2026-04-18
+2026-02-27,6 Months,6M,7.8,100,Viet Nam Central Bank,2026-04-18
+2026-02-27,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-02-27,Overnight,ON,4.7,1122943,Viet Nam Central Bank,2026-04-18
+2026-03-02,1 Month,1M,7.85,2280,Viet Nam Central Bank,2026-04-18
+2026-03-02,1 Week,1W,10.77,6420,Viet Nam Central Bank,2026-04-18
+2026-03-02,2 Weeks,2W,9.03,2615,Viet Nam Central Bank,2026-04-18
+2026-03-02,3 Months,3M,7.49,3515,Viet Nam Central Bank,2026-04-18
+2026-03-02,6 Months,6M,7.8,100,Viet Nam Central Bank,2026-04-18
+2026-03-02,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-02,Overnight,ON,11.21,886158,Viet Nam Central Bank,2026-04-18
+2026-03-03,1 Month,1M,7.78,7284,Viet Nam Central Bank,2026-04-18
+2026-03-03,1 Week,1W,8.83,15290,Viet Nam Central Bank,2026-04-18
+2026-03-03,2 Weeks,2W,8.56,3020,Viet Nam Central Bank,2026-04-18
+2026-03-03,3 Months,3M,8.1,2229,Viet Nam Central Bank,2026-04-18
+2026-03-03,6 Months,6M,7.8,100,Viet Nam Central Bank,2026-04-18
+2026-03-03,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-03,Overnight,ON,10.11,895760,Viet Nam Central Bank,2026-04-18
+2026-03-04,1 Month,1M,7.82,5030,Viet Nam Central Bank,2026-04-18
+2026-03-04,1 Week,1W,9.0,21720,Viet Nam Central Bank,2026-04-18
+2026-03-04,2 Weeks,2W,7.87,4799,Viet Nam Central Bank,2026-04-18
+2026-03-04,3 Months,3M,8.2,2774,Viet Nam Central Bank,2026-04-18
+2026-03-04,6 Months,6M,7.35,12,Viet Nam Central Bank,2026-04-18
+2026-03-04,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-04,Overnight,ON,10.62,856640,Viet Nam Central Bank,2026-04-18
+2026-03-05,1 Month,1M,7.06,16213,Viet Nam Central Bank,2026-04-18
+2026-03-05,1 Week,1W,6.07,25305,Viet Nam Central Bank,2026-04-18
+2026-03-05,2 Weeks,2W,7.75,4630,Viet Nam Central Bank,2026-04-18
+2026-03-05,3 Months,3M,7.93,6494,Viet Nam Central Bank,2026-04-18
+2026-03-05,6 Months,6M,7.62,104,Viet Nam Central Bank,2026-04-18
+2026-03-05,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-05,Overnight,ON,5.74,816965,Viet Nam Central Bank,2026-04-18
+2026-03-06,1 Month,1M,7.24,13628,Viet Nam Central Bank,2026-04-18
+2026-03-06,1 Week,1W,5.2,22995,Viet Nam Central Bank,2026-04-18
+2026-03-06,2 Weeks,2W,6.15,7690,Viet Nam Central Bank,2026-04-18
+2026-03-06,3 Months,3M,7.56,12830,Viet Nam Central Bank,2026-04-18
+2026-03-06,6 Months,6M,8.38,266,Viet Nam Central Bank,2026-04-18
+2026-03-06,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-06,Overnight,ON,4.61,815844,Viet Nam Central Bank,2026-04-18
+2026-03-09,1 Month,1M,7.13,5244,Viet Nam Central Bank,2026-04-18
+2026-03-09,1 Week,1W,6.42,18860,Viet Nam Central Bank,2026-04-18
+2026-03-09,2 Weeks,2W,6.7,7915,Viet Nam Central Bank,2026-04-18
+2026-03-09,3 Months,3M,7.35,5060,Viet Nam Central Bank,2026-04-18
+2026-03-09,6 Months,6M,7.53,1124,Viet Nam Central Bank,2026-04-18
+2026-03-09,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-09,Overnight,ON,6.01,810053,Viet Nam Central Bank,2026-04-18
+2026-03-10,1 Month,1M,7.16,2949,Viet Nam Central Bank,2026-04-18
+2026-03-10,1 Week,1W,6.23,14060,Viet Nam Central Bank,2026-04-18
+2026-03-10,2 Weeks,2W,6.68,10000,Viet Nam Central Bank,2026-04-18
+2026-03-10,3 Months,3M,7.54,11414,Viet Nam Central Bank,2026-04-18
+2026-03-10,6 Months,6M,7.39,3701,Viet Nam Central Bank,2026-04-18
+2026-03-10,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-10,Overnight,ON,5.75,786655,Viet Nam Central Bank,2026-04-18
+2026-03-11,1 Month,1M,7.22,1748,Viet Nam Central Bank,2026-04-18
+2026-03-11,1 Week,1W,5.27,19265,Viet Nam Central Bank,2026-04-18
+2026-03-11,2 Weeks,2W,6.05,9120,Viet Nam Central Bank,2026-04-18
+2026-03-11,3 Months,3M,7.8,6350,Viet Nam Central Bank,2026-04-18
+2026-03-11,6 Months,6M,7.88,540,Viet Nam Central Bank,2026-04-18
+2026-03-11,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-11,Overnight,ON,4.56,774030,Viet Nam Central Bank,2026-04-18
+2026-03-12,1 Month,1M,7.14,1074,Viet Nam Central Bank,2026-04-18
+2026-03-12,1 Week,1W,5.07,9823,Viet Nam Central Bank,2026-04-18
+2026-03-12,2 Weeks,2W,5.6,8699,Viet Nam Central Bank,2026-04-18
+2026-03-12,3 Months,3M,7.89,6135,Viet Nam Central Bank,2026-04-18
+2026-03-12,6 Months,6M,7.55,962,Viet Nam Central Bank,2026-04-18
+2026-03-12,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-12,Overnight,ON,4.24,767295,Viet Nam Central Bank,2026-04-18
+2026-03-13,1 Month,1M,7.47,2280,Viet Nam Central Bank,2026-04-18
+2026-03-13,1 Week,1W,4.61,15145,Viet Nam Central Bank,2026-04-18
+2026-03-13,2 Weeks,2W,5.36,8760,Viet Nam Central Bank,2026-04-18
+2026-03-13,3 Months,3M,7.87,5710,Viet Nam Central Bank,2026-04-18
+2026-03-13,6 Months,6M,7.76,2136,Viet Nam Central Bank,2026-04-18
+2026-03-13,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-13,Overnight,ON,4.0,769726,Viet Nam Central Bank,2026-04-18
+2026-03-16,1 Month,1M,7.61,5458,Viet Nam Central Bank,2026-04-18
+2026-03-16,1 Week,1W,4.48,22045,Viet Nam Central Bank,2026-04-18
+2026-03-16,2 Weeks,2W,5.34,6150,Viet Nam Central Bank,2026-04-18
+2026-03-16,3 Months,3M,7.36,8146,Viet Nam Central Bank,2026-04-18
+2026-03-16,6 Months,6M,7.74,756,Viet Nam Central Bank,2026-04-18
+2026-03-16,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-16,Overnight,ON,3.96,770090,Viet Nam Central Bank,2026-04-18
+2026-03-17,1 Month,1M,7.69,3726,Viet Nam Central Bank,2026-04-18
+2026-03-17,1 Week,1W,5.28,15048,Viet Nam Central Bank,2026-04-18
+2026-03-17,2 Weeks,2W,5.58,10920,Viet Nam Central Bank,2026-04-18
+2026-03-17,3 Months,3M,8.05,4750,Viet Nam Central Bank,2026-04-18
+2026-03-17,6 Months,6M,8.11,581,Viet Nam Central Bank,2026-04-18
+2026-03-17,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-17,Overnight,ON,4.47,790920,Viet Nam Central Bank,2026-04-18
+2026-03-18,1 Month,1M,7.43,1526,Viet Nam Central Bank,2026-04-18
+2026-03-18,1 Week,1W,5.45,15318,Viet Nam Central Bank,2026-04-18
+2026-03-18,2 Weeks,2W,6.58,10432,Viet Nam Central Bank,2026-04-18
+2026-03-18,3 Months,3M,7.86,8775,Viet Nam Central Bank,2026-04-18
+2026-03-18,6 Months,6M,8.11,581,Viet Nam Central Bank,2026-04-18
+2026-03-18,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-18,Overnight,ON,4.56,799645,Viet Nam Central Bank,2026-04-18
+2026-03-19,1 Month,1M,7.2,7588,Viet Nam Central Bank,2026-04-18
+2026-03-19,1 Week,1W,5.64,11161,Viet Nam Central Bank,2026-04-18
+2026-03-19,2 Weeks,2W,7.15,18706,Viet Nam Central Bank,2026-04-18
+2026-03-19,3 Months,3M,7.89,8193,Viet Nam Central Bank,2026-04-18
+2026-03-19,6 Months,6M,7.72,2715,Viet Nam Central Bank,2026-04-18
+2026-03-19,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-19,Overnight,ON,4.6,778905,Viet Nam Central Bank,2026-04-18
+2026-03-20,1 Month,1M,7.48,3850,Viet Nam Central Bank,2026-04-18
+2026-03-20,1 Week,1W,5.01,18320,Viet Nam Central Bank,2026-04-18
+2026-03-20,2 Weeks,2W,6.97,29700,Viet Nam Central Bank,2026-04-18
+2026-03-20,3 Months,3M,7.87,7935,Viet Nam Central Bank,2026-04-18
+2026-03-20,6 Months,6M,8.1,56,Viet Nam Central Bank,2026-04-18
+2026-03-20,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-20,Overnight,ON,4.2,780509,Viet Nam Central Bank,2026-04-18
+2026-03-23,1 Month,1M,7.83,2291,Viet Nam Central Bank,2026-04-18
+2026-03-23,1 Week,1W,6.47,25010,Viet Nam Central Bank,2026-04-18
+2026-03-23,2 Weeks,2W,7.45,19400,Viet Nam Central Bank,2026-04-18
+2026-03-23,3 Months,3M,7.59,3278,Viet Nam Central Bank,2026-04-18
+2026-03-23,6 Months,6M,7.59,640,Viet Nam Central Bank,2026-04-18
+2026-03-23,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-23,Overnight,ON,5.38,781165,Viet Nam Central Bank,2026-04-18
+2026-03-24,1 Month,1M,7.8,2482,Viet Nam Central Bank,2026-04-18
+2026-03-24,1 Week,1W,8.66,22186,Viet Nam Central Bank,2026-04-18
+2026-03-24,2 Weeks,2W,8.92,30550,Viet Nam Central Bank,2026-04-18
+2026-03-24,3 Months,3M,8.13,5110,Viet Nam Central Bank,2026-04-18
+2026-03-24,6 Months,6M,7.8,351,Viet Nam Central Bank,2026-04-18
+2026-03-24,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-24,Overnight,ON,8.05,794597,Viet Nam Central Bank,2026-04-18
+2026-03-25,1 Month,1M,7.56,2764,Viet Nam Central Bank,2026-04-18
+2026-03-25,1 Week,1W,7.87,36418,Viet Nam Central Bank,2026-04-18
+2026-03-25,2 Weeks,2W,8.96,8500,Viet Nam Central Bank,2026-04-18
+2026-03-25,3 Months,3M,7.93,6562,Viet Nam Central Bank,2026-04-18
+2026-03-25,6 Months,6M,7.4,1001,Viet Nam Central Bank,2026-04-18
+2026-03-25,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-25,Overnight,ON,6.86,739407,Viet Nam Central Bank,2026-04-18
+2026-03-26,1 Month,1M,7.15,3237,Viet Nam Central Bank,2026-04-18
+2026-03-26,1 Week,1W,6.58,79992,Viet Nam Central Bank,2026-04-18
+2026-03-26,2 Weeks,2W,8.11,6445,Viet Nam Central Bank,2026-04-18
+2026-03-26,3 Months,3M,7.96,7009,Viet Nam Central Bank,2026-04-18
+2026-03-26,6 Months,6M,8.37,701,Viet Nam Central Bank,2026-04-18
+2026-03-26,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-26,Overnight,ON,4.53,749500,Viet Nam Central Bank,2026-04-18
+2026-03-27,1 Month,1M,7.5,2200,Viet Nam Central Bank,2026-04-18
+2026-03-27,1 Week,1W,6.61,66263,Viet Nam Central Bank,2026-04-18
+2026-03-27,2 Weeks,2W,7.85,9000,Viet Nam Central Bank,2026-04-18
+2026-03-27,3 Months,3M,7.69,1893,Viet Nam Central Bank,2026-04-18
+2026-03-27,6 Months,6M,7.75,701,Viet Nam Central Bank,2026-04-18
+2026-03-27,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-27,Overnight,ON,4.63,736110,Viet Nam Central Bank,2026-04-18
+2026-03-30,1 Month,1M,7.4,200,Viet Nam Central Bank,2026-04-18
+2026-03-30,1 Week,1W,11.27,52465,Viet Nam Central Bank,2026-04-18
+2026-03-30,2 Weeks,2W,8.94,1951,Viet Nam Central Bank,2026-04-18
+2026-03-30,3 Months,3M,7.6,2897,Viet Nam Central Bank,2026-04-18
+2026-03-30,6 Months,6M,7.75,1461,Viet Nam Central Bank,2026-04-18
+2026-03-30,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-30,Overnight,ON,11.42,826561,Viet Nam Central Bank,2026-04-18
+2026-03-31,1 Month,1M,7.06,1600,Viet Nam Central Bank,2026-04-18
+2026-03-31,1 Week,1W,8.74,23925,Viet Nam Central Bank,2026-04-18
+2026-03-31,2 Weeks,2W,7.87,1675,Viet Nam Central Bank,2026-04-18
+2026-03-31,3 Months,3M,8.39,8406,Viet Nam Central Bank,2026-04-18
+2026-03-31,6 Months,6M,8.25,51,Viet Nam Central Bank,2026-04-18
+2026-03-31,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-03-31,Overnight,ON,9.57,1159047,Viet Nam Central Bank,2026-04-18
+2026-04-01,1 Month,1M,7.98,1990,Viet Nam Central Bank,2026-04-18
+2026-04-01,1 Week,1W,8.56,27780,Viet Nam Central Bank,2026-04-18
+2026-04-01,2 Weeks,2W,7.95,1550,Viet Nam Central Bank,2026-04-18
+2026-04-01,3 Months,3M,8.3,4190,Viet Nam Central Bank,2026-04-18
+2026-04-01,6 Months,6M,7.2,261,Viet Nam Central Bank,2026-04-18
+2026-04-01,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-04-01,Overnight,ON,8.81,800145,Viet Nam Central Bank,2026-04-18
+2026-04-02,1 Month,1M,7.95,2678,Viet Nam Central Bank,2026-04-18
+2026-04-02,1 Week,1W,8.58,18592,Viet Nam Central Bank,2026-04-18
+2026-04-02,2 Weeks,2W,7.14,2049,Viet Nam Central Bank,2026-04-18
+2026-04-02,3 Months,3M,7.63,2365,Viet Nam Central Bank,2026-04-18
+2026-04-02,6 Months,6M,7.42,77,Viet Nam Central Bank,2026-04-18
+2026-04-02,9 Months,9M,7.82,160,Viet Nam Central Bank,2026-04-18
+2026-04-02,Overnight,ON,8.69,767505,Viet Nam Central Bank,2026-04-18
+2026-04-03,1 Month,1M,7.77,5318,Viet Nam Central Bank,2026-04-18
+2026-04-03,1 Week,1W,6.16,15695,Viet Nam Central Bank,2026-04-18
+2026-04-03,2 Weeks,2W,6.56,9040,Viet Nam Central Bank,2026-04-18
+2026-04-03,3 Months,3M,7.71,8993,Viet Nam Central Bank,2026-04-18
+2026-04-03,6 Months,6M,8.3,501,Viet Nam Central Bank,2026-04-18
+2026-04-03,9 Months,9M,8.3,80,Viet Nam Central Bank,2026-04-18
+2026-04-03,Overnight,ON,6.29,779551,Viet Nam Central Bank,2026-04-18
+2026-04-06,1 Month,1M,7.63,6527,Viet Nam Central Bank,2026-04-18
+2026-04-06,1 Week,1W,8.21,6300,Viet Nam Central Bank,2026-04-18
+2026-04-06,2 Weeks,2W,7.91,5430,Viet Nam Central Bank,2026-04-18
+2026-04-06,3 Months,3M,7.8,6319,Viet Nam Central Bank,2026-04-18
+2026-04-06,6 Months,6M,8.63,571,Viet Nam Central Bank,2026-04-18
+2026-04-06,9 Months,9M,8.3,80,Viet Nam Central Bank,2026-04-18
+2026-04-06,Overnight,ON,8.58,789811,Viet Nam Central Bank,2026-04-18
+2026-04-07,1 Month,1M,7.63,6527,Viet Nam Central Bank,2026-04-18
+2026-04-07,1 Week,1W,8.21,6300,Viet Nam Central Bank,2026-04-18
+2026-04-07,2 Weeks,2W,7.91,5430,Viet Nam Central Bank,2026-04-18
+2026-04-07,3 Months,3M,7.8,6319,Viet Nam Central Bank,2026-04-18
+2026-04-07,6 Months,6M,8.63,571,Viet Nam Central Bank,2026-04-18
+2026-04-07,9 Months,9M,8.3,80,Viet Nam Central Bank,2026-04-18
+2026-04-07,Overnight,ON,8.58,789811,Viet Nam Central Bank,2026-04-18
+2026-04-14,1 Month,1M,7.56,8902,Viet Nam Central Bank,2026-04-18
+2026-04-14,1 Week,1W,6.49,12580,Viet Nam Central Bank,2026-04-18
+2026-04-14,2 Weeks,2W,6.56,8430,Viet Nam Central Bank,2026-04-18
+2026-04-14,3 Months,3M,7.83,5352,Viet Nam Central Bank,2026-04-18
+2026-04-14,6 Months,6M,8.26,3400,Viet Nam Central Bank,2026-04-18
+2026-04-14,9 Months,9M,8.3,80,Viet Nam Central Bank,2026-04-18
+2026-04-14,Overnight,ON,5.94,787509,Viet Nam Central Bank,2026-04-18

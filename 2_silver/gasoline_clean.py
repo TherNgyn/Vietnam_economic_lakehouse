@@ -3,7 +3,7 @@ import numpy as np
 from datetime import datetime
 import re
 
-df = pd.read_csv('./historical_dataset/gasoline_prices.csv')
+df = pd.read_csv('./historical_dataset/product_world/gasoline_prices.csv')
 def standardize_source(source):
     source_lower = str(source).lower()
     if 'pvoil' in source_lower:
