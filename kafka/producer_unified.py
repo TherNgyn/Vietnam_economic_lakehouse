@@ -10,24 +10,38 @@ import yfinance as yf
 import numpy as np
 
 KAFKA_BROKER = os.getenv("KAFKA_BROKER", "kafka:29092")
-
+print(f"DEBUG: Thư mục làm việc hiện tại: {os.getcwd()}")
+print("DEBUG: Cấu trúc thư mục tại gốc /app:")
+try:
+    # Liệt kê đệ quy một cấp để xem bên trong app có gì
+    for root, dirs, files in os.walk('/app'):
+        print(f"  {root} -> {dirs}")
+        break 
+except Exception as e:
+    print(f"DEBUG: Không thể liệt kê /app: {e}")
 kafka_producer = KafkaProducer(
     bootstrap_servers=[KAFKA_BROKER],
     value_serializer=lambda v: json.dumps(v, default=str).encode('utf-8'),
     acks='all',
     retries=3
 )
+BASE_PATH = "/app"
+YAML_DIR = os.path.join(BASE_PATH, "ingestion", "api_loaders", "yaml")
+
+def load_config(filename):
+    path = os.path.join(YAML_DIR, filename)
+    if not os.path.exists(path):
+        content = os.listdir(YAML_DIR) if os.path.exists(YAML_DIR) else "Thư mục không tồn tại"
+        raise FileNotFoundError(f"Không tìm thấy file {filename} tại {path}. Danh sách hiện tại: {content}")
+    
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
 try:
-    with open("./ingestion/api_loaders/yaml/index_world.yaml", "r", encoding="utf-8") as f:
-        INDEX_WORLD_CONFIG = yaml.safe_load(f)
-    with open("./ingestion/api_loaders/yaml/product_list.yaml", "r", encoding="utf-8") as f:
-        PRODUCT_CONFIG = yaml.safe_load(f)
-    print("[INIT] ✓ YAML configs loaded")
-except FileNotFoundError as e:
-    print(f"[ERROR] File not found: {e}")
-    exit(1)
+    INDEX_WORLD_CONFIG = load_config("index_world.yaml")
+    PRODUCT_CONFIG = load_config("product_list.yaml")
+    print("[INIT] ✓ YAML configs loaded successfully")
 except Exception as e:
-    print(f"[ERROR] Config loading failed: {e}")
+    print(f"[ERROR] {e}")
     exit(1)
 
 def producer_currency():

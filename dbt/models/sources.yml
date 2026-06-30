@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: silver
+    schema: silver
+    tables:
+      - name: gdp
+      - name: investment
+      - name: international_ecommerce
+      - name: forestry
+      - name: livestock
+      - name: aquatic_products
+      - name: industry_product
+      - name: investment_by_sector
+      - name: annual_crops
+      - name: staple_crops
+      - name: perennial_crops
+      - name: m2
+      - name: core_inflation_rate
+      - name: cpi_mom
+      - name: cpi_base_year
+      - name: ppi_qoq
+      - name: broad_money
+      - name: gasoline
+      - name: interest_rate
+      - name: ohlc_currency
+      - name: ohlc_index
+      - name: ohlc_commodity
+      - name: ohlc_vietnam_index
