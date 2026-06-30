@@ -1,0 +1,105 @@
+2011:
+  fixed_mapping:
+    "bieusolieu_4": 4
+    "bieusolieu5": 5
+    "bieu-0911": 9
+  prefix_extract: "bieu-"
+
+2012:
+  fixed_mapping:
+    "thang8": 8
+    "solieu-9.": 9
+    "bieu-2012-1": 12
+  prefix_extract: "bieu-"
+
+2013:
+  split_rules:
+    - indicator: "so-lieu-"
+      delimiter: "-"
+      index: 0
+  prefix_extract: "bieu-"
+
+2014:
+  fixed_mapping:
+    "tong-hop-bieu-2": 12
+  prefix_extract: "bieu-"
+
+2015:
+  fixed_mapping:
+    "bieu-2015": 12
+  regex_patterns:
+    - "bieu-th-(\\d+)"
+    - "bieu-th-(\\d+)"
+    - "bieu-(\\d+)"
+    - "th-(\\d+)"
+
+2016:
+  fixed_mapping:
+    "bieu-2016": 12
+    "2.-bieu-solieu-t10": 10
+    "2.-bieu-solieu-t8": 8
+  prefix_extract: "bieu-"
+
+2017:
+  fixed_mapping:
+    "03-bieu-2017": 12
+    "03-bieu.--9-2017": 9
+    "bieu-bao-cao-thang-6": 6
+  regex_patterns:
+    - "bieu-t(\\d{1,2})"
+    - "bieu-(\\d{1,2})"
+    - "thang-(\\d{1,2})"
+    - "t(\\d{1,2})"
+
+2018:
+  fixed_mapping:
+    "03-so-lieu-2018-1": 12
+  regex_patterns:
+    - "bieu-(\\d+)"
+
+2019:
+  fixed_mapping:
+    "03-bieu-2019": 12
+  regex_patterns:
+    - "tháng-(\\d+)"
+    - "bieu-(\\d+)"
+
+2020:
+  fixed_mapping:
+    "03-bieu-2020": 12
+  regex_patterns:
+    - "bieu-t?(\\d+)"
+
+2021:
+  fixed_mapping:
+    "03-bieu-2021-28.12": 12
+  regex_patterns:
+    - "bieu-t?(\\d+)"
+
+2022:
+  fixed_mapping:
+    "03-bieu-2022": 12
+  regex_patterns:
+    - "bieu-t?(\\d+)"
+
+2023:
+  regex_patterns:
+    - "bieu-t?(\\d+)"
+    - "so-lieu-(\\d+)"
+
+2024:
+  regex_patterns:
+    - "bieu-t?(\\d+)"
+
+2025:
+  regex_patterns:
+    - 'bieu-t(\d{1,2})'
+    - 'so-lieu-t(\d{1,2})'
+    - 'bieu-(\d{1,2})(?=[\.-])'
+    - 'thang-(\d{1,2})'
+    - 'so-lieu-(\d{1,2})-thang'
+    - '(?<!\d)t(\d{1,2})(?=[\.-])'
+
+2026:
+  regex_patterns:
+    - "bieu-t?(\\d+)"

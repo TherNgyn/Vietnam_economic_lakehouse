@@ -1,0 +1,109 @@
+version: 2
+
+models:
+  - name: dim_time
+    columns:
+      - name: time_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_source
+    columns:
+      - name: source_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_unit
+    columns:
+      - name: unit_key
+        tests:
+          - not_null
+          - unique
+      - name: unit_type_key
+        tests:
+          - relationships:
+              to: ref('dim_unit_type')
+              field: unit_type_key
+
+  - name: dim_indicator
+    columns:
+      - name: indicator_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_asset
+    columns:
+      - name: asset_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_product
+    columns:
+      - name: product_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_crop
+    columns:
+      - name: crop_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_sub_sector
+    columns:
+      - name: sub_sector_key
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_macro_indicator
+    columns:
+      - name: fact_key
+        tests:
+          - not_null
+          - unique
+      - name: time_key
+        tests:
+          - relationships:
+              to: ref('dim_time')
+              field: time_key
+      - name: indicator_key
+        tests:
+          - relationships:
+              to: ref('dim_indicator')
+              field: indicator_key
+
+  - name: fact_ohlc
+    columns:
+      - name: fact_ohlc_key
+        tests:
+          - not_null
+          - unique
+      - name: time_key
+        tests:
+          - relationships:
+              to: ref('dim_time')
+              field: time_key
+      - name: asset_key
+        tests:
+          - relationships:
+              to: ref('dim_asset')
+              field: asset_key
+
+  - name: fact_gdp
+    columns:
+      - name: fact_gdp_key
+        tests:
+          - not_null
+          - unique
+      - name: sub_sector_key
+        tests:
+          - relationships:
+              to: ref('dim_sub_sector')
+              field: sub_sector_key
