@@ -122,6 +122,10 @@ def main_func():
         processed += 1
         print(f"Tải thành công: tháng {month} - năm {year}")
 
+    print('BẮT ĐẦU TRÍCH XUẤT DỮ LIỆU INVESTMENT BY SECTOR')
+    excel_file = get_investment_by_sector_raw_data()
+    extract_data_from_Investment_by_Sector(excel_file)
+    
     print(f"Hoàn tất: đã xử lý {processed}/{len(objects)} file lên SILVER LAYER")
 
 main_func()
