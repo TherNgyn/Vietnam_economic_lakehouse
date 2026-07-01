@@ -5,8 +5,7 @@ USER root
 # Cài đặt curl và wget
 RUN apt-get update && apt-get install -y curl wget && rm -rf /var/lib/apt/lists/*
 # Cài pandas
-RUN pip3 install pandas pyarrow numpy==1.26.4 openpyxl minio pyyaml
-
+RUN pip3 install pandas pyarrow numpy==1.26.4 openpyxl minio pyyaml boto3
 
 
 # Tạo thư mục Ivy cache
