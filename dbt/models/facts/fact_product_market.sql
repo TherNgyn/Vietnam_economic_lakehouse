@@ -1,13 +1,12 @@
-fact_product_market.sql{{
+{{
     config(
-        materialized='incremental',
-        unique_key='fact_product_key'
+        materialized='delta_table'
     )
 }}
 
 with joined as (
     select
-        cast(date_format(p.report_date, 'yyyyMMdd') as int) as time_key,
+        cast(date_format(to_date(p.report_date), 'yyyyMMdd') as int) as time_key,
         dp.product_key,
         u.unit_key,
         s.source_key,

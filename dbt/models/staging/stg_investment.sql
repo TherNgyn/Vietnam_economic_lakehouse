@@ -4,7 +4,7 @@ select
     cast(concat(cast(`year` as string), '-01-01') as string) as report_date,
     name as sector_name,
     name as sub_sector_name,
-    cast(value as decimal(38,10)) as investment_value,
+    cast(value as decimal(38,10)) as market_value,
     unit as unit_name,
     'GSO_EXCEL' as source_name,
     'YEARLY' as period_grain,

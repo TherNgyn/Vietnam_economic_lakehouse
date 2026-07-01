@@ -1,4 +1,8 @@
-{{ config(materialized='delta_table') }}
+
+        CREATE TABLE gold_marts.mart_macro_metrics
+        USING DELTA
+        AS
+        
 
 with base as (
     select
@@ -16,16 +20,16 @@ with base as (
         s.source_name,
         f.period_grain,
         f.value
-    from {{ ref('fact_macro_indicator') }} f
-    left join {{ ref('dim_time') }} t
+    from gold_gold.fact_macro_indicator f
+    left join gold_gold.dim_time t
         on f.time_key = t.time_key
-    left join {{ ref('dim_indicator') }} i
+    left join gold_gold.dim_indicator i
         on f.indicator_key = i.indicator_key
-    left join {{ ref('dim_indicator_group') }} ig
+    left join gold_gold.dim_indicator_group ig
         on i.indicator_group_key = ig.indicator_group_key
-    left join {{ ref('dim_unit') }} u
+    left join gold_gold.dim_unit u
         on f.unit_key = u.unit_key
-    left join {{ ref('dim_source') }} s
+    left join gold_gold.dim_source s
         on f.source_key = s.source_key
 ),
 
@@ -52,12 +56,19 @@ calc as (
 select
     *,
     value - prev_value as change_value,
-    {{ safe_divide('value - prev_value', 'prev_value') }} * 100 as growth_pct,
+    
+    value - prev_value / nullif(prev_value, 0)
+ * 100 as growth_pct,
 
     value - same_period_last_year_value as yoy_change_value,
-    {{ safe_divide('value - same_period_last_year_value', 'same_period_last_year_value') }} * 100 as yoy_growth_pct,
+    
+    value - same_period_last_year_value / nullif(same_period_last_year_value, 0)
+ * 100 as yoy_growth_pct,
 
     value - prev_4_period_value as qoq_change_value,
-    {{ safe_divide('value - prev_4_period_value', 'prev_4_period_value') }} * 100 as qoq_growth_pct
+    
+    value - prev_4_period_value / nullif(prev_4_period_value, 0)
+ * 100 as qoq_growth_pct
 
 from calc
+    

@@ -25,7 +25,5 @@ models:
 
 
     marts:
-      +materialized: table
+      +materialized: delta_table
       +schema: marts
-      +file_format: delta
-      +pre-hook: "DROP TABLE IF EXISTS {{ this }}"

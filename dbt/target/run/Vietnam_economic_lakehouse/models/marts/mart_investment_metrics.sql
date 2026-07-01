@@ -1,4 +1,8 @@
-{{ config(materialized='delta_table') }}
+
+        CREATE TABLE gold_marts.mart_investment_metrics
+        USING DELTA
+        AS
+        
 
 with base as (
     select
@@ -11,14 +15,14 @@ with base as (
         f.unit_key,
         u.unit_name,
         f.market_value as investment_value
-    from {{ ref('fact_investment') }} f
-    left join {{ ref('dim_time') }} t
+    from gold_gold.fact_investment f
+    left join gold_gold.dim_time t
         on f.time_key = t.time_key
-    left join {{ ref('dim_sub_sector') }} ss
+    left join gold_gold.dim_sub_sector ss
         on f.sub_sector_key = ss.sub_sector_key
-    left join {{ ref('dim_sector') }} s
+    left join gold_gold.dim_sector s
         on ss.sector_key = s.sector_key
-    left join {{ ref('dim_unit') }} u
+    left join gold_gold.dim_unit u
         on f.unit_key = u.unit_key
 ),
 
@@ -39,6 +43,11 @@ calc as (
 select
     *,
     investment_value - prev_investment_value as investment_growth_value,
-    {{ safe_divide('investment_value - prev_investment_value', 'prev_investment_value') }} * 100 as investment_growth_pct,
-    {{ safe_divide('investment_value', 'total_investment_value') }} * 100 as investment_share_pct
+    
+    investment_value - prev_investment_value / nullif(prev_investment_value, 0)
+ * 100 as investment_growth_pct,
+    
+    investment_value / nullif(total_investment_value, 0)
+ * 100 as investment_share_pct
 from calc
+    

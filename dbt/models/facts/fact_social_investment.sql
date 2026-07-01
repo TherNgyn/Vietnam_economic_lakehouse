@@ -1,13 +1,12 @@
 {{
     config(
-        materialized='incremental',
-        unique_key='fact_social_key'
+        materialized='delta_table'
     )
 }}
 
 with joined as (
     select
-        cast(date_format(i.report_date, 'yyyyMMdd') as int) as time_key,
+        cast(date_format(to_date(i.report_date), 'yyyyMMdd') as int) as time_key,
         cs.capital_source_key,
         u.unit_key,
         s.source_key,

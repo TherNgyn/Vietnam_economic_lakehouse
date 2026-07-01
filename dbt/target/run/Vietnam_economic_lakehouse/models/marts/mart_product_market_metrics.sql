@@ -1,4 +1,8 @@
-{{ config(materialized='delta_table') }}
+
+        CREATE TABLE gold_marts.mart_product_market_metrics
+        USING DELTA
+        AS
+        
 
 with base as (
     select
@@ -14,14 +18,14 @@ with base as (
         u.unit_name,
         f.value,
         f.quantity
-    from {{ ref('fact_product_market') }} f
-    left join {{ ref('dim_time') }} t
+    from gold_gold.fact_product_market f
+    left join gold_gold.dim_time t
         on f.time_key = t.time_key
-    left join {{ ref('dim_product') }} p
+    left join gold_gold.dim_product p
         on f.product_key = p.product_key
-    left join {{ ref('dim_product_category') }} pc
+    left join gold_gold.dim_product_category pc
         on p.product_category_key = pc.product_category_key
-    left join {{ ref('dim_unit') }} u
+    left join gold_gold.dim_unit u
         on f.unit_key = u.unit_key
 ),
 
@@ -46,13 +50,22 @@ calc as (
 
 select
     *,
-    {{ safe_divide('value', 'quantity') }} as unit_price,
+    
+    value / nullif(quantity, 0)
+ as unit_price,
 
     value - prev_value as value_change,
-    {{ safe_divide('value - prev_value', 'prev_value') }} * 100 as value_growth_pct,
+    
+    value - prev_value / nullif(prev_value, 0)
+ * 100 as value_growth_pct,
 
     quantity - prev_quantity as quantity_change,
-    {{ safe_divide('quantity - prev_quantity', 'prev_quantity') }} * 100 as quantity_growth_pct,
+    
+    quantity - prev_quantity / nullif(prev_quantity, 0)
+ * 100 as quantity_growth_pct,
 
-    {{ safe_divide('value', 'total_value_by_period') }} * 100 as product_share_pct
+    
+    value / nullif(total_value_by_period, 0)
+ * 100 as product_share_pct
 from calc
+    

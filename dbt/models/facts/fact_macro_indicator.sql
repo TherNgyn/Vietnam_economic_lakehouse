@@ -1,13 +1,12 @@
 {{
     config(
-        materialized='incremental',
-        unique_key='fact_key'
+        materialized='delta_table'
     )
 }}
 
 with joined as (
     select
-        cast(date_format(m.report_date, 'yyyyMMdd') as int) as time_key,
+        cast(date_format(to_date(m.date_str), 'yyyyMMdd') as int) as time_key,
         i.indicator_key,
         u.unit_key,
         s.source_key,
@@ -21,7 +20,7 @@ with joined as (
         on m.unit_name = u.unit_name
     left join {{ ref('dim_source') }} s
         on m.source_name = s.source_name
-    where m.report_date is not null
+    where m.date_str is not null
 )
 
 select
