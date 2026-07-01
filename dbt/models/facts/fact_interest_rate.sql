@@ -1,9 +1,6 @@
-{{
-    config(
-        materialized='incremental',
-        unique_key='fact_interest_key'
-    )
-}}
+{{ config(
+    materialized='delta_table'
+) }}
 
 with asset_enriched as (
     select

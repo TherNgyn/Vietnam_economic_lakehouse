@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 select
     {{ sk(['product_category_name']) }} as product_category_key,

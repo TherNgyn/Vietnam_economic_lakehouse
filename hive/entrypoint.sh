@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DB_TYPE="postgres" # Tạo database type
+DB_TYPE="postgres"
 
 echo ">>> Waiting for hive-postgres to be ready..."
 until PGPASSWORD=hive psql -h hive-postgres -U hive -d metastore -v ON_ERROR_STOP=1 -c '\q' > /dev/null 2>&1; do
@@ -25,4 +25,11 @@ else
 fi
 
 echo ">>> Starting Hive Metastore service..."
-exec hive --service metastore
+hive --service metastore &
+METASTORE_PID=$!
+echo ">>> Hive Metastore is fully active!"
+
+echo ">>> Starting Hive Thrift Server (HiveServer2)..."
+hive --service hiveserver2 &
+
+wait -n

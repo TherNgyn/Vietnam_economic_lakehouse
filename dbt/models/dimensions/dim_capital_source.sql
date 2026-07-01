@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 select
     {{ sk(['capital_source_name']) }} as capital_source_key,

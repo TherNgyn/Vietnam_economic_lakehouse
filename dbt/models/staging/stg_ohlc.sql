@@ -2,7 +2,7 @@
 
 with currency as (
     select
-        to_date(date) as report_date,
+        cast(`date` as string) as date_str,
         symbol,
         symbol as asset_name,
         asset_class as asset_class_name,
@@ -21,7 +21,7 @@ with currency as (
 
 idx as (
     select
-        to_date(date) as report_date,
+        cast(`date` as string) as date_str,
         symbol,
         symbol as asset_name,
         asset_class as asset_class_name,
@@ -40,7 +40,7 @@ idx as (
 
 commodity as (
     select
-        to_date(date) as report_date,
+        cast(`date` as string) as date_str,
         symbol,
         symbol as asset_name,
         asset_class as asset_class_name,
@@ -59,7 +59,7 @@ commodity as (
 
 vietnam_index as (
     select
-        to_date(date) as report_date,
+        cast(`date` as string) as date_str,
         symbol,
         symbol as asset_name,
         asset_class as asset_class_name,

@@ -1,13 +1,15 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
 
-with sectors as (
-    select distinct sector_name from {{ ref('stg_gdp') }}
-    union
-    select distinct sector_name from {{ ref('stg_investment') }}
+
+with sub_sectors as (
+    select distinct sub_sector_name
+    from {{ ref('stg_gdp') }}
+    where sub_sector_name is not null
 )
 
 select
-    {{ sk(['sector_name']) }} as sector_key,
-    sector_name
-from sectors
-where sector_name is not null
+    {{ sk(['sub_sector_name']) }} as sub_sector_key,
+    sub_sector_name
+from sub_sectors

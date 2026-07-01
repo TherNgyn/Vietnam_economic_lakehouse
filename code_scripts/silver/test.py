@@ -9,12 +9,13 @@ DELTA_STORAGE_OPTIONS = {
     "AWS_SECRET_ACCESS_KEY": os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin"),
     "AWS_ENDPOINT_URL": os.getenv("AWS_ENDPOINT_URL", "http://minio:9000"),
     "AWS_ALLOW_HTTP": "true",
+    "AWS_S3_ALLOW_UNSAFE_RENAME": "true",
 }
 
 def test_read_deltalake():
     from datetime import datetime
     processing_date = datetime.utcnow().strftime("%Y-%m-%d")
-    out_path = f"s3://{SILVER_BUCKET}/industry_product"
+    out_path = f"s3a://{SILVER_BUCKET}/index/DAX/"
     
     try:
         dt = DeltaTable(out_path, storage_options=DELTA_STORAGE_OPTIONS)
@@ -26,21 +27,20 @@ def test_read_deltalake():
         print("\nCấu trúc các cột:")
         print(df.dtypes)
         print("\nDữ liệu mẫu (5 dòng đầu):")
-        print(df)
-        # print("\nDữ liệu mẫu (5 dòng cuối):")
-        # print(df.tail())
-        # in ra năm nhỏ nhất
-        if 'year' in df.columns:
-            min_year = df['year'].min()
-            print(f"\nNăm nhỏ nhất trong cột 'year': {min_year}")
+        print(df.head())
+        print("\nDữ liệu mẫu (5 dòng cuối):")
+        print(df.tail())
+        if 'date' in df.columns:
+            min_date = df['date'].min()
+            print(f"\nNgày nhỏ nhất trong cột 'date': {min_date}")
         else:
-            print("\nCột 'year' không tồn tại trong DataFrame.")
-        # in ra năm lớn nhất
-        if 'year' in df.columns:
-            max_year = df['year'].max()
-            print(f"Năm lớn nhất trong cột 'year': {max_year}")
+            print("\nCột 'date' không tồn tại trong DataFrame.")
+            
+        if 'date' in df.columns:
+            max_date = df['date'].max()
+            print(f"Ngày lớn nhất trong cột 'date': {max_date}")
         else:
-            print("\nCột 'year' không tồn tại trong DataFrame.")
+            print("\nCột 'date' không tồn tại trong DataFrame.")
     except Exception as e:
         print(f"Lỗi khi đọc Delta Table: {str(e)}")
 

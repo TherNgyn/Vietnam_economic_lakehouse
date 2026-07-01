@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 select
-    make_date(year, case quarter when 1 then 1 when 2 then 4 when 3 then 7 when 4 then 10 else 1 end, 1) as report_date,
+    cast(concat(cast(`year` as string), '-', lpad(cast(case `quarter` when 1 then 1 when 2 then 4 when 3 then 7 when 4 then 10 else 1 end as string), 2, '0'), '-01') as string) as report_date,
     sector as sector_name,
     sub_sector as sub_sector_name,
     type as gdp_type,

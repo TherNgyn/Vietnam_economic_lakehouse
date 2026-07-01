@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 select
-    make_date(year, 1, 1) as report_date,
+    cast(concat(cast(`year` as string), '-01-01') as string) as report_date,
     name as sector_name,
     name as sub_sector_name,
     cast(value as decimal(38,10)) as investment_value,

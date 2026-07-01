@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 with terms as (
     select distinct term_name

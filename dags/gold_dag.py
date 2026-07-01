@@ -12,14 +12,14 @@ with DAG(
     tags=['gold', 'transform', 'dbt'],
 ) as dag:
 
-    wait_silver = ExternalTaskSensor(
-        task_id='wait_silver_pipeline',
-        external_dag_id='silver_pipeline',
-        external_task_id=None,
-        mode='reschedule',
-        timeout=3600,
-        poke_interval=120,
-    )
+    # wait_silver = ExternalTaskSensor(
+    #     task_id='wait_silver_pipeline',
+    #     external_dag_id='silver_pipeline',
+    #     external_task_id=None,
+    #     mode='reschedule',
+    #     timeout=3600,
+    #     poke_interval=120,
+    # )
 
     dbt_run = BashOperator(
         task_id='dbt_run_gold',
@@ -31,10 +31,10 @@ with DAG(
         bash_command='cd /opt/airflow/dbt && dbt test --profiles-dir . --target spark',
     )
 
-    redis_push = BashOperator(
-        task_id='gold_push_to_redis',
-        bash_command='docker exec spark-master /opt/spark/bin/spark-submit /opt/spark/apps/gold/push_to_redis.py',
-    )
+    # redis_push = BashOperator(
+    #     task_id='gold_push_to_redis',
+    #     bash_command='docker exec spark-master /opt/spark/bin/spark-submit /opt/spark/apps/gold/push_to_redis.py',
+    # )
 
-    wait_silver >> dbt_run >> dbt_test >> redis_push
+    dbt_run >> dbt_test 
 

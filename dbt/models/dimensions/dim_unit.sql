@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 with units as (
     select distinct unit_name from {{ ref('stg_macro_indicator') }}

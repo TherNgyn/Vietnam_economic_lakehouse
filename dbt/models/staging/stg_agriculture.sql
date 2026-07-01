@@ -2,7 +2,7 @@
 
 with annual as (
     select
-        make_date(year, 1, 1) as report_date,
+        cast(concat(cast(`year` as string), '-01-01') as string) as report_date,
         crop_name,
         'ANNUAL' as crop_group_name,
         cast(production as decimal(38,10)) as production,
@@ -18,7 +18,7 @@ with annual as (
 
 staple as (
     select
-        make_date(year, 1, 1) as report_date,
+        cast(concat(cast(`year` as string), '-01-01') as string) as report_date,
         crop_name,
         'STAPLE' as crop_group_name,
         cast(production as decimal(38,10)) as production,
@@ -34,7 +34,7 @@ staple as (
 
 perennial as (
     select
-        make_date(year, 1, 1) as report_date,
+        cast(concat(cast(`year` as string), '-01-01') as string) as report_date,
         crop_name,
         'PERENNIAL' as crop_group_name,
         cast(production as decimal(38,10)) as production,

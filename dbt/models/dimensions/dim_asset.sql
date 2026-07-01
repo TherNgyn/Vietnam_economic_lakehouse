@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 with assets as (
     select distinct

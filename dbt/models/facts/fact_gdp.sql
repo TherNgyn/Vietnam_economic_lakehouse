@@ -1,9 +1,6 @@
-{{
-    config(
-        materialized='incremental',
-        unique_key='fact_gdp_key'
-    )
-}}
+{{ config(
+    materialized='delta_table'
+) }}
 
 with base as (
     select
@@ -31,7 +28,9 @@ with base as (
         ) as constant_value,
 
         max(source_name) as source_name
+
     from {{ ref('stg_gdp') }}
+
     group by
         report_date,
         sector_name,
@@ -41,17 +40,21 @@ with base as (
 
 joined as (
     select
-        cast(date_format(b.report_date, 'yyyyMMdd') as int) as time_key,
+        cast(date_format(cast(b.report_date as timestamp), 'yyyyMMdd') as int) as time_key,
         ss.sub_sector_key,
         u.unit_key,
         s.source_key,
         b.market_value,
         b.constant_value
+
     from base b
+
     left join {{ ref('dim_sub_sector') }} ss
         on b.sub_sector_name = ss.sub_sector_name
+
     left join {{ ref('dim_unit') }} u
         on b.unit_name = u.unit_name
+
     left join {{ ref('dim_source') }} s
         on b.source_name = s.source_name
 )
@@ -66,5 +69,7 @@ select
     constant_value,
     {{ sk(['time_key', 'sub_sector_key', 'unit_key', 'source_key']) }} as load_id,
     current_timestamp() as created_at
+
 from joined
+
 where sub_sector_key is not null

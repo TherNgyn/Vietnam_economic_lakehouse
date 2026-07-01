@@ -8,24 +8,24 @@ model-paths: ["models"]
 macro-paths: ["macros"]
 
 models:
-  economic_warehouse:
+  Vietnam_economic_lakehouse:
     staging:
       +materialized: view
       +schema: staging
 
     dimensions:
-      +materialized: table
+      +materialized: delta_table
       +schema: gold
-      +file_format: delta
 
+
+    
     facts:
-      +materialized: incremental
+      +materialized: delta_table
       +schema: gold
-      +file_format: delta
-      +incremental_strategy: merge
-      +on_schema_change: sync_all_columns
+
 
     marts:
       +materialized: table
       +schema: marts
       +file_format: delta
+      +pre-hook: "DROP TABLE IF EXISTS {{ this }}"

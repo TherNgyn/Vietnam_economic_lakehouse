@@ -94,19 +94,5 @@ with DAG(
         trigger_rule='none_failed_min_one_success',
     )
 
-    trigger_silver = TriggerDagRunOperator(
-        task_id='trigger_silver_pipeline',
-        trigger_dag_id='silver_pipeline',
-        wait_for_completion=True,
-        trigger_rule='none_failed_min_one_success',
-    )
-
-    trigger_gold = TriggerDagRunOperator(
-        task_id='trigger_gold_pipeline',
-        trigger_dag_id='gold_pipeline',
-        wait_for_completion=True,
-    )
-
     check_gap >> branch >> [backfill, quality_ok]
     backfill >> quality_ok
-    quality_ok >> trigger_silver >> trigger_gold

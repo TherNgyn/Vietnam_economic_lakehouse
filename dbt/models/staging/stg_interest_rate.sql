@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 select
-    to_date(date) as report_date,
+    cast(`date` as string) as date_str,
     symbol,
     symbol as asset_name,
     'INTEREST_RATE' as asset_class_name,

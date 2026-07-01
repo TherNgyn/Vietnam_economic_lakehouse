@@ -16,7 +16,7 @@ SILVER_BUCKET = os.getenv("MINIO_BUCKET_SILVER", "silver")
 
 DELTA_STORAGE_OPTIONS = {
     "AWS_ACCESS_KEY_ID": os.getenv("AWS_ACCESS_KEY_ID", "minioadmin"),
-    "AWS_SECRET_ACCESS_KEY": os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin123"),
+    "AWS_SECRET_ACCESS_KEY": os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin"),
     "AWS_S3_ENDPOINT_URL": os.getenv("AWS_ENDPOINT_URL", "http://minio:9000"),
     "AWS_ALLOW_HTTP": "true",
 }
@@ -43,7 +43,7 @@ def get_spark():
 def get_s3fs():
     return s3fs.S3FileSystem(
         key=os.getenv("AWS_ACCESS_KEY_ID", "minioadmin"),
-        secret=os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin123"),
+        secret=os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin"),
         endpoint_url=os.getenv("AWS_ENDPOINT_URL", "http://minio:9000"),
         use_ssl=False,
     )

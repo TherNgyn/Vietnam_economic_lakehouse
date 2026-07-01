@@ -160,9 +160,9 @@ services:
   postgres:
     image: postgres:15
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
     healthcheck:
@@ -442,6 +442,33 @@ services:
     restart: always
     stdin_open: true
     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+
+  spark-thrift-server:
+    image: my-spark-master:latest
+    container_name: spark-thrift-server
+    depends_on:
+      spark-master:
+        condition: service_healthy
+      hive:
+        condition: service_healthy
+    ports:
+      - "10000:10000"
+    command: >
+      /opt/spark/bin/spark-submit
+      --class org.apache.spark.sql.hive.thriftserver.HiveThriftServer2
+      --master spark://spark-master:7077
+      --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension
+      --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
+      --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000
+      --conf spark.hadoop.fs.s3a.access.key=${MINIO_ACCESS_KEY}
+      --conf spark.hadoop.fs.s3a.secret.key=${MINIO_SECRET_KEY}
+      --conf spark.hadoop.fs.s3a.path.style.access=true
+      --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem
+      --conf spark.hadoop.hive.metastore.uris=thrift://hive:9083
+      --hiveconf hive.server2.thrift.port=10000
+      --hiveconf hive.server2.thrift.bind.host=0.0.0.0
+      --conf spark.sql.warehouse.dir=s3a://gold/
+    restart: on-failure
   
   python:
     build: ./python
