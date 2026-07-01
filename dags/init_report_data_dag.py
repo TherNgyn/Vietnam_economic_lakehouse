@@ -1,23 +1,97 @@
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
-with DAG(
-    dag_id='init_historical_pipeline',
-    start_date=datetime(2025, 1, 1),
-    schedule=None,
-    catchup=False,
-    tags=['init', 'bronze'],
-) as dag:
+from datetime import datetime, timezone, timedelta
+import requests, os
+from bs4 import BeautifulSoup
+from datetime import datetime
+import pytz
 
-    ingest_csv = BashOperator(
-        task_id='ingest_historical_csv_to_bronze',
-        bash_command='docker exec -e MINIO_HOST=minio:9000 -e MINIO_ACCESS_KEY=minioadmin -e MINIO_SECRET_KEY=minioadmin python_container python bronze/ingest_historical.py',
+VN_TZ = timezone(timedelta(hours=7))
+
+def get_time_of_next_report(url = 'https://www.nso.gov.vn/bao-cao-tinh-hinh-kinh-te-xa-hoi-hang-thang/'):
+    """
+    Lấy thời gian (datetime) dự kiến công bố báo cáo kinh tế - xã hội tiếp theo
+    từ bài viết đầu tiên (mới nhất) trên trang danh sách báo cáo NSO.
+
+    Trả về:
+        datetime (tzinfo = GMT+7) nếu parse thành công.
+        None nếu không tìm thấy thông tin hoặc có lỗi xảy ra.
+    """
+    try:
+        res = requests.get(url, verify=False, timeout=15)
+        res.raise_for_status()
+    except Exception as e:
+        print(f'HAVE AN ERROR WHEN GET NEXT TIME OF REPORT (REQUEST FAILED) !!!!!!!!!! \n {e}')
+        return None
+
+    try:
+        soup = BeautifulSoup(res.text, 'html.parser')
+        container = soup.find('div', class_='archive-container')
+        if container is None:
+            print('HAVE AN ERROR WHEN GET NEXT TIME OF REPORT: KHÔNG TÌM THẤY archive-container !!!!!!!!!!')
+            return None
+
+        # Bài viết đầu tiên trong container = báo cáo mới nhất
+        next_release_span = container.find('span', class_='archive-next-release')
+        if next_release_span is None:
+            print('HAVE AN ERROR WHEN GET NEXT TIME OF REPORT: KHÔNG TÌM THẤY span archive-next-release !!!!!!!!!!')
+            return None
+
+        # Text dạng: "Lần công bố sắp tới: 03/07/2026"
+        raw_text = next_release_span.get_text(strip=True)
+        if ':' not in raw_text:
+            print(f'HAVE AN ERROR WHEN GET NEXT TIME OF REPORT: FORMAT LẠ -> "{raw_text}" !!!!!!!!!!')
+            return None
+
+        date_str = raw_text.split(':', 1)[1].strip()
+        next_report_date = datetime.strptime(date_str, '%d/%m/%Y').replace(tzinfo=VN_TZ)
+        next_report_date = next_report_date + timedelta(days=1)
+        next_report_date_utc = next_report_date.astimezone(pytz.UTC)
+
+
+        return next_report_date_utc.isoformat()
+
+    except Exception as e:
+        print(f'HAVE AN ERROR WHEN GET NEXT TIME OF REPORT (PARSE FAILED) !!!!!!!!!! \n {e}')
+        return None
+
+with DAG (
+    dag_id = 'Initiation_Report_Data_Dag',
+    start_date = datetime(2025, 1, 1),
+    
+)as dag:
+    task_1 = BashOperator(
+        task_id = 'crawl_and_load_to_bronze_layer',
+        bash_command = 'docker exec python_container python bronze/crawl_and_load_report_excel_files_to_bronze.py'
     )
-
-    # crawl_reports = BashOperator(
-    #     task_id='crawl_report_excel_to_bronze',
-    #     bash_command='docker exec -e MINIO_HOST=minio:9000 -e MINIO_ACCESS_KEY=minioadmin -e MINIO_SECRET_KEY=minioadmin python_container python bronze/crawl_and_load_report_excel_files_to_bronze.py',
-    # )
-
-    [ingest_csv]
+    task_2 = BashOperator(
+        task_id = 'ddl_silver_layer',
+        bash_command = 'docker exec spark-master /opt/spark/bin/spark-submit silver/ddl_silver.py'
+    )
+    task_3 = BashOperator(
+        task_id = 'transform_and_load_data_to_silver',
+        bash_command = "docker exec spark-master /opt/spark/bin/spark-submit silver/main.py" 
+    )
+    task_4 = BashOperator(
+        task_id = 'ddl_gold_layer',
+        bash_command = "docker exec spark-master /opt/spark/bin/spark-submit gold/ddl_gold_layer.py" 
+    )
+    task_5 = BashOperator(
+        task_id = 'load_data_to_gold_layer',
+        bash_command = 'docker exec spark-master /opt/spark/bin/spark-submit  gold/load_data_to_gold_layer.py' 
+    )
+    get_time_task = PythonOperator(
+        task_id = 'Get_newest_report_time',
+        python_callable = get_time_of_next_report
+    )
+    trigger_dag_newest = TriggerDagRunOperator(
+        task_id = "trigger_newest_report_dag",
+        trigger_dag_id = 'Newest_Report_Dag',
+        conf={'target_time': "{{ ti.xcom_pull(task_ids='Get_newest_report_time') }}"}
+    )
+    
+task_1 >> task_2 >> task_3 >> task_4 >> task_5 >> get_time_task >> trigger_dag_newest

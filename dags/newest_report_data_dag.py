@@ -62,4 +62,4 @@ with DAG(
         conf={'target_time': "{{ ti.xcom_pull(task_ids='get_next_report_time') }}"},
     )
 
-    wait_for_report >> crawl_newest >> transform_silver >> get_next_time >> trigger_self
+wait_for_report >> crawl_newest >> transform_silver >> get_next_time >> trigger_self

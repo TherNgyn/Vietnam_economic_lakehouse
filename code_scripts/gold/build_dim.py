@@ -305,7 +305,7 @@ def build_dim_crop():
         )
     )
 
-    dim = annual.union(staple).union(perennial).distinct()
+    dim = annual.unionByName(staple).unionByName(perennial).distinct()
 
     
 
@@ -323,8 +323,11 @@ def build_dim_crop():
     ).write.format("delta") \
      .mode("overwrite") \
      .save("s3a://gold/dim_crop")
-    del dim
      
+    del dim
+    del annual
+    del staple
+    del perennial
 
 def build_dim_capital_source():
 
@@ -379,7 +382,6 @@ def main_build_dim():
     print('loading dim-capital_source')
     build_dim_capital_source()
     
-    spark.stop()
     
     
 
