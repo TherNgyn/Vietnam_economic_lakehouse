@@ -84,14 +84,15 @@ with DAG (
         task_id = 'load_data_to_gold_layer',
         bash_command = 'docker exec spark-master /opt/spark/bin/spark-submit  gold/load_data_to_gold_layer.py' 
     )
-    get_time_task = PythonOperator(
-        task_id = 'Get_newest_report_time',
-        python_callable = get_time_of_next_report
-    )
-    trigger_dag_newest = TriggerDagRunOperator(
-        task_id = "trigger_newest_report_dag",
-        trigger_dag_id = 'Newest_Report_Dag',
-        conf={'target_time': "{{ ti.xcom_pull(task_ids='Get_newest_report_time') }}"}
-    )
+    # get_time_task = PythonOperator(
+    #     task_id = 'Get_newest_report_time',
+    #     python_callable = get_time_of_next_report
+    # )
+    # trigger_dag_newest = TriggerDagRunOperator(
+    #     task_id = "trigger_newest_report_dag",
+    #     trigger_dag_id = 'Newest_Report_Dag',
+    #     conf={'target_time': "{{ ti.xcom_pull(task_ids='Get_newest_report_time') }}"}
+    # )
     
-task_1 >> task_2 >> task_3 >> task_4 >> task_5 >> get_time_task >> trigger_dag_newest
+# task_1 >> task_2 >> task_3 >> task_4 >> task_5 >> get_time_task >> trigger_dag_newest
+task_1 >> task_2 >> task_3 >> task_4 >> task_5
