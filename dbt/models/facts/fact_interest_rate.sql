@@ -17,7 +17,7 @@ with asset_enriched as (
 
 joined as (
     select
-        cast(date_format(r.report_date, 'yyyyMMdd') as int) as time_key,
+        cast(date_format(to_date(r.date_str), 'yyyyMMdd') as int) as time_key,
         a.asset_key,
         t.term_key,
         u.unit_key,
