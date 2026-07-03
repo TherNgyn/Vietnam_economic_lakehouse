@@ -32,5 +32,5 @@ RUN pip install --upgrade pip && \
     s3fs \
     pyspark \
     boto3 \
-    dbt-spark[PyHive]
-    
+    dbt-spark[PyHive] \
+    pyyaml

@@ -5,8 +5,8 @@
 
 with indicators as (
     select distinct
-        indicator_name,
-        indicator_group_name
+        lower(trim(indicator_name)) as indicator_name,
+        lower(trim(indicator_group_name)) as indicator_group_name
     from {{ ref('stg_macro_indicator') }}
     where indicator_name is not null
 )

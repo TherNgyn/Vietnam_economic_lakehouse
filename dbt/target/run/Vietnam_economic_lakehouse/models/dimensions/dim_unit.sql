@@ -4,8 +4,8 @@
         AS
         
 
-
 with units as (
+
     select distinct unit_name from gold_staging.stg_macro_indicator
     union
     select distinct unit_name from gold_staging.stg_ohlc
@@ -24,23 +24,42 @@ with units as (
     union
     select distinct unit_name from gold_staging.stg_gdp
     union
-    select distinct unit_name from gold_staging.stg_total_investment
+    select distinct unit_name from gold_staging.stg_investment_by_sector
+    union
+    select distinct unit_name from gold_staging.stg_social_total_investment
+
+),
+
+cleaned as (
+
+    select distinct
+        trim(unit_name) as unit_name
+    from units
+    where unit_name is not null
+      and trim(unit_name) <> ''
+
 ),
 
 typed as (
-    select
+
+    select distinct
         unit_name,
+
         case
-            when lower(unit_name) like '%vnd%' or lower(unit_name) like '%usd%' then 1
-            when unit_name = '%' or lower(unit_name) like '%percent%' or lower(unit_name) like '%phần trăm%' then 2
-            when lower(unit_name) like '%index%' or lower(unit_name) like '%điểm%' then 3
-            when lower(unit_name) like '%tấn%' or lower(unit_name) like '%ton%' or lower(unit_name) like '%nghìn tấn%' then 4
-            when lower(unit_name) like '%ha%' or lower(unit_name) like '%hecta%' then 5
-            when lower(unit_name) like '%lít%' or lower(unit_name) like '%đồng/lít%' then 6
-            else 99
-        end as unit_type_key
-    from units
-    where unit_name is not null
+            when lower(trim(unit_name)) = 'billion vnd' then 'Tỷ đồng'
+            when lower(trim(unit_name)) = 'percent' then '%'
+            when trim(unit_name) = '%' then '%'
+            when lower(trim(unit_name)) = 'vnd/liter' then 'VND/lít'
+            when lower(trim(unit_name)) = 'usd/barrel' then 'USD/thùng'
+            when lower(trim(unit_name)) = 'usd/gallon' then 'USD/gallon'
+            when lower(trim(unit_name)) = 'usd/ounce' then 'USD/ounce'
+            when lower(trim(unit_name)) = 'usd/mmbtu' then 'USD/MMBtu'
+            when lower(trim(unit_name)) in ('point', 'points') then 'point'
+            else trim(unit_name)
+        end as unit_nor
+
+    from cleaned
+
 )
 
 select
@@ -48,6 +67,6 @@ select
     abs(xxhash64(coalesce(cast(unit_name as string), '__null__')))
  as unit_key,
     unit_name,
-    unit_type_key
+    unit_nor
 from typed
     
