@@ -49,16 +49,12 @@ def main_func():
 
 
         extract_data_for_Product_Productivity_fact(excel_file, year, month)
-
-        # Giải phóng bộ nhớ RAM của file hiện tại trước khi xử lý file tiếp theo
         del excel_file
-        gc.collect()
+        # Giải phóng bộ nhớ RAM của file hiện tại trước khi xử lý file tiếp theo
     
     print('BẮT ĐẦU TRÍCH XUẤT DỮ LIỆU INVESTMENT BY SECTOR')
     excel_file = get_investment_by_sector_raw_data()
     extract_data_from_Investment_by_Sector(excel_file)
-
-      
-    print(f"Tải thành công dữ liệu từ file: tháng: {month} - năm: {year} lên SILVER LAYER")
+    del excel_file
 
 main_func()
