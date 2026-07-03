@@ -50,7 +50,17 @@ with DAG(
         task_id='transform_newest_to_silver',
         bash_command='docker exec spark-master /opt/spark/bin/spark-submit silver/main_2.py',
     )
-
+    
+    ddl_gold = BashOperator(
+        task_id = 'ddl_gold_layer',
+        bash_command = 'docker exec spark-master /opt/spark/bin/spark-submit gold/ddl_gold_layer.py'
+    )
+    
+    load_data_to_gold = BashOperator(
+        task_id = 'load_data_to_gold_layer',
+        bash_command = 'docker exec spark-master /opt/spark/bin/spark-submit  gold/load_data_to_gold_layer.py' 
+    )
+    
     get_next_time = PythonOperator(
         task_id='get_next_report_time',
         python_callable=get_time_of_next_report,
@@ -62,4 +72,4 @@ with DAG(
         conf={'target_time': "{{ ti.xcom_pull(task_ids='get_next_report_time') }}"},
     )
 
-wait_for_report >> crawl_newest >> transform_silver >> get_next_time >> trigger_self
+wait_for_report >> crawl_newest >> transform_silver >> ddl_gold >> load_data_to_gold >> get_next_time >> trigger_self

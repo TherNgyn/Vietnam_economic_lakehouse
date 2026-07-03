@@ -1,6 +1,6 @@
-import pyspark.pandas as pd
+import pandas as pd
 import gc
-import yaml
+
 from minio_funcs import *
 from reuse_function import *
 from Load_data_to_table import *
@@ -101,17 +101,17 @@ def parse_month_from_filename(filename: str, year: int, config_months: dict) -> 
     return calculated_month
 
 def main_func():
+    # lấy tất cả các đường dẫn trong bronze
     bucket_name = 'bronze'
-    prefix = 'historical/economic_report_excel_files/'
+    prefix = 'economic_report_excel_files/'
 
     objects = get_list_files(bucket_name, prefix)
 
-    if not objects:
+    if objects is None:
         print("Không tìm thấy bất kỳ file báo cáo nào !!!!!!")
         return
 
-    processed = 0
-
+    # duyệt qua từng đường dẫn đọc file và trích xuất dữ liệu
     for obj in objects:
         parts = obj.split('/')
         # path: historical/economic_report_excel_files/012011/Bieu-012011.xlsx
@@ -134,24 +134,25 @@ def main_func():
             continue
 
         print(f'FILE EXCEL: YEAR : {year}, MONTH = {month}')
-        print(f"DEBUG FILE: obj={obj}, filename={filename}, year={year}, month={month}")
+
         extract_data_from_GDP(excel_file, year, month)
+
         extract_data_from_International_Ecommerce(excel_file, year, month)
 
         if not (year == 2014 and month == 3):
-        #     print(f"DEBUG FILE: obj={obj}, filename={filename}, year={year}, month={month}")
             extract_data_from_Invesment(excel_file, year, month)
 
-        extract_data_from_Investment_by_Sector(excel_file, year, month)
         extract_data_for_Product_Productivity_fact(excel_file, year, month)
 
+        # Giải phóng bộ nhớ RAM của file hiện tại trước khi xử lý file tiếp theo
         del excel_file
-        spark.catalog.clearCache()
         gc.collect()
+    
+    print('BẮT ĐẦU TRÍCH XUẤT DỮ LIỆU INVESTMENT BY SECTOR')
+    excel_file = get_investment_by_sector_raw_data()
+    extract_data_from_Investment_by_Sector(excel_file)
 
-        processed += 1
-        print(f"Tải thành công: tháng {month} - năm {year}")
-
-    print(f"Hoàn tất: đã xử lý {processed}/{len(objects)} file lên SILVER LAYER")
+      
+    print(f"Tải thành công dữ liệu từ file: tháng: {month} - năm: {year} lên SILVER LAYER")
 
 main_func()
