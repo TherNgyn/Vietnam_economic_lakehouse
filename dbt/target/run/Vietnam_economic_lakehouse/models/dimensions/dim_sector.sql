@@ -7,8 +7,6 @@
 
 with sectors as (
     select distinct sector_name from gold_staging.stg_gdp
-    union
-    select distinct sector_name from gold_staging.stg_investment
 )
 
 select

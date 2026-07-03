@@ -6,7 +6,7 @@
 
 with products as (
     select distinct product_name, product_category_name
-    from gold_staging.stg_product_market
+    from gold_staging.stg_production_output
     where product_name is not null
 )
 

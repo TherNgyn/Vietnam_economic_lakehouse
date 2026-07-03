@@ -9,13 +9,11 @@ with sources as (
     union
     select distinct source_name from {{ ref('stg_interest_rate') }}
     union
-    select distinct source_name from {{ ref('stg_product_market') }}
+    select distinct source_name from {{ ref('stg_production_output') }}
     union
     select distinct source_name from {{ ref('stg_gdp') }}
     union
-    select distinct source_name from {{ ref('stg_investment') }}
-    union
-    select distinct source_name from {{ ref('stg_social_investment') }}
+    select distinct source_name from {{ ref('stg_total_investment') }}
 ),
 
 final as (

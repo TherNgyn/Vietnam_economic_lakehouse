@@ -12,7 +12,7 @@ select
     product_category_name
 from (
     select distinct product_category_name
-    from gold_staging.stg_product_market
+    from gold_staging.stg_production_output
     where product_category_name is not null
 )
     

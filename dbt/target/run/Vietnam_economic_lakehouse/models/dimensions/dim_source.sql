@@ -11,13 +11,11 @@ with sources as (
     union
     select distinct source_name from gold_staging.stg_interest_rate
     union
-    select distinct source_name from gold_staging.stg_product_market
+    select distinct source_name from gold_staging.stg_production_output
     union
     select distinct source_name from gold_staging.stg_gdp
     union
-    select distinct source_name from gold_staging.stg_investment
-    union
-    select distinct source_name from gold_staging.stg_social_investment
+    select distinct source_name from gold_staging.stg_total_investment
 ),
 
 final as (

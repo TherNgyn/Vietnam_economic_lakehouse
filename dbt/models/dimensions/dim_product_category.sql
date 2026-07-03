@@ -8,6 +8,6 @@ select
     product_category_name
 from (
     select distinct product_category_name
-    from {{ ref('stg_product_market') }}
+    from {{ ref('stg_production_output') }}
     where product_category_name is not null
 )

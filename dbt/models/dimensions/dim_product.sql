@@ -4,7 +4,7 @@
 
 with products as (
     select distinct product_name, product_category_name
-    from {{ ref('stg_product_market') }}
+    from {{ ref('stg_production_output') }}
     where product_name is not null
 )
 

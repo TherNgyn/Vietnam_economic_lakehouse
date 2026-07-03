@@ -12,7 +12,7 @@ select
     capital_source_name as source_name
 from (
     select distinct capital_source_name
-    from gold_staging.stg_social_investment
+    from gold_staging.stg_total_investment
     where capital_source_name is not null
 )
     

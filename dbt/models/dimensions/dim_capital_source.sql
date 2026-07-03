@@ -8,6 +8,6 @@ select
     capital_source_name as source_name
 from (
     select distinct capital_source_name
-    from {{ ref('stg_social_investment') }}
+    from {{ ref('stg_total_investment') }}
     where capital_source_name is not null
 )

@@ -8,9 +8,9 @@ with units as (
     union
     select distinct unit_name from gold_staging.stg_interest_rate
     union
-    select distinct unit_name from gold_staging.stg_product_market
+    select distinct unit_name from gold_staging.stg_production_output
     union
-    select distinct quantity_unit_name as unit_name from gold_staging.stg_product_market
+    select distinct quantity_unit_name as unit_name from gold_staging.stg_production_output
     union
     select distinct production_unit_name as unit_name from gold_staging.stg_agriculture
     union
@@ -20,9 +20,7 @@ with units as (
     union
     select distinct unit_name from gold_staging.stg_gdp
     union
-    select distinct unit_name from gold_staging.stg_investment
-    union
-    select distinct unit_name from gold_staging.stg_social_investment
+    select distinct unit_name from gold_staging.stg_total_investment
 ),
 
 typed as (
