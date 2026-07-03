@@ -1,44 +1,80 @@
 {{
     config(
-        materialized='incremental',
-        unique_key='fact_key'
+        materialized='delta_table'
     )
 }}
 
-with joined as (
+with base as (
+
     select
-        cast(date_format(m.report_date, 'yyyyMMdd') as int) as time_key,
+        to_date(cast(m.`date` as string)) as report_date,
+
+        m.indicator_name,
+        m.unit_name,
+        m.source_name,
+        m.period_grain,
+
+        cast(m.value as decimal(38,10)) as value,
+        m.ingest_at
+
+    from {{ ref('stg_macro_indicator') }} m
+
+    where m.`date` is not null
+
+),
+
+joined as (
+
+    select
+        cast(t.time_key as int) as time_key,
+
         i.indicator_key,
         u.unit_key,
-        s.source_key,
-        m.period_grain,
-        m.value,
-        m.ingest_at
-    from {{ ref('stg_macro_indicator') }} m
+        coalesce(s.source_key, cast(-1 as bigint)) as source_key,
+
+        b.period_grain,
+        b.value,
+        b.ingest_at
+
+    from base b
+
+    left join {{ ref('dim_time') }} t
+        on b.report_date = t.full_date
+
     left join {{ ref('dim_indicator') }} i
-        on m.indicator_name = i.indicator_name
+        on b.indicator_name = i.indicator_name
+
     left join {{ ref('dim_unit') }} u
-        on m.unit_name = u.unit_name
+        on b.unit_name = u.unit_name
+
     left join {{ ref('dim_source') }} s
-        on m.source_name = s.source_name
-    where m.report_date is not null
+        on b.source_name = s.source_name
+
+    where t.time_key is not null
+      and i.indicator_key is not null
+
+),
+
+final as (
+
+    select
+        {{ sk(['time_key', 'indicator_key', 'unit_key', 'source_key', 'period_grain']) }} as fact_key,
+
+        time_key,
+        indicator_key,
+        unit_key,
+        source_key,
+        period_grain,
+
+        cast(round(value, 6) as decimal(38,6)) as value,
+
+        {{ sk(['time_key', 'indicator_key', 'unit_key', 'source_key', 'period_grain']) }} as load_id,
+        current_timestamp() as created_at,
+        ingest_at
+
+    from joined
+
 )
 
-select
-    {{ sk(['time_key', 'indicator_key', 'unit_key', 'source_key', 'period_grain']) }} as fact_key,
-    time_key,
-    indicator_key,
-    unit_key,
-    source_key,
-    period_grain,
-    value,
-    {{ sk(['time_key', 'indicator_key', 'unit_key', 'source_key', 'period_grain']) }} as load_id,
-    current_timestamp() as created_at
-from joined
-
-{% if is_incremental() %}
-where ingest_at > (
-    select coalesce(max(created_at), timestamp('1900-01-01'))
-    from {{ this }}
-)
-{% endif %}
+select *
+from final

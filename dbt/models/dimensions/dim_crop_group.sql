@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 select 1 as crop_group_key, 'ANNUAL' as crop_group_name
 union all select 2, 'STAPLE'

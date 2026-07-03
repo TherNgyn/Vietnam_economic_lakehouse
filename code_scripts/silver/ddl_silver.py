@@ -291,3 +291,215 @@ CREATE TABLE silver.perennial_crops (
 USING DELTA
 LOCATION 's3a://silver/perennial_crops'
 """)
+
+spark.sql('DROP TABLE IF EXISTS silver.m2;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.m2 (
+        date STRING,
+        m2 DOUBLE,
+        unit STRING,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/m2'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.core_inflation_rate;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.core_inflation_rate (
+        date STRING,
+        core_inflation_rate DOUBLE,
+        unit STRING,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/core_inflation_rate'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.cpi_mom;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.cpi_mom (
+        date STRING,
+        cpi_mom DOUBLE,
+        inflation DOUBLE,
+        unit_cpi STRING,
+        unit_inflation STRING,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/cpi_mom'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.cpi_base_year;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.cpi_base_year (
+        date STRING,
+        cpi_base_year STRING,
+        prev_year_base DOUBLE,
+        base_2000 DOUBLE,
+        base_2005 DOUBLE,
+        base_2010 DOUBLE,
+        unit_cpi STRING,
+        unit_inflation STRING,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/cpi_base_year'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.ppi_qoq;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.ppi_qoq (
+        date STRING,
+        ppi_qoq DOUBLE,
+        unit STRING,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/ppi_qoq'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.broad_money;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.broad_money (
+        date STRING,
+        indicator STRING,
+        value DOUBLE,
+        unit STRING,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/broad_money'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.gasoline;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.gasoline (
+        date STRING,
+        type STRING,
+        product STRING,
+        price DOUBLE,
+        change STRING,
+        unit STRING,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/product/gasoline'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.interest_rate;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.interest_rate (
+        date STRING,
+        term STRING,
+        symbol STRING,
+        interest_rate DOUBLE,
+        volume DOUBLE,
+        source STRING,
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/interest_rate'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.ohlc_currency;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.ohlc_currency (
+        date STRING,
+        symbol STRING,
+        asset_class STRING,
+        unit STRING,
+        open DOUBLE,
+        high DOUBLE,
+        low DOUBLE,
+        close DOUBLE,
+        volume DOUBLE,
+        change_percent DOUBLE,
+        prev_close DOUBLE,
+        change DOUBLE,
+        source STRING
+    )
+    USING DELTA
+    PARTITIONED BY (symbol)
+    LOCATION 's3a://silver/currency'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.ohlc_index;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.ohlc_index (
+        date STRING,
+        symbol STRING,
+        asset_class STRING,
+        unit STRING,
+        open DOUBLE,
+        high DOUBLE,
+        low DOUBLE,
+        close DOUBLE,
+        volume DOUBLE,
+        change_percent DOUBLE,
+        prev_close DOUBLE,
+        change DOUBLE,
+        source STRING
+    )
+    USING DELTA
+    PARTITIONED BY (symbol)
+    LOCATION 's3a://silver/index'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.ohlc_commodity;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.ohlc_commodity (
+        date STRING,
+        symbol STRING,
+        asset_class STRING,
+        unit STRING,
+        open DOUBLE,
+        high DOUBLE,
+        low DOUBLE,
+        close DOUBLE,
+        volume DOUBLE,
+        change_percent DOUBLE,
+        prev_close DOUBLE,
+        change DOUBLE,
+        source STRING
+    )
+    USING DELTA
+    PARTITIONED BY (symbol)
+    LOCATION 's3a://silver/commodity'
+""")
+
+spark.sql('DROP TABLE IF EXISTS silver.ohlc_vietnam_index;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.ohlc_vietnam_index (
+        date STRING,
+        symbol STRING,
+        asset_class STRING,
+        unit STRING,
+        open DOUBLE,
+        high DOUBLE,
+        low DOUBLE,
+        close DOUBLE,
+        volume DOUBLE,
+        change_percent DOUBLE,
+        change DOUBLE,
+        source STRING
+    )
+    USING DELTA
+    PARTITIONED BY (symbol)
+    LOCATION 's3a://silver/vietnam_index'
+""")

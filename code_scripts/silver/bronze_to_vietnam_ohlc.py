@@ -139,29 +139,29 @@ def read_raw_from_bronze_delta(symbol: str) -> pd.DataFrame:
     except Exception as e:
         logger.error(f"Error reading Delta table from Bronze for {symbol}: {e}", exc_info=True)
         return pd.DataFrame()
-def write_to_csv(df: pd.DataFrame, symbol: str):
-    """Write Vietnam OHLC data to CSV format (S3)"""
-    try:
-        import s3fs
+# def write_to_csv(df: pd.DataFrame, symbol: str):
+#     """Write Vietnam OHLC data to CSV format (S3)"""
+#     try:
+#         import s3fs
         
-        processing_date = datetime.utcnow().strftime('%Y-%m-%d')
-        csv_path = f"s3://{MINIO_BUCKET_SILVER}/vietnam_index/{symbol}/processing_date={processing_date}/{symbol}.csv"
+#         processing_date = datetime.utcnow().strftime('%Y-%m-%d')
+#         csv_path = f"s3://{MINIO_BUCKET_SILVER}/vietnam_index/{symbol}/processing_date={processing_date}/{symbol}.csv"
         
-        fs = s3fs.S3FileSystem(
-            key=os.getenv("AWS_ACCESS_KEY_ID", "minioadmin"),
-            secret=os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin"),
-            endpoint_url=os.getenv("AWS_ENDPOINT_URL", "http://minio:9000"),
-            use_ssl=False,
-        )
+#         fs = s3fs.S3FileSystem(
+#             key=os.getenv("AWS_ACCESS_KEY_ID", "minioadmin"),
+#             secret=os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin"),
+#             endpoint_url=os.getenv("AWS_ENDPOINT_URL", "http://minio:9000"),
+#             use_ssl=False,
+#         )
         
-        with fs.open(csv_path, 'wb') as f:
-            df.to_csv(f, index=False, encoding='utf-8')
+#         with fs.open(csv_path, 'wb') as f:
+#             df.to_csv(f, index=False, encoding='utf-8')
         
-        logger.info(f"  ✓ CSV written: {len(df)} records to {csv_path}")
-        return True
-    except Exception as e:
-        logger.error(f"  ✗ CSV Error: {e}")
-        return False
+#         logger.info(f"  ✓ CSV written: {len(df)} records to {csv_path}")
+#         return True
+#     except Exception as e:
+#         logger.error(f"  ✗ CSV Error: {e}")
+#         return False
 def aggregate_ohlc_from_raw(df_raw: pd.DataFrame, symbol: str) -> pd.DataFrame:
     """Aggregate OHLC from raw realtime data (multiple records per day or per minute)
     Assumes df_raw has 'price', 'timestamp' (or 'ingestion_timestamp') columns
@@ -252,7 +252,11 @@ def aggregate_ohlc_from_raw(df_raw: pd.DataFrame, symbol: str) -> pd.DataFrame:
         ohlc['symbol']      = symbol
         ohlc['asset_class'] = 'vietnam_index'
         ohlc['unit']        = 'point'
-        ohlc['source']      = 'realtime'
+        if 'source' in df.columns:
+            source_per_date = df.groupby('date')['source'].first()
+            ohlc['source'] = ohlc['date'].map(source_per_date)
+        else:
+            ohlc['source'] = 'vikkibanks'
         
         # Select and order columns
         final_columns = ['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'change', 'source']
@@ -332,7 +336,7 @@ def append_to_silver(df: pd.DataFrame, path: str):
             # Append new records
             write_deltalake(path, df_new, mode='append', storage_options=STORAGE_OPTIONS)
             logger.info(f"Appended {len(df_new)} new records to {path}")
-            write_to_csv(df_new, symbol)
+            # write_to_csv(df_new, symbol)
         except Exception as e:
             # Table doesn't exist, create new
             logger.info(f"Creating new Delta table at {path}")
@@ -365,7 +369,7 @@ def process_vietnam_index_csv(symbol: str, s3_file_path: str, unit: str):
         df_full['asset_class'] = 'vietnam_index'
         df_full['unit']        = unit
         df_full['change']      = None
-        df_full['source']      = 'scraped'
+        df_full['source']      = "investing"
         
         ohlc = df_full[['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'change', 'source']]
         ohlc = ohlc.sort_values('date').reset_index(drop=True)
@@ -381,7 +385,7 @@ def process_vietnam_index_csv(symbol: str, s3_file_path: str, unit: str):
         
         logger.info(f"CSV Summary for {symbol}: {len(ohlc)} rows | {ohlc['date'].min()} → {ohlc['date'].max()}")
         
-        silver_path = f"s3://{MINIO_BUCKET_SILVER}/vietnam_index/{symbol}"
+        silver_path = f"s3://{MINIO_BUCKET_SILVER}/vietnam_index/"
         append_to_silver(ohlc, silver_path)
         logger.info(f"✅ CSV Done: {len(ohlc)} rows")
         # write_to_csv(ohlc, symbol)
@@ -416,7 +420,7 @@ def process_vietnam_index_bronze(symbol: str, unit: str):
         logger.info(f"Bronze Summary for {symbol}: {len(ohlc)} rows | {ohlc['date'].min()} → {ohlc['date'].max()}")
         
         # Append to Silver
-        silver_path = f"s3://{MINIO_BUCKET_SILVER}/vietnam_index/{symbol}"
+        silver_path = f"s3://{MINIO_BUCKET_SILVER}/vietnam_index/"
         append_to_silver(ohlc, silver_path)
         logger.info(f"✅ Bronze Done: {len(ohlc)} rows appended")
         

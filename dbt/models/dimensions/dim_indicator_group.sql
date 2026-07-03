@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 select
     {{ sk(['indicator_group_name']) }} as indicator_group_key,

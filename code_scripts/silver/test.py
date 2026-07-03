@@ -9,40 +9,76 @@ DELTA_STORAGE_OPTIONS = {
     "AWS_SECRET_ACCESS_KEY": os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin"),
     "AWS_ENDPOINT_URL": os.getenv("AWS_ENDPOINT_URL", "http://minio:9000"),
     "AWS_ALLOW_HTTP": "true",
+    "AWS_S3_ALLOW_UNSAFE_RENAME": "true",
 }
 
 def test_read_deltalake():
-    from datetime import datetime
-    processing_date = datetime.utcnow().strftime("%Y-%m-%d")
-    out_path = f"s3://{SILVER_BUCKET}/industry_product"
+    out_path = f"s3a://{SILVER_BUCKET}/gdp"
     
     try:
         dt = DeltaTable(out_path, storage_options=DELTA_STORAGE_OPTIONS)
         df = dt.to_pandas()
         
-        print("=== KẾT QUẢ ĐỌC THỬ DELTA LAKE ===")
+        print("=== KẾT QUẢ ĐỌC DELTA LAKE ===")
         print(f"Đường dẫn: {out_path}")
         print(f"Số lượng dòng: {len(df)}")
+
         print("\nCấu trúc các cột:")
         print(df.dtypes)
-        print("\nDữ liệu mẫu (5 dòng đầu):")
-        print(df)
-        # print("\nDữ liệu mẫu (5 dòng cuối):")
-        # print(df.tail())
-        # in ra năm nhỏ nhất
-        if 'year' in df.columns:
-            min_year = df['year'].min()
-            print(f"\nNăm nhỏ nhất trong cột 'year': {min_year}")
+
+        print("\nDữ liệu mẫu:")
+        print(df.head())
+
+        print("\n=== KIỂM TRA DUPLICATE ===")
+
+        # Key đúng cho silver.gdp
+        duplicate_keys = ["year", "quarter", "sector", "sub_sector", "type", "unit"]
+
+        df["is_duplicate"] = df.duplicated(
+            subset=duplicate_keys,
+            keep=False
+        )
+
+        duplicate_df = df[df["is_duplicate"] == True].copy()
+
+        print(f"Số dòng duplicate: {len(duplicate_df)}")
+
+        if len(duplicate_df) > 0:
+            print("\nCác dòng duplicate:")
+            print(
+                duplicate_df
+                .sort_values(duplicate_keys + ["ingest_at"])
+                .to_string(index=False)
+            )
+
+            print("\n=== TÓM TẮT NHÓM DUPLICATE ===")
+
+            duplicate_summary = (
+                df.groupby(duplicate_keys, dropna=False)
+                .agg(
+                    cnt=("value", "size"),
+                    distinct_value_cnt=("value", "nunique"),
+                    min_value=("value", "min"),
+                    max_value=("value", "max"),
+                    min_ingest_at=("ingest_at", "min"),
+                    max_ingest_at=("ingest_at", "max"),
+                )
+                .reset_index()
+            )
+
+            duplicate_summary = (
+                duplicate_summary[duplicate_summary["cnt"] > 1]
+                .sort_values("cnt", ascending=False)
+            )
+
+            print(duplicate_summary.to_string(index=False))
         else:
-            print("\nCột 'year' không tồn tại trong DataFrame.")
-        # in ra năm lớn nhất
-        if 'year' in df.columns:
-            max_year = df['year'].max()
-            print(f"Năm lớn nhất trong cột 'year': {max_year}")
-        else:
-            print("\nCột 'year' không tồn tại trong DataFrame.")
+            print("Không có duplicate.")
+
     except Exception as e:
         print(f"Lỗi khi đọc Delta Table: {str(e)}")
+        import traceback
+        traceback.print_exc()
 
 if __name__ == "__main__":
     test_read_deltalake()

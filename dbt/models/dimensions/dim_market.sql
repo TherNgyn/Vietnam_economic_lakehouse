@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 with markets as (
     select distinct market_name, country from {{ ref('stg_ohlc') }}

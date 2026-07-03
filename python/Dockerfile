@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     fonts-liberation \
     xdg-utils \
     libreoffice \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* 
 
 RUN pip install --upgrade pip && \
     pip install \
@@ -30,5 +30,7 @@ RUN pip install --upgrade pip && \
     pyyaml \
     fsspec \
     s3fs \
-    pyspark
+    pyspark \
+    boto3 \
+    dbt-spark[PyHive]
     

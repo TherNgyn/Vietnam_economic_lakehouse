@@ -29,6 +29,16 @@
         <name>fs.s3a.impl.disable.cache</name>
         <value>false</value>
     </property>
+    
+    <property>
+        <name>hive.metastore.event.db.notification.api.auth</name>
+        <value>false</value>
+    </property>
+
+    <property>
+        <name>metastore.metastore.event.db.notification.api.auth</name>
+        <value>false</value>
+    </property>
 
     <!-- ===== Metastore DB config ===== -->
     <property>
@@ -72,6 +82,19 @@
         <name>hive.metastore.uris</name>
         <value>thrift://hive:9083</value>
     </property>
+    <property>
+        <name>hive.server2.thrift.bind.host</name>
+        <value>0.0.0.0</value>
+    </property>
 
+    <property>
+        <name>hive.server2.thrift.port</name>
+        <value>10000</value>
+    </property>
+
+    <property>
+        <name>hive.server2.transport.mode</name>
+        <value>binary</value>
+    </property>
     
 </configuration>
