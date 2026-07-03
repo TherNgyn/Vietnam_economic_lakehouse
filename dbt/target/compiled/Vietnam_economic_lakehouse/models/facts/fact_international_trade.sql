@@ -4,10 +4,7 @@ with base as (
 
     select
         product_name,
-
-        -- Mapping product_type của trade thành product_category_name
-        -- Nếu stg_trade_international đã có product_category_name thì dùng trực tiếp cột đó.
-        product_type as product_category_name,
+        report_date,
 
         cast(trade_value as decimal(38,10)) as trade_value,
         cast(quantity as decimal(38,10)) as quantity,
@@ -30,7 +27,7 @@ joined as (
     select
         t.time_key,
         p.product_key,
-
+        b.report_date,
         b.year,
         b.quarter,
         b.month,
@@ -45,17 +42,11 @@ joined as (
 
     from base b
 
-    left join gold_gold.dim_product_category pc
-        on b.product_category_name = pc.product_category_name
-
     left join gold_gold.dim_product p
         on b.product_name = p.product_name
-       and p.product_category_key = pc.product_category_key
 
     left join gold_gold.dim_time t
-        on b.year = cast(t.year as int)
-       and b.quarter = cast(t.quarter as int)
-       and b.month = cast(t.month as int)
+        on b.report_date = t.full_date
 
     where p.product_key is not null
       and t.time_key is not null
@@ -67,7 +58,7 @@ enriched as (
     select
         cur.time_key,
         cur.product_key,
-
+        cur.report_date,
         cur.year,
         cur.quarter,
         cur.month,

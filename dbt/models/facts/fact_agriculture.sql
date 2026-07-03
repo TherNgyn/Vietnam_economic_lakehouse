@@ -35,9 +35,8 @@ with base as (
         on a.crop_name = c.crop_name
 
     left join {{ ref('dim_time') }} t
-        on cast(a.report_year as int) = cast(t.year as int)
-        and t.quarter is null
-        and t.month is null
+        on cast(concat(cast(a.report_year as string), '-01-01') as date) = t.full_date
+
 
     where c.crop_key is not null
       and t.time_key is not null

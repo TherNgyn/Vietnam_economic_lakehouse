@@ -13,7 +13,7 @@ DELTA_STORAGE_OPTIONS = {
 }
 
 def test_read_deltalake():
-    out_path = f"s3a://{SILVER_BUCKET}/gdp"
+    out_path = f"s3a://{SILVER_BUCKET}/m2"
     
     try:
         dt = DeltaTable(out_path, storage_options=DELTA_STORAGE_OPTIONS)
@@ -28,11 +28,21 @@ def test_read_deltalake():
 
         print("\nDữ liệu mẫu:")
         print(df.head())
+        # hiển thị distinct values của các cột
+        print("\n=== DISTINCT VALUES CỦA CÁC CỘT ===")
+        for col in df.columns:
+            distinct_values = df[col].dropna().unique()
+            print(f"Cột '{col}': {len(distinct_values)} giá trị khác nhau")
+            if len(distinct_values) <= 10:
+                print(f"Giá trị khác nhau: {distinct_values}")
+            else:
+                print(f"Ví dụ giá trị khác nhau: {distinct_values[:10]} ...")
+        print(df.i)
 
         print("\n=== KIỂM TRA DUPLICATE ===")
 
         # Key đúng cho silver.gdp
-        duplicate_keys = ["year", "quarter", "sector", "sub_sector", "type", "unit"]
+        duplicate_keys = ["year", "quarter", "investment_name", "unit"]
 
         df["is_duplicate"] = df.duplicated(
             subset=duplicate_keys,
