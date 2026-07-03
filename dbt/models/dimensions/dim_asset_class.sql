@@ -1,4 +1,8 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
+
 
 with classes as (
     select distinct asset_class_name from {{ ref('stg_ohlc') }}

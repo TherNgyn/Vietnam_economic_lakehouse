@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 with units as (
     select distinct unit_name from {{ ref('stg_macro_indicator') }}
@@ -7,9 +10,9 @@ with units as (
     union
     select distinct unit_name from {{ ref('stg_interest_rate') }}
     union
-    select distinct unit_name from {{ ref('stg_product_market') }}
+    select distinct unit_name from {{ ref('stg_production_output') }}
     union
-    select distinct quantity_unit_name as unit_name from {{ ref('stg_product_market') }}
+    select distinct quantity_unit_name as unit_name from {{ ref('stg_production_output') }}
     union
     select distinct production_unit_name as unit_name from {{ ref('stg_agriculture') }}
     union
@@ -19,9 +22,7 @@ with units as (
     union
     select distinct unit_name from {{ ref('stg_gdp') }}
     union
-    select distinct unit_name from {{ ref('stg_investment') }}
-    union
-    select distinct unit_name from {{ ref('stg_social_investment') }}
+    select distinct unit_name from {{ ref('stg_total_investment') }}
 ),
 
 typed as (

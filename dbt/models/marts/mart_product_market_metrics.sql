@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='delta_table') }}
 
 with base as (
     select
@@ -14,7 +14,7 @@ with base as (
         u.unit_name,
         f.value,
         f.quantity
-    from {{ ref('fact_product_market') }} f
+    from {{ ref('fact_production_output') }} f
     left join {{ ref('dim_time') }} t
         on f.time_key = t.time_key
     left join {{ ref('dim_product') }} p

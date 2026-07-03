@@ -1,9 +1,10 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='delta_table'
+)}}
+
 
 with sectors as (
     select distinct sector_name from {{ ref('stg_gdp') }}
-    union
-    select distinct sector_name from {{ ref('stg_investment') }}
 )
 
 select

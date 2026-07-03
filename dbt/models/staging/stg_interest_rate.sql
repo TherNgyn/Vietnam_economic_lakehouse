@@ -1,12 +1,12 @@
 {{ config(materialized='view') }}
 
 select
-    to_date(date) as report_date,
+    cast(`date` as date) as date,
     symbol,
     symbol as asset_name,
     'INTEREST_RATE' as asset_class_name,
     'MONEY_MARKET' as market_name,
-    null as country,
+    'VN' as country,
     term as term_name,
     cast(interest_rate as decimal(38,10)) as interest_rate,
     cast(volume as decimal(38,10)) as volume,

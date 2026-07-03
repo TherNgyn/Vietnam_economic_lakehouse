@@ -40,16 +40,18 @@
     "2.-bieu-solieu-t8": 8
   prefix_extract: "bieu-"
 
+
 2017:
   fixed_mapping:
     "03-bieu-2017": 12
-    "03-bieu.--9-2017": 9
+    "03-bieu.-9-2017": 9
     "bieu-bao-cao-thang-6": 6
   regex_patterns:
     - "bieu-t(\\d{1,2})"
     - "bieu-(\\d{1,2})"
     - "thang-(\\d{1,2})"
     - "t(\\d{1,2})"
+
 
 2018:
   fixed_mapping:

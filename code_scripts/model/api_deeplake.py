@@ -19,7 +19,7 @@ DEEPLAKE_PATH = os.getenv("DEEPLAKE_PATH", f"s3://{SILVER_BUCKET}/deeplake/cpi_d
 def get_s3fs():
     return s3fs.S3FileSystem(
         key=os.getenv("AWS_ACCESS_KEY_ID", "minioadmin"),
-        secret=os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin123"),
+        secret=os.getenv("AWS_SECRET_ACCESS_KEY", "minioadmin"),
         endpoint_url=os.getenv("AWS_ENDPOINT_URL", "http://minio:9000"),
         use_ssl=False,
     )

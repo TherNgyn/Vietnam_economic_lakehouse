@@ -253,8 +253,15 @@ def process_ohlc(symbol: str, object_name: str, asset_class: str, unit: str, yf_
         df_full['change']      = None
         
         # Determine data source
-        data_source = 'yfinance' if df_clean.empty else 'historical_csv'
-        df_full['source']      = data_source
+        if df_clean.empty:
+            df_full['source'] = 'yfinance'
+        elif df_yf.empty:
+            df_full['source'] = 'historical_csv'
+        else:
+            clean_dates = set(df_clean['date'].unique())
+            df_full['source'] = df_full['date'].apply(
+                lambda d: 'historical_csv' if d in clean_dates else 'yfinance'
+            )
         
         # Format output
         ohlc = df_full[['date', 'symbol', 'asset_class', 'unit', 'open', 'high', 'low', 'close', 'volume', 'change_percent', 'prev_close', 'change', 'source']]
@@ -274,10 +281,10 @@ def process_ohlc(symbol: str, object_name: str, asset_class: str, unit: str, yf_
         logger.info(f"\nOHLC Data Summary:")
         logger.info(f"Total records: {len(ohlc)}")
         logger.info(f"Date range: {ohlc['date'].min()} → {ohlc['date'].max()}")
-        logger.info(f"Data source: {data_source}")
+        logger.info(f"Data source: {ohlc['source'].unique()}")
         
         # Upsert to Silver
-        silver_path = f"s3://{MINIO_BUCKET_SILVER}/{asset_class}/{symbol}/"
+        silver_path = f"s3://{MINIO_BUCKET_SILVER}/{asset_class}"
         upsert_to_silver(ohlc, silver_path)
         logger.info(f"Done: {len(ohlc)} rows | {ohlc['date'].min()} → {ohlc['date'].max()}")
         write_to_csv(ohlc, asset_class, symbol)

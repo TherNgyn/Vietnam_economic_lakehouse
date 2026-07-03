@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='delta_table') }}
 
 with base as (
     select
