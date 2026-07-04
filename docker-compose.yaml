@@ -501,7 +501,7 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
     volumes:
-      - ./streamlit/app.py:/opt/streamlit/app/app.py
+      - ./streamlit:/opt/streamlit/app
     depends_on:
       - spark-master
       - hive
