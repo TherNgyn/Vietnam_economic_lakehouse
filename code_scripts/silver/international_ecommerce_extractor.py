@@ -1,23 +1,44 @@
 import pyspark.pandas as pd
 
+import re
+import unicodedata
+
+
 from minio_funcs import *
 from reuse_function import *
 from Load_data_to_table import *
 
 # HÀM MỚI: CHUẨN HÓA VÀ MAPPING PRODUCT_NAME THEO YÊU CẦU
+NGUYEN_CHIEC_PATTERN = re.compile(
+    r'^(trong\s*đó|tđ)\s*:\s*nguyên\s*chiếc\s*[\(⁽]?\*{0,3}[\)⁾]?$',
+    flags=re.IGNORECASE,
+)
+ 
+ 
 def clean_and_mapping_products(df: pd.DataFrame) -> pd.DataFrame:
     if df is None or df.empty:
         return df
-
-    # 1. Xóa các khoảng trắng thừa ở đầu/cuối của product_name để đảm bảo mapping chính xác
-    df['product_name'] = df['product_name'].astype(str).str.strip()
-
-
-    # 2. Xóa các hàng có product_name = '-1' hoặc 'Tđ: Nguyên chiếc'
+ 
+    # 1. Chuẩn hóa Unicode (NFC) + strip đầu/cuối + gộp khoảng trắng kép bên trong
+    #    TRƯỚC mọi thao tác. Đây là bước quan trọng để các biến thể trông
+    #    "giống nhau" trên màn hình nhưng khác byte Unicode (ví dụ dấu ngoặc
+    #    superscript, khoảng trắng kép) đều được đưa về cùng một dạng chuẩn.
+    df['product_name'] = (
+        df['product_name']
+        .astype(str)
+        .map(lambda s: unicodedata.normalize('NFC', s))
+        .str.strip()
+        .str.replace(r'\s+', ' ', regex=True)
+    )
+ 
+    # 2. Xóa các hàng không hợp lệ
+    #    - so sánh value bằng pd.to_numeric để không lọt các biến thể
+    #      '-1' (string), -1.0 (float) nếu cột value bị lẫn kiểu dữ liệu.
     df = df[~df['product_name'].isin(['-1', 'Tđ: Nguyên chiếc'])]
-    df = df[~df['value'].isin([-1])]
-
-    # 3. Tạo dictionary mapping cho các tên sản phẩm (Không bao gồm ô tô nguyên chiếc cần xử lý riêng)
+    df = df[~pd.to_numeric(df['value'], errors='coerce').isin([-1])]
+ 
+    # 3. Mapping tên sản phẩm chung (đã strip + gộp space nên không lo
+    #    khoảng trắng thừa)
     product_mapping = {
         'Đá quý, KL quý  và sản phẩm': 'Đá quý, kim loại quý và sản phẩm',
         'Điện thoại các loại và LK': 'Điện thoại các loại và linh kiện',
@@ -32,12 +53,12 @@ def clean_and_mapping_products(df: pd.DataFrame) -> pd.DataFrame:
         'Kim loại thường khác và sản phẩm': 'Kim loại thường và sản phẩm',
         'Kim loại thường khác và SP': 'Kim loại thường và sản phẩm',
         'Máy ảnh, máy quay phim và LK': 'Máy ảnh, máy quay phim và linh kiện',
-        'Máy móc, thiết bị, DC, PT khác' : 'Máy móc, thiết bị, dụng cụ, phụ tùng',
-        'Máy móc, thiết bị, dụng cụ PT khác' : 'Máy móc, thiết bị, dụng cụ, phụ tùng',
+        'Máy móc, thiết bị, DC, PT khác': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
+        'Máy móc, thiết bị, dụng cụ PT khác': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
         'Máy móc thiết bị, dụng cụ phụ tùng khác': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
         'Máy móc thiết bị, DC, PT khác': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
-        'Máy móc thiết bị, DC PT khác' : 'Máy móc, thiết bị, dụng cụ, phụ tùng',
-        'Máy móc thiết bị, DC PT' : 'Máy móc, thiết bị, dụng cụ, phụ tùng',
+        'Máy móc thiết bị, DC PT khác': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
+        'Máy móc thiết bị, DC PT': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
         'Máy móc thiết bị, dụng cụ PT': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
         'Máy móc thiết bị, dụng cụ PT khác': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
         'Máy móc, thiết bị, dụng cụ, phụ tùng khác': 'Máy móc, thiết bị, dụng cụ, phụ tùng',
@@ -52,31 +73,19 @@ def clean_and_mapping_products(df: pd.DataFrame) -> pd.DataFrame:
         'SP nội thất từ chất liệu khác gỗ': 'Sản phẩm nội thất từ chất liệu khác gỗ',
         'SP từ kim loại thường khác': 'Sản phẩm từ kim loại thường khác',
         'Thủy tinh và các SP từ thủy tinh': 'Thủy tinh và các sản phẩm từ thủy tinh',
-        'Thủy tinh và cácSP từ thủy tinh' : 'Thủy tinh và các sản phẩm từ thủy tinh',
+        'Thủy tinh và cácSP từ thủy tinh': 'Thủy tinh và các sản phẩm từ thủy tinh',
         'Thức ăn gia súc và NPL': 'Thức ăn gia súc và nguyên phụ liệu',
         'Xe máy(*)': 'Xe máy',
-        'Sữa và sản phẩm sữa' : 'Sữa và sản phẩm từ sữa',
+        'Sữa và sản phẩm sữa': 'Sữa và sản phẩm từ sữa',
     }
-
-    # Apply mapping chuẩn hóa tên sản phẩm chung
     df['product_name'] = df['product_name'].replace(product_mapping)
-
-    # 4. Xử lý các trường hợp "Ô tô nguyên chiếc" và chuyển quantity_unit sang 'Chiếc'
-    target_cars = ['Ô tô nguyên chiếc', 'Trong đó: Nguyên chiếc', 'Trong đó: Nguyên chiếc⁽*⁾', 'Trong đó: Nguyên chiếc(*)']
-    
-    # Cập nhật quantity_unit thành 'Chiếc' cho các dòng thỏa mãn điều kiện ô tô nguyên chiếc
-    df.loc[df['product_name'].isin(target_cars), 'quantity_unit'] = 'Chiếc'
-    # Đồng bộ tất cả các dòng này về một tên duy nhất: 'Ô tô nguyên chiếc'
-    df['product_name'] = df['product_name'].replace({
-        'Trong đó: Nguyên chiếc': 'Ô tô nguyên chiếc',
-        ' Trong đó: Nguyên chiếc' : 'Ô tô nguyên chiếc',
-        ' Trong đó: Nguyên chiếc⁽*⁾':'Ô tô nguyên chiếc',
-        ' Tđ: Nguyên chiếc' : 'Ô tô nguyên chiếc',
-        ' Trong đó: Nguyên chiếc': 'Ô tô nguyên chiếc',
-        'Trong đó: Nguyên chiếc⁽*⁾': 'Ô tô nguyên chiếc',
-        'Trong đó: Nguyên chiếc(*)': 'Ô tô nguyên chiếc',
-        'Trong đó: Nguyên chiếc(**)' : 'Ô tô nguyên chiếc',
-    })
+ 
+    is_nguyen_chiec = df['product_name'].str.match(NGUYEN_CHIEC_PATTERN, na=False)
+    df.loc[is_nguyen_chiec, 'product_name'] = 'Ô tô nguyên chiếc'
+ 
+    # 5. Sau khi đã chuẩn hóa tên, mới cập nhật quantity_unit cho ô tô nguyên chiếc
+    df.loc[df['product_name'] == 'Ô tô nguyên chiếc', 'quantity_unit'] = 'Chiếc'
+ 
     return df.reset_index(drop=True)
 
 
@@ -155,6 +164,57 @@ def extract_intenational_ecommerce_data_sheet_01(sheet : pd.DataFrame, type: str
     except Exception as e:
         print(f'CÓ VẤN ĐỀ XẢY RA KHI TRÍCH XUẤT DỮ LIỆU THƯƠNG MẠI QUỐC TÊ NĂM {year}, THÁNG {month}', e)
 
+
+# HÀM MỚI: TRÍCH XUẤT MẶT HÀNG CHỦ YẾU CHO BÁO CÁO THÁNG 01 (TỪ NĂM 2023 TRỞ ĐI)
+# Báo cáo Tháng 01 có thêm khối cột so sánh với CẢ NĂM TRƯỚC liền kề nằm
+# trước khối cột "Tháng 01 năm nay", nên cấu trúc cột khác hẳn các tháng còn
+# lại trong năm:
+#   Cột B (index 1) : product_name
+#   Cột C, D        : Lượng/Trị giá CẢ NĂM TRƯỚC -> KHÔNG lấy
+#   Cột F (index 5) : quantity  (Tháng 01 năm nay)
+#   Cột G (index 6) : value     (Tháng 01 năm nay)
+#   Cột I, J        : % so cùng kỳ năm trước -> KHÔNG lấy
+def extract_intenational_ecommerce_data_sheet_03(sheet: pd.DataFrame, type: str, month: int, year: int):
+    try:
+        # dò dòng tiêu đề "MẶT HÀNG CHỦ YẾU", dữ liệu mặt hàng bắt đầu ngay dòng kế tiếp
+        start_row = None
+        for i in range(len(sheet)):
+            if isinstance(sheet.iloc[i, 0], str) and 'mathangchuyeu' in clean_text(sheet.iloc[i, 0]):
+                start_row = i + 1
+                break
+
+        if start_row is None:
+            raise ValueError("Không tìm thấy dòng 'MẶT HÀNG CHỦ YẾU' trong sheet")
+
+        sheet = sheet.iloc[start_row:, ::].reset_index(drop=True)
+
+        name_colums = ['product_name', 'quantity', 'value']
+        # chỉ lấy cột B (product_name), F (quantity Tháng 01 năm nay), G (value Tháng 01 năm nay)
+        sheet = sheet.iloc[::, [1, 5, 6]]
+        sheet.columns = name_colums
+
+        # loại bỏ các dòng trống cuối bảng (không còn mặt hàng)
+        sheet = sheet[sheet['product_name'].notna()].reset_index(drop=True)
+
+        sheet['type'] = type
+        sheet['quantity_unit'] = 'Nghìn tấn'
+        sheet['unit'] = 'Triệu USD'
+        sheet['month'] = month
+        sheet['quarter'] = int((month - 1) / 3) + 1
+        sheet['year'] = year
+        sheet['ingest_at'] = pd.Timestamp.now()
+        sheet['quantity'] = sheet['quantity'].fillna(-1)
+        sheet.loc[sheet['quantity'] == -1, 'quantity_unit'] = 'Not Available'
+        sheet = sheet.dropna()
+
+        # chuẩn hóa + mapping tên mặt hàng (gộp các biến thể tên, set Ô tô nguyên chiếc, v.v.)
+        sheet = clean_and_mapping_products(sheet)
+
+        return sheet
+    except Exception as e:
+        print(f'CÓ VẤN ĐỀ XẢY RA KHI TRÍCH XUẤT DỮ LIỆU THƯƠNG MẠI QUỐC TẾ THÁNG 01 NĂM {year}', e)
+
+
 def extract_data_from_International_Ecommerce(excel_file: pd.ExcelFile, year, month):
     all_sheets = excel_file.sheet_names
     import_sheet = None
@@ -169,7 +229,12 @@ def extract_data_from_International_Ecommerce(excel_file: pd.ExcelFile, year, mo
             export_sheet = pd.read_excel(excel_file, sheet_name= all_sheets[i], header= None)
         if import_sheet is not None and export_sheet is not None : break
 
-    if year > 2018 or (year == 2018 and month >= 9) :
+    # TỪ NĂM 2023 TRỞ ĐI, RIÊNG THÁNG 01 CÓ CẤU TRÚC CỘT KHÁC (DO CÓ THÊM
+    # KHỐI SO SÁNH VỚI CẢ NĂM TRƯỚC), NÊN DÙNG HÀM TRÍCH XUẤT RIÊNG
+    if year >= 2023 and month == 1:
+        import_sheet = extract_intenational_ecommerce_data_sheet_03(import_sheet, 'Import', month, year)
+        export_sheet = extract_intenational_ecommerce_data_sheet_03(export_sheet, 'Export', month, year)
+    elif year > 2018 or (year == 2018 and month >= 9):
         import_sheet = extract_intenational_ecommerce_data_sheet_02(import_sheet, 'Import', month, year)
         export_sheet = extract_intenational_ecommerce_data_sheet_02(export_sheet, 'Export', month, year)
     else:

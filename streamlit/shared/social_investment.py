@@ -165,69 +165,42 @@ def _apply_chart_layout(fig: go.Figure, height: int = 380) -> go.Figure:
 # ============================================================
 # DATA LOADING
 # ============================================================
+
 @st.cache_resource(show_spinner="Đang tải dữ liệu Social Investment...")
 def load_data() -> SparkDataFrame:
+    """
+    Đọc dữ liệu từ Gold layer và join fact_social_total_investment với
+    dim_time và dim_capital_source.
+
+    Sử dụng SparkSession có sẵn từ shared/spark.py, không tạo session mới.
+
+    Returns:
+        SparkDataFrame: dữ liệu đã join, chưa áp dụng filter.
+    """
     spark = get_spark_session()
 
-    joined_df = spark.sql("""
-        select
-            cast(report_year as int) as year,
-            cast(report_quarter as int) as quarter,
+    fact_df = spark.table("gold.fact_social_total_investment")
+    dim_time_df = spark.table("gold.dim_time")
+    dim_source_df = spark.table("gold.dim_capital_source")
 
-            capital_source_name as source_name,
-
-            unit_name as unit,
-
-            cast(investment_value as decimal(38,3)) as investment_value,
-            cast(investment_value_pre_quarter as decimal(38,3)) as investment_value_pre_quarter,
-            cast(investment_value_pre_year as decimal(38,3)) as investment_value_pre_year,
-
-            cast(qoq_growth_rate as decimal(38,3)) as qoq_growth_rate,
-            cast(yoy_growth_rate as decimal(38,3)) as yoy_growth_rate,
-            cast(source_share_pct as decimal(38,3)) as source_share_pct
-
-        from gold_marts.mart_social_invest
-
-        where report_year is not null
-          and report_quarter is not null
-    """)
-
+    joined_df = (
+        fact_df
+        .join(dim_time_df, on="time_key", how="inner")
+        .join(dim_source_df, on="capital_source_key", how="inner")
+        .select(
+            dim_time_df["year"],
+            dim_time_df["quarter"],
+            dim_source_df["source_name"],
+            fact_df["unit"],
+            fact_df["investment_value"],
+            fact_df["investment_value_pre_quarter"],
+            fact_df["investment_value_pre_year"],
+            fact_df["qoq_growth_rate"],
+            fact_df["yoy_growth_rate"],
+            fact_df["source_share_pct"],
+        )
+    )
     return joined_df
-# @st.cache_resource(show_spinner="Đang tải dữ liệu Social Investment...")
-# def load_data() -> SparkDataFrame:
-#     """
-#     Đọc dữ liệu từ Gold layer và join fact_social_total_investment với
-#     dim_time và dim_capital_source.
-
-#     Sử dụng SparkSession có sẵn từ shared/spark.py, không tạo session mới.
-
-#     Returns:
-#         SparkDataFrame: dữ liệu đã join, chưa áp dụng filter.
-#     """
-#     spark = get_spark_session()
-
-#     fact_df = spark.table("gold.fact_social_total_investment")
-#     dim_time_df = spark.table("gold.dim_time")
-#     dim_source_df = spark.table("gold.dim_capital_source")
-
-#     joined_df = (
-#         fact_df
-#         .join(dim_time_df, on="time_key", how="inner")
-#         .join(dim_source_df, on="capital_source_key", how="inner")
-#         .select(
-#             dim_time_df["year"],
-#             dim_time_df["quarter"],
-#             dim_source_df["source_name"],
-#             fact_df["unit"],
-#             fact_df["investment_value"],
-#             fact_df["investment_value_pre_quarter"],
-#             fact_df["investment_value_pre_year"],
-#             fact_df["qoq_growth_rate"],
-#             fact_df["yoy_growth_rate"],
-#             fact_df["source_share_pct"],
-#         )
-#     )
-#     return joined_df
 
 
 def get_filter_options(spark_df: SparkDataFrame) -> Dict[str, List[Any]]:

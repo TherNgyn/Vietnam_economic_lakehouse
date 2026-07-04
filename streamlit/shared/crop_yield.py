@@ -232,171 +232,54 @@ def render_header() -> None:
         """,
         unsafe_allow_html=True,
     )
-@st.cache_data(show_spinner="Đang tải dữ liệu Crop Yield...")
-def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu Crop Yield từ mart layer.
-    Giao diện dashboard cũ được giữ nguyên bằng cách alias các cột
-    từ mart về đúng tên cột mà UI hiện tại đang sử dụng:
-        - crop_group_name -> crop_category
-        - production_value -> yield_value
-        - area_value -> area
-        - productivity_value -> productivity
-        - production_value_pre_year -> yield_pre_year
-    """
-    spark = get_spark_session()
 
-    sql = """
-        with base as (
-
-            select
-                mart_crop_yield_key,
-
-                time_key,
-                full_date,
-
-                cast(report_year as int) as year,
-                cast(null as int) as quarter,
-
-                crop_key,
-                crop_name,
-
-                crop_group_name as crop_category,
-                crop_group_name,
-
-                source_key,
-                source_name,
-                source_system,
-
-                production_unit_name as production_unit,
-                yield_unit_name as yield_unit,
-                area_unit_name as area_unit,
-
-                cast(production_value as decimal(38,3)) as production_value,
-                cast(production_value_pre_year as decimal(38,3)) as production_value_pre_year,
-
-                cast(area_value as decimal(38,3)) as area_value,
-                cast(area_value_pre_year as decimal(38,3)) as area_value_pre_year,
-
-                cast(yield_value as decimal(38,3)) as yield_metric_value,
-                cast(yield_value_pre_year as decimal(38,3)) as yield_metric_value_pre_year,
-
-                cast(productivity_value as decimal(38,3)) as productivity_value,
-                cast(productivity_value_pre_year as decimal(38,3)) as productivity_value_pre_year,
-
-                cast(source_yield_value as decimal(38,3)) as source_yield_value,
-
-                cast(production_yoy_growth_rate as decimal(38,3)) as production_yoy_growth_rate,
-                cast(area_yoy_growth_rate as decimal(38,3)) as area_yoy_growth_rate,
-                cast(yield_yoy_growth_rate as decimal(38,3)) as yield_yoy_growth_rate,
-                cast(productivity_yoy_growth_rate as decimal(38,3)) as productivity_yoy_growth_rate,
-                cast(value_yoy_growth_rate as decimal(38,3)) as value_yoy_growth_rate,
-
-                period_grain,
-                created_at,
-                ingest_at
-
-            from gold_marts.mart_agriculture_metrics
-
-        ),
-
-        with_share as (
-
-            select
-                *,
-
-                sum(production_value) over (
-                    partition by year
-                ) as total_production_value
-
-        from base
-
-        )
-
-        select
-            year,
-           quarter,
-
-            crop_name,
-            crop_category,
-
-            production_unit,
-            yield_unit,
-            area_unit,
-
-            area_value as area,
-
-            production_value as yield_value,
-
-            productivity_value as productivity,
-
-            area_value_pre_year as area_pre_year,
-
-            production_value_pre_year as yield_pre_year,
-
-            productivity_value_pre_year as productivity_pre_year,
-
-            yield_yoy_growth_rate,
-
-           case
-                when total_production_value is not null
-                and total_production_value<> 0
-                then round(production_value / total_production_value * 100, 3)
-            end as yield_share_pct
-
-        from with_share
-
-        order by year, crop_category, crop_name
-    """
-
-    pdf = spark.sql(sql).toPandas()
-    return pdf
 
 # ====================================================================
 # DATA LOADING (SPARK)
 # ====================================================================
 
-# @st.cache_data(show_spinner="Đang tải dữ liệu Crop Yield...")
-# def load_data() -> pd.DataFrame:
-#     """Truy vấn dữ liệu Crop Yield từ Gold layer bằng Spark.
+@st.cache_data(show_spinner="Đang tải dữ liệu Crop Yield...")
+def load_data() -> pd.DataFrame:
+    """Truy vấn dữ liệu Crop Yield từ Gold layer bằng Spark.
 
-#     Thực hiện join giữa fact_crop_yield với dim_time và dim_crop.
-#     Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
-#     join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
-#     Streamlit.
+    Thực hiện join giữa fact_crop_yield với dim_time và dim_crop.
+    Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
+    join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
+    Streamlit.
 
-#     Returns:
-#         pd.DataFrame: Dữ liệu Crop Yield đã join đầy đủ dimension.
-#     """
-#     spark = get_spark_session()
+    Returns:
+        pd.DataFrame: Dữ liệu Crop Yield đã join đầy đủ dimension.
+    """
+    spark = get_spark_session()
 
-#     fact: SparkDataFrame = spark.table("gold.fact_crop_yield")
-#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
-#     dim_crop: SparkDataFrame = spark.table("gold.dim_crop")
+    fact: SparkDataFrame = spark.table("gold.fact_crop_yield")
+    dim_time: SparkDataFrame = spark.table("gold.dim_time")
+    dim_crop: SparkDataFrame = spark.table("gold.dim_crop")
 
-#     df = (
-#         fact.join(dim_time, on="time_key", how="left")
-#         .join(dim_crop, on="crop_key", how="left")
-#         .select(
-#             dim_time["year"],
-#             dim_time["quarter"],
-#             dim_crop["crop_name"],
-#             dim_crop["crop_category"],
-#             fact["production_unit"],
-#             fact["yield_unit"],
-#             fact["area_unit"],
-#             fact["area"],
-#             fact["yield_value"],
-#             fact["productivity"],
-#             fact["area_pre_year"],
-#             fact["yield_pre_year"],
-#             fact["productivity_pre_year"],
-#             fact["yield_yoy_growth_rate"],
-#             fact["yield_share_pct"],
-#         )
-#     )
+    df = (
+        fact.join(dim_time, on="time_key", how="left")
+        .join(dim_crop, on="crop_key", how="left")
+        .select(
+            dim_time["year"],
+            dim_time["quarter"],
+            dim_crop["crop_name"],
+            dim_crop["crop_category"],
+            fact["production_unit"],
+            fact["yield_unit"],
+            fact["area_unit"],
+            fact["area"],
+            fact["yield_value"],
+            fact["productivity"],
+            fact["area_pre_year"],
+            fact["yield_pre_year"],
+            fact["productivity_pre_year"],
+            fact["yield_yoy_growth_rate"],
+            fact["yield_share_pct"],
+        )
+    )
 
-#     pdf = df.toPandas()
-#     return pdf
+    pdf = df.toPandas()
+    return pdf
 
 
 # ====================================================================

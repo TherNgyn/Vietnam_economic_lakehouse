@@ -238,101 +238,51 @@ def render_header() -> None:
 # ====================================================================
 # DATA LOADING (SPARK)
 # ====================================================================
+
 @st.cache_data(show_spinner="Đang tải dữ liệu Production Output...")
 def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu Production Output từ Gold Mart layer.
+    """Truy vấn dữ liệu Production Output từ Gold layer bằng Spark.
 
-    Giữ nguyên giao diện dashboard cũ bằng cách alias các cột từ mart
-    về đúng tên cột mà các hàm filter/KPI/chart hiện tại đang sử dụng.
+    Thực hiện join giữa fact_production_output với dim_time và
+    dim_product. Dữ liệu chỉ được convert sang Pandas ở bước cuối
+    cùng (sau khi đã join xong bằng Spark), phục vụ cho việc
+    filter/vẽ biểu đồ phía Streamlit.
+
+    Returns:
+        pd.DataFrame: Dữ liệu Production Output đã join đầy đủ dimension.
     """
     spark = get_spark_session()
 
-    sql = """
-        select
-            cast(report_year as int) as year,
-            cast(report_quarter as int) as quarter,
+    fact: SparkDataFrame = spark.table("gold.fact_production_output")
+    dim_time: SparkDataFrame = spark.table("gold.dim_time")
+    dim_product: SparkDataFrame = spark.table("gold.dim_product")
 
-            product_name,
+    df = (
+        fact.join(dim_time, on="time_key", how="left")
+        .join(dim_product, on="product_key", how="left")
+        .select(
+            dim_time["year"],
+            dim_time["quarter"],
+            dim_product["product_name"],
+            dim_product["product_type"],
+            dim_product["product_category"],
+            fact["value"],
+            fact["unit"],
+            fact["prev_quarter_value"],
+            fact["pre_year_value"],
+            fact["yoy_growth_rate"],
+            fact["qoq_growth_rate"],
+            fact["product_share_pct"],
+        )
+    )
 
-            cast('not available' as string) as product_type,
-            product_category_name as product_category,
+    df = df.withColumn(
+        "quarter_label",
+        F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
+    )
 
-            cast(production_value as decimal(38,3)) as value,
-            unit_name as unit,
-
-            cast(production_value_pre_period as decimal(38,3)) as prev_quarter_value,
-            cast(production_value_pre_year as decimal(38,3)) as pre_year_value,
-
-            cast(yoy_growth_rate as decimal(38,3)) as yoy_growth_rate,
-            cast(period_growth_rate as decimal(38,3)) as qoq_growth_rate,
-
-            cast(product_share_pct as decimal(38,3)) as product_share_pct,
-
-            concat(
-                'Q',
-                cast(report_quarter as string),
-                ' ',
-                cast(report_year as string)
-            ) as quarter_label
-
-        from gold_marts.mart_product
-
-        where report_year is not null
-          and report_quarter is not null
-
-        order by
-            report_year,
-            report_quarter,
-            product_category_name,
-            product_name
-    """
-
-    pdf = spark.sql(sql).toPandas()
+    pdf = df.toPandas()
     return pdf
-# @st.cache_data(show_spinner="Đang tải dữ liệu Production Output...")
-# def load_data() -> pd.DataFrame:
-#     """Truy vấn dữ liệu Production Output từ Gold layer bằng Spark.
-
-#     Thực hiện join giữa fact_production_output với dim_time và
-#     dim_product. Dữ liệu chỉ được convert sang Pandas ở bước cuối
-#     cùng (sau khi đã join xong bằng Spark), phục vụ cho việc
-#     filter/vẽ biểu đồ phía Streamlit.
-
-#     Returns:
-#         pd.DataFrame: Dữ liệu Production Output đã join đầy đủ dimension.
-#     """
-#     spark = get_spark_session()
-
-#     fact: SparkDataFrame = spark.table("gold.fact_production_output")
-#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
-#     dim_product: SparkDataFrame = spark.table("gold.dim_product")
-
-#     df = (
-#         fact.join(dim_time, on="time_key", how="left")
-#         .join(dim_product, on="product_key", how="left")
-#         .select(
-#             dim_time["year"],
-#             dim_time["quarter"],
-#             dim_product["product_name"],
-#             dim_product["product_type"],
-#             dim_product["product_category"],
-#             fact["value"],
-#             fact["unit"],
-#             fact["prev_quarter_value"],
-#             fact["pre_year_value"],
-#             fact["yoy_growth_rate"],
-#             fact["qoq_growth_rate"],
-#             fact["product_share_pct"],
-#         )
-#     )
-
-#     df = df.withColumn(
-#         "quarter_label",
-#         F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
-#     )
-
-#     pdf = df.toPandas()
-#     return pdf
 
 
 # ====================================================================
@@ -794,57 +744,21 @@ def chart_treemap(df: pd.DataFrame) -> go.Figure:
 
 def chart_qoq_vs_yoy(df: pd.DataFrame) -> go.Figure:
     """Vẽ Bubble Scatter: QoQ Growth (X) vs YoY Growth (Y), size = Production, color = Category."""
-
-    work_df = df.copy()
-
-    numeric_cols = [
-        "qoq_growth_rate",
-        "yoy_growth_rate",
-        "value",
-    ]
-
-    for col_name in numeric_cols:
-        work_df[col_name] = pd.to_numeric(work_df[col_name], errors="coerce")
-
     grouped = (
-        work_df.groupby(["product_name", "product_category"], as_index=False)
+        df.groupby(["product_name", "product_category"], as_index=False)
         .agg(
             qoq_growth_rate=("qoq_growth_rate", "mean"),
             yoy_growth_rate=("yoy_growth_rate", "mean"),
             value=("value", "sum"),
         )
     )
-
-    grouped["qoq_growth_rate"] = pd.to_numeric(grouped["qoq_growth_rate"], errors="coerce")
-    grouped["yoy_growth_rate"] = pd.to_numeric(grouped["yoy_growth_rate"], errors="coerce")
-    grouped["value"] = pd.to_numeric(grouped["value"], errors="coerce")
-
-    grouped = grouped.dropna(
-        subset=[
-            "qoq_growth_rate",
-            "yoy_growth_rate",
-            "value",
-        ]
-    )
-
-    grouped["bubble_size"] = (
-        grouped["value"]
-        .abs()
-        .fillna(0)
-        .astype(float)
-        + 1.0
-    )
-
-    grouped = grouped[grouped["bubble_size"] > 0]
-
-    if grouped.empty:
-        return _apply_chart_theme(go.Figure())
+    grouped["bubble_size"] = grouped["value"].abs().fillna(0) + 1
 
     fig = px.scatter(
         grouped,
         x="qoq_growth_rate",
         y="yoy_growth_rate",
-        size=grouped["bubble_size"].to_numpy(dtype=float),
+        size="bubble_size",
         color="product_category",
         hover_name="product_name",
         color_discrete_sequence=DISCRETE_PALETTE,
@@ -855,7 +769,6 @@ def chart_qoq_vs_yoy(df: pd.DataFrame) -> go.Figure:
             "product_category": "Product Category",
         },
     )
-
     return _apply_chart_theme(fig)
 
 

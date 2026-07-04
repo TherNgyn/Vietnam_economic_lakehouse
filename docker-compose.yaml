@@ -496,7 +496,6 @@ services:
       SPARK_EXECUTOR_CORES: "1"
     volumes:
       - ./streamlit:/opt/streamlit/app
-    working_dir: /opt/streamlit/app
     depends_on:
       - spark-master
       - hive

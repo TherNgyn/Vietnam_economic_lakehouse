@@ -215,118 +215,59 @@ def render_header() -> None:
 # ====================================================================
 # DATA LOADING (SPARK)
 # ====================================================================
+
 @st.cache_data(show_spinner="Đang tải dữ liệu GDP Growth...")
 def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu GDP Growth từ Gold Mart layer.
+    """Truy vấn dữ liệu GDP Growth từ Gold layer bằng Spark.
 
-    Giữ nguyên giao diện dashboard cũ bằng cách alias các cột từ mart
-    về đúng tên cột mà các hàm filter/KPI/chart hiện tại đang sử dụng.
+    Thực hiện join giữa fact_gdp_growth với dim_time, dim_sub_sector,
+    dim_sector. Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng
+    (sau khi đã join xong bằng Spark), phục vụ cho việc filter/vẽ
+    biểu đồ phía Streamlit.
+
+    Returns:
+        pd.DataFrame: Dữ liệu GDP Growth đã join đầy đủ dimension.
     """
     spark = get_spark_session()
 
-    sql = """
-        select
-            cast(report_year as int) as year,
-            cast(report_quarter as int) as quarter,
+    fact: SparkDataFrame = spark.table("gold.fact_gdp_growth")
+    dim_time: SparkDataFrame = spark.table("gold.dim_time")
+    dim_sub_sector: SparkDataFrame = spark.table("gold.dim_sub_sector")
+    dim_sector: SparkDataFrame = spark.table("gold.dim_sector")
 
-            sector_name,
-            sub_sector_name,
+    df = (
+        fact.join(dim_time, on="time_key", how="left")
+        .join(dim_sub_sector, on="sub_sector_key", how="left")
+        .join(dim_sector, on="sector_key", how="left")
+        .select(
+            dim_time["year"],
+            dim_time["quarter"],
+            dim_sector["sector_name"],
+            dim_sub_sector["sub_sector_name"],
+            fact["unit"],
+            fact["market_value"],
+            fact["constant_value"],
+            fact["market_value_pre_quarter"],
+            fact["market_value_pre_year"],
+            fact["constant_value_pre_quarter"],
+            fact["constant_value_pre_year"],
+            fact["market_qoq_growth_rate"],
+            fact["market_yoy_growth_rate"],
+            fact["real_qoq_growth_rate"],
+            fact["real_yoy_growth_rate"],
+            fact["implicit_price_deflator"],
+            fact["sector_share_pct"],
+            fact["gdp_share_pct"],
+        )
+    )
 
-            unit_name as unit,
+    df = df.withColumn(
+        "quarter_label",
+        F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
+    )
 
-            cast(market_value as decimal(38,3)) as market_value,
-            cast(constant_value as decimal(38,3)) as constant_value,
-
-            cast(market_value_pre_quarter as decimal(38,3)) as market_value_pre_quarter,
-            cast(market_value_pre_year as decimal(38,3)) as market_value_pre_year,
-
-            cast(constant_value_pre_quarter as decimal(38,3)) as constant_value_pre_quarter,
-            cast(constant_value_pre_year as decimal(38,3)) as constant_value_pre_year,
-
-            cast(market_qoq_growth_rate as decimal(38,3)) as market_qoq_growth_rate,
-            cast(market_yoy_growth_rate as decimal(38,3)) as market_yoy_growth_rate,
-
-            cast(real_qoq_growth_rate as decimal(38,3)) as real_qoq_growth_rate,
-            cast(real_yoy_growth_rate as decimal(38,3)) as real_yoy_growth_rate,
-
-            cast(implicit_price_deflator as decimal(38,3)) as implicit_price_deflator,
-
-            cast(sector_share_pct as decimal(38,3)) as sector_share_pct,
-            cast(gdp_share_pct as decimal(38,3)) as gdp_share_pct,
-
-            concat(
-                'Q',
-                cast(report_quarter as string),
-                ' ',
-                cast(report_year as string)
-            ) as quarter_label
-
-        from gold_marts.mart_gdp_metrics
-
-        where report_year is not null
-          and report_quarter is not null
-
-        order by
-            report_year,
-            report_quarter,
-            sector_name,
-            sub_sector_name
-    """
-
-    pdf = spark.sql(sql).toPandas()
+    pdf = df.toPandas()
     return pdf
-# @st.cache_data(show_spinner="Đang tải dữ liệu GDP Growth...")
-# def load_data() -> pd.DataFrame:
-#     """Truy vấn dữ liệu GDP Growth từ Gold layer bằng Spark.
-
-#     Thực hiện join giữa fact_gdp_growth với dim_time, dim_sub_sector,
-#     dim_sector. Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng
-#     (sau khi đã join xong bằng Spark), phục vụ cho việc filter/vẽ
-#     biểu đồ phía Streamlit.
-
-#     Returns:
-#         pd.DataFrame: Dữ liệu GDP Growth đã join đầy đủ dimension.
-#     """
-#     spark = get_spark_session()
-
-#     fact: SparkDataFrame = spark.table("gold.fact_gdp_growth")
-#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
-#     dim_sub_sector: SparkDataFrame = spark.table("gold.dim_sub_sector")
-#     dim_sector: SparkDataFrame = spark.table("gold.dim_sector")
-
-#     df = (
-#         fact.join(dim_time, on="time_key", how="left")
-#         .join(dim_sub_sector, on="sub_sector_key", how="left")
-#         .join(dim_sector, on="sector_key", how="left")
-#         .select(
-#             dim_time["year"],
-#             dim_time["quarter"],
-#             dim_sector["sector_name"],
-#             dim_sub_sector["sub_sector_name"],
-#             fact["unit"],
-#             fact["market_value"],
-#             fact["constant_value"],
-#             fact["market_value_pre_quarter"],
-#             fact["market_value_pre_year"],
-#             fact["constant_value_pre_quarter"],
-#             fact["constant_value_pre_year"],
-#             fact["market_qoq_growth_rate"],
-#             fact["market_yoy_growth_rate"],
-#             fact["real_qoq_growth_rate"],
-#             fact["real_yoy_growth_rate"],
-#             fact["implicit_price_deflator"],
-#             fact["sector_share_pct"],
-#             fact["gdp_share_pct"],
-#         )
-#     )
-
-#     df = df.withColumn(
-#         "quarter_label",
-#         F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
-#     )
-
-#     pdf = df.toPandas()
-#     return pdf
 
 
 # ====================================================================
