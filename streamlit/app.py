@@ -36,9 +36,10 @@ TAB_LABELS = [
     "🌾 Crop Yield Dashboard",
     "🏭 National Production Dashboard",
     "International Production Trade Dashboard",
-    "Social Investment Source"
+    "Social Investment Source",
+    "Real-time Index Market VietNam Dashboard"
     # "💰 Sales Performance",  # ví dụ: bỏ comment khi thêm dashboard mới
-]
+]   
 
 tabs = st.tabs(TAB_LABELS)
 
@@ -56,6 +57,9 @@ with tabs[3]:
     
 with tabs[4]:
     social_investment_render()
+with tabs[5]:
+    GRAFANA_URL = "http://localhost:3000/public-dashboards/7f24b35274054df6a503c15f0ca48b26?orgId=1&refresh=1m&kiosk"
+    st.components.v1.iframe(src=GRAFANA_URL, height=800, scrolling=True)
 # Ví dụ thêm dashboard mới trong tương lai:
 # with tabs[3]:
 #     from tabs import sales  # noqa: F401

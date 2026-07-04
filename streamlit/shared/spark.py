@@ -13,7 +13,7 @@ from pyspark.sql import SparkSession
 APP_NAME = os.getenv("APP_NAME", "Economic Dashboard")
 SPARK_MASTER_URL = os.getenv("SPARK_MASTER_URL", "local[*]")
 HIVE_METASTORE_URI = os.getenv("HIVE_METASTORE_URI", "thrift://localhost:9083")
-MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "http://localhost:9000")
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "http://minio:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "")
 

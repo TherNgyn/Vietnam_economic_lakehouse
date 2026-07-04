@@ -66,9 +66,7 @@ joined as (
     from base b
 
     left join gold_gold.dim_time t
-        on b.report_year = cast(t.year as int)
-        and b.report_quarter = cast(t.quarter as int)
-        and t.month is null
+        on b.report_date = t.full_date
 
     left join gold_gold.dim_sub_sector ss
         on b.sub_sector_name = ss.sub_sector_name
