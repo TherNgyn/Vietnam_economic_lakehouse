@@ -13,7 +13,7 @@ DELTA_STORAGE_OPTIONS = {
 }
 
 def test_read_deltalake():
-    out_path = f"s3a://{SILVER_BUCKET}/m2"
+    out_path = f"s3a://{SILVER_BUCKET}/perennial_crops"
     
     try:
         dt = DeltaTable(out_path, storage_options=DELTA_STORAGE_OPTIONS)

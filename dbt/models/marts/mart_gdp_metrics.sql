@@ -202,7 +202,7 @@ with_totals as (
         ) as gdp_total_market_value
 
     from with_growth
-
+        
 ),
 
 final as (

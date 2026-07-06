@@ -55,10 +55,10 @@ with DAG(
         bash_command='docker exec python_container python bronze/ingest_interest_rate_day.py',
     )
 
-    gasoline = BashOperator(
-        task_id='ingest_gasoline_to_bronze',
-        bash_command='docker exec python_container python bronze/ingest_gasoline_day.py',
-    )
+    # gasoline = BashOperator(
+    #     task_id='ingest_gasoline_to_bronze',
+    #     bash_command='docker exec python_container python bronze/ingest_gasoline_day.py',
+    # )
 
     yfinance = BashOperator(
         task_id='ingest_yfinance_to_bronze',
@@ -70,4 +70,4 @@ with DAG(
         python_callable=validate_daily_bronze,
     )
 
-    [interest_rate, gasoline, yfinance] >> validate
+    [interest_rate,  yfinance] >> validate

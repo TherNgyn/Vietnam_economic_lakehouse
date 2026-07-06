@@ -240,107 +240,55 @@ def render_header() -> None:
 # DATA LOADING (SPARK)
 # ====================================================================
 
-# @st.cache_data(show_spinner="Đang tải dữ liệu International Trade...")
-# def load_data() -> pd.DataFrame:
-#     """Truy vấn dữ liệu International Trade từ Gold layer bằng Spark.
-
-#     Thực hiện join giữa fact_international_trade với dim_time và
-#     dim_product. Cột `product_type` của dim_product được dùng làm
-#     "Trade Type" (Export / Import) theo đúng business context. Dữ
-#     liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
-#     join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
-#     Streamlit.
-
-#     Returns:
-#         pd.DataFrame: Dữ liệu International Trade đã join đầy đủ dimension.
-#     """
-#     spark = get_spark_session()
-
-#     fact: SparkDataFrame = spark.table("gold.fact_international_trade")
-#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
-#     dim_product: SparkDataFrame = spark.table("gold.dim_product")
-
-#     df = (
-#         fact.join(dim_time, on="time_key", how="left")
-#         .join(dim_product, on="product_key", how="left")
-#         .select(
-#             dim_time["year"],
-#             dim_time["month"],
-#             dim_product["product_name"],
-#             dim_product["product_type"].alias("trade_type"),
-#             dim_product["product_category"],
-#             fact["trade_value"],
-#             fact["value_unit"],
-#             fact["quantity"],
-#             fact["quantity_unit"],
-#             fact["trade_value_pre_month"],
-#             fact["trade_value_pre_year"],
-#             fact["mom_growth_rate"],
-#             fact["yoy_growth_rate"],
-#             fact["product_share_pct"],
-#         )
-#     )
-
-#     df = df.withColumn(
-#         "month_label",
-#         F.concat(F.col("year").cast("string"), F.lit("-"), F.lpad(F.col("month").cast("string"), 2, "0")),
-#     )
-
-#     pdf = df.toPandas()
-#     return pdf
 @st.cache_data(show_spinner="Đang tải dữ liệu International Trade...")
 def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu International Trade từ Gold Mart layer.
+    """Truy vấn dữ liệu International Trade từ Gold layer bằng Spark.
 
-    Giữ nguyên giao diện dashboard cũ bằng cách alias các cột từ mart
-    về đúng tên cột mà các hàm filter/KPI/chart hiện tại đang sử dụng.
+    Thực hiện join giữa fact_international_trade với dim_time và
+    dim_product. Cột `product_type` của dim_product được dùng làm
+    "Trade Type" (Export / Import) theo đúng business context. Dữ
+    liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
+    join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
+    Streamlit.
+
+    Returns:
+        pd.DataFrame: Dữ liệu International Trade đã join đầy đủ dimension.
     """
     spark = get_spark_session()
 
-    sql = """
-        select
-            cast(report_year as int) as year,
-            cast(report_month as int) as month,
+    fact: SparkDataFrame = spark.table("gold.fact_international_trade")
+    dim_time: SparkDataFrame = spark.table("gold.dim_time")
+    dim_product: SparkDataFrame = spark.table("gold.dim_product")
 
-            product_name,
+    df = (
+        fact.join(dim_time, on="time_key", how="left")
+        .join(dim_product, on="product_key", how="left")
+        .select(
+            dim_time["year"],
+            dim_time["month"],
+            dim_product["product_name"],
+            dim_product["product_type"].alias("trade_type"),
+            dim_product["product_category"],
+            fact["trade_value"],
+            fact["value_unit"],
+            fact["quantity"],
+            fact["quantity_unit"],
+            fact["trade_value_pre_month"],
+            fact["trade_value_pre_year"],
+            fact["mom_growth_rate"],
+            fact["yoy_growth_rate"],
+            fact["product_share_pct"],
+        )
+    )
 
-            product_category_name as trade_type,
-            product_category_name as product_category,
+    df = df.withColumn(
+        "month_label",
+        F.concat(F.col("year").cast("string"), F.lit("-"), F.lpad(F.col("month").cast("string"), 2, "0")),
+    )
 
-            cast(trade_value as decimal(38,3)) as trade_value,
-            value_unit,
-
-            cast(quantity as decimal(38,3)) as quantity,
-            quantity_unit,
-
-            cast(trade_value_pre_month as decimal(38,3)) as trade_value_pre_month,
-            cast(trade_value_pre_year as decimal(38,3)) as trade_value_pre_year,
-
-            cast(mom_growth_rate as decimal(38,3)) as mom_growth_rate,
-            cast(yoy_growth_rate as decimal(38,3)) as yoy_growth_rate,
-
-            cast(product_share_pct as decimal(38,3)) as product_share_pct,
-
-            concat(
-                cast(report_year as string),
-                '-',
-                lpad(cast(report_month as string), 2, '0')
-            ) as month_label
-
-        from gold_marts.mart_trade_international
-
-        where report_year is not null
-          and report_month is not null
-
-        order by
-            report_year,
-            report_month,
-            product_category_name,
-            product_name
-    """
-
-    pdf = spark.sql(sql).toPandas()
+    pdf = df.toPandas()
     return pdf
+
 
 # ====================================================================
 # FILTER OPTIONS & APPLY FILTERS
@@ -831,65 +779,24 @@ def chart_treemap(df: pd.DataFrame) -> go.Figure:
 
 
 def chart_quantity_vs_trade_value(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Bubble Scatter: Quantity (X) vs Trade Value (Y), size = Average Unit Value, color = Trade Type."""
-
-    work_df = df.copy()
-
-    numeric_cols = [
-        "quantity",
-        "trade_value",
-    ]
-
-    for col_name in numeric_cols:
-        work_df[col_name] = pd.to_numeric(work_df[col_name], errors="coerce")
-
+    """Vẽ Bubble Scatter: Quantity (X) vs Trade Value (Y), size = Average
+    Unit Value, color = Trade Type.
+    """
     grouped = (
-        work_df.groupby(["product_name", "trade_type"], as_index=False)
-        .agg(
-            quantity=("quantity", "sum"),
-            trade_value=("trade_value", "sum"),
-        )
+        df.groupby(["product_name", "trade_type"], as_index=False)
+        .agg(quantity=("quantity", "sum"), trade_value=("trade_value", "sum"))
     )
-
-    grouped["quantity"] = pd.to_numeric(grouped["quantity"], errors="coerce")
-    grouped["trade_value"] = pd.to_numeric(grouped["trade_value"], errors="coerce")
-
-    grouped = grouped.dropna(
-        subset=[
-            "quantity",
-            "trade_value",
-        ]
+    grouped["avg_unit_value"] = grouped.apply(
+        lambda row: row["trade_value"] / row["quantity"] if row["quantity"] not in (0, None) else 0,
+        axis=1,
     )
-
-    grouped = grouped[grouped["quantity"] > 0]
-
-    grouped["avg_unit_value"] = grouped["trade_value"] / grouped["quantity"]
-
-    grouped["avg_unit_value"] = pd.to_numeric(
-        grouped["avg_unit_value"],
-        errors="coerce"
-    )
-
-    grouped["bubble_size"] = (
-        grouped["avg_unit_value"]
-        .abs()
-        .fillna(0)
-        .astype(float)
-        + 1.0
-    )
-
-    grouped = grouped[grouped["bubble_size"] > 0]
-
-    if grouped.empty:
-        fig = go.Figure()
-        fig.update_layout(title="Quantity vs Trade Value")
-        return _apply_chart_theme(fig)
+    grouped["bubble_size"] = grouped["avg_unit_value"].abs().fillna(0) + 1
 
     fig = px.scatter(
         grouped,
         x="quantity",
         y="trade_value",
-        size=grouped["bubble_size"].to_numpy(dtype=float),
+        size="bubble_size",
         color="trade_type",
         hover_name="product_name",
         color_discrete_sequence=DISCRETE_PALETTE,
@@ -900,7 +807,6 @@ def chart_quantity_vs_trade_value(df: pd.DataFrame) -> go.Figure:
             "trade_type": "Trade Type",
         },
     )
-
     return _apply_chart_theme(fig)
 
 
