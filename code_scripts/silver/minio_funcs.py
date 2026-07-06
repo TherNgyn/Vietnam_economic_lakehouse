@@ -27,7 +27,7 @@ def get_investment_by_sector_raw_data():
     try:
         obj = client.get_object(
             'bronze',
-            'historical/economic_report_excel_files/investment_by_sector_raw_data/V04.03.xlsx'
+            'economic_report_excel_files/V04.03.xlsx'
         )
         data = obj.read()
         return pd.ExcelFile(io.BytesIO(data))
