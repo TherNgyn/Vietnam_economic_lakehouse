@@ -58,6 +58,7 @@ with base as (
 
 ),
 
+
 with_growth as (
 
     select
@@ -92,76 +93,92 @@ with_growth as (
         constant_value_pre_year,
 
         cast(
-            round(
-                market_value - market_value_pre_quarter,
-                3
-            ) as decimal(38,3)
+            case
+                when market_value_pre_quarter is null then null
+                else round(market_value - market_value_pre_quarter, 3)
+            end as decimal(38,3)
         ) as market_qoq_growth_value,
 
         cast(
-            round(
-                
-    market_value - market_value_pre_quarter / nullif(market_value_pre_quarter, 0)
- * 100,
-                3
-            ) as decimal(38,3)
+            case
+                when market_value_pre_quarter is null
+                  or abs(market_value_pre_quarter) < 0.001
+                then null
+                else round(
+                    (market_value - market_value_pre_quarter)
+                    / market_value_pre_quarter * 100,
+                    3
+                )
+            end as decimal(38,3)
         ) as market_qoq_growth_rate,
 
         cast(
-            round(
-                market_value - market_value_pre_year,
-                3
-            ) as decimal(38,3)
+            case
+                when market_value_pre_year is null then null
+                else round(market_value - market_value_pre_year, 3)
+            end as decimal(38,3)
         ) as market_yoy_growth_value,
 
         cast(
-            round(
-                
-    market_value - market_value_pre_year / nullif(market_value_pre_year, 0)
- * 100,
-                3
-            ) as decimal(38,3)
+            case
+                when market_value_pre_year is null
+                  or abs(market_value_pre_year) < 0.001
+                then null
+                else round(
+                    (market_value - market_value_pre_year)
+                    / market_value_pre_year * 100,
+                    3
+                )
+            end as decimal(38,3)
         ) as market_yoy_growth_rate,
 
         cast(
-            round(
-                constant_value - constant_value_pre_quarter,
-                3
-            ) as decimal(38,3)
+            case
+                when constant_value_pre_quarter is null then null
+                else round(constant_value - constant_value_pre_quarter, 3)
+            end as decimal(38,3)
         ) as real_qoq_growth_value,
 
         cast(
-            round(
-                
-    constant_value - constant_value_pre_quarter / nullif(constant_value_pre_quarter, 0)
- * 100,
-                3
-            ) as decimal(38,3)
+            case
+                when constant_value_pre_quarter is null
+                  or abs(constant_value_pre_quarter) < 0.001
+                then null
+                else round(
+                    (constant_value - constant_value_pre_quarter)
+                    / constant_value_pre_quarter * 100,
+                    3
+                )
+            end as decimal(38,3)
         ) as real_qoq_growth_rate,
 
         cast(
-            round(
-                constant_value - constant_value_pre_year,
-                3
-            ) as decimal(38,3)
+            case
+                when constant_value_pre_year is null then null
+                else round(constant_value - constant_value_pre_year, 3)
+            end as decimal(38,3)
         ) as real_yoy_growth_value,
 
         cast(
-            round(
-                
-    constant_value - constant_value_pre_year / nullif(constant_value_pre_year, 0)
- * 100,
-                3
-            ) as decimal(38,3)
+            case
+                when constant_value_pre_year is null
+                  or abs(constant_value_pre_year) < 0.001
+                then null
+                else round(
+                    (constant_value - constant_value_pre_year)
+                    / constant_value_pre_year * 100,
+                    3
+                )
+            end as decimal(38,3)
         ) as real_yoy_growth_rate,
 
         cast(
-            round(
-                
-    market_value / nullif(constant_value, 0)
- * 100,
-                3
-            ) as decimal(38,3)
+            case
+                when constant_value is null
+                  or abs(constant_value) < 0.001
+                then null
+                else round(market_value / constant_value * 100, 3)
+            end as decimal(38,3)
         ) as implicit_price_deflator,
 
         created_at
@@ -170,17 +187,18 @@ with_growth as (
 
 ),
 
+
 with_totals as (
 
     select
         *,
 
         sum(market_value) over (
-            partition by time_key, sector_key, unit_key, source_key
+            partition by time_key, sector_key
         ) as sector_total_market_value,
 
         sum(market_value) over (
-            partition by time_key, unit_key, source_key
+            partition by time_key
         ) as gdp_total_market_value
 
     from with_growth

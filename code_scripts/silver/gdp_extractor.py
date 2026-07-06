@@ -144,8 +144,7 @@ def extract_data_from_GDP(excel_file: pd.ExcelFile, year, month):
                 current_df = clean_sub_sector(current_df).reset_index(drop=True)
                 comparative_df = clean_sub_sector(comparative_df).reset_index(drop=True)
 
-                current_df['value'] = pd.to_numeric(current_df['value'], errors= 'coerce').round(3)
-                comparative_df['value'] = pd.to_numeric(comparative_df['value'], errors= 'coerce').round(3)
+                
                 current_df = current_df.drop_duplicates()
                 current_df = current_df.dropna()
                 
@@ -235,9 +234,6 @@ def extract_data_from_GDP(excel_file: pd.ExcelFile, year, month):
                 # CHUẨN HÓA DỮ LIỆU SUB_SECTOR TRƯỚC KHI INSERT SILVER
                 gdp_ss_sheet = clean_sub_sector(gdp_ss_sheet).reset_index(drop=True)
                 gdp_hh_sheet = clean_sub_sector(gdp_hh_sheet).reset_index(drop=True)
-
-                gdp_hh_sheet['value'] = pd.to_numeric(gdp_hh_sheet['value'], errors= 'coerce').round(3)
-                gdp_ss_sheet['value'] = pd.to_numeric(gdp_ss_sheet['value'], errors= 'coerce').round(3)
                 
                 gdp_hh_sheet = gdp_hh_sheet.dropna()
                 gdp_hh_sheet = gdp_hh_sheet.drop_duplicates()

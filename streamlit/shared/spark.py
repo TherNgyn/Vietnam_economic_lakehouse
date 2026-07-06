@@ -13,7 +13,6 @@ from pyspark.sql import SparkSession
 APP_NAME = os.getenv("APP_NAME", "Economic Dashboard")
 SPARK_MASTER_URL = os.getenv("SPARK_MASTER_URL", "local[*]")
 HIVE_METASTORE_URI = os.getenv("HIVE_METASTORE_URI", "thrift://localhost:9083")
-MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "http://minio:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "")
 
@@ -37,7 +36,7 @@ def get_spark_session() -> SparkSession:
         .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false")
         .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
         .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
-        .config("spark.executor.memory", os.getenv("SPARK_EXECUTOR_MEMORY", "2g"))
+        .config("spark.executor.memory", os.getenv("SPARK_EXECUTOR_MEMORY", "1g"))
         .config("spark.executor.cores", os.getenv("SPARK_EXECUTOR_CORES", "1"))
         .config("spark.sql.shuffle.partitions", os.getenv("SPARK_SHUFFLE_PARTITIONS", "8"))
         .enableHiveSupport()

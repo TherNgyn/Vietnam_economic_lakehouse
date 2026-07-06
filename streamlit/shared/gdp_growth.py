@@ -881,5 +881,5 @@ def render_dashboard() -> None:
     render_trend_section(filtered_df)
     render_structure_section(filtered_df)
     render_ranking_section(filtered_df)
-    render_growth_section(filtered_df)
+    # render_growth_section(filtered_df)
     render_drilldown_section(filtered_df)

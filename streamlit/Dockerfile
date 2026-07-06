@@ -1,7 +1,7 @@
 # Dùng chung image với spark-master để đảm bảo Spark/Hadoop/Delta JARs
 # và phiên bản Python/Spark khớp 100% với cluster -> tránh lỗi version mismatch
 # khi container này submit job vào spark://spark-master:7077
-FROM my-spark-master:latest
+FROM kltn_e2e_etl_economic_vn_data_project-spark-master
 
 USER root
 

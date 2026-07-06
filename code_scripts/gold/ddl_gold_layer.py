@@ -207,7 +207,7 @@ spark.sql("""
 CREATE TABLE gold.fact_crop_yield (
     time_key                INT,
     crop_key                INT,
-    production_unit         STRING,
+    productivity_unit         STRING,
     yield_unit              STRING,
     area_unit               STRING,
     area                    FLOAT,
@@ -216,8 +216,8 @@ CREATE TABLE gold.fact_crop_yield (
     area_pre_year           FLOAT,
     yield_pre_year          FLOAT,
     productivity_pre_year   FLOAT,
-    yield_yoy_growth_rate   FLOAT,
-    yield_share_pct         FLOAT
+    productivity_yoy_growth_rate   FLOAT,
+    productivity_share_pct         FLOAT
 )
 USING DELTA
 LOCATION 's3a://gold/fact_crop_yield'

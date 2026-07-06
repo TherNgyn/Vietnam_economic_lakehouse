@@ -258,7 +258,6 @@ def insert_industry_product(
     df = extract_industry_product(raw, month=month, year=year)
     df = df.drop_duplicates()
     df = df.dropna()
-    df['value'] = pd.to_numeric(df["value"], errors= 'coerce').round(3)
     insert_df_to_table_silver_layer(df, "industry_product", year, quarter)
 
     logger.info(
