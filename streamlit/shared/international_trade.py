@@ -239,55 +239,116 @@ def render_header() -> None:
 # ====================================================================
 # DATA LOADING (SPARK)
 # ====================================================================
-
 @st.cache_data(show_spinner="Đang tải dữ liệu International Trade...")
 def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu International Trade từ Gold layer bằng Spark.
+    """Truy vấn dữ liệu International Trade từ Gold Mart bằng Spark.
 
-    Thực hiện join giữa fact_international_trade với dim_time và
-    dim_product. Cột `product_type` của dim_product được dùng làm
-    "Trade Type" (Export / Import) theo đúng business context. Dữ
-    liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
-    join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
-    Streamlit.
+    Dashboard không tự tính toán lại các chỉ số tăng trưởng và tỷ trọng.
+    Các metric như mom_growth_rate, yoy_growth_rate, product_share_pct
+    được lấy trực tiếp từ mart ở database gold_marts.
 
     Returns:
         pd.DataFrame: Dữ liệu International Trade đã join đầy đủ dimension.
     """
     spark = get_spark_session()
 
-    fact: SparkDataFrame = spark.table("gold.fact_international_trade")
-    dim_time: SparkDataFrame = spark.table("gold.dim_time")
-    dim_product: SparkDataFrame = spark.table("gold.dim_product")
+    mart: SparkDataFrame = spark.table("gold_marts.mart_trade_international")
+    dim_time: SparkDataFrame = spark.table("gold_gold.dim_time")
+    dim_product: SparkDataFrame = spark.table("gold_gold.dim_product")
 
     df = (
-        fact.join(dim_time, on="time_key", how="left")
-        .join(dim_product, on="product_key", how="left")
+        mart.alias("m")
+        .join(
+            dim_time.alias("t"),
+            F.col("m.time_key") == F.col("t.time_key"),
+            "left",
+        )
+        .join(
+            dim_product.alias("p"),
+            F.col("m.product_key") == F.col("p.product_key"),
+            "left",
+        )
         .select(
-            dim_time["year"],
-            dim_time["month"],
-            dim_product["product_name"],
-            dim_product["product_type"].alias("trade_type"),
-            dim_product["product_category"],
-            fact["trade_value"],
-            fact["value_unit"],
-            fact["quantity"],
-            fact["quantity_unit"],
-            fact["trade_value_pre_month"],
-            fact["trade_value_pre_year"],
-            fact["mom_growth_rate"],
-            fact["yoy_growth_rate"],
-            fact["product_share_pct"],
+            F.col("t.year").alias("year"),
+            F.col("t.month").alias("month"),
+
+            F.col("p.product_name").alias("product_name"),
+            F.col("p.product_type").alias("trade_type"),
+            F.col("p.product_category_name").alias("product_category"),
+
+            F.col("m.trade_value").alias("trade_value"),
+            F.col("m.value_unit").alias("value_unit"),
+            F.col("m.quantity").alias("quantity"),
+            F.col("m.quantity_unit").alias("quantity_unit"),
+
+            F.col("m.trade_value_pre_month").alias("trade_value_pre_month"),
+            F.col("m.trade_value_pre_year").alias("trade_value_pre_year"),
+
+            F.col("m.mom_growth_rate").alias("mom_growth_rate"),
+            F.col("m.yoy_growth_rate").alias("yoy_growth_rate"),
+            F.col("m.product_share_pct").alias("product_share_pct"),
         )
     )
 
     df = df.withColumn(
         "month_label",
-        F.concat(F.col("year").cast("string"), F.lit("-"), F.lpad(F.col("month").cast("string"), 2, "0")),
+        F.concat(
+            F.col("year").cast("string"),
+            F.lit("-"),
+            F.lpad(F.col("month").cast("string"), 2, "0"),
+        ),
     )
 
     pdf = df.toPandas()
     return pdf
+# @st.cache_data(show_spinner="Đang tải dữ liệu International Trade...")
+# def load_data() -> pd.DataFrame:
+#     """Truy vấn dữ liệu International Trade từ Gold layer bằng Spark.
+
+#     Thực hiện join giữa fact_international_trade với dim_time và
+#     dim_product. Cột `product_type` của dim_product được dùng làm
+#     "Trade Type" (Export / Import) theo đúng business context. Dữ
+#     liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
+#     join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
+#     Streamlit.
+
+#     Returns:
+#         pd.DataFrame: Dữ liệu International Trade đã join đầy đủ dimension.
+#     """
+#     spark = get_spark_session()
+
+#     fact: SparkDataFrame = spark.table("gold.fact_international_trade")
+#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
+#     dim_product: SparkDataFrame = spark.table("gold.dim_product")
+
+#     df = (
+#         fact.join(dim_time, on="time_key", how="left")
+#         .join(dim_product, on="product_key", how="left")
+#         .select(
+#             dim_time["year"],
+#             dim_time["month"],
+#             dim_product["product_name"],
+#             dim_product["product_type"].alias("trade_type"),
+#             dim_product["product_category"],
+#             fact["trade_value"],
+#             fact["value_unit"],
+#             fact["quantity"],
+#             fact["quantity_unit"],
+#             fact["trade_value_pre_month"],
+#             fact["trade_value_pre_year"],
+#             fact["mom_growth_rate"],
+#             fact["yoy_growth_rate"],
+#             fact["product_share_pct"],
+#         )
+#     )
+
+#     df = df.withColumn(
+#         "month_label",
+#         F.concat(F.col("year").cast("string"), F.lit("-"), F.lpad(F.col("month").cast("string"), 2, "0")),
+#     )
+
+#     pdf = df.toPandas()
+#     return pdf
 
 
 # ====================================================================
@@ -910,10 +971,9 @@ def render_ranking_section(df: pd.DataFrame) -> None:
     """Render Row 3: Top 10 Trade Value & Top 10 Quantity (Horizontal Bar)."""
     st.markdown('<div class="trade-section-title">Bảng xếp hạng</div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
-    with col1:
-        _chart_card(chart_top10_trade_value, df)
-    with col2:
-        _chart_card(chart_top10_quantity, df)
+    _chart_card(chart_top10_trade_value, df)
+    # with col2:
+    #     _chart_card(chart_top10_quantity, df)
 
 
 def render_growth_section(df: pd.DataFrame) -> None:
@@ -1057,6 +1117,6 @@ def render_dashboard() -> None:
     render_import_export_section(filtered_df)
     render_structure_section(filtered_df)
     render_ranking_section(filtered_df)
-    render_growth_section(filtered_df)
-    render_comparison_section(filtered_df)
-    render_drilldown_section(filtered_df)
+    # render_growth_section(filtered_df)
+    # render_comparison_section(filtered_df)
+    # render_drilldown_section(filtered_df)

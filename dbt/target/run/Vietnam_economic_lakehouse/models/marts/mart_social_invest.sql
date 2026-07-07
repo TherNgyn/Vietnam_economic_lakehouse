@@ -4,160 +4,87 @@
         AS
         
 
-with base as (
-
+with fact as (
     select
         f.fact_total_investment_key,
-
         f.time_key,
-        t.full_date,
-        cast(t.year as int) as report_year,
-        cast(t.quarter as int) as report_quarter,
-
         f.capital_source_key,
-        cs.source_name as capital_source_name,
-
-        f.unit_key,
-        u.unit_name,
-        u.unit_nor,
-
-        f.source_key,
-        s.source_name,
-        s.source_system,
-
-        cast(f.investment_value as decimal(38,3)) as investment_value,
-        cast(f.investment_value_pre_quarter as decimal(38,3)) as investment_value_pre_quarter,
-        cast(f.investment_value_pre_year as decimal(38,3)) as investment_value_pre_year,
-
+        f.unit,
+        f.investment_value,
+        f.investment_value_pre_quarter,
+        f.investment_value_pre_year,
         f.period_grain,
         f.created_at,
-        f.ingest_at
-
+        f.ingest_at,
+        t.year as report_year,
+        t.quarter as report_quarter
     from gold_gold.fact_social_total_investment f
-
     left join gold_gold.dim_time t
         on f.time_key = t.time_key
-
-    left join gold_gold.dim_capital_source cs
-        on f.capital_source_key = cs.capital_source_key
-
-    left join gold_gold.dim_unit u
-        on f.unit_key = u.unit_key
-
-    left join gold_gold.dim_source s
-        on f.source_key = s.source_key
-
 ),
 
-with_metrics as (
-
-    select
-        fact_total_investment_key,
-
-        time_key,
-        full_date,
-        report_year,
-        report_quarter,
-
-        capital_source_key,
-        capital_source_name,
-
-        unit_key,
-        unit_name,
-        unit_nor,
-
-        source_key,
-        source_name,
-        source_system,
-
-        investment_value,
-        investment_value_pre_quarter,
-        investment_value_pre_year,
-
-        cast(
-            round(
-                
-    investment_value - investment_value_pre_quarter / nullif(investment_value_pre_quarter, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as qoq_growth_rate,
-
-        cast(
-            round(
-                
-    investment_value - investment_value_pre_year / nullif(investment_value_pre_year, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as yoy_growth_rate,
-
-        period_grain,
-        created_at,
-        ingest_at
-
-    from base
-
-),
-
-with_total as (
-
+with_growth as (
     select
         *,
+        case
+            when investment_value_pre_quarter > 0
+            then round(
+                (
+                    investment_value - investment_value_pre_quarter
+                ) / investment_value_pre_quarter * 100,
+                3
+            )
+            else 0
+        end as qoq_growth_rate,
 
-        sum(investment_value) over (
-            partition by time_key, unit_key, source_key
-        ) as total_investment_value
-
-    from with_metrics
-
+        case
+            when investment_value_pre_year > 0
+            then round(
+                (
+                    investment_value - investment_value_pre_year
+                ) / investment_value_pre_year * 100,
+                3
+            )
+            else 0
+        end as yoy_growth_rate
+    from fact
 ),
 
-final as (
-
+with_share as (
     select
-        fact_total_investment_key as mart_total_investment_key,
-
-        time_key,
-        full_date,
-        report_year,
-        report_quarter,
-
-        capital_source_key,
-        capital_source_name,
-
-        unit_key,
-        unit_name,
-        unit_nor,
-
-        source_key,
-        source_name,
-        source_system,
-
-        investment_value,
-        investment_value_pre_quarter,
-        investment_value_pre_year,
-
-        qoq_growth_rate,
-        yoy_growth_rate,
-
-        cast(
-            round(
-                
-    investment_value / nullif(total_investment_value, 0)
- * 100,
+        *,
+        case
+            when sum(investment_value) over (
+                partition by report_year, report_quarter
+            ) > 0
+            then round(
+                investment_value
+                / sum(investment_value) over (
+                    partition by report_year, report_quarter
+                ) * 100,
                 3
-            ) as decimal(38,3)
-        ) as source_share_pct,
-
-        period_grain,
-        created_at,
-        ingest_at
-
-    from with_total
-
+            )
+            else 0
+        end as source_share_pct
+    from with_growth
 )
 
-select *
-from final
+select
+    fact_total_investment_key,
+    time_key,
+    capital_source_key,
+    unit,
+
+    investment_value,
+    investment_value_pre_quarter,
+    investment_value_pre_year,
+
+    cast(coalesce(qoq_growth_rate, 0) as float) as qoq_growth_rate,
+    cast(coalesce(yoy_growth_rate, 0) as float) as yoy_growth_rate,
+    cast(coalesce(source_share_pct, 0) as float) as source_share_pct,
+
+    period_grain,
+    created_at,
+    ingest_at
+from with_share
     

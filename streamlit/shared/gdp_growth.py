@@ -215,59 +215,130 @@ def render_header() -> None:
 # ====================================================================
 # DATA LOADING (SPARK)
 # ====================================================================
-
 @st.cache_data(show_spinner="Đang tải dữ liệu GDP Growth...")
 def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu GDP Growth từ Gold layer bằng Spark.
+    """Truy vấn dữ liệu GDP Growth từ Gold Mart bằng Spark.
 
-    Thực hiện join giữa fact_gdp_growth với dim_time, dim_sub_sector,
-    dim_sector. Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng
-    (sau khi đã join xong bằng Spark), phục vụ cho việc filter/vẽ
-    biểu đồ phía Streamlit.
+    Dashboard không tự tính toán lại các chỉ số.
+    Toàn bộ metric tính toán được lấy trực tiếp từ mart ở gold_marts.
 
     Returns:
         pd.DataFrame: Dữ liệu GDP Growth đã join đầy đủ dimension.
     """
     spark = get_spark_session()
 
-    fact: SparkDataFrame = spark.table("gold.fact_gdp_growth")
-    dim_time: SparkDataFrame = spark.table("gold.dim_time")
-    dim_sub_sector: SparkDataFrame = spark.table("gold.dim_sub_sector")
-    dim_sector: SparkDataFrame = spark.table("gold.dim_sector")
+    mart: SparkDataFrame = spark.table("gold_marts.mart_gdp_metrics")
+    dim_time: SparkDataFrame = spark.table("gold_gold.dim_time")
+    dim_sub_sector: SparkDataFrame = spark.table("gold_gold.dim_sub_sector")
+    dim_sector: SparkDataFrame = spark.table("gold_gold.dim_sector")
 
     df = (
-        fact.join(dim_time, on="time_key", how="left")
-        .join(dim_sub_sector, on="sub_sector_key", how="left")
-        .join(dim_sector, on="sector_key", how="left")
+        mart.alias("m")
+        .join(
+            dim_time.alias("t"),
+            F.col("m.time_key") == F.col("t.time_key"),
+            "left",
+        )
+        .join(
+            dim_sub_sector.alias("ss"),
+            F.col("m.sub_sector_key") == F.col("ss.sub_sector_key"),
+            "left",
+        )
+        .join(
+            dim_sector.alias("s"),
+            F.col("ss.sector_key") == F.col("s.sector_key"),
+            "left",
+        )
         .select(
-            dim_time["year"],
-            dim_time["quarter"],
-            dim_sector["sector_name"],
-            dim_sub_sector["sub_sector_name"],
-            fact["unit"],
-            fact["market_value"],
-            fact["constant_value"],
-            fact["market_value_pre_quarter"],
-            fact["market_value_pre_year"],
-            fact["constant_value_pre_quarter"],
-            fact["constant_value_pre_year"],
-            fact["market_qoq_growth_rate"],
-            fact["market_yoy_growth_rate"],
-            fact["real_qoq_growth_rate"],
-            fact["real_yoy_growth_rate"],
-            fact["implicit_price_deflator"],
-            fact["sector_share_pct"],
-            fact["gdp_share_pct"],
+            F.col("t.year").alias("year"),
+            F.col("t.quarter").alias("quarter"),
+            F.col("s.sector_name").alias("sector_name"),
+            F.col("ss.sub_sector_name").alias("sub_sector_name"),
+
+            F.col("m.unit").alias("unit"),
+
+            F.col("m.market_value").alias("market_value"),
+            F.col("m.constant_value").alias("constant_value"),
+
+            F.col("m.market_value_pre_quarter").alias("market_value_pre_quarter"),
+            F.col("m.market_value_pre_year").alias("market_value_pre_year"),
+            F.col("m.constant_value_pre_quarter").alias("constant_value_pre_quarter"),
+            F.col("m.constant_value_pre_year").alias("constant_value_pre_year"),
+
+            F.col("m.market_qoq_growth_rate").alias("market_qoq_growth_rate"),
+            F.col("m.market_yoy_growth_rate").alias("market_yoy_growth_rate"),
+            F.col("m.real_qoq_growth_rate").alias("real_qoq_growth_rate"),
+            F.col("m.real_yoy_growth_rate").alias("real_yoy_growth_rate"),
+            F.col("m.implicit_price_deflator").alias("implicit_price_deflator"),
+            F.col("m.sector_share_pct").alias("sector_share_pct"),
+            F.col("m.gdp_share_pct").alias("gdp_share_pct"),
         )
     )
 
     df = df.withColumn(
         "quarter_label",
-        F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
+        F.concat(
+            F.lit("Q"),
+            F.col("quarter").cast("string"),
+            F.lit(" "),
+            F.col("year").cast("string"),
+        ),
     )
 
     pdf = df.toPandas()
     return pdf
+# @st.cache_data(show_spinner="Đang tải dữ liệu GDP Growth...")
+# def load_data() -> pd.DataFrame:
+#     """Truy vấn dữ liệu GDP Growth từ Gold layer bằng Spark.
+
+#     Thực hiện join giữa fact_gdp_growth với dim_time, dim_sub_sector,
+#     dim_sector. Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng
+#     (sau khi đã join xong bằng Spark), phục vụ cho việc filter/vẽ
+#     biểu đồ phía Streamlit.
+
+#     Returns:
+#         pd.DataFrame: Dữ liệu GDP Growth đã join đầy đủ dimension.
+#     """
+#     spark = get_spark_session()
+
+#     fact: SparkDataFrame = spark.table("gold.fact_gdp_growth")
+#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
+#     dim_sub_sector: SparkDataFrame = spark.table("gold.dim_sub_sector")
+#     dim_sector: SparkDataFrame = spark.table("gold.dim_sector")
+
+#     df = (
+#         fact.join(dim_time, on="time_key", how="left")
+#         .join(dim_sub_sector, on="sub_sector_key", how="left")
+#         .join(dim_sector, on="sector_key", how="left")
+#         .select(
+#             dim_time["year"],
+#             dim_time["quarter"],
+#             dim_sector["sector_name"],
+#             dim_sub_sector["sub_sector_name"],
+#             fact["unit"],
+#             fact["market_value"],
+#             fact["constant_value"],
+#             fact["market_value_pre_quarter"],
+#             fact["market_value_pre_year"],
+#             fact["constant_value_pre_quarter"],
+#             fact["constant_value_pre_year"],
+#             fact["market_qoq_growth_rate"],
+#             fact["market_yoy_growth_rate"],
+#             fact["real_qoq_growth_rate"],
+#             fact["real_yoy_growth_rate"],
+#             fact["implicit_price_deflator"],
+#             fact["sector_share_pct"],
+#             fact["gdp_share_pct"],
+#         )
+#     )
+
+#     df = df.withColumn(
+#         "quarter_label",
+#         F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
+#     )
+
+#     pdf = df.toPandas()
+#     return pdf
 
 
 # ====================================================================
@@ -881,5 +952,5 @@ def render_dashboard() -> None:
     render_trend_section(filtered_df)
     render_structure_section(filtered_df)
     render_ranking_section(filtered_df)
-    render_growth_section(filtered_df)
+    # render_growth_section(filtered_df)
     render_drilldown_section(filtered_df)

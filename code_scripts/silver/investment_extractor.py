@@ -81,7 +81,6 @@ def extract_data_from_Invesment(excel_file: pd.ExcelFile, year, month):
         vdt_sheet = vdt_sheet.dropna(subset=['investment_name', 'value'])
         vdt_sheet = normalize_investment_name(vdt_sheet)
         
-        vdt_sheet['value'] = pd.to_numeric(vdt_sheet['value'], errors='coerce').round(3)
         vdt_sheet = vdt_sheet.drop_duplicates()
         insert_df_to_table_silver_layer(vdt_sheet, 'investment', year, quarter)
     except Exception as e:

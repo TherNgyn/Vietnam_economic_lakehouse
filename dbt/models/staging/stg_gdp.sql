@@ -5,7 +5,7 @@ select
     sector as sector_name,
     sub_sector as sub_sector_name,
     type as gdp_type,
-    cast(value as decimal(38,10)) as value,
+    cast(value as float) as value,
     unit as unit_name,
     'GSO_EXCEL' as source_name,
     'QUARTERLY' as period_grain,

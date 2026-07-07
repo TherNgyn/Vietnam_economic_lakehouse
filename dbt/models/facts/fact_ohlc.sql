@@ -1,22 +1,18 @@
-{{
-    config(
-        materialized='delta_table'
-    )
-}}
+{{ config(
+    materialized='delta_table'
+) }}
 
 with asset_enriched as (
 
     select
         a.asset_key,
-        a.symbol,
-        ac.asset_class_name,
-        m.market_name
+        upper(trim(a.symbol)) as symbol,
+        upper(trim(ac.asset_class_name)) as asset_class_name,
+        upper(trim(m.market_name)) as market_name
 
     from {{ ref('dim_asset') }} a
-
     left join {{ ref('dim_asset_class') }} ac
         on a.asset_class_key = ac.asset_class_key
-
     left join {{ ref('dim_market') }} m
         on a.market_key = m.market_key
 
@@ -26,11 +22,11 @@ base as (
 
     select
         to_date(cast(o.`date` as string)) as report_date,
-
-        o.symbol,
-        o.asset_class_name,
-        o.market_name,
-        o.source_name,
+        upper(trim(o.symbol)) as symbol,
+        upper(trim(o.asset_class_name)) as asset_class_name,
+        upper(trim(o.market_name)) as market_name,
+        upper(trim(o.source_name)) as source_name,
+        o.unit_name,
 
         cast(o.open_price as decimal(38,10)) as open_price,
         cast(o.high_price as decimal(38,10)) as high_price,
@@ -40,7 +36,6 @@ base as (
         cast(o.volume as decimal(38,10)) as volume
 
     from {{ ref('stg_ohlc') }} o
-
     where o.`date` is not null
 
 ),
@@ -49,10 +44,8 @@ joined as (
 
     select
         cast(t.time_key as int) as time_key,
-
         a.asset_key,
-        coalesce(s.source_key, cast(-1 as bigint)) as source_key,
-
+        b.unit_name,
         b.open_price,
         b.high_price,
         b.low_price,
@@ -61,18 +54,12 @@ joined as (
         b.volume
 
     from base b
-
     left join {{ ref('dim_time') }} t
         on b.report_date = t.full_date
-
     left join asset_enriched a
         on b.symbol = a.symbol
        and b.asset_class_name = a.asset_class_name
        and b.market_name = a.market_name
-
-    left join {{ ref('dim_source') }} s
-        on b.source_name = s.source_name
-
     where t.time_key is not null
       and a.asset_key is not null
 
@@ -81,20 +68,19 @@ joined as (
 final as (
 
     select
-        {{ sk(['time_key', 'asset_key', 'source_key']) }} as fact_ohlc_key,
+        {{ sk(['time_key', 'asset_key']) }} as fact_ohlc_key,
 
         time_key,
         asset_key,
-        source_key,
+        unit_name, 
+        cast(round(open_price, 6) as decimal(38,6)) as open_price,
+        cast(round(high_price, 6) as decimal(38,6)) as high_price,
+        cast(round(low_price, 6) as decimal(38,6)) as low_price,
+        cast(round(close_price, 6) as decimal(38,6)) as close_price,
+        cast(round(previous_close, 6) as decimal(38,6)) as previous_close,
+        cast(round(volume, 2) as decimal(38,2)) as volume,
 
-        open_price,
-        high_price,
-        low_price,
-        close_price,
-        previous_close,
-        volume,
-
-        {{ sk(['time_key', 'asset_key', 'source_key']) }} as load_id,
+        {{ sk(['time_key', 'asset_key']) }} as load_id,
         current_timestamp() as created_at
 
     from joined

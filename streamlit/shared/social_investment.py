@@ -103,6 +103,8 @@ def _inject_css() -> None:
         }}
         [data-testid="stMetricValue"] {{
             color: #FFFFFF !important;
+            font-size: 1.1rem;
+            wqline-height: 1.3;
         }}
         [data-testid="stMetricDelta"] {{
             color: #CFE3FB !important;
@@ -166,40 +168,87 @@ def _apply_chart_layout(fig: go.Figure, height: int = 380) -> go.Figure:
 # DATA LOADING
 # ============================================================
 
+# @st.cache_resource(show_spinner="Đang tải dữ liệu Social Investment...")
+# def load_data() -> SparkDataFrame:
+#     """
+#     Đọc dữ liệu từ Gold layer và join fact_social_total_investment với
+#     dim_time và dim_capital_source.
+
+#     Sử dụng SparkSession có sẵn từ shared/spark.py, không tạo session mới.
+
+#     Returns:
+#         SparkDataFrame: dữ liệu đã join, chưa áp dụng filter.
+#     """
+#     spark = get_spark_session()
+
+#     fact_df = spark.table("gold.fact_social_total_investment")
+#     dim_time_df = spark.table("gold.dim_time")
+#     dim_source_df = spark.table("gold.dim_capital_source")
+
+#     joined_df = (
+#         fact_df
+#         .join(dim_time_df, on="time_key", how="inner")
+#         .join(dim_source_df, on="capital_source_key", how="inner")
+#         .select(
+#             dim_time_df["year"],
+#             dim_time_df["quarter"],
+#             dim_source_df["source_name"],
+#             fact_df["unit"],
+#             fact_df["investment_value"],
+#             fact_df["investment_value_pre_quarter"],
+#             fact_df["investment_value_pre_year"],
+#             fact_df["qoq_growth_rate"],
+#             fact_df["yoy_growth_rate"],
+#             fact_df["source_share_pct"],
+#         )
+#     )
+#     return joined_df
 @st.cache_resource(show_spinner="Đang tải dữ liệu Social Investment...")
 def load_data() -> SparkDataFrame:
     """
-    Đọc dữ liệu từ Gold layer và join fact_social_total_investment với
-    dim_time và dim_capital_source.
+    Đọc dữ liệu Social Investment từ tầng Gold Mart và join Dimension.
 
-    Sử dụng SparkSession có sẵn từ shared/spark.py, không tạo session mới.
+    Các chỉ số qoq_growth_rate, yoy_growth_rate, source_share_pct
+    được lấy trực tiếp từ mart, không tính lại trong dashboard.
 
     Returns:
         SparkDataFrame: dữ liệu đã join, chưa áp dụng filter.
     """
     spark = get_spark_session()
 
-    fact_df = spark.table("gold.fact_social_total_investment")
-    dim_time_df = spark.table("gold.dim_time")
-    dim_source_df = spark.table("gold.dim_capital_source")
+    mart_df: SparkDataFrame = spark.table("gold_marts.mart_social_invest")
+    dim_time_df: SparkDataFrame = spark.table("gold_gold.dim_time")
+    dim_source_df: SparkDataFrame = spark.table("gold_gold.dim_capital_source")
 
     joined_df = (
-        fact_df
-        .join(dim_time_df, on="time_key", how="inner")
-        .join(dim_source_df, on="capital_source_key", how="inner")
+        mart_df.alias("m")
+        .join(
+            dim_time_df.alias("t"),
+            F.col("m.time_key") == F.col("t.time_key"),
+            "inner",
+        )
+        .join(
+            dim_source_df.alias("cs"),
+            F.col("m.capital_source_key") == F.col("cs.capital_source_key"),
+            "inner",
+        )
         .select(
-            dim_time_df["year"],
-            dim_time_df["quarter"],
-            dim_source_df["source_name"],
-            fact_df["unit"],
-            fact_df["investment_value"],
-            fact_df["investment_value_pre_quarter"],
-            fact_df["investment_value_pre_year"],
-            fact_df["qoq_growth_rate"],
-            fact_df["yoy_growth_rate"],
-            fact_df["source_share_pct"],
+            F.col("t.year").alias("year"),
+            F.col("t.quarter").alias("quarter"),
+            F.col("cs.source_name").alias("source_name"),
+
+            F.col("m.unit").alias("unit"),
+
+            F.col("m.investment_value").alias("investment_value"),
+            F.col("m.investment_value_pre_quarter").alias("investment_value_pre_quarter"),
+            F.col("m.investment_value_pre_year").alias("investment_value_pre_year"),
+
+            F.col("m.qoq_growth_rate").alias("qoq_growth_rate"),
+            F.col("m.yoy_growth_rate").alias("yoy_growth_rate"),
+            F.col("m.source_share_pct").alias("source_share_pct"),
         )
     )
+
     return joined_df
 
 
@@ -336,22 +385,23 @@ def render_filters(spark_df: SparkDataFrame) -> Dict[str, Tuple[Any, ...]]:
 
     st.markdown("<div class='inv-card'>", unsafe_allow_html=True)
     col1, col2, col3, col4 = st.columns(4)
+    
 
     with col1:
         selected_years = st.multiselect(
-            "Year", options=options["years"], default=options["years"], key="inv_year"
+            "Year", options["years"], default=[], key="inv_year"
         )
     with col2:
         selected_quarters = st.multiselect(
-            "Quarter", options=options["quarters"], default=options["quarters"], key="inv_quarter"
+            "Quarter", options["quarters"], default=[], key="inv_quarter"
         )
     with col3:
         selected_sources = st.multiselect(
-            "Capital Source", options=options["sources"], default=options["sources"], key="inv_source"
+            "Capital Source", options["sources"], default=[], key="inv_source"
         )
     with col4:
         selected_units = st.multiselect(
-            "Unit", options=options["units"], default=options["units"], key="inv_unit"
+            "Unit", options["units"], default=[], key="inv_unit"
         )
 
     st.markdown("</div>", unsafe_allow_html=True)
@@ -500,22 +550,22 @@ def render_structure_section(pdf: pd.DataFrame) -> None:
         st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
         _section_end()
 
-    with col2:
-        _section_title("Capital Source Share")
-        share_df = pdf.groupby("source_name", as_index=False)["investment_value"].sum()
-        fig = px.pie(
-            share_df,
-            names="source_name",
-            values="investment_value",
-            hole=0.55,
-            color_discrete_sequence=CHART_COLOR_SEQUENCE,
-        )
-        st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
-        _section_end()
+    # with col2:
+    #     _section_title("Capital Source Share")
+    #     share_df = pdf.groupby("source_name", as_index=False)["investment_value"].sum()
+    #     fig = px.pie(
+    #         share_df,
+    #         names="source_name",
+    #         values="investment_value",
+    #         hole=0.55,
+    #         color_discrete_sequence=CHART_COLOR_SEQUENCE,
+    #     )
+    #     st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
+    #     _section_end()
 
     col3, col4 = st.columns(2)
 
-    with col3:
+    with col2:
         _section_title("Treemap")
         tree_df = pdf.groupby("source_name", as_index=False).agg(
             investment_value=("investment_value", "sum"),
@@ -531,22 +581,22 @@ def render_structure_section(pdf: pd.DataFrame) -> None:
         st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
         _section_end()
 
-    with col4:
-        _section_title("Capital Source Structure")
-        area_df = pdf.groupby(
-            ["quarter_label", "source_name"], as_index=False
-        )["investment_value"].sum()
-        fig = px.area(
-            area_df,
-            x="quarter_label",
-            y="investment_value",
-            color="source_name",
-            groupnorm="fraction",
-            color_discrete_sequence=CHART_COLOR_SEQUENCE,
-        )
-        fig.update_layout(xaxis_title="Quarter", yaxis_title="Share")
-        st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
-        _section_end()
+    # with col4:
+    #     _section_title("Capital Source Structure")
+    #     area_df = pdf.groupby(
+    #         ["quarter_label", "source_name"], as_index=False
+    #     )["investment_value"].sum()
+    #     fig = px.area(
+    #         area_df,
+    #         x="quarter_label",
+    #         y="investment_value",
+    #         color="source_name",
+    #         groupnorm="fraction",
+    #         color_discrete_sequence=CHART_COLOR_SEQUENCE,
+    #     )
+    #     fig.update_layout(xaxis_title="Quarter", yaxis_title="Share")
+    #     st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
+    #     _section_end()
 
 
 # ============================================================
@@ -566,40 +616,40 @@ def render_ranking_section(pdf: pd.DataFrame) -> None:
 
     col1, col2 = st.columns(2)
 
-    with col1:
-        _section_title("Top Investment Sources")
-        top_inv = pdf.groupby("source_name", as_index=False)["investment_value"].sum()
-        top_inv = top_inv.sort_values("investment_value", ascending=True)
-        fig = px.bar(
-            top_inv,
-            x="investment_value",
-            y="source_name",
-            orientation="h",
-            color_discrete_sequence=[COLOR_ACCENT],
-        )
-        fig.update_layout(xaxis_title="Investment Value", yaxis_title="")
-        st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
-        _section_end()
+    # with col1:
+    _section_title("Top Investment Sources")
+    top_inv = pdf.groupby("source_name", as_index=False)["investment_value"].sum()
+    top_inv = top_inv.sort_values("investment_value", ascending=True)
+    fig = px.bar(
+        top_inv,
+        x="investment_value",
+        y="source_name",
+        orientation="h",
+        color_discrete_sequence=[COLOR_ACCENT],
+    )
+    fig.update_layout(xaxis_title="Investment Value", yaxis_title="")
+    st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
+    _section_end()
 
-    with col2:
-        _section_title("Top Growth Sources")
-        top_growth = pdf.groupby("source_name", as_index=False)["yoy_growth_rate"].mean()
-        top_growth = top_growth.sort_values("yoy_growth_rate", ascending=True)
-        bar_colors = [
-            COLOR_POSITIVE if value >= 0 else COLOR_NEGATIVE
-            for value in top_growth["yoy_growth_rate"]
-        ]
-        fig = go.Figure(
-            go.Bar(
-                x=top_growth["yoy_growth_rate"],
-                y=top_growth["source_name"],
-                orientation="h",
-                marker_color=bar_colors,
-            )
-        )
-        fig.update_layout(xaxis_title="YoY Growth Rate (%)", yaxis_title="")
-        st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
-        _section_end()
+    # with col2:
+    #     _section_title("Top Growth Sources")
+    #     top_growth = pdf.groupby("source_name", as_index=False)["yoy_growth_rate"].mean()
+    #     top_growth = top_growth.sort_values("yoy_growth_rate", ascending=True)
+    #     bar_colors = [
+    #         COLOR_POSITIVE if value >= 0 else COLOR_NEGATIVE
+    #         for value in top_growth["yoy_growth_rate"]
+    #     ]
+    #     fig = go.Figure(
+    #         go.Bar(
+    #             x=top_growth["yoy_growth_rate"],
+    #             y=top_growth["source_name"],
+    #             orientation="h",
+    #             marker_color=bar_colors,
+    #         )
+    #     )
+    #     fig.update_layout(xaxis_title="YoY Growth Rate (%)", yaxis_title="")
+    #     st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
+    #     _section_end()
 
 
 # ============================================================
@@ -791,6 +841,7 @@ def render_dashboard() -> None:
     render_trend_section(pdf)
     render_structure_section(pdf)
     render_ranking_section(pdf)
-    render_growth_section(pdf)
-    render_comparison_section(pdf)
-    render_contribution_section(pdf)
+    # render_growth_section(pdf)
+    # render_comparison_section(pdf)
+    # render_contribution_section(pdf)
+    

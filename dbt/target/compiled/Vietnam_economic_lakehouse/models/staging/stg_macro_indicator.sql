@@ -1,19 +1,6 @@
 
 
-with m2 as (
-    select
-        cast(`date` as date) as date,
-        'M2' as indicator_name,
-        'MONEY_SUPPLY' as indicator_group_name,
-        cast(m2 as decimal(38,10)) as value,
-        unit as unit_name,
-        source as source_name,
-        'MONTHLY' as period_grain,
-        cast(processing_date as timestamp) as ingest_at
-    from silver.m2
-),
-
-core_inflation as (
+with core_inflation as (
     select
         cast(`date` as date) as date,
         'CORE_INFLATION_RATE' as indicator_name,
@@ -42,7 +29,7 @@ ppi_qoq as (
 broad_money as (
     select
         cast(`date` as date) as date,
-        coalesce(indicator, 'BROAD_MONEY') as indicator_name,
+        coalesce(upper(trim(indicator)), 'BROAD_MONEY') as indicator_name,
         'MONEY_SUPPLY' as indicator_group_name,
         cast(value as decimal(38,10)) as value,
         unit as unit_name,
@@ -50,6 +37,19 @@ broad_money as (
         'MONTHLY' as period_grain,
         cast(processing_date as timestamp) as ingest_at
     from silver.broad_money
+),
+
+policy_rate as (
+    select
+        cast(`date` as date) as date,
+        coalesce(upper(trim(indicator)), 'POLICY_RATE') as indicator_name,
+        'INTEREST_RATE' as indicator_group_name,
+        cast(value as decimal(38,10)) as value,
+        unit as unit_name,
+        source as source_name,
+        'MONTHLY' as period_grain,
+        cast(processing_date as timestamp) as ingest_at
+    from silver.policy_rate
 ),
 
 cpi_mom_cpi as (
@@ -81,7 +81,7 @@ cpi_mom_inflation as (
 cpi_base_prev_year as (
     select
         cast(`date` as date) as date,
-        concat('CPI_BASE_', cpi_base_year, '_PREV_YEAR') as indicator_name,
+        'CPI_BASE_PREV_YEAR' as indicator_name,
         'CPI_BASE_YEAR' as indicator_group_name,
         cast(prev_year_base as decimal(38,10)) as value,
         unit_cpi as unit_name,
@@ -130,10 +130,10 @@ cpi_base_2010 as (
     from silver.cpi_base_year
 )
 
-select * from m2
-union all select * from core_inflation
+select * from core_inflation
 union all select * from ppi_qoq
 union all select * from broad_money
+union all select * from policy_rate
 union all select * from cpi_mom_cpi
 union all select * from cpi_mom_inflation
 union all select * from cpi_base_prev_year

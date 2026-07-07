@@ -503,3 +503,17 @@ spark.sql("""
     PARTITIONED BY (symbol)
     LOCATION 's3a://silver/vietnam_index'
 """)
+spark.sql('DROP TABLE IF EXISTS silver.policy_rate;')
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS silver.policy_rate ( 
+        date STRING,
+        indicator STRING, 
+        value DOUBLE,
+        unit STRING,           
+        source STRING,         
+        processing_date STRING
+    )
+    USING DELTA
+    PARTITIONED BY (processing_date)
+    LOCATION 's3a://silver/policy_rate'
+""")

@@ -1,8 +1,6 @@
-{{
-    config(
-        materialized='view'
-    )
-}}
+{{ config(
+    materialized='view'
+) }}
 
 select
     cast(
@@ -21,8 +19,8 @@ select
     trim(cast(product_name as string)) as product_name,
     trim(cast(`type` as string)) as product_type,
 
-    cast(value as decimal(38,10)) as trade_value,
-    cast(quantity as decimal(38,10)) as quantity,
+    cast(value as float) as trade_value,
+    cast(quantity as float) as quantity,
 
     trim(cast(unit as string)) as value_unit,
     trim(cast(quantity_unit as string)) as quantity_unit,

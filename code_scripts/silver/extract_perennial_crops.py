@@ -173,8 +173,6 @@ def insert_perennial_crops(excel_file, all_sheets, sheet_index: int, year: int, 
         merged_df['ingest_at'] = pd.Timestamp.now()
         
         merged_df = merged_df.drop_duplicates()
-        merged_df['area'] = merged_df['area'].round(3)
-        merged_df['yield'] = merged_df['yield'].round() 
         
         # Đẩy dữ liệu sạch vào Silver layer
         insert_df_to_table_silver_layer(merged_df, 'perennial_crops', year, quarter)

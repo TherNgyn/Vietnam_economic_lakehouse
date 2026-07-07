@@ -4,260 +4,84 @@
         AS
         
 
-with base as (
-
-    select
-        f.fact_gdp_key,
-
-        f.time_key,
-        t.full_date,
-        cast(t.year as int) as report_year,
-        cast(t.quarter as int) as report_quarter,
-
-        f.sub_sector_key,
-        ss.sub_sector_name,
-
-        s.sector_key,
-        s.sector_name,
-
-        f.unit_key,
-        u.unit_name,
-        u.unit_nor,
-
-        f.source_key,
-        src.source_name,
-        src.source_system,
-
-        cast(f.market_value as decimal(38,3)) as market_value,
-        cast(f.constant_value as decimal(38,3)) as constant_value,
-
-        cast(f.market_value_pre_quarter as decimal(38,3)) as market_value_pre_quarter,
-        cast(f.constant_value_pre_quarter as decimal(38,3)) as constant_value_pre_quarter,
-
-        cast(f.market_value_pre_year as decimal(38,3)) as market_value_pre_year,
-        cast(f.constant_value_pre_year as decimal(38,3)) as constant_value_pre_year,
-
-        f.created_at
-
-    from gold_gold.fact_gdp f
-
-    left join gold_gold.dim_time t
-        on f.time_key = t.time_key
-
-    left join gold_gold.dim_sub_sector ss
-        on f.sub_sector_key = ss.sub_sector_key
-
-    left join gold_gold.dim_sector s
-        on ss.sector_key = s.sector_key
-
-    left join gold_gold.dim_unit u
-        on f.unit_key = u.unit_key
-
-    left join gold_gold.dim_source src
-        on f.source_key = src.source_key
-
+with fact as (
+    select * from gold_gold.fact_gdp_growth
 ),
 
-with_growth as (
-
+calculations as (
     select
-        fact_gdp_key,
-
         time_key,
-        full_date,
-        report_year,
-        report_quarter,
-
-        sector_key,
-        sector_name,
-
         sub_sector_key,
-        sub_sector_name,
-
-        unit_key,
-        unit_name,
-        unit_nor,
-
-        source_key,
-        source_name,
-        source_system,
-
+        unit,
         market_value,
         constant_value,
-
         market_value_pre_quarter,
-        constant_value_pre_quarter,
-
         market_value_pre_year,
+        constant_value_pre_quarter,
         constant_value_pre_year,
 
-        cast(
-            round(
-                market_value - market_value_pre_quarter,
-                3
-            ) as decimal(38,3)
-        ) as market_qoq_growth_value,
+        -- 1. Tính toán Tốc độ tăng trưởng Thị trường (Market Growth Rates) QoQ / YoY
+        case 
+            when market_value_pre_quarter > 0 
+            then round(((market_value - market_value_pre_quarter) / market_value_pre_quarter) * 100, 3) 
+        end as market_qoq_growth_rate,
+        
+        case 
+            when market_value_pre_year > 0 
+            then round(((market_value - market_value_pre_year) / market_value_pre_year) * 100, 3) 
+        end as market_yoy_growth_rate,
 
-        cast(
-            round(
-                
-    market_value - market_value_pre_quarter / nullif(market_value_pre_quarter, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as market_qoq_growth_rate,
+        -- 2. Tính toán Tốc độ tăng trưởng Thực tế (Real Growth Rates) QoQ / YoY
+        case 
+            when constant_value_pre_quarter > 0 
+            then round(((constant_value - constant_value_pre_quarter) / constant_value_pre_quarter) * 100, 3) 
+        end as real_qoq_growth_rate,
+        
+        case 
+            when constant_value_pre_year > 0 
+            then round(((constant_value - constant_value_pre_year) / constant_value_pre_year) * 100, 3) 
+        end as real_yoy_growth_rate,
 
-        cast(
-            round(
-                market_value - market_value_pre_year,
-                3
-            ) as decimal(38,3)
-        ) as market_yoy_growth_value,
+        -- 3. Chỉ số giảm phát GDP (Implicit Price Deflator)
+        case 
+            when constant_value > 0 
+            then round((market_value / constant_value) * 100, 3) 
+        end as implicit_price_deflator,
+        
+        -- 4. Tỷ trọng đóng góp của phân ngành trong toàn bộ Ngành (Sector Share)
+        round(
+            (market_value / nullif(sum(market_value) over (partition by sector_key, time_key), 0)) * 100, 3
+        ) as sector_share_pct,
 
-        cast(
-            round(
-                
-    market_value - market_value_pre_year / nullif(market_value_pre_year, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as market_yoy_growth_rate,
+        -- 5. Tỷ trọng đóng góp của phân ngành vào quy mô tổng thể GDP quốc gia (GDP Share)
+        round(
+            (market_value / nullif(sum(market_value) over (partition by year, quarter), 0)) * 100, 3
+        ) as gdp_share_pct
 
-        cast(
-            round(
-                constant_value - constant_value_pre_quarter,
-                3
-            ) as decimal(38,3)
-        ) as real_qoq_growth_value,
-
-        cast(
-            round(
-                
-    constant_value - constant_value_pre_quarter / nullif(constant_value_pre_quarter, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as real_qoq_growth_rate,
-
-        cast(
-            round(
-                constant_value - constant_value_pre_year,
-                3
-            ) as decimal(38,3)
-        ) as real_yoy_growth_value,
-
-        cast(
-            round(
-                
-    constant_value - constant_value_pre_year / nullif(constant_value_pre_year, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as real_yoy_growth_rate,
-
-        cast(
-            round(
-                
-    market_value / nullif(constant_value, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as implicit_price_deflator,
-
-        created_at
-
-    from base
-
-),
-
-with_totals as (
-
-    select
-        *,
-
-        sum(market_value) over (
-            partition by time_key, sector_key, unit_key, source_key
-        ) as sector_total_market_value,
-
-        sum(market_value) over (
-            partition by time_key, unit_key, source_key
-        ) as gdp_total_market_value
-
-    from with_growth
-
+    from fact
 ),
 
 final as (
-
     select
-        fact_gdp_key as mart_gdp_growth_key,
-
         time_key,
-        full_date,
-        report_year,
-        report_quarter,
-
-        sector_key,
-        sector_name,
-
         sub_sector_key,
-        sub_sector_name,
-
-        unit_key,
-        unit_name,
-        unit_nor,
-
-        source_key,
-        source_name,
-        source_system,
-
+        unit,
         market_value,
         constant_value,
-
         market_value_pre_quarter,
-        constant_value_pre_quarter,
-
         market_value_pre_year,
+        constant_value_pre_quarter,
         constant_value_pre_year,
-
-        market_qoq_growth_value,
-        market_qoq_growth_rate,
-
-        market_yoy_growth_value,
-        market_yoy_growth_rate,
-
-        real_qoq_growth_value,
-        real_qoq_growth_rate,
-
-        real_yoy_growth_value,
-        real_yoy_growth_rate,
-
-        implicit_price_deflator,
-
-        cast(
-            round(
-                
-    market_value / nullif(sector_total_market_value, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as sector_share_pct,
-
-        cast(
-            round(
-                
-    market_value / nullif(gdp_total_market_value, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as gdp_share_pct,
-
-        created_at
-
-    from with_totals
-
+        -- Khử các giá trị Null về 0 và ép kiểu float chính xác như PySpark .fillna(0)
+        cast(coalesce(market_qoq_growth_rate, 0) as float) as market_qoq_growth_rate,
+        cast(coalesce(market_yoy_growth_rate, 0) as float) as market_yoy_growth_rate,
+        cast(coalesce(real_qoq_growth_rate, 0) as float) as real_qoq_growth_rate,
+        cast(coalesce(real_yoy_growth_rate, 0) as float) as real_yoy_growth_rate,
+        cast(coalesce(implicit_price_deflator, 0) as float) as implicit_price_deflator,
+        cast(coalesce(sector_share_pct, 0) as float) as sector_share_pct,
+        cast(coalesce(gdp_share_pct, 0) as float) as gdp_share_pct
+    from calculations
 )
 
-select *
-from final
+select * from final
     

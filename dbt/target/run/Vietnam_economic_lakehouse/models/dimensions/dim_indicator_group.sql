@@ -4,12 +4,9 @@
         AS
         
 
-
 select
-    
-    abs(xxhash64(coalesce(cast(indicator_group_name as string), '__null__')))
- as indicator_group_key,
-    lower(trim(indicator_group_name)) as indicator_group_name
+    row_number() over (order by indicator_group_name) as indicator_group_key,
+    upper(trim(indicator_group_name)) as indicator_group_name 
 from (
     select distinct indicator_group_name
     from gold_staging.stg_macro_indicator

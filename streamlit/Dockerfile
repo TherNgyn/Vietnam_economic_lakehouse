@@ -45,4 +45,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=5 \
 # vì image base apache/spark đã tạo user "spark" sẵn
 USER spark
 
-ENTRYPOINT ["/opt/streamlit/app/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/opt/streamlit/app/docker-entrypoint.sh"]
