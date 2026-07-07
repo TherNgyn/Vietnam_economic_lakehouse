@@ -4,231 +4,66 @@
         AS
         
 
-with base as (
-
-    select
-        f.fact_trade_key,
-
-        f.time_key,
-        t.full_date,
-        cast(t.year as int) as report_year,
-        cast(t.quarter as int) as report_quarter,
-        cast(t.month as int) as report_month,
-
-        f.product_key,
-        p.product_name,
-        pc.product_category_key,
-        pc.product_category_name,
-
-        cast(f.trade_value as decimal(38,3)) as trade_value,
-        cast(f.quantity as decimal(38,3)) as quantity,
-
-        f.value_unit,
-        f.quantity_unit,
-
-        cast(f.trade_value_pre_month as decimal(38,3)) as trade_value_pre_month,
-        cast(f.trade_value_pre_year as decimal(38,3)) as trade_value_pre_year,
-
-        cast(f.quantity_pre_month as decimal(38,3)) as quantity_pre_month,
-        cast(f.quantity_pre_year as decimal(38,3)) as quantity_pre_year,
-
-        f.created_at,
-        f.ingest_at
-
-    from gold_gold.fact_international_trade f
-
-    left join gold_gold.dim_time t
-        on f.time_key = t.time_key
-
-    left join gold_gold.dim_product p
-        on f.product_key = p.product_key
-
-    left join gold_gold.dim_product_category pc
-        on p.product_category_key = pc.product_category_key
-
+with fact as (
+    select * from gold_gold.fact_international_trade
 ),
 
-with_metrics as (
-
+calculations as (
     select
-        fact_trade_key,
-
         time_key,
-        full_date,
-        report_year,
-        report_quarter,
-        report_month,
-
         product_key,
-        product_name,
-        product_category_key,
-        product_category_name,
-
         trade_value,
-        quantity,
-
         value_unit,
+        quantity,
         quantity_unit,
-
         trade_value_pre_month,
         trade_value_pre_year,
 
-        quantity_pre_month,
-        quantity_pre_year,
+        -- 1. Tốc độ tăng trưởng liên tháng (MoM Growth Rate)
+        case 
+            when trade_value_pre_month > 0 
+            then round(((trade_value - trade_value_pre_month) / trade_value_pre_month) * 100, 3) 
+        end as mom_growth_rate,
 
-        cast(
-            round(
-                trade_value - trade_value_pre_month,
-                3
-            ) as decimal(38,3)
-        ) as trade_value_mom_change,
+        -- 2. Tốc độ tăng trưởng cùng kỳ năm trước (YoY Growth Rate)
+        case 
+            when trade_value_pre_year > 0 
+            then round(((trade_value - trade_value_pre_year) / trade_value_pre_year) * 100, 3) 
+        end as yoy_growth_rate,
 
-        cast(
-            round(
-                
-    trade_value - trade_value_pre_month / nullif(trade_value_pre_month, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as mom_growth_rate,
-
-        cast(
-            round(
-                trade_value - trade_value_pre_year,
-                3
-            ) as decimal(38,3)
-        ) as trade_value_yoy_change,
-
-        cast(
-            round(
-                
-    trade_value - trade_value_pre_year / nullif(trade_value_pre_year, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as yoy_growth_rate,
-
-        cast(
-            round(
-                quantity - quantity_pre_month,
-                3
-            ) as decimal(38,3)
-        ) as quantity_mom_change,
-
-        cast(
-            round(
-                
-    quantity - quantity_pre_month / nullif(quantity_pre_month, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as quantity_mom_growth_rate,
-
-        cast(
-            round(
-                quantity - quantity_pre_year,
-                3
-            ) as decimal(38,3)
-        ) as quantity_yoy_change,
-
-        cast(
-            round(
-                
-    quantity - quantity_pre_year / nullif(quantity_pre_year, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as quantity_yoy_growth_rate,
-
-        created_at,
+        -- 3. Tỷ trọng đóng góp giá trị của sản phẩm theo chu kỳ thời gian (Product Share)
+        round(
+            (trade_value / nullif(sum(trade_value) over (partition by year, quarter, month), 0)) * 100, 3
+        ) as product_share_pct,
+        
         ingest_at
 
-    from base
-
-),
-
-with_totals as (
-
-    select
-        *,
-
-        sum(trade_value) over (
-            partition by time_key, value_unit
-        ) as total_trade_value,
-
-        sum(trade_value) over (
-            partition by time_key, product_category_key, value_unit
-        ) as category_total_trade_value
-
-    from with_metrics
-
+    from fact
 ),
 
 final as (
-
     select
-        fact_trade_key as mart_trade_international_key,
-
+        
+    abs(xxhash64(coalesce(cast(time_key as string), '__null__'), coalesce(cast(product_key as string), '__null__')))
+ as mart_trade_key,
         time_key,
-        full_date,
-        report_year,
-        report_quarter,
-        report_month,
-
         product_key,
-        product_name,
-        product_category_key,
-        product_category_name,
-
         trade_value,
-        quantity,
-
         value_unit,
+        quantity,
         quantity_unit,
-
         trade_value_pre_month,
         trade_value_pre_year,
-
-        quantity_pre_month,
-        quantity_pre_year,
-
-        trade_value_mom_change,
-        mom_growth_rate,
-
-        trade_value_yoy_change,
-        yoy_growth_rate,
-
-        quantity_mom_change,
-        quantity_mom_growth_rate,
-
-        quantity_yoy_change,
-        quantity_yoy_growth_rate,
-
-        cast(
-            round(
-                
-    trade_value / nullif(total_trade_value, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as product_share_pct,
-
-        cast(
-            round(
-                
-    trade_value / nullif(category_total_trade_value, 0)
- * 100,
-                3
-            ) as decimal(38,3)
-        ) as product_share_in_category_pct,
-
-        created_at,
+        
+        -- Khử giá trị rỗng về 0 và định kiểu dữ liệu Float chính xác như PySpark
+        cast(coalesce(mom_growth_rate, 0) as float) as mom_growth_rate,
+        cast(coalesce(yoy_growth_rate, 0) as float) as yoy_growth_rate,
+        cast(coalesce(product_share_pct, 0) as float) as product_share_pct,
+        
+        current_timestamp() as created_at,
         ingest_at
-
-    from with_totals
-
+    from calculations
 )
 
-select *
-from final
+select * from final
     

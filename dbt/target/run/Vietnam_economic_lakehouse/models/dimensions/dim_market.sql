@@ -12,9 +12,7 @@ with markets as (
 )
 
 select
-    
-    abs(xxhash64(coalesce(cast(market_name as string), '__null__'), coalesce(cast(country as string), '__null__')))
- as market_key,
+    row_number() over (order by market_name, country) as market_key,
     market_name,
     country
 from markets

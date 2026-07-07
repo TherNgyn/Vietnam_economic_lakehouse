@@ -5,7 +5,7 @@ from airflow.operators.bash import BashOperator
 with DAG(
     dag_id='silver_pipeline',
     start_date=datetime(2025, 1, 1),
-    schedule='0 7 * * *',
+    schedule=None,
     catchup=False,
     default_args={'retries': 1, 'retry_delay': timedelta(minutes=5)},
     tags=['silver', 'transform'],
@@ -15,6 +15,7 @@ with DAG(
         task_id='silver_economics',
         bash_command='docker exec python_container python silver/bronze_all_economics_silver.py',
     )
+
     interest_rate = BashOperator(
         task_id='silver_interest_rate',
         bash_command='docker exec python_container python silver/bronze_interest_rate_silver.py',
@@ -45,4 +46,4 @@ with DAG(
         bash_command='docker exec spark-master /opt/spark/bin/spark-submit silver/ddl_silver.py',
     )
 
-    ddl_silver >> [economic, interest_rate, gasoline, ohlc_world, ohlc_vn, excel_reports]
+    ddl_silver >> economic

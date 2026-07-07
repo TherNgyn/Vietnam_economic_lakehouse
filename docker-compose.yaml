@@ -467,7 +467,7 @@ services:
       --conf spark.hadoop.hive.metastore.uris=thrift://hive:9083
       --hiveconf hive.server2.thrift.port=10000
       --hiveconf hive.server2.thrift.bind.host=0.0.0.0
-      --total-executor-cores 2
+      --total-executor-cores 1
       --conf spark.sql.warehouse.dir=s3a://gold/
     restart: on-failure
   

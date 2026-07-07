@@ -238,51 +238,113 @@ def render_header() -> None:
 # ====================================================================
 # DATA LOADING (SPARK)
 # ====================================================================
-
 @st.cache_data(show_spinner="Đang tải dữ liệu Production Output...")
 def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu Production Output từ Gold layer bằng Spark.
+    """Truy vấn dữ liệu Production Output từ Gold Mart bằng Spark.
 
-    Thực hiện join giữa fact_production_output với dim_time và
-    dim_product. Dữ liệu chỉ được convert sang Pandas ở bước cuối
-    cùng (sau khi đã join xong bằng Spark), phục vụ cho việc
-    filter/vẽ biểu đồ phía Streamlit.
+    Dashboard không tự tính toán lại các chỉ số.
+    Các chỉ số period_growth_rate, yoy_growth_rate, product_share_pct
+    được lấy trực tiếp từ mart ở database gold_marts.
 
     Returns:
-        pd.DataFrame: Dữ liệu Production Output đã join đầy đủ dimension.
+        pd.DataFrame: Dữ liệu Production Output đã join dimension,
+        giữ đúng schema mà dashboard hiện tại đang sử dụng.
     """
     spark = get_spark_session()
 
-    fact: SparkDataFrame = spark.table("gold.fact_production_output")
-    dim_time: SparkDataFrame = spark.table("gold.dim_time")
-    dim_product: SparkDataFrame = spark.table("gold.dim_product")
+    mart: SparkDataFrame = spark.table("gold_marts.mart_product")
+    dim_time: SparkDataFrame = spark.table("gold_gold.dim_time")
+    dim_product: SparkDataFrame = spark.table("gold_gold.dim_product")
 
     df = (
-        fact.join(dim_time, on="time_key", how="left")
-        .join(dim_product, on="product_key", how="left")
+        mart.alias("m")
+        .join(
+            dim_time.alias("t"),
+            F.col("m.time_key") == F.col("t.time_key"),
+            "left",
+        )
+        .join(
+            dim_product.alias("p"),
+            F.col("m.product_key") == F.col("p.product_key"),
+            "left",
+        )
         .select(
-            dim_time["year"],
-            dim_time["quarter"],
-            dim_product["product_name"],
-            dim_product["product_type"],
-            dim_product["product_category"],
-            fact["value"],
-            fact["unit"],
-            fact["prev_quarter_value"],
-            fact["pre_year_value"],
-            fact["yoy_growth_rate"],
-            fact["qoq_growth_rate"],
-            fact["product_share_pct"],
+            F.col("t.year").alias("year"),
+            F.col("t.quarter").alias("quarter"),
+
+            F.col("p.product_name").alias("product_name"),
+            F.col("p.product_type").alias("product_type"),
+            F.col("p.product_category_name").alias("product_category"),
+
+            F.col("m.value").alias("value"),
+            F.col("m.unit").alias("unit"),
+
+            F.col("m.prev_period_value").alias("prev_quarter_value"),
+            F.col("m.pre_year_value").alias("pre_year_value"),
+
+            F.col("m.yoy_growth_rate").alias("yoy_growth_rate"),
+            F.col("m.period_growth_rate").alias("qoq_growth_rate"),
+            F.col("m.product_share_pct").alias("product_share_pct"),
         )
     )
 
     df = df.withColumn(
         "quarter_label",
-        F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
+        F.concat(
+            F.lit("Q"),
+            F.col("quarter").cast("string"),
+            F.lit(" "),
+            F.col("year").cast("string"),
+        ),
     )
 
     pdf = df.toPandas()
     return pdf
+
+# @st.cache_data(show_spinner="Đang tải dữ liệu Production Output...")
+# def load_data() -> pd.DataFrame:
+#     """Truy vấn dữ liệu Production Output từ Gold layer bằng Spark.
+
+#     Thực hiện join giữa fact_production_output với dim_time và
+#     dim_product. Dữ liệu chỉ được convert sang Pandas ở bước cuối
+#     cùng (sau khi đã join xong bằng Spark), phục vụ cho việc
+#     filter/vẽ biểu đồ phía Streamlit.
+
+#     Returns:
+#         pd.DataFrame: Dữ liệu Production Output đã join đầy đủ dimension.
+#     """
+#     spark = get_spark_session()
+
+#     fact: SparkDataFrame = spark.table("gold.fact_production_output")
+#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
+#     dim_product: SparkDataFrame = spark.table("gold.dim_product")
+
+#     df = (
+#         fact.join(dim_time, on="time_key", how="left")
+#         .join(dim_product, on="product_key", how="left")
+#         .select(
+#             dim_time["year"],
+#             dim_time["quarter"],
+#             dim_product["product_name"],
+#             dim_product["product_type"],
+#             dim_product["product_category"],
+#             fact["value"],
+#             fact["unit"],
+#             fact["prev_quarter_value"],
+#             fact["pre_year_value"],
+#             fact["yoy_growth_rate"],
+#             fact["qoq_growth_rate"],
+#             fact["product_share_pct"],
+#         )
+#     )
+
+#     df = df.withColumn(
+#         "quarter_label",
+#         F.concat(F.lit("Q"), F.col("quarter").cast("string"), F.lit(" "), F.col("year").cast("string")),
+#     )
+
+#     pdf = df.toPandas()
+#     return pdf
 
 
 # ====================================================================

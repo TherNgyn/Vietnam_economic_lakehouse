@@ -269,6 +269,7 @@ def process_ppi(df=None):
     return None
 
 def clean_broad_money(df=None):
+    """Process Broad Money and Policy Rate data into separate datasets"""
     if df is None:
         df = read_historical("broad_money_policy_rate.csv")
     if df.empty:
@@ -280,17 +281,34 @@ def clean_broad_money(df=None):
     df = df.sort_values('date').reset_index(drop=True)
 
     df['broad_money'] = pd.to_numeric(df['broad_money'], errors='coerce')
+    df['policy_rate'] = pd.to_numeric(df['policy_rate'], errors='coerce')
+    
+    # Forward-fill và Backward-fill chuỗi thời gian
     df['broad_money'] = df['broad_money'].ffill().bfill()
+    df['policy_rate'] = df['policy_rate'].ffill().bfill()
 
-    broad_money_df = df[['date', 'broad_money']].copy()
+    # Định dạng chuỗi date thành String để đồng bộ schema
+    df['date_str'] = df['date'].dt.strftime('%Y-%m-%d')
+
+    # Xử lý Broad Money
+    broad_money_df = df[['date_str', 'broad_money']].copy()
+    broad_money_df.columns = ['date', 'broad_money']
     broad_money_df['indicator'] = 'broad_money'
     broad_money_df['value'] = broad_money_df['broad_money'].astype(float)
     broad_money_df['unit'] = 'Percent'
     broad_money_df['source'] = 'CEIC Database'
-    broad_money_df['date'] = broad_money_df['date'].dt.strftime('%Y-%m-%d')
-
     broad_money_df = broad_money_df[['date', 'indicator', 'value', 'unit', 'source']]
-    return broad_money_df
+
+    # Xử lý Policy Rate
+    policy_rate_df = df[['date_str', 'policy_rate']].copy()
+    policy_rate_df.columns = ['date', 'policy_rate']
+    policy_rate_df['indicator'] = 'policy_rate'
+    policy_rate_df['value'] = policy_rate_df['policy_rate'].astype(float)
+    policy_rate_df['unit'] = 'Percent per annum'
+    policy_rate_df['source'] = 'CEIC Database'
+    policy_rate_df = policy_rate_df[['date', 'indicator', 'value', 'unit', 'source']]
+
+    return [('broad_money', broad_money_df), ('policy_rate', policy_rate_df)]
 
 def write_to_delta(indicator_df, indicator_name, processing_date):
     """Write indicator data to Delta Lake format"""
@@ -380,16 +398,18 @@ def main():
     except Exception as e:
         print(f"PPI: {e}")
 
-    # Broad Money
+    # Broad Money & Policy Rate
     try:
-        print("Broad Money: Reading...")
-        bm_df = clean_broad_money()
-        if bm_df is not None:
-            all_indicators.append(('broad_money', bm_df))
-            print(f"Broad Money: {len(bm_df)} records")
-            print(bm_df.head())
+        print("Broad Money & Policy Rate: Reading...")
+        bm_results = clean_broad_money()
+        if bm_results is not None:
+            for indicator_name, indicator_df in bm_results:
+                if indicator_df is not None and not indicator_df.empty:
+                    all_indicators.append((indicator_name, indicator_df))
+                    print(f"{indicator_name.upper()}: {len(indicator_df)} records")
+                    print(indicator_df.head())
     except Exception as e:
-        print(f"Broad Money: {e}")
+        print(f"Broad Money & Policy Rate Error: {e}")
     
     if all_indicators:
         processing_date = datetime.utcnow().strftime('%Y-%m-%d')

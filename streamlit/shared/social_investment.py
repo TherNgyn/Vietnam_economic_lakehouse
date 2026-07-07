@@ -168,42 +168,88 @@ def _apply_chart_layout(fig: go.Figure, height: int = 380) -> go.Figure:
 # DATA LOADING
 # ============================================================
 
+# @st.cache_resource(show_spinner="Đang tải dữ liệu Social Investment...")
+# def load_data() -> SparkDataFrame:
+#     """
+#     Đọc dữ liệu từ Gold layer và join fact_social_total_investment với
+#     dim_time và dim_capital_source.
+
+#     Sử dụng SparkSession có sẵn từ shared/spark.py, không tạo session mới.
+
+#     Returns:
+#         SparkDataFrame: dữ liệu đã join, chưa áp dụng filter.
+#     """
+#     spark = get_spark_session()
+
+#     fact_df = spark.table("gold.fact_social_total_investment")
+#     dim_time_df = spark.table("gold.dim_time")
+#     dim_source_df = spark.table("gold.dim_capital_source")
+
+#     joined_df = (
+#         fact_df
+#         .join(dim_time_df, on="time_key", how="inner")
+#         .join(dim_source_df, on="capital_source_key", how="inner")
+#         .select(
+#             dim_time_df["year"],
+#             dim_time_df["quarter"],
+#             dim_source_df["source_name"],
+#             fact_df["unit"],
+#             fact_df["investment_value"],
+#             fact_df["investment_value_pre_quarter"],
+#             fact_df["investment_value_pre_year"],
+#             fact_df["qoq_growth_rate"],
+#             fact_df["yoy_growth_rate"],
+#             fact_df["source_share_pct"],
+#         )
+#     )
+#     return joined_df
 @st.cache_resource(show_spinner="Đang tải dữ liệu Social Investment...")
 def load_data() -> SparkDataFrame:
     """
-    Đọc dữ liệu từ Gold layer và join fact_social_total_investment với
-    dim_time và dim_capital_source.
+    Đọc dữ liệu Social Investment từ tầng Gold Mart và join Dimension.
 
-    Sử dụng SparkSession có sẵn từ shared/spark.py, không tạo session mới.
+    Các chỉ số qoq_growth_rate, yoy_growth_rate, source_share_pct
+    được lấy trực tiếp từ mart, không tính lại trong dashboard.
 
     Returns:
         SparkDataFrame: dữ liệu đã join, chưa áp dụng filter.
     """
     spark = get_spark_session()
 
-    fact_df = spark.table("gold.fact_social_total_investment")
-    dim_time_df = spark.table("gold.dim_time")
-    dim_source_df = spark.table("gold.dim_capital_source")
+    mart_df: SparkDataFrame = spark.table("gold_marts.mart_social_invest")
+    dim_time_df: SparkDataFrame = spark.table("gold_gold.dim_time")
+    dim_source_df: SparkDataFrame = spark.table("gold_gold.dim_capital_source")
 
     joined_df = (
-        fact_df
-        .join(dim_time_df, on="time_key", how="inner")
-        .join(dim_source_df, on="capital_source_key", how="inner")
+        mart_df.alias("m")
+        .join(
+            dim_time_df.alias("t"),
+            F.col("m.time_key") == F.col("t.time_key"),
+            "inner",
+        )
+        .join(
+            dim_source_df.alias("cs"),
+            F.col("m.capital_source_key") == F.col("cs.capital_source_key"),
+            "inner",
+        )
         .select(
-            dim_time_df["year"],
-            dim_time_df["quarter"],
-            dim_source_df["source_name"],
-            fact_df["unit"],
-            fact_df["investment_value"],
-            fact_df["investment_value_pre_quarter"],
-            fact_df["investment_value_pre_year"],
-            fact_df["qoq_growth_rate"],
-            fact_df["yoy_growth_rate"],
-            fact_df["source_share_pct"],
+            F.col("t.year").alias("year"),
+            F.col("t.quarter").alias("quarter"),
+            F.col("cs.source_name").alias("source_name"),
+
+            F.col("m.unit").alias("unit"),
+
+            F.col("m.investment_value").alias("investment_value"),
+            F.col("m.investment_value_pre_quarter").alias("investment_value_pre_quarter"),
+            F.col("m.investment_value_pre_year").alias("investment_value_pre_year"),
+
+            F.col("m.qoq_growth_rate").alias("qoq_growth_rate"),
+            F.col("m.yoy_growth_rate").alias("yoy_growth_rate"),
+            F.col("m.source_share_pct").alias("source_share_pct"),
         )
     )
-    return joined_df
 
+    return joined_df
 
 
 def get_filter_options(spark_df: SparkDataFrame) -> Dict[str, List[Any]]:

@@ -1,44 +1,12 @@
 version: 2
 
 models:
+  # ==========================================
+  # DIMENSION TABLES (Dùng để kiểm tra liên kết)
+  # ==========================================
   - name: dim_time
     columns:
       - name: time_key
-        tests:
-          - not_null
-          - unique
-
-  - name: dim_source
-    columns:
-      - name: source_key
-        tests:
-          - not_null
-          - unique
-
-  - name: dim_unit
-    columns:
-      - name: unit_key
-        tests:
-          - not_null
-          - unique
-
-  - name: dim_indicator
-    columns:
-      - name: indicator_key
-        tests:
-          - not_null
-          - unique
-
-  - name: dim_asset
-    columns:
-      - name: asset_key
-        tests:
-          - not_null
-          - unique
-
-  - name: dim_product
-    columns:
-      - name: product_key
         tests:
           - not_null
           - unique
@@ -57,73 +25,60 @@ models:
           - not_null
           - unique
 
-  - name: fact_macro_indicator
+  - name: dim_asset
     columns:
-      - name: fact_key
-        tests:
-          - not_null
-          - unique
-      - name: time_key
-        tests:
-          - relationships:
-              arguments:
-                to: ref('dim_time')
-                field: time_key
-      - name: indicator_key
-        tests:
-          - relationships:
-              arguments:
-                to: ref('dim_indicator')
-                field: indicator_key
-
-  - name: fact_ohlc
-    columns:
-      - name: fact_ohlc_key
-        tests:
-          - not_null
-          - unique
-      - name: time_key
-        tests:
-          - relationships:
-              to: ref('dim_time')
-              field: time_key
       - name: asset_key
         tests:
-          - relationships:
-              to: ref('dim_asset')
-              field: asset_key
+          - not_null
+          - unique
 
-  - name: fact_gdp
+  - name: dim_product
     columns:
-      - name: fact_gdp_key
+      - name: product_key
         tests:
           - not_null
           - unique
-      - name: sub_sector_key
+
+  - name: dim_indicator
+    columns:
+      - name: indicator_key
         tests:
-          - relationships:
-              to: ref('dim_sub_sector')
-              field: sub_sector_key 
+          - not_null
+          - unique
+
+
+  - name: fact_crop_yield
+    columns:
       - name: time_key
         tests:
+          - not_null
           - relationships:
               to: ref('dim_time')
               field: time_key
-  - name: fact_agriculture
-    columns:
-      - name: fact_agri_key
-        tests:
-          - not_null
-          - unique
-      - name: time_key
-        tests:
-          - not_null
       - name: crop_key
         tests:
           - not_null
-      - name: source_key
+          - relationships:
+              to: ref('dim_crop')
+              field: crop_key
+
+  # 2. Fact Tăng Trưởng GDP (GDP Growth)
+  - name: fact_gdp_growth
+    columns:
+      - name: time_key
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_time')
+              field: time_key
+      - name: sub_sector_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_sub_sector')
+              field: sub_sector_key
+
+  # 3. Fact Lãi Suất (Interest Rate)
   - name: fact_interest_rate
     columns:
       - name: fact_interest_key
@@ -132,133 +87,105 @@ models:
           - unique
       - name: time_key
         tests:
+          - not_null
           - relationships:
               to: ref('dim_time')
               field: time_key
       - name: asset_key
         tests:
+          - not_null
           - relationships:
               to: ref('dim_asset')
               field: asset_key
+
+  # 4. Fact Thương Mại Quốc Tế (International Trade)
   - name: fact_international_trade
     columns:
-      - name: fact_trade_key
-        tests:
-          - not_null
-          - unique
-
       - name: time_key
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_time')
-                field: time_key
+              to: ref('dim_time')
+              field: time_key
       - name: product_key
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_product')
-                field: product_key
-  
+              to: ref('dim_product')
+              field: product_key
+
+  # 5. Fact Chỉ Số Vĩ Mô (Macro Indicator)
+  - name: fact_macro_indicator
+    columns:
+      - name: fact_key
+        tests:
+          - not_null
+          - unique
+      - name: time_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_time')
+              field: time_key
+      - name: indicator_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_indicator')
+              field: indicator_key
+
+  # 6. Fact Giá Chứng Khoán/Hàng Hóa (OHLC)
+  - name: fact_ohlc
+    columns:
+      - name: fact_ohlc_key
+        tests:
+          - not_null
+          - unique
+      - name: time_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_time')
+              field: time_key
+      - name: asset_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_asset')
+              field: asset_key
+  # 7. Fact Sản Lượng Sản Xuất (Production Output)
   - name: fact_production_output
     columns:
       - name: fact_production_key
         tests:
           - not_null
           - unique
-
       - name: time_key
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_time')
-                field: time_key
-
+              to: ref('dim_time')
+              field: time_key
       - name: product_key
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_product')
-                field: product_key
-      - name: product_category_key
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_product_category')
-                field: product_category_key
-
+              to: ref('dim_product')
+              field: product_key
       - name: value
         tests:
           - not_null
+
+  # 8. Fact Tổng Vốn Đầu Tư Xã Hội (Social Total Investment)
   - name: fact_social_total_investment
     columns:
       - name: fact_total_investment_key
         tests:
           - not_null
           - unique
-
       - name: time_key
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_time')
-                field: time_key
-
-      - name: source_key
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_source')
-                field: source_key
-
-      - name: unit_key
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_unit')
-                field: unit_key
-
-  - name: fact_investment_by_sector
-    columns:
-      - name: fact_investment_by_sector_key
-        tests:
-          - not_null
-          - unique
-
-      - name: time_key
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_time')
-                field: time_key
-      - name: sector_key
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_sector')
-                field: sector_key
-      - name: source_key
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_source')
-                field: source_key
-
-      - name: unit_key
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_unit')
-                field: unit_key
+              to: ref('dim_time')
+              field: time_key

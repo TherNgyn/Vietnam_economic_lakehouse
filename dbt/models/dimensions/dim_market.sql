@@ -10,7 +10,7 @@ with markets as (
 )
 
 select
-    {{ sk(['market_name', 'country']) }} as market_key,
+    row_number() over (order by market_name, country) as market_key,
     market_name,
     country
 from markets

@@ -4,19 +4,43 @@
         AS
         
 
-with products as (
-    select distinct product_name, product_category_name
+with production_products as (
+    select distinct
+        product_name,
+        'not available' as product_type,
+        product_category_name
     from gold_staging.stg_production_output
     where product_name is not null
+),
+
+trade_products as (
+    select distinct
+        product_name,
+        product_type,
+        'Trade International Product' as product_category_name
+    from gold_staging.stg_trade_international
+    where product_name is not null
+),
+
+all_products_unioned as (
+    select * from production_products
+    union all
+    select * from trade_products
+),
+
+final_dedup as (
+    select distinct
+        trim(product_name) as product_name,
+        trim(product_type) as product_type,
+        trim(product_category_name) as product_category_name
+    from all_products_unioned
 )
 
 select
-    
-    abs(xxhash64(coalesce(cast(p.product_name as string), '__null__'), coalesce(cast(p.product_category_name as string), '__null__')))
- as product_key,
-    p.product_name,
-    pc.product_category_key
-from products p
-left join gold_gold.dim_product_category pc
-    on p.product_category_name = pc.product_category_name
+    -- Tạo Surrogate Key duy nhất cho toàn bộ hệ thống sản phẩm
+    row_number() over (order by product_name, product_type, product_category_name) as product_key,
+    product_name,
+    product_type,
+    product_category_name
+from final_dedup
     

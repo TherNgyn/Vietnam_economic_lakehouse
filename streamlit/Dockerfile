@@ -1,7 +1,7 @@
 # Dùng chung image với spark-master để đảm bảo Spark/Hadoop/Delta JARs
 # và phiên bản Python/Spark khớp 100% với cluster -> tránh lỗi version mismatch
 # khi container này submit job vào spark://spark-master:7077
-FROM kltn_e2e_etl_economic_vn_data_project-spark-master
+FROM my-spark-master:latest
 
 USER root
 
@@ -45,4 +45,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=5 \
 # vì image base apache/spark đã tạo user "spark" sẵn
 USER spark
 
-ENTRYPOINT ["/opt/streamlit/app/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/opt/streamlit/app/docker-entrypoint.sh"]

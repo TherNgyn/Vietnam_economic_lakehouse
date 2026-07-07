@@ -238,49 +238,103 @@ def render_header() -> None:
 # DATA LOADING (SPARK)
 # ====================================================================
 
+# @st.cache_data(show_spinner="Đang tải dữ liệu Crop Yield...")
+# def load_data() -> pd.DataFrame:
+#     """Truy vấn dữ liệu Crop Yield từ Gold layer bằng Spark.
+
+#     Thực hiện join giữa fact_crop_yield với dim_time và dim_crop.
+#     Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
+#     join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
+#     Streamlit.
+
+#     Returns:
+#         pd.DataFrame: Dữ liệu Crop Yield đã join đầy đủ dimension.
+#     """
+#     spark = get_spark_session()
+
+#     fact: SparkDataFrame = spark.table("gold.fact_crop_yield")
+#     dim_time: SparkDataFrame = spark.table("gold.dim_time")
+#     dim_crop: SparkDataFrame = spark.table("gold.dim_crop")
+
+#     df = (
+#         fact.join(dim_time, on="time_key", how="left")
+#         .join(dim_crop, on="crop_key", how="left")
+#         .select(
+#             dim_time["year"],
+#             dim_time["quarter"],
+#             dim_crop["crop_name"],
+#             dim_crop["crop_category"],
+#             fact["yield_unit"],
+#             fact["productivity_unit"],
+#             fact["area_unit"],
+#             fact["area"],
+#             fact["yield_value"],
+#             fact["productivity"],
+#             fact["area_pre_year"],
+#             fact["yield_pre_year"],
+#             fact["productivity_pre_year"],
+#             fact["productivity_yoy_growth_rate"],
+#             fact["productivity_share_pct"],
+#         )
+#     )
+
+#     pdf = df.toPandas()
+#     return pdf
 @st.cache_data(show_spinner="Đang tải dữ liệu Crop Yield...")
 def load_data() -> pd.DataFrame:
-    """Truy vấn dữ liệu Crop Yield từ Gold layer bằng Spark.
+    """Truy vấn dữ liệu Crop Yield từ Gold Mart bằng Spark.
 
-    Thực hiện join giữa fact_crop_yield với dim_time và dim_crop.
-    Dữ liệu chỉ được convert sang Pandas ở bước cuối cùng (sau khi đã
-    join xong bằng Spark), phục vụ cho việc filter/vẽ biểu đồ phía
-    Streamlit.
+    Dashboard không tự tính toán lại các chỉ số.
+    Các chỉ số như productivity_yoy_growth_rate, productivity_share_pct
+    được lấy trực tiếp từ mart ở database gold_marts.
 
     Returns:
-        pd.DataFrame: Dữ liệu Crop Yield đã join đầy đủ dimension.
+        pd.DataFrame: Dữ liệu Crop Yield đã join dimension, đúng schema
+        phục vụ filter, KPI và biểu đồ hiện tại.
     """
     spark = get_spark_session()
 
-    fact: SparkDataFrame = spark.table("gold.fact_crop_yield")
-    dim_time: SparkDataFrame = spark.table("gold.dim_time")
-    dim_crop: SparkDataFrame = spark.table("gold.dim_crop")
-
+    mart: SparkDataFrame = spark.table("gold_marts.mart_crop_metrics")
+    dim_time: SparkDataFrame = spark.table("gold_gold.dim_time")
+    dim_crop: SparkDataFrame = spark.table("gold_gold.dim_crop")
+    
     df = (
-        fact.join(dim_time, on="time_key", how="left")
-        .join(dim_crop, on="crop_key", how="left")
+        mart.alias("m")
+        .join(
+            dim_time.alias("t"),
+            F.col("m.time_key") == F.col("t.time_key"),
+            "left",
+        )
+        .join(
+            dim_crop.alias("c"),
+            F.col("m.crop_key") == F.col("c.crop_key"),
+            "left",
+        )
         .select(
-            dim_time["year"],
-            dim_time["quarter"],
-            dim_crop["crop_name"],
-            dim_crop["crop_category"],
-            fact["yield_unit"],
-            fact["productivity_unit"],
-            fact["area_unit"],
-            fact["area"],
-            fact["yield_value"],
-            fact["productivity"],
-            fact["area_pre_year"],
-            fact["yield_pre_year"],
-            fact["productivity_pre_year"],
-            fact["productivity_yoy_growth_rate"],
-            fact["productivity_share_pct"],
+            F.col("t.year").alias("year"),
+            F.col("t.quarter").alias("quarter"),
+            F.col("c.crop_name").alias("crop_name"),
+            F.col("c.crop_category").alias("crop_category"),
+
+            F.col("m.yield_unit").alias("yield_unit"),
+            F.col("m.productivity_unit").alias("productivity_unit"),
+            F.col("m.area_unit").alias("area_unit"),
+
+            F.col("m.area").alias("area"),
+            F.col("m.yield_value").alias("yield_value"),
+            F.col("m.productivity").alias("productivity"),
+
+            F.col("m.area_pre_year").alias("area_pre_year"),
+            F.col("m.yield_pre_year").alias("yield_pre_year"),
+            F.col("m.productivity_pre_year").alias("productivity_pre_year"),
+
+            F.col("m.productivity_yoy_growth_rate").alias("productivity_yoy_growth_rate"),
+            F.col("m.productivity_share_pct").alias("productivity_share_pct"),
         )
     )
 
     pdf = df.toPandas()
     return pdf
-
 
 # ====================================================================
 # FILTER OPTIONS & APPLY FILTERS

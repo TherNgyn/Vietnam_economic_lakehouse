@@ -1,32 +1,14 @@
-{{
-    config(
-        materialized='delta_table'
-    )
-}}
+{{ config(materialized='delta_table') }}
 
 with sectors as (
-
-    select distinct sector_name
-    from {{ ref('stg_gdp') }}
-
-    union
-
-    select distinct sector_name
-    from {{ ref('stg_investment_by_sector') }}
-
+    select distinct sector_name from {{ ref('stg_gdp') }}
 ),
-
 typed as (
-
-    select distinct
-        trim(sector_name) as sector_name
+    select distinct trim(sector_name) as sector_name
     from sectors
-    where sector_name is not null
-      and trim(sector_name) <> ''
-
+    where sector_name is not null and trim(sector_name) <> ''
 )
-
 select
-    {{ sk(['sector_name']) }} as sector_key,
+    row_number() over (order by sector_name) as sector_key,
     sector_name
 from typed

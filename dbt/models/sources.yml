@@ -27,3 +27,4 @@ sources:
       - name: ohlc_index
       - name: ohlc_commodity
       - name: ohlc_vietnam_index
+      - name: policy_rate
