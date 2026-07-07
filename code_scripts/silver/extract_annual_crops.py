@@ -73,8 +73,6 @@ def insert_annual_crops(excel_file, all_sheets, sheet_index: int, year: int, qua
         'production_unit': unit_pivot['production'],
     }).reset_index(drop=True)
     
-    for col in ['area', 'yield', 'production']:
-        result[col] = pd.to_numeric(result[col], errors='coerce').round(3)
     result = result.drop_duplicates()
     result['year']      = year
     result['ingest_at'] = pd.Timestamp.now()

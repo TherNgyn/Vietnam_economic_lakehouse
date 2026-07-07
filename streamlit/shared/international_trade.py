@@ -910,10 +910,9 @@ def render_ranking_section(df: pd.DataFrame) -> None:
     """Render Row 3: Top 10 Trade Value & Top 10 Quantity (Horizontal Bar)."""
     st.markdown('<div class="trade-section-title">Bảng xếp hạng</div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
-    with col1:
-        _chart_card(chart_top10_trade_value, df)
-    with col2:
-        _chart_card(chart_top10_quantity, df)
+    _chart_card(chart_top10_trade_value, df)
+    # with col2:
+    #     _chart_card(chart_top10_quantity, df)
 
 
 def render_growth_section(df: pd.DataFrame) -> None:
@@ -1057,6 +1056,6 @@ def render_dashboard() -> None:
     render_import_export_section(filtered_df)
     render_structure_section(filtered_df)
     render_ranking_section(filtered_df)
-    render_growth_section(filtered_df)
-    render_comparison_section(filtered_df)
-    render_drilldown_section(filtered_df)
+    # render_growth_section(filtered_df)
+    # render_comparison_section(filtered_df)
+    # render_drilldown_section(filtered_df)
