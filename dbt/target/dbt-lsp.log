@@ -1861,3 +1861,69 @@
 18:47:18.030221 [info ]: Loading profiles.yml
 18:59:22.226899 [info ]: Loading profiles.yml
 18:59:23.073507 [info ]: Loading profiles.yml
+==================== 2026-07-08T03:23:36.410411Z | 00000000-0000-0000-0000-000000000000 ====================
+==================== 2026-07-08T03:23:36.410736Z | b3f44dfd-025d-48c2-95b1-9f8eca4e9a81 ====================
+03:23:36.410770 [info ]: Starting dbt LSP server
+03:23:36.410812 [info ]: Connecting to LSP client on port 8000
+03:23:36.412361 [info ]: Successfully connected to LSP client
+03:23:36.412386 [info ]: Creating LSP service...
+03:23:36.503182 [info ]: Creating LSP server...
+03:23:36.503204 [info ]: Starting LSP server...
+03:23:39.570768 [info ]: Loading profiles.yml
+03:27:55.950457 [info ]: Loading profiles.yml
+03:27:56.775416 [info ]: Loading profiles.yml
+03:31:11.455736 [info ]: Loading profiles.yml
+03:31:12.286364 [info ]: Loading profiles.yml
+03:37:16.336657 [info ]: Loading profiles.yml
+03:37:17.203285 [info ]: Loading profiles.yml
+03:41:25.906967 [info ]: Loading profiles.yml
+03:41:26.757146 [info ]: Loading profiles.yml
+03:50:46.414764 [info ]: Loading profiles.yml
+03:50:47.195170 [info ]: Loading profiles.yml
+04:06:23.890816 [info ]: Loading profiles.yml
+04:06:24.714604 [info ]: Loading profiles.yml
+04:10:56.303187 [info ]: Loading profiles.yml
+04:10:57.123235 [info ]: Loading profiles.yml
+04:13:57.277410 [info ]: Loading profiles.yml
+04:13:58.058788 [info ]: Loading profiles.yml
+04:19:03.023695 [info ]: Loading profiles.yml
+04:19:03.886976 [info ]: Loading profiles.yml
+04:19:53.311719 [info ]: Loading profiles.yml
+04:22:24.122547 [info ]: Loading profiles.yml
+04:22:24.924110 [info ]: Loading profiles.yml
+04:26:36.379946 [info ]: Loading profiles.yml
+04:26:37.190897 [info ]: Loading profiles.yml
+04:29:38.957432 [info ]: Loading profiles.yml
+04:29:39.804374 [info ]: Loading profiles.yml
+04:32:52.952347 [info ]: Loading profiles.yml
+04:32:53.741892 [info ]: Loading profiles.yml
+04:33:24.997312 [info ]: Loading profiles.yml
+04:34:52.285015 [info ]: Loading profiles.yml
+04:34:55.064903 [info ]: Loading profiles.yml
+04:35:14.528100 [info ]: Loading profiles.yml
+04:35:55.083801 [info ]: Loading profiles.yml
+04:35:55.851986 [info ]: Loading profiles.yml
+04:37:50.419593 [info ]: Loading profiles.yml
+04:40:07.666338 [info ]: Loading profiles.yml
+04:40:08.494901 [info ]: Loading profiles.yml
+04:50:49.451901 [info ]: Loading profiles.yml
+04:50:50.289688 [info ]: Loading profiles.yml
+04:54:47.075036 [info ]: Loading profiles.yml
+04:54:47.886650 [info ]: Loading profiles.yml
+04:56:57.709226 [info ]: Loading profiles.yml
+05:08:27.495962 [info ]: Loading profiles.yml
+05:08:28.416316 [info ]: Loading profiles.yml
+05:16:14.786881 [info ]: Loading profiles.yml
+05:16:15.633652 [info ]: Loading profiles.yml
+05:30:31.323701 [info ]: Loading profiles.yml
+05:30:32.210449 [info ]: Loading profiles.yml
+05:37:28.835974 [info ]: Loading profiles.yml
+05:37:29.645199 [info ]: Loading profiles.yml
+05:41:51.757199 [info ]: Loading profiles.yml
+05:41:52.606290 [info ]: Loading profiles.yml
+05:44:54.706704 [info ]: Loading profiles.yml
+05:44:55.532257 [info ]: Loading profiles.yml
+05:47:55.708699 [info ]: Loading profiles.yml
+05:47:56.508048 [info ]: Loading profiles.yml
+05:56:40.365881 [info ]: Loading profiles.yml
+05:56:41.190355 [info ]: Loading profiles.yml

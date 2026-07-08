@@ -178,7 +178,7 @@ def process_cpi(df=None):
         cpi_mom_df = pd.DataFrame(cpi_mom_rows).sort_values(['year', 'month']).reset_index(drop=True)
         
         cpi_mom_df['cpi_mom'] = pd.to_numeric(cpi_mom_df['cpi_mom'], errors='coerce')
-        cpi_mom_df['inflation'] = cpi_mom_df['cpi_mom'].diff()
+        cpi_mom_df['inflation'] = cpi_mom_df['cpi_mom'] - 100.0
         cpi_mom_df['avg_year'] = cpi_mom_df.groupby('year')['cpi_mom'].transform('mean')
         cpi_mom_output = cpi_mom_df[['date', 'cpi_mom', 'inflation', 'unit_cpi', 'unit_inflation', 'source']].copy()
         

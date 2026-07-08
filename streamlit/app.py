@@ -53,6 +53,7 @@ NAV_ITEMS = [
     "Social Investment Source",
     "Market Dashboard",
     "Macro Economic Dashboard",
+    "Inflation Forecast Dashboard",
     "Real time Index Viet Nam",
 ]
 
@@ -267,7 +268,7 @@ def render_sidebar_navigation() -> str:
 def render_realtime_index_vietnam() -> None:
     st.markdown(
         f"""
-        <div class="main-header">
+        <div class="side-header">
             <h2>Real time Index Viet Nam</h2>
             <a class="grafana-open-button" href="{GRAFANA_REALTIME_INDEX_URL}" target="_blank">
                 Open Real time Index Viet Nam
@@ -302,6 +303,9 @@ def render_selected_page(selected_page: str) -> None:
 
     elif selected_page == "Macro Economic Dashboard":
         macro_render()
+    elif selected_page == "Inflation Forecast Dashboard":
+        from shared.inflation_forecast_gold import render_dashboard as inflation_forecast_render
+        inflation_forecast_render()
 
     else:
         st.warning("Không tìm thấy dashboard tương ứng.")
