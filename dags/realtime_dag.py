@@ -36,6 +36,7 @@ def check_influxdb_health(**context):
 with DAG(
     dag_id='realtime_streaming_pipeline',
     start_date=datetime(2025, 1, 1),
+    # chay tu 9h sang den 17h hang ngay
     schedule=None,
     catchup=False,
     tags=['realtime', 'kafka', 'streaming', 'influxdb'],
@@ -89,5 +90,5 @@ with DAG(
         bash_command='docker exec -w /app python_container python /app/kafka/consumer_influxdb_group.py',
     )
 
-    setup_topics >> kafka_health >> influxdb_health
+    setup_topics >> kafka_health >> influxdb_health >> start_producer >> start_vn_index >> start_consumer_bronze >> start_consumer_influxdb
 

@@ -39,7 +39,7 @@ COLOR_ACCENT = "#3FA9F5"
 COLOR_POSITIVE = "#2ECC71"
 COLOR_NEGATIVE = "#E74C3C"
 COLOR_TEXT = "#EAF2FB"
-COLOR_TEXT_MUTED = "#9FB7D8"
+COLOR_TEXT_MUTED = "#FFFFFF"
 
 # Bảng màu rời rạc dùng cho các biểu đồ phân loại theo Sector
 DISCRETE_PALETTE = [

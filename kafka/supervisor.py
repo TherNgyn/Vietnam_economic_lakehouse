@@ -12,10 +12,10 @@ KAFKA_BROKER = os.getenv("KAFKA_BROKER", "kafka:29092")
 RESTART_DELAY = int(os.getenv("SUPERVISOR_RESTART_DELAY", "10"))
 
 PROCESSES = [
-    # ("producer_unified",    ["python", "/app/kafka/producer_unified.py"]),
-    ("producer_index",      ["python", "/app/kafka/producer_index.py"]),
-    # ("consumer_bronze",     ["python", "/app/kafka/consumer_bronze_group.py"]),
-    ("consumer_influxdb",   ["python", "/app/kafka/consumer_influxdb_group.py"]),
+    ("producer_unified", ["python", "-u", "/app/kafka/producer_unified.py"]),
+    ("producer_index", ["python", "-u", "/app/kafka/producer_index.py"]),
+    ("consumer_bronze", ["python", "-u", "/app/kafka/consumer_bronze_group.py"]),
+    ("consumer_influxdb", ["python", "-u", "/app/kafka/consumer_influxdb_group.py"]),
 ]
 
 _children: dict[str, subprocess.Popen] = {}

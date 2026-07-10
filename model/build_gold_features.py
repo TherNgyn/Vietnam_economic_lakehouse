@@ -22,6 +22,20 @@ MONTHLY_FEATURE_PATH = "s3a://gold/model/features/inflation_forecast_features_mo
 MONTHLY_FEATURE_BUCKET = "gold"
 MONTHLY_FEATURE_PREFIX = "model/features/inflation_forecast_features_monthly"
 
+MODEL_KEEP_COLUMNS = [
+    "date",
+    "cpi_mom_processed_inflation",
+    "wti",
+    "gasoline_world",
+    "gold",
+    "USDVND",
+    "policy_rate",
+    "interest_rate",
+    "broad_money",
+    "NIKKEI225",
+    "gdp",
+]
+
 
 def delete_minio_prefix(bucket: str, prefix: str):
     client = boto3.client(
@@ -86,8 +100,7 @@ def monthly_last_value(df, date_col, value_col, out_col, extra_filter=None):
     )
 
 
-def monthly_last_by_symbol(table_name, symbols, out_names=None):
-    spark = get_spark()
+def monthly_last_by_symbol(spark, table_name, symbols, out_names=None):
     out_names = out_names or {s: s for s in symbols}
 
     src = spark.table(table_name)
@@ -120,9 +133,7 @@ def monthly_last_by_symbol(table_name, symbols, out_names=None):
     return x
 
 
-def build_gdp_monthly():
-    spark = get_spark()
-
+def build_gdp_monthly(spark):
     fact = spark.table(GOLD_FACT_GDP_GROWTH_TABLE)
 
     q = (
@@ -138,8 +149,7 @@ def build_gdp_monthly():
     )
 
     monthly = (
-        q
-        .select(
+        q.select(
             F.explode(
                 F.sequence(
                     F.col("quarter_start"),
@@ -165,6 +175,18 @@ def fill_forward_backward(df):
         out = out.withColumn(c, F.first(F.col(c), ignorenulls=True).over(order_b))
 
     return out
+
+
+def ensure_columns(df, columns):
+    out = df
+
+    for c in columns:
+        if c not in out.columns:
+            if c == "date":
+                continue
+            out = out.withColumn(c, F.lit(None).cast("double"))
+
+    return out.select(*columns)
 
 
 def build_gold_monthly_features():
@@ -200,30 +222,8 @@ def build_gold_monthly_features():
             .where(F.col("rn") == 1)
             .select(
                 "date",
-                "cpi_mom_processed_cpi",
                 "cpi_mom_processed_inflation",
             )
-        )
-
-        core = monthly_last_value(
-            spark.table("silver.core_inflation_rate"),
-            "date",
-            "core_inflation_rate",
-            "core_inflation_rate",
-        )
-
-        ppi = monthly_last_value(
-            spark.table("silver.ppi_qoq"),
-            "date",
-            "ppi_qoq",
-            "ppi_qoq",
-        )
-
-        m2 = monthly_last_value(
-            spark.table("silver.m2"),
-            "date",
-            "m2",
-            "m2",
         )
 
         broad = monthly_last_value(
@@ -248,74 +248,56 @@ def build_gold_monthly_features():
             F.lower(F.col("term")).isin("3 months", "3 month", "3m"),
         )
 
-        gdp = build_gdp_monthly()
+        gdp = build_gdp_monthly(spark)
 
         commodities = monthly_last_by_symbol(
+            spark,
             "silver.ohlc_commodity",
-            ["brent", "wti", "gasoline", "natural_gas", "gold", "silver"],
+            ["wti", "gasoline", "gold"],
             {
-                "brent": "brent",
                 "wti": "wti",
                 "gasoline": "gasoline_world",
-                "natural_gas": "natural_gas",
                 "gold": "gold",
-                "silver": "silver",
-            },
-        )
-
-        vn_index = monthly_last_by_symbol(
-            "silver.ohlc_vietnam_index",
-            ["VNINDEX", "VN30", "HNX", "UPCOM"],
-            {
-                "VNINDEX": "VNINDEX",
-                "VN30": "VN30",
-                "HNX": "HNX",
-                "UPCOM": "UPCOM",
             },
         )
 
         global_index = monthly_last_by_symbol(
+            spark,
             "silver.ohlc_index",
-            ["NASDAQ", "S&P500", "DAX", "DOWJONES", "NIKKEI225", "HANGSENG"],
+            ["NIKKEI225"],
             {
-                "NASDAQ": "NASDAQ",
-                "S&P500": "S&P500",
-                "DAX": "DAX",
-                "DOWJONES": "DOWJONES",
                 "NIKKEI225": "NIKKEI225",
-                "HANGSENG": "HANGSENG",
             },
         )
 
         currency = monthly_last_by_symbol(
+            spark,
             "silver.ohlc_currency",
             ["USDVND"],
-            {"USDVND": "USDVND"},
+            {
+                "USDVND": "USDVND",
+            },
         )
 
         dfs = [
             time_axis,
             cpi,
-            core,
-            interest_rate,
-            ppi,
-            m2,
-            broad,
-            policy,
-            gdp,
             commodities,
-            vn_index,
-            global_index,
             currency,
+            policy,
+            interest_rate,
+            broad,
+            global_index,
+            gdp,
         ]
 
         merged = reduce(lambda left, right: left.join(right, "date", "left"), dfs)
 
-        merged = (
-            fill_forward_backward(merged)
-            .withColumn("year", F.year("date"))
-            .withColumn("month", F.month("date"))
-            .withColumn("quarter", F.quarter("date"))
+        merged = fill_forward_backward(merged)
+
+        merged = ensure_columns(
+            merged,
+            MODEL_KEEP_COLUMNS,
         )
 
         spark.sql(f"DROP TABLE IF EXISTS {GOLD_MONTHLY_FEATURE_TABLE}")
@@ -341,15 +323,11 @@ def build_gold_monthly_features():
         cleanup_names = [
             "time_axis",
             "cpi",
-            "core",
-            "ppi",
-            "m2",
             "broad",
             "policy",
             "interest_rate",
             "gdp",
             "commodities",
-            "vn_index",
             "global_index",
             "currency",
             "dfs",

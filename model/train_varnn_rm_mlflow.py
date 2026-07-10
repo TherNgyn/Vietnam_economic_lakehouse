@@ -117,21 +117,17 @@ def train_varnn_rm():
         ).ravel()
 
         np.random.seed(SEED)
-
-        
         base_predictor = MLPRegressor(
-            hidden_layer_sizes=(8, 4),
+            hidden_layer_sizes=(32, 16),
             activation="relu",
             solver="adam",
             alpha=1e-2,
-            max_iter=1500,
+            max_iter=1000,
             random_state=SEED,
             early_stopping=True,
             validation_fraction=0.15,
-            n_iter_no_change=40,
+            n_iter_no_change=50 # Tăng số vòng lặp chờ để thu thập đường cong dài hơn, mượt hơn
         )
-
-
         base_predictor.fit(X_train_scaled, y_train_scaled)
 
         train_base_preds = base_predictor.predict(X_train_scaled)
@@ -145,16 +141,17 @@ def train_varnn_rm():
 
         
         varnn_rm = MLPRegressor(
-            hidden_layer_sizes=(8, 4),
+            hidden_layer_sizes=(16,8),
             activation="tanh",
             solver="adam",
             alpha=1e-2,
             learning_rate_init=5e-4,
-            max_iter=1000,
+            max_iter=2000,
             random_state=SEED,
             early_stopping=True,
             validation_fraction=0.15,
-            n_iter_no_change=30,
+            n_iter_no_change=30
+
         )
 
 
