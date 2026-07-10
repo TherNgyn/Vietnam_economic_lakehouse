@@ -48,9 +48,9 @@ GRAFANA_REALTIME_INDEX_URL = (
 NAV_ITEMS = [
     "GDP Dashboard",
     "Crop Yield Dashboard",
-    "National Production Dashboard",
-    "International Production Trade Dashboard",
     "Social Investment Source",
+    "International Production Trade Dashboard",
+    "National Production Dashboard",
     "Market Dashboard",
     "Macro Economic Dashboard",
     "Inflation Forecast Dashboard",
