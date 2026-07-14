@@ -750,11 +750,11 @@ def _apply_chart_theme(fig: go.Figure, height: int = 380) -> go.Figure:
             font=dict(color=TITLE_FONT_COLOR, size=16),
             x=0,
             xanchor="left",
-            y=0.98,
+            y=0.99,
             yanchor="top",
         ),
         height=height,
-        margin=dict(l=40, r=30, t=60, b=40),
+        margin=dict(l=70, r=30, t=85, b=50),
         legend=dict(
             orientation="h",
             yanchor="bottom",

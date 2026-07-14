@@ -119,7 +119,7 @@ services:
       - ./kafka:/app/kafka
       - ./dags:/app/dags
     command: python /app/kafka/supervisor.py
-    restart: always
+    restart: unless-stopped
 
   hive-postgres:
     image: postgres:15
@@ -467,7 +467,7 @@ services:
       --conf spark.hadoop.hive.metastore.uris=thrift://hive:9083
       --hiveconf hive.server2.thrift.port=10000
       --hiveconf hive.server2.thrift.bind.host=0.0.0.0
-      --total-executor-cores 1
+      --total-executor-cores 4
       --conf spark.sql.warehouse.dir=s3a://gold/
     restart: on-failure
   

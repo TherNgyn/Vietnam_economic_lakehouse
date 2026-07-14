@@ -4,8 +4,8 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from datetime import timedelta
 from datetime import datetime, timedelta
-
-
+import pendulum
+VN_TZ = pendulum.timezone("Asia/Ho_Chi_Minh")
 def validate_daily_bronze(**context):
     from minio import Minio
     from datetime import datetime
@@ -13,13 +13,12 @@ def validate_daily_bronze(**context):
     client = Minio(
         os.getenv('MINIO_HOST', 'minio:9000'),
         access_key=os.getenv('MINIO_ACCESS_KEY', 'minioadmin'),
-        secret_key=os.getenv('MINIO_SECRET_KEY', 'minioadmin123'),
+        secret_key=os.getenv('MINIO_SECRET_KEY', 'minioadmin'),
         secure=False,
     )
     today = datetime.utcnow().strftime('%Y-%m-%d')
     checks = [
         ('bronze', 'daily/economics/interest_rate'),
-        ('bronze', 'daily/product/gasoline'),
         ('bronze', 'daily/currency'),
         ('bronze', 'daily/world_index'),
         ('bronze', 'daily/product'),
@@ -45,7 +44,7 @@ with DAG(
         'owner': 'data-engineer',
         'retries': 2,
         'retry_delay': timedelta(minutes=5),
-        'start_date': datetime.now() - timedelta(days=1),
+        'start_date': datetime(2025, 1, 1, tzinfo=VN_TZ),
     },
     tags=['daily', 'bronze'],
 ) as dag:
@@ -54,11 +53,6 @@ with DAG(
         task_id='ingest_interest_rate_to_bronze',
         bash_command='docker exec python_container python bronze/ingest_interest_rate_day.py',
     )
-
-    # gasoline = BashOperator(
-    #     task_id='ingest_gasoline_to_bronze',
-    #     bash_command='docker exec python_container python bronze/ingest_gasoline_day.py',
-    # )
 
     yfinance = BashOperator(
         task_id='ingest_yfinance_to_bronze',

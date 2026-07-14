@@ -730,10 +730,23 @@ def _apply_chart_theme(fig: go.Figure, height: int = 380) -> go.Figure:
         plot_bgcolor=CHART_PLOT_BG,
         paper_bgcolor=CHART_PAPER_BG,
         font=dict(color=CHART_FONT_COLOR, size=12),
-        title=dict(font=dict(color=TITLE_FONT_COLOR, size=16), x=0, xanchor="left", y = 0.9, yanchor="top"),
+        title=dict(
+            font=dict(color=TITLE_FONT_COLOR, size=16),
+            x=0,
+            xanchor="left",
+            y=0.99,
+            yanchor="top",
+        ),
         height=height,
-        margin=dict(l=40, r=30, t=50, b=40),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color=CHART_FONT_COLOR)),
+        margin=dict(l=70, r=30, t=85, b=50),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1,
+            font=dict(color=CHART_FONT_COLOR),
+        ),
     )
     return fig
 
