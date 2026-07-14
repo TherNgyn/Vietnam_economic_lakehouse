@@ -24,10 +24,6 @@ from pyspark.sql import functions as F
 
 from shared.spark import get_spark_session
 
-# ============================================================
-# THEME / CSS
-# ============================================================
-
 COLOR_BACKGROUND = "#081A36"
 COLOR_CARD = "#102B55"
 COLOR_BORDER = "#2C6FB8"

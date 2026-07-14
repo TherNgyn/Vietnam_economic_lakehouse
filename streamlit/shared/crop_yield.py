@@ -27,10 +27,6 @@ from pyspark.sql import functions as F
 
 from shared.spark import get_spark_session
 
-# ====================================================================
-# THEME / COLOR CONSTANTS (đồng bộ với GDP Growth Dashboard)
-# ====================================================================
-
 COLOR_BACKGROUND = "#081A36"
 COLOR_CARD = "#102B55"
 COLOR_BORDER = "#2C6FB8"
@@ -38,8 +34,8 @@ COLOR_HEADER = "#1B4F9C"
 COLOR_ACCENT = "#3FA9F5"
 COLOR_POSITIVE = "#2ECC71"
 COLOR_NEGATIVE = "#E74C3C"
-COLOR_TEXT = "#EAF2FB"
-COLOR_TEXT_MUTED = "#9FB7D8"
+COLOR_TEXT = "#FFFFFF"
+COLOR_TEXT_MUTED = "#FFFFFF"
 
 DISCRETE_PALETTE = [
     "#3FA9F5",
@@ -53,15 +49,91 @@ DISCRETE_PALETTE = [
     "#F1948A",
     "#48C9B0",
 ]
+BLUE_SEQUENCE_PALETTE = [
+    "#3FA9F5",
+    "#5DADE2",
+    "#85C1E9",
+    "#AED6F1",
+    "#D6EAF8",
+]
+GREEN_SEQUENCE_PALETTE = [
+    "#2ECC71",
+    "#58D68D",
+    "#82E0AA",
+    "#ABEBC6",
+    "#D5F5E3",
+]
 
-CHART_PLOT_BG = "#07063C"
-CHART_PAPER_BG = "#07063C"
-CHART_FONT_COLOR = "#1A1A1A"
+CHART_PLOT_BG = "#090A44"
+CHART_PAPER_BG = "#090A44"
+CHART_FONT_COLOR = "#FFFFFF"
+TITLE_FONT_COLOR = "#FFFFFF"
+
+TERM_MAP = {
+    "crop_category": "Nhóm cây trồng",
+    "crop_name": "Cây trồng",
+    "yield_value": "Sản lượng",
+    "area": "Diện tích",
+    "productivity": "Năng suất",
+    "productivity_yoy_growth_rate": "Tăng trưởng năng suất theo năm",
+    "productivity_share_pct": "Tỷ trọng năng suất cây trồng",
+}
 
 
-# ====================================================================
-# CSS INJECTION
-# ====================================================================
+LABEL_MAP = {
+    "dashboard_title": "Crop Yield Performance Dashboard - Trang Theo Dõi Năng Suất Cây Trồng",
+    "dashboard_subtitle": "Theo dõi sản lượng, diện tích và năng suất theo Nhóm cây trồng / Cây trồng và Năm",
+
+    # Filters
+    "year": "Year - Năm",
+    "crop_category": "Crop Category - Nhóm cây trồng",
+    "crop_name": "Crop Name - Cây trồng",
+    "yield_unit": "Yield Unit - Đơn vị sản lượng",
+    "productivity_unit": "Productivity - Đơn vị năng suất",
+    "area_unit": "Area Unit - Đơn vị diện tích",
+
+    # KPI labels
+    "total_yield": "Total Yield - <br>Tổng sản lượng",
+    "total_area": "Total Area - <br>Tổng diện tích",
+    "avg_productivity": "Avg Productivity - <br>Trung bình năng suất",
+    "avg_yoy_growth": "Avg YoY Growth (%) - <br>Trung bình tăng trưởng năng suất theo năm",
+    "top_productivity_crop": "Top Productivity Crop - <br>Cây trồng có năng suất cao nhất",
+    "largest_productivity_share": "Largest Productivity Share (%) - <br>Tỷ trọng năng suất lớn nhất",
+
+    # Chart titles
+    "yield_trend": "Yield Trend - Xu hướng sản lượng và diện tích",
+    "productivity_trend": "Productivity Trend - Xu hướng năng suất trung bình",
+    "yield_by_category": "Yield by Category - Sản lượng theo nhóm cây trồng",
+    "crop_share": "Crop Share - Tỷ trọng sản lượng theo nhóm cây trồng",
+    "top10_yield": "Top 10 Yield - Top 10 cây trồng theo sản lượng",
+    "top10_productivity": "Top 10 Productivity - Top 10 cây trồng theo năng suất",
+    "crop_structure": "Crop Structure (Treemap) - Cấu trúc cây trồng theo sản lượng",
+    "drilldown": "Drill-down: Crop Analysis - Phân tích chi tiết cây trồng",
+
+    # Series / legend
+    "yield_series": "Yield - Sản lượng",
+    "area_series": "Area - Diện tích",
+    "avg_productivity_series": "Average Productivity - Năng suất trung bình",
+
+    # Axis labels
+    "year_axis": "Year - Năm",
+    "yield_axis": "Yield - Sản lượng",
+    "area_axis": "Area - Diện tích",
+    "productivity_axis": "Productivity - Năng suất",
+    "crop_category_axis": "Crop Category - Nhóm cây trồng",
+    "crop_name_axis": "Crop Name - Cây trồng",
+    "growth_axis": "YoY Growth (%) - Tăng trưởng năm",
+    "share_axis": "Share (%) - Tỷ trọng",
+
+    # Drilldown
+    "drilldown_select": "Crop Category - Chọn nhóm cây trồng để xem chi tiết cây trồng",
+    "col_crop_name": "Crop Name - Cây trồng",
+    "col_yield": "Yield - Sản lượng",
+    "col_area": "Area - Diện tích",
+    "col_productivity": "Productivity - Năng suất",
+    "col_growth": "Growth (%) - Tăng trưởng",
+    "col_share": "Yield Share (%) - Tỷ trọng sản lượng",
+}
 
 def inject_custom_css() -> None:
     """Inject CSS tuỳ chỉnh cho toàn bộ dashboard Crop Yield.
@@ -77,7 +149,60 @@ def inject_custom_css() -> None:
             background-color: {COLOR_BACKGROUND};
             color: {COLOR_TEXT};
         }}
+        .stSelectbox label,
+        .stSelectbox label p {{
+            color: #FFFFFF !important;
+        }}
 
+        .stSelectbox div[data-baseweb="select"] * {{
+            color: #FFFFFF !important;
+        }}
+
+        .stSelectbox div[data-baseweb="select"] > div {{    
+            background-color: #102B55 !important;
+            border-color: #2C6FB8 !important;
+        }}
+
+        .stSelectbox div[data-baseweb="select"] input {{
+            color: #FFFFFF !important;
+        }}
+
+        .stSelectbox div[data-baseweb="select"] input::placeholder {{
+            color: #FFFFFF !important;
+            opacity: 1 !important;
+        }}
+
+        .stMultiSelect label,
+        .stMultiSelect label p {{
+            color: #FFFFFF !important;
+        }}
+
+        .stMultiSelect div[data-baseweb="select"] * {{
+            color: #FFFFFF !important;
+        }}
+
+        .stMultiSelect div[data-baseweb="select"] input {{
+            color: #FFFFFF !important;
+        }}
+
+        .stMultiSelect div[data-baseweb="select"] > div {{
+            background-color: #102B55 !important;
+            border-color: #2C6FB8 !important;
+        }}
+
+        div[data-baseweb="popover"] {{
+            background-color: #102B55 !important;
+        }}
+
+        div[data-baseweb="popover"] * {{
+            color: #FFFFFF !important;
+        }}
+
+        ul[role="listbox"],
+        li[role="option"] {{
+            background-color: #102B55 !important;
+            color: #FFFFFF !important;
+        }}
         .crop-header {{
             background: linear-gradient(90deg, {COLOR_HEADER} 0%, {COLOR_ACCENT} 100%);
             padding: 22px 28px;
@@ -216,18 +341,18 @@ def inject_custom_css() -> None:
             font-size: 15px;
         }}
         </style>
-        """,
-        unsafe_allow_html=True,
+        """, unsafe_allow_html=True
     )
+
 
 
 def render_header() -> None:
     """Render header chính của dashboard."""
     st.markdown(
-        """
+        f"""
         <div class="crop-header">
-            <h1>Crop Yield Performance Dashboard</h1>
-            <p>Theo dõi sản lượng, năng suất và diện tích canh tác theo Crop Category / Crop Name / Year</p>
+            <h1>{LABEL_MAP['dashboard_title']}</h1>
+            <p>{LABEL_MAP['dashboard_subtitle']}</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -314,7 +439,11 @@ def load_data() -> pd.DataFrame:
             F.col("t.year").alias("year"),
             F.col("t.quarter").alias("quarter"),
             F.col("c.crop_name").alias("crop_name"),
-            F.col("c.crop_category").alias("crop_category"),
+            F.when(F.col("c.crop_category") == "ANNUAL", "Cây hàng năm")
+                .when(F.col("c.crop_category") == "PERENNIAL", "Cây lâu năm")
+                .when(F.col("c.crop_category") == "STAPLE", "Cây lương thực chủ yếu")
+                .otherwise(F.col("c.crop_category"))
+                .alias("crop_category"),
 
             F.col("m.yield_unit").alias("yield_unit"),
             F.col("m.productivity_unit").alias("productivity_unit"),
@@ -336,10 +465,7 @@ def load_data() -> pd.DataFrame:
     pdf = df.toPandas()
     return pdf
 
-# ====================================================================
-# FILTER OPTIONS & APPLY FILTERS
-# ====================================================================
-
+# filter 
 def get_filter_options(df: pd.DataFrame, selected_categories: list[Any] | None = None) -> dict[str, list[Any]]:
     """Lấy danh sách giá trị duy nhất cho từng bộ lọc.
 
@@ -426,66 +552,76 @@ def apply_filters(
     return filtered
 
 
-# ====================================================================
-# RENDER FILTERS
-# ====================================================================
-
 def render_filters(df: pd.DataFrame) -> pd.DataFrame:
-    """Render khu vực bộ lọc toàn cục và trả về DataFrame đã lọc.
-
-    Crop Name phụ thuộc Crop Category: danh sách option của Crop Name
-    được cập nhật động dựa trên Crop Category đã chọn (sử dụng
-    st.session_state để đọc giá trị Crop Category ngay trong cùng
-    lượt render).
-
-    Args:
-        df: DataFrame gốc (chưa lọc).
-
-    Returns:
-        pd.DataFrame: DataFrame sau khi áp dụng filter người dùng chọn.
-    """
+    """Render khu vực bộ lọc toàn cục và trả về DataFrame đã lọc."""
     base_options = get_filter_options(df)
 
-    st.markdown('<div class="crop-card">', unsafe_allow_html=True)
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    with st.container(border=True):
+        col1, col2, col3, col4, col5, col6 = st.columns(6)
 
-    with col1:
-        years = st.multiselect("Year", base_options["year"], default=[], key="crop_filter_year")
-    with col2:
-        crop_categories = st.multiselect(
-            "Loại cây trồng", base_options["crop_category"], default=[], key="crop_filter_category"
-        )
+        with col1:
+            years = st.multiselect(
+                LABEL_MAP["year"],
+                base_options["year"],
+                default=[],
+                key="crop_filter_year",
+            )
 
-    # Crop Name phụ thuộc Crop Category đã chọn ở trên.
-    dependent_options = get_filter_options(df, selected_categories=crop_categories)
+        with col2:
+            crop_categories = st.multiselect(
+                LABEL_MAP["crop_category"],
+                base_options["crop_category"],
+                default=[],
+                key="crop_filter_category",
+            )
 
-    with col3:
-        crop_names = st.multiselect(
-            "Tên cây trồng", dependent_options["crop_name"], default=[], key="crop_filter_name"
-        )
-    with col4:
-        yield_units = st.multiselect(
-            "Đơn vị sản lượng", base_options["yield_unit"], default=[], key="crop_filter_production_unit"
-        )
-    with col5:
-        productivity_unit = st.multiselect(
-            "Đơn vị năng suất", base_options["productivity_unit"], default=[], key="crop_filter_yield_unit"
-        )
-    with col6:
-        area_units = st.multiselect(
-            "Đơn vị diện tích", base_options["area_unit"], default=[], key="crop_filter_area_unit"
+        dependent_options = get_filter_options(
+            df,
+            selected_categories=crop_categories,
         )
 
-    st.markdown("</div>", unsafe_allow_html=True)
+        with col3:
+            crop_names = st.multiselect(
+                LABEL_MAP["crop_name"],
+                dependent_options["crop_name"],
+                default=[],
+                key="crop_filter_name",
+            )
+
+        with col4:
+            yield_units = st.multiselect(
+                LABEL_MAP["yield_unit"],
+                base_options["yield_unit"],
+                default=[],
+                key="crop_filter_yield_unit",
+            )
+
+        with col5:
+            productivity_unit = st.multiselect(
+                LABEL_MAP["productivity_unit"],
+                base_options["productivity_unit"],
+                default=[],
+                key="crop_filter_productivity_unit",
+            )
+
+        with col6:
+            area_units = st.multiselect(
+                LABEL_MAP["area_unit"],
+                base_options["area_unit"],
+                default=[],
+                key="crop_filter_area_unit",
+            )
 
     return apply_filters(
-        df, years, crop_categories, crop_names, yield_units, productivity_unit, area_units
+        df,
+        years,
+        crop_categories,
+        crop_names,
+        yield_units,
+        productivity_unit,
+        area_units,
     )
 
-
-# ====================================================================
-# KPI HELPERS
-# ====================================================================
 
 def _format_number(value: float) -> str:
     """Format số lớn theo dạng rút gọn (K, M, B, T)."""
@@ -545,7 +681,7 @@ def render_kpis(df: pd.DataFrame) -> None:
         st.markdown('<div class="empty-state">Không có dữ liệu phù hợp với bộ lọc hiện tại.</div>', unsafe_allow_html=True)
         return
 
-    total_production = df["yield_value"].sum()
+    total_yield = df["yield_value"].sum()
     total_area = df["area"].sum()
     avg_productivity = df["productivity"].mean()
     avg_yoy_growth = df["productivity_yoy_growth_rate"].mean()
@@ -566,13 +702,36 @@ def render_kpis(df: pd.DataFrame) -> None:
     largest_share_top = top_row["productivity_share_pct"]
     cols = st.columns(6)
     kpi_data = [
-        ("Tổng sản lượng (Nghìn tấn)", _format_number(total_production), ""),
-        ("Tổng diện tích (Nghìn Ha)", _format_number(total_area), ""),
-        ("Trung bình năng suất (Tạ/Ha)", _format_number(avg_productivity), ""),
-        ("Trung bình phát triển năng suất qua từng năm", _format_percent(avg_yoy_growth),""),
-        ("Sản phẩm năng suất cao nhất", top_producing_crop, "kpi-positive"),
-        ("Tỷ trọng năng suất cây trồng lớn nhất", _format_percent(largest_share_top), ""),
-        
+        (
+            LABEL_MAP["total_yield"],
+            f'{_format_number(total_yield)} {df["yield_unit"].dropna().iloc[0] if not df["yield_unit"].dropna().empty else ""}',
+            "",
+        ),
+        (
+            LABEL_MAP["total_area"],
+            f'{_format_number(total_area)} {df["area_unit"].dropna().iloc[0] if not df["area_unit"].dropna().empty else ""}',
+            "",
+        ),
+        (
+            LABEL_MAP["avg_productivity"],
+            f'{_format_number(avg_productivity)} {df["productivity_unit"].dropna().iloc[0] if not df["productivity_unit"].dropna().empty else ""}',
+            "",
+        ),
+        (
+            LABEL_MAP["avg_yoy_growth"],
+            _format_percent(avg_yoy_growth),
+            "kpi-positive" if avg_yoy_growth >= 0 else "kpi-negative",
+        ),
+        (
+            LABEL_MAP["top_productivity_crop"],
+            top_producing_crop,
+            "kpi-positive",
+        ),
+        (
+            LABEL_MAP["largest_productivity_share"],
+            _format_percent(largest_share_top),
+            "",
+        ),
     ]
 
     for col, (label, value, css_class) in zip(cols, kpi_data):
@@ -580,27 +739,30 @@ def render_kpis(df: pd.DataFrame) -> None:
             st.markdown(_kpi_card(label, value, css_class), unsafe_allow_html=True)
 
 
-# ====================================================================
-# CHART STYLING HELPER
-# ====================================================================
 
 def _apply_chart_theme(fig: go.Figure, height: int = 380) -> go.Figure:
-    """Áp dụng theme nền trắng đồng bộ cho mọi biểu đồ Plotly.
-
-    Args:
-        fig: Đối tượng Figure của Plotly.
-        height: Chiều cao biểu đồ (px).
-
-    Returns:
-        go.Figure: Figure đã áp dụng theme.
-    """
+    """Áp dụng theme nền tối đồng bộ cho mọi biểu đồ Plotly."""
     fig.update_layout(
         plot_bgcolor=CHART_PLOT_BG,
         paper_bgcolor=CHART_PAPER_BG,
         font=dict(color=CHART_FONT_COLOR, size=12),
+        title=dict(
+            font=dict(color=TITLE_FONT_COLOR, size=16),
+            x=0,
+            xanchor="left",
+            y=0.98,
+            yanchor="top",
+        ),
         height=height,
-        margin=dict(l=40, r=30, t=50, b=40),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(l=40, r=30, t=60, b=40),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1,
+            font=dict(color=CHART_FONT_COLOR),
+        ),
     )
     return fig
 
@@ -610,12 +772,8 @@ def _empty_chart_placeholder(message: str = "Không có dữ liệu để hiển
     st.markdown(f'<div class="empty-state">{message}</div>', unsafe_allow_html=True)
 
 
-# ====================================================================
-# CHART FUNCTIONS
-# ====================================================================
-
-def chart_production_trend(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Line Chart: Production (Yield Value) theo Year, kèm Area trên trục phụ."""
+def chart_yield_trend(df: pd.DataFrame) -> go.Figure:
+    """Vẽ Line Chart: Yield (Yield Value) theo Year, kèm Area trên trục phụ."""
     grouped = (
         df.groupby("year", as_index=False)
         .agg(yield_value=("yield_value", "sum"), area=("area", "sum"))
@@ -628,7 +786,7 @@ def chart_production_trend(df: pd.DataFrame) -> go.Figure:
             x=grouped["year"],
             y=grouped["yield_value"],
             mode="lines+markers",
-            name="Production (Yield Value)",
+            name=LABEL_MAP["yield_series"],
             line=dict(color=COLOR_ACCENT, width=3),
             yaxis="y1",
         )
@@ -638,16 +796,16 @@ def chart_production_trend(df: pd.DataFrame) -> go.Figure:
             x=grouped["year"],
             y=grouped["area"],
             mode="lines+markers",
-            name="Area",
+            name=LABEL_MAP["area_series"],
             line=dict(color=COLOR_POSITIVE, width=3, dash="dot"),
             yaxis="y2",
         )
     )
     fig.update_layout(
-        title="Production Trend",
-        xaxis=dict(title="Year"),
-        yaxis=dict(title="Production"),
-        yaxis2=dict(title="Area", overlaying="y", side="right", showgrid=False),
+        title=LABEL_MAP["yield_trend"],
+        xaxis=dict(title=LABEL_MAP["year_axis"]),
+        yaxis=dict(title=LABEL_MAP["yield_axis"]),
+        yaxis2=dict(title=LABEL_MAP["area_axis"], overlaying="y", side="right", showgrid=False),
     )
     return _apply_chart_theme(fig)
 
@@ -666,16 +824,20 @@ def chart_productivity_trend(df: pd.DataFrame) -> go.Figure:
             x=grouped["year"],
             y=grouped["productivity"],
             mode="lines+markers",
-            name="Average Productivity",
+            name=LABEL_MAP["avg_productivity_series"],
             line=dict(color=COLOR_ACCENT, width=3),
         )
     )
-    fig.update_layout(title="Productivity Trend", xaxis=dict(title="Year"), yaxis=dict(title="Productivity"))
+    fig.update_layout(
+        title=LABEL_MAP["productivity_trend"],
+        xaxis=dict(title=LABEL_MAP["year_axis"]),
+        yaxis=dict(title=LABEL_MAP["productivity_axis"]),
+        )
     return _apply_chart_theme(fig)
 
 
-def chart_production_by_category(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Stacked Bar: Production theo Year, group theo Crop Category."""
+def chart_yield_by_category(df: pd.DataFrame) -> go.Figure:
+    """Vẽ Stacked Bar: Yield theo Year, group theo Crop Category."""
     grouped = (
         df.groupby(["year", "crop_category"], as_index=False)
         .agg(yield_value=("yield_value", "sum"))
@@ -689,8 +851,12 @@ def chart_production_by_category(df: pd.DataFrame) -> go.Figure:
         color="crop_category",
         barmode="stack",
         color_discrete_sequence=DISCRETE_PALETTE,
-        title="Production by Category",
-        labels={"year": "Year", "yield_value": "Production", "crop_category": "Crop Category"},
+        title=LABEL_MAP["yield_by_category"],
+        labels={
+            "year": LABEL_MAP["year_axis"],
+            "yield_value": LABEL_MAP["yield_axis"],
+            "crop_category": LABEL_MAP["crop_category_axis"],
+        },
     )
     return _apply_chart_theme(fig)
 
@@ -711,7 +877,7 @@ def chart_crop_share(df: pd.DataFrame) -> go.Figure:
         values="yield_value",
         hole=0.55,
         color_discrete_sequence=DISCRETE_PALETTE,
-        title="Crop Share",
+        title=LABEL_MAP["crop_share"],
         custom_data=["yield_unit"],
     )
 
@@ -726,8 +892,8 @@ def chart_crop_share(df: pd.DataFrame) -> go.Figure:
     return _apply_chart_theme(fig)
 
 
-def chart_top10_production(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Horizontal Bar: Top 10 Crop theo Production (Yield Value)."""
+def chart_top10_yield(df: pd.DataFrame) -> go.Figure:
+    """Vẽ Horizontal Bar: Top 10 Crop theo Yield (Yield Value)."""
     grouped = (
         df.groupby("crop_name", as_index=False)
         .agg(
@@ -744,11 +910,12 @@ def chart_top10_production(df: pd.DataFrame) -> go.Figure:
         x="yield_value",
         y="crop_name",
         orientation="h",
-        color_discrete_sequence=[COLOR_ACCENT],
-        title="Top 10 Production",
+        color="yield_value",
+        color_continuous_scale="Blues",
+        title=LABEL_MAP["top10_yield"],
         labels={
-            "yield_value": "Production",
-            "crop_name": "Crop",
+            "yield_value": LABEL_MAP["yield_axis"],
+            "crop_name": LABEL_MAP["crop_name_axis"],
         },
         custom_data=["yield_unit"],
     )
@@ -789,8 +956,13 @@ def chart_top10_productivity(df: pd.DataFrame) -> go.Figure:
         y="crop_name",
         orientation="h",
         color="productivity",
-        color_continuous_scale=[COLOR_NEGATIVE, COLOR_ACCENT, COLOR_POSITIVE],
+        color_continuous_scale="Greens",
         custom_data=["productivity_unit"],
+        title=LABEL_MAP["top10_productivity"],
+        labels={
+            "productivity": LABEL_MAP["productivity_axis"],
+            "crop_name": LABEL_MAP["crop_name_axis"],
+        },
     )
 
     fig.update_coloraxes(showscale=False)
@@ -845,8 +1017,8 @@ def chart_treemap(df: pd.DataFrame) -> go.Figure:
         grouped,
         path=["crop_category", "crop_name"],
         values="yield_value",
-        color="yield_pct",
-        color_continuous_scale="Viridis",
+        color="crop_category",
+        color_continuous_scale="Set1",
         custom_data=[
             "yield_value",
             "yield_unit",
@@ -856,6 +1028,7 @@ def chart_treemap(df: pd.DataFrame) -> go.Figure:
             "area",
             "area_unit",
         ],
+        title=LABEL_MAP["crop_structure"],
     )
 
     fig.update_traces(
@@ -882,67 +1055,22 @@ def chart_treemap(df: pd.DataFrame) -> go.Figure:
     return _apply_chart_theme(fig, height=480)
 
 
-def chart_area_vs_production(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Bubble Scatter: Area (X) vs Production (Y), size = Productivity, color = Crop Category."""
-    grouped = (
-        df.groupby(["crop_name", "crop_category"], as_index=False)
-        .agg(
-            area=("area", "sum"),
-            yield_value=("yield_value", "sum"),
-            productivity=("productivity", "mean"),
-        )
-    )
-    grouped["bubble_size"] = grouped["productivity"].abs().fillna(0) + 1
-
-    fig = px.scatter(
-        grouped,
-        x="area",
-        y="yield_value",
-        size="bubble_size",
-        color="crop_category",
-        hover_name="crop_name",
-        color_discrete_sequence=DISCRETE_PALETTE,
-        title="Area vs Production",
-        labels={"area": "Area", "yield_value": "Production", "crop_category": "Crop Category"},
-    )
-    return _apply_chart_theme(fig)
-
-
-def chart_growth_heatmap(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Heatmap: Crop Name (rows) x Year (columns) = Yield YoY Growth Rate."""
-    pivot = df.pivot_table(
-        index="crop_name",
-        columns="year",
-        values="productivity_yoy_growth_rate",
-        aggfunc="mean",
-    )
-
-    fig = px.imshow(
-        pivot,
-        color_continuous_scale=[COLOR_NEGATIVE, "#FFFFFF", COLOR_POSITIVE],
-        aspect="auto",
-        title="Growth Heatmap (Yield YoY Growth Rate)",
-        labels=dict(x="Year", y="Crop", color="YoY Growth (%)"),
-    )
-    return _apply_chart_theme(fig, height=460)
-
-
 def chart_current_vs_previous_year(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Grouped Bar: Current vs Previous Year cho Area, Production, Productivity.
+    """Vẽ Grouped Bar: Current vs Previous Year cho Area, Yield, Productivity.
 
     Mỗi metric được chuẩn hoá theo % so với giá trị lớn nhất của chính
     metric đó để có thể so sánh trực quan trên cùng một trục, do các
-    metric (Area, Production, Productivity) có đơn vị và độ lớn khác
+    metric (Area, Yield, Productivity) có đơn vị và độ lớn khác
     nhau.
     """
     current = {
         "Area": df["area"].sum(),
-        "Production": df["yield_value"].sum(),
+        "Yield": df["yield_value"].sum(),
         "Productivity": df["productivity"].mean(),
     }
     previous = {
         "Area": df["area_pre_year"].sum(),
-        "Production": df["yield_pre_year"].sum(),
+        "Yield": df["yield_pre_year"].sum(),
         "Productivity": df["productivity_pre_year"].mean(),
     }
 
@@ -974,37 +1102,31 @@ def chart_current_vs_previous_year(df: pd.DataFrame) -> go.Figure:
 # ====================================================================
 
 def _chart_card(render_fn: Callable[[pd.DataFrame], go.Figure], df: pd.DataFrame) -> None:
-    """Wrapper render một biểu đồ trong khung card, xử lý trường hợp rỗng.
-
-    Args:
-        render_fn: Hàm tạo Figure (nhận DataFrame, trả về go.Figure).
-        df: DataFrame đầu vào cho biểu đồ.
-    """
-    st.markdown('<div class="crop-chart-wrapper">', unsafe_allow_html=True)
-    if df.empty:
-        _empty_chart_placeholder()
-    else:
-        fig = render_fn(df)
-        st.plotly_chart(fig, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    """Wrapper render một biểu đồ trong khung card, xử lý trường hợp rỗng."""
+    with st.container(border=True):
+        if df.empty:
+            _empty_chart_placeholder()
+        else:
+            fig = render_fn(df)
+            st.plotly_chart(fig, use_container_width=True)
 
 
 def render_trend_section(df: pd.DataFrame) -> None:
-    """Render Row 1: Production Trend (Line) & Productivity Trend (Line)."""
-    st.markdown('<div class="crop-section-title">Xu hướng Sản lượng & Năng suất</div>', unsafe_allow_html=True)
+    """Render Row 1: Yield Trend (Line) & Productivity Trend (Line)."""
+    st.markdown('<div class="crop-section-title">Xu hướng Năng suất & Năng suất</div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     with col1:
-        _chart_card(chart_production_trend, df)
+        _chart_card(chart_yield_trend, df)
     with col2:
         _chart_card(chart_productivity_trend, df)
 
 
 def render_structure_section(df: pd.DataFrame) -> None:
-    """Render Row 2 (Production by Category, Crop Share) và Row 4 (Treemap)."""
-    st.markdown('<div class="crop-section-title">Cơ cấu Sản lượng theo Crop Category</div>', unsafe_allow_html=True)
+    """Render Row 2 (Yield by Category, Crop Share) và Row 4 (Treemap)."""
+    st.markdown('<div class="crop-section-title">Cơ cấu Năng suất theo </div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     with col1:
-        _chart_card(chart_production_by_category, df)
+        _chart_card(chart_yield_by_category, df)
     with col2:
         _chart_card(chart_crop_share, df)
 
@@ -1013,23 +1135,14 @@ def render_structure_section(df: pd.DataFrame) -> None:
 
 
 def render_ranking_section(df: pd.DataFrame) -> None:
-    """Render Row 3: Top 10 Production & Top 10 Productivity (Horizontal Bar)."""
+    """Render Row 3: Top 10 Yield & Top 10 Productivity (Horizontal Bar)."""
     st.markdown('<div class="crop-section-title">Bảng xếp hạng</div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     with col1:
-        _chart_card(chart_top10_production, df)
+        _chart_card(chart_top10_yield, df)
     with col2:
         _chart_card(chart_top10_productivity, df)
 
-
-def render_analysis_section(df: pd.DataFrame) -> None:
-    """Render Row 5: Area vs Production (Bubble Scatter) & Growth Heatmap."""
-    st.markdown('<div class="crop-section-title">Phân tích Diện tích & Tăng trưởng</div>', unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    with col1:
-        _chart_card(chart_area_vs_production, df)
-    with col2:
-        _chart_card(chart_growth_heatmap, df)
 
 
 def render_comparison_section(df: pd.DataFrame) -> None:
@@ -1041,36 +1154,39 @@ def render_comparison_section(df: pd.DataFrame) -> None:
 def render_drilldown_section(df: pd.DataFrame) -> None:
     """Render Row 7: Crop Drill-down theo Crop Category được chọn.
 
-    Hiển thị bảng chi tiết theo Crop Name gồm Production, Area,
+    Hiển thị bảng chi tiết theo Crop Name gồm Yield, Area,
     Productivity, Growth, Yield Share.
     """
-    st.markdown('<div class="crop-section-title">Crop Drill-down</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="crop-section-title">Drill-down: Phân tích cây trồng theo nhóm</div>',
+        unsafe_allow_html=True,
+    )
 
     if df.empty:
-        st.markdown('<div class="crop-card">', unsafe_allow_html=True)
-        _empty_chart_placeholder()
-        st.markdown("</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            _empty_chart_placeholder()
         return
 
     categories = sorted(df["crop_category"].dropna().unique().tolist())
+
     if not categories:
-        st.markdown('<div class="crop-card">', unsafe_allow_html=True)
-        _empty_chart_placeholder()
-        st.markdown("</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            _empty_chart_placeholder()
         return
 
-    st.markdown('<div class="crop-card">', unsafe_allow_html=True)
-    selected_category = st.selectbox(
-        "Chọn Crop Category để xem chi tiết Crop Name", categories, key="crop_drilldown_category"
-    )
-    st.markdown("</div>", unsafe_allow_html=True)
+    with st.container(border=True):
+        selected_category = st.selectbox(
+            LABEL_MAP["drilldown_select"],
+            categories,
+            key="crop_drilldown_category",
+        )
 
     category_df = df[df["crop_category"] == selected_category]
 
     drilldown_table = (
         category_df.groupby("crop_name", as_index=False)
         .agg(
-            production=("yield_value", "sum"),
+            yield_value=("yield_value", "sum"),
             area=("area", "sum"),
             productivity=("productivity", "mean"),
             productivity_yoy_growth_rate=("productivity_yoy_growth_rate", "mean"),
@@ -1079,35 +1195,35 @@ def render_drilldown_section(df: pd.DataFrame) -> None:
         .sort_values("productivity_share_pct", ascending=False)
         .rename(
             columns={
-                "crop_name": "Crop Name",
-                "production": "Production",
-                "area": "Area",
-                "productivity": "Productivity",
-                "productivity_yoy_growth_rate": "Growth (%)",
-                "productivity_share_pct": "Yield Share (%)",
+                "crop_name": LABEL_MAP["col_crop_name"],
+                "yield_value": LABEL_MAP["col_yield"],
+                "area": LABEL_MAP["col_area"],
+                "productivity": LABEL_MAP["col_productivity"],
+                "productivity_yoy_growth_rate": LABEL_MAP["col_growth"],
+                "productivity_share_pct": LABEL_MAP["col_share"],
             }
         )
     )
 
     with st.expander("Xem chi tiết bảng dữ liệu", expanded=True):
-        st.markdown('<div class="crop-chart-wrapper">', unsafe_allow_html=True)
-        if drilldown_table.empty:
-            _empty_chart_placeholder()
-        else:
-            st.dataframe(
-                drilldown_table.style.format(
-                    {
-                        "Production": "{:,.2f}",
-                        "Area": "{:,.2f}",
-                        "Productivity": "{:,.2f}",
-                        "Growth (%)": "{:.2f}",
-                        "Yield Share (%)": "{:.2f}",
-                    }
-                ),
-                use_container_width=True,
-                hide_index=True,
-            )
-        st.markdown("</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            if drilldown_table.empty:
+                _empty_chart_placeholder()
+            else:
+                st.dataframe(
+                    drilldown_table.style.format(
+                        {
+                            LABEL_MAP["col_yield"]: "{:,.2f}",
+                            LABEL_MAP["col_area"]: "{:,.2f}",
+                            LABEL_MAP["col_productivity"]: "{:,.2f}",
+                            LABEL_MAP["col_growth"]: "{:.2f}",
+                            LABEL_MAP["col_share"]: "{:.2f}",
+                        }
+                    ),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+        
 
 
 # ====================================================================
@@ -1127,9 +1243,8 @@ def render_dashboard() -> None:
     raw_df = load_data()
 
     if raw_df.empty:
-        st.markdown('<div class="crop-card">', unsafe_allow_html=True)
-        _empty_chart_placeholder("Không thể tải dữ liệu từ gold.fact_crop_yield.")
-        st.markdown("</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            _empty_chart_placeholder("Không thể tải dữ liệu từ gold.fact_crop_yield.")
         return
 
     filtered_df = render_filters(raw_df)
@@ -1138,6 +1253,5 @@ def render_dashboard() -> None:
     render_trend_section(filtered_df)
     render_structure_section(filtered_df)
     render_ranking_section(filtered_df)
-    # render_analysis_section(filtered_df)
-    # render_comparison_section(filtered_df)
+
     render_drilldown_section(filtered_df)
