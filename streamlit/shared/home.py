@@ -261,9 +261,7 @@ def load_home_indicators() -> pd.DataFrame:
             .agg(
                 F.sum("market_value").alias("gdp_current_value"),
                 F.sum("constant_value").alias("gdp_constant_2010_value"),
-                F.avg("market_yoy_growth_rate").alias("avg_market_yoy_growth"),
-                F.avg("real_yoy_growth_rate").alias("avg_real_yoy_growth"),
-                F.avg("implicit_price_deflator").alias("avg_gdp_deflator"),
+                F.avg("market_yoy_growth_rate").alias("avg_market_yoy_growth")
             )
         )
         datasets.append(gdp)
@@ -286,35 +284,11 @@ def load_home_indicators() -> pd.DataFrame:
                         F.col("indicator_name") == "cpi_mom",
                         F.col("value"),
                     )
-                ).alias("inflation_rate")
+                ).alias("inflation")
             )
-        )
+        )   
+               
         datasets.append(macro)
-    except Exception:
-        pass
-
-    try:
-        trade = (
-            spark.table("gold_marts.mart_trade_international")
-            .groupBy("year")
-            .agg(
-                F.sum("trade_value").alias("trade_value"),
-                F.sum("import_value").alias("import_value"),
-            )
-        )
-        datasets.append(trade)
-    except Exception:
-        pass
-
-    try:
-        investment = (
-            spark.table("gold_marts.mart_social_investment")
-            .groupBy("year")
-            .agg(
-                F.sum("investment_value").alias("social_investment_value"),
-            )
-        )
-        datasets.append(investment)
     except Exception:
         pass
 
@@ -405,32 +379,19 @@ def render_kpis(indicators: pd.DataFrame) -> None:
 
     gdp_current = latest.get("gdp_current_value", None) if latest is not None else None
     gdp_constant = latest.get("gdp_constant_2010_value", None) if latest is not None else None
-    inflation = latest.get("inflation_rate", None) if latest is not None else None
-    trade_value = latest.get("trade_value", None) if latest is not None else None
-    real_growth = latest.get("avg_real_yoy_growth", None) if latest is not None else None
+    #inflation = latest.get("inflation", None) if latest is not None else None
 
     st.markdown(
         '<div class="home-section-title">Vietnam Economic Remarkables - Chỉ số nổi bật</div>',
         unsafe_allow_html=True,
     )
 
-    kpi_cols = st.columns(6)
+    kpi_cols = st.columns(3)
 
     kpis = [
         ("Năm dữ liệu mới nhất", latest_year, "Latest available year"),
         ("GDP hiện hành", format_home_number(gdp_current), "Market GDP"),
-        ("GDP so sánh 2010", format_home_number(gdp_constant), "Real GDP"),
-        (
-            "Tăng trưởng thực",
-            f"{format_home_number(real_growth)}%" if real_growth is not None and not pd.isna(real_growth) else "N/A",
-            "Real YoY growth",
-        ),
-        (
-            "Lạm phát",
-            f"{format_home_number(inflation)}%" if inflation is not None and not pd.isna(inflation) else "N/A",
-            "Inflation rate",
-        ),
-        ("Thương mại", format_home_number(trade_value), "Trade value"),
+        ("GDP so sánh 2010", format_home_number(gdp_constant), "Real GDP")    
     ]
 
     for col, (label, value, note) in zip(kpi_cols, kpis):
@@ -520,55 +481,7 @@ def render_economic_analysis() -> None:
         )
 
 
-def render_indicator_table(indicators: pd.DataFrame) -> None:
-    """Render bảng indicator: indicator là dòng, năm là cột."""
-    st.markdown(
-        '<div class="home-section-title">Indicator Summary - Bảng chỉ số tổng hợp 3 năm gần nhất</div>',
-        unsafe_allow_html=True,
-    )
 
-    if indicators.empty:
-        st.warning(
-            "Chưa tải được dữ liệu tổng hợp. Vui lòng kiểm tra tên bảng mart trong hàm load_home_indicators()."
-        )
-        return
-
-    display_df = indicators.copy()
-
-    rename_map = {
-        "year": "Năm",
-        "gdp_current_value": "GDP hiện hành",
-        "gdp_constant_2010_value": "GDP so sánh 2010",
-        "avg_market_yoy_growth": "Tăng trưởng hiện hành YoY (%)",
-        "avg_real_yoy_growth": "Tăng trưởng thực YoY (%)",
-        "avg_gdp_deflator": "GDP Deflator",
-        "inflation_rate": "Lạm phát (%)",
-        "trade_value": "Thương mại",
-        "import_value": "Nhập khẩu",
-        "social_investment_value": "Đầu tư xã hội",
-    }
-
-    display_df = display_df.rename(columns=rename_map)
-
-    if "Năm" not in display_df.columns:
-        st.dataframe(display_df, use_container_width=True, hide_index=True)
-        return
-
-    display_df["Năm"] = display_df["Năm"].astype(int).astype(str)
-
-    indicator_table = (
-        display_df
-        .set_index("Năm")
-        .T
-        .reset_index()
-        .rename(columns={"index": "Indicator - Chỉ số"})
-    )
-
-    st.dataframe(
-        indicator_table,
-        use_container_width=True,
-        hide_index=True,
-    )
 
 
 def render_system_numbers() -> None:
@@ -784,8 +697,8 @@ def render_home_page() -> None:
     render_hero()
     render_kpis(indicators)
     render_sources()
-    render_indicator_table(indicators)
-    render_economic_analysis()
+    #render_indicator_table(indicators)
+    #render_economic_analysis()
     # render_system_numbers()
     render_team()
     render_footer()

@@ -7,7 +7,7 @@ VN_TZ = pendulum.timezone("Asia/Ho_Chi_Minh")
 with DAG(
     dag_id="start_realtime_streaming",
     start_date=datetime(2025, 1, 1, tzinfo=VN_TZ),
-    schedule="0 9 * * 1-5",
+    schedule="0 6 * * 1-5",
     catchup=False,
     max_active_runs=1,
     default_args={

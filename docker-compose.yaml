@@ -493,8 +493,8 @@ services:
       MINIO_ENDPOINT: http://minio:9000
       MINIO_ACCESS_KEY: minioadmin
       MINIO_SECRET_KEY: minioadmin
-      SPARK_EXECUTOR_MEMORY: 2g
-      SPARK_EXECUTOR_CORES: "1"
+      SPARK_EXECUTOR_MEMORY: 4g
+      SPARK_EXECUTOR_CORES: "4"
     volumes:
       - ./streamlit:/opt/streamlit/app
     working_dir: /opt/streamlit/app

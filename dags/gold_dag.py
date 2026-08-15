@@ -7,7 +7,7 @@ VN_TZ = pendulum.timezone("Asia/Ho_Chi_Minh")
 with DAG(
     dag_id='gold_pipeline',
     start_date=datetime(2025, 1, 1, tzinfo=VN_TZ),
-    schedule="0 19 * * 1-5",
+    schedule=None,
     catchup=False,
     default_args={'retries': 1, 'retry_delay': timedelta(minutes=10)},
     tags=['gold', 'transform', 'dbt'],

@@ -574,52 +574,52 @@ def render_single_feature_trend(
     chart_card(fig, key=safe_key)
 
 
-def render_feature_trend_charts_three(
-    features: pd.DataFrame,
-    top_features: list[str],
-) -> None:
-    if features.empty or not top_features:
-        st.info("Chưa có dữ liệu xu hướng biến ảnh hưởng.")
-        return
+# def render_feature_trend_charts_three(
+#     features: pd.DataFrame,
+#     top_features: list[str],
+# ) -> None:
+#     if features.empty or not top_features:
+#         st.info("Chưa có dữ liệu xu hướng biến ảnh hưởng.")
+#         return
 
-    if "date" not in features.columns:
-        st.info("Bảng feature không có cột date.")
-        return
+#     if "date" not in features.columns:
+#         st.info("Bảng feature không có cột date.")
+#         return
 
-    existing_features = []
+#     existing_features = []
 
-    for feature_name in top_features:
-        clean_name = clean_feature_name(feature_name)
+#     for feature_name in top_features:
+#         clean_name = clean_feature_name(feature_name)
 
-        if (
-            clean_name is not None
-            and clean_name in features.columns
-            and pd.api.types.is_numeric_dtype(features[clean_name])
-        ):
-            existing_features.append(clean_name)
+#         if (
+#             clean_name is not None
+#             and clean_name in features.columns
+#             and pd.api.types.is_numeric_dtype(features[clean_name])
+#         ):
+#             existing_features.append(clean_name)
 
-    existing_features = existing_features[:3]
+#     existing_features = existing_features[:3]
 
-    if not existing_features:
-        st.info("Không tìm thấy các biến ảnh hưởng trong bảng feature.")
-        return
+#     if not existing_features:
+#         st.info("Không tìm thấy các biến ảnh hưởng trong bảng feature.")
+#         return
 
-    colors = [
-        COLOR_ACCENT,
-        COLOR_YELLOW,
-        "#5DADE2",
-    ]
+#     colors = [
+#         COLOR_ACCENT,
+#         COLOR_YELLOW,
+#         "#5DADE2",
+#     ]
 
-    cols = st.columns(3)
+#     cols = st.columns(3)
 
-    for i, feature_name in enumerate(existing_features):
-        with cols[i]:
-            render_single_feature_trend(
-                features=features,
-                feature_name=feature_name,
-                color=colors[i % len(colors)],
-                chart_key=f"inflation_feature_trend_{i}_{feature_name}",
-            )
+#     for i, feature_name in enumerate(existing_features):
+#         with cols[i]:
+#             render_single_feature_trend(
+#                 features=features,
+#                 feature_name=feature_name,
+#                 color=colors[i % len(colors)],
+#                 chart_key=f"inflation_feature_trend_{i}_{feature_name}",
+            # )
 
 
 def render_dashboard() -> None:
@@ -712,10 +712,7 @@ def render_dashboard() -> None:
         '<div class="forecast-section-title">Forecast vs Actual</div>',
         unsafe_allow_html=True,
     )
-    st.markdown(
-        '<div class="forecast-caption">Predicted and actual inflation values by forecast month.</div>',
-        unsafe_allow_html=True,
-    )
+    
 
     fig = go.Figure()
 
@@ -748,7 +745,11 @@ def render_dashboard() -> None:
         legend_title="Series",
     )
 
-    fig = style_plotly_layout(fig, height=440)
+    fig = style_plotly_layout(fig, 
+                              title=(
+                f"Dự báo và thực tế lạm phát - "f"{display_model_name(selected_model)}"
+    ),
+                              height=440)
     chart_card(fig, key="inflation_forecast_vs_actual")
 
     st.markdown(
@@ -771,7 +772,6 @@ def render_dashboard() -> None:
                 "dataset_split",
                 "rmse",
                 "mae",
-                "r2",
                 "created_at",
             ]
             if c in model_metrics.columns
@@ -878,19 +878,19 @@ def render_dashboard() -> None:
             top_features = []
             st.info("Không có feature importance cho mô hình đang dự báo.")
 
-    st.markdown(
-        '<div class="forecast-section-title">Trend of Key Forecast Drivers</div>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<div class="forecast-caption">Xu hướng 3 biến có ảnh hưởng mạnh nhất đến dự báo.</div>',
-        unsafe_allow_html=True,
-    )
+    # st.markdown(
+    #     '<div class="forecast-section-title">Trend of Key Forecast Drivers</div>',
+    #     unsafe_allow_html=True,
+    # )
+    # st.markdown(
+    #     '<div class="forecast-caption">Xu hướng 3 biến có ảnh hưởng mạnh nhất đến dự báo.</div>',
+    #     unsafe_allow_html=True,
+    # )
 
-    render_feature_trend_charts_three(
-        features=features,
-        top_features=top_features,
-    )
+    # # render_feature_trend_charts_three(
+    # #     features=features,
+    # #     top_features=top_features,
+    # # )
 
     st.markdown(
         '<div class="forecast-section-title">Predictions</div>',

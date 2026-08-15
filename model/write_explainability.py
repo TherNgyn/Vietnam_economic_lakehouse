@@ -1,7 +1,7 @@
+import argparse
 import gc
 from datetime import datetime
 
-import numpy as np
 import pandas as pd
 from pyspark.sql import functions as F
 
@@ -13,20 +13,26 @@ from config import (
 )
 
 
-def write_explainability():
+def write_explainability(model_name: str | None = None):
+    if not model_name:
+        model_name = "varnn_rm"
+
     spark = get_spark()
 
     try:
         active = (
             spark.table(GOLD_MODEL_REGISTRY_TABLE)
-            .where("model_name = 'varnn_rm' and is_active = true")
+            .where(
+                (F.col("model_name") == model_name)
+                & (F.col("is_active") == True)
+            )
             .orderBy(F.col("created_at").desc())
             .limit(1)
             .toPandas()
         )
 
         if active.empty:
-            raise RuntimeError("No active model")
+            raise RuntimeError(f"No active model for model_name={model_name}")
 
         model_id = active.iloc[0]["model_id"]
         version = active.iloc[0]["model_version"]
@@ -54,7 +60,7 @@ def write_explainability():
                 rows.append(
                     (
                         model_id,
-                        "varnn_rm",
+                        model_name,
                         version,
                         c,
                         float(abs(corr)),
@@ -81,7 +87,7 @@ def write_explainability():
 
         spark.sql(f"""
         DELETE FROM {GOLD_FEATURE_IMPORTANCE_TABLE}
-        WHERE model_name = 'varnn_rm'
+        WHERE model_name = '{model_name}'
         """)
 
         importance_df.write \
@@ -89,7 +95,10 @@ def write_explainability():
             .mode("append") \
             .saveAsTable(GOLD_FEATURE_IMPORTANCE_TABLE)
 
-        print(f"saved {GOLD_FEATURE_IMPORTANCE_TABLE}")
+        print(
+            f"saved {GOLD_FEATURE_IMPORTANCE_TABLE} "
+            f"for model_name={model_name}, model_id={model_id}"
+        )
 
     finally:
         cleanup_names = [
@@ -121,4 +130,8 @@ def write_explainability():
 
 
 if __name__ == "__main__":
-    write_explainability()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model-name", default="varnn_rm")
+    args = parser.parse_args()
+
+    write_explainability(model_name=args.model_name)

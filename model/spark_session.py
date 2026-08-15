@@ -52,8 +52,8 @@ def get_spark() -> SparkSession:
             "spark.hadoop.fs.s3a.aws.credentials.provider",
             "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
         )
-        .config("spark.executor.memory", "2g")
-        .config("spark.executor.cores", "1")
+        .config("spark.executor.memory", "4g")
+        .config("spark.executor.cores", "4")
         .enableHiveSupport()
         .getOrCreate()
     )

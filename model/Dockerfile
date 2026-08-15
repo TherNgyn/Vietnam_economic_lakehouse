@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY model/requirements.txt /tmp/requirements.txt
 
-RUN pip install --upgrade pip \
+RUN pip install --upgrade pip \ 
     && pip install --no-cache-dir -r /tmp/requirements.txt \
     && python -c "import pyspark; print('INSTALLED PYSPARK =', pyspark.__version__)"
 

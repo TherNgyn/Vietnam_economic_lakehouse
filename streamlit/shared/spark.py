@@ -17,8 +17,8 @@ def get_spark_session() -> SparkSession:
     minio_access_key = os.getenv("MINIO_ACCESS_KEY", "minioadmin")
     minio_secret_key = os.getenv("MINIO_SECRET_KEY", "minioadmin")
 
-    executor_memory = os.getenv("SPARK_EXECUTOR_MEMORY", "2g")
-    executor_cores = os.getenv("SPARK_EXECUTOR_CORES", "3")
+    executor_memory = os.getenv("SPARK_EXECUTOR_MEMORY", "4g")
+    executor_cores = os.getenv("SPARK_EXECUTOR_CORES", "4")
 
     spark = (
         SparkSession.builder

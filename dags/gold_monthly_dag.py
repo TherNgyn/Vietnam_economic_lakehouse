@@ -22,6 +22,11 @@ DBT_MONTHLY_MODELS = (
     "fact_macro_indicator "
     "fact_production_output "
     "fact_social_total_investment"
+    "mart_crop_metrics"
+    "mart_gdp_metrics"
+    "mart_product"
+    "mart_social_invest"
+    "mart_trade_international"
 )
 
 

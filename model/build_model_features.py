@@ -1,3 +1,5 @@
+import gc
+
 import boto3
 from botocore.client import Config
 
@@ -9,7 +11,7 @@ from config import (
     MINIO_ACCESS_KEY,
     MINIO_SECRET_KEY,
 )
-from feature_engineering import build_varnn_features
+from feature_engineering import build_tcn_features
 
 
 MODEL_FEATURE_PATH = "s3a://gold/model/features/inflation_model_features"
@@ -55,28 +57,88 @@ def delete_minio_prefix(bucket: str, prefix: str):
 def build_model_features():
     spark = get_spark()
 
-    raw = spark.table(GOLD_MONTHLY_FEATURE_TABLE).toPandas()
-    model_df = build_varnn_features(raw, keep_target_null=True)
+    raw = None
+    model_df = None
+    model_sdf = None
 
-    spark.sql(f"DROP TABLE IF EXISTS {GOLD_MODEL_FEATURE_TABLE}")
-    delete_minio_prefix(MODEL_FEATURE_BUCKET, MODEL_FEATURE_PREFIX)
+    try:
+        raw = spark.table(GOLD_MONTHLY_FEATURE_TABLE).toPandas()
 
-    (
-        spark.createDataFrame(model_df)
-        .write
-        .format("delta")
-        .mode("overwrite")
-        .option("overwriteSchema", "true")
-        .save(MODEL_FEATURE_PATH)
-    )
+        if "date" in raw.columns:
+            raw = raw.sort_values("date").reset_index(drop=True)
+            print(f"[INFO] Raw date range: {raw['date'].min()} -> {raw['date'].max()}")
 
-    spark.sql(f"""
-    CREATE TABLE {GOLD_MODEL_FEATURE_TABLE}
-    USING DELTA
-    LOCATION '{MODEL_FEATURE_PATH}'
-    """)
+        print(f"[INFO] Raw monthly feature shape: {raw.shape}")
 
-    print(GOLD_MODEL_FEATURE_TABLE)
+        model_df = build_tcn_features(raw, keep_target_null=True)
+
+        print(f"[INFO] Model feature shape: {model_df.shape}")
+
+        if "date" in model_df.columns:
+            print(f"[INFO] Model feature date range: {model_df['date'].min()} -> {model_df['date'].max()}")
+
+        spark.sql(f"DROP TABLE IF EXISTS {GOLD_MODEL_FEATURE_TABLE}")
+        delete_minio_prefix(MODEL_FEATURE_BUCKET, MODEL_FEATURE_PREFIX)
+
+        model_sdf = spark.createDataFrame(model_df)
+
+        (
+            model_sdf
+            .write
+            .format("delta")
+            .mode("overwrite")
+            .option("overwriteSchema", "true")
+            .save(MODEL_FEATURE_PATH)
+        )
+
+        spark.sql(f"""
+        CREATE TABLE {GOLD_MODEL_FEATURE_TABLE}
+        USING DELTA
+        LOCATION '{MODEL_FEATURE_PATH}'
+        """)
+
+        print(f"[INFO] Created table: {GOLD_MODEL_FEATURE_TABLE}")
+        print(f"[INFO] Feature path: {MODEL_FEATURE_PATH}")
+
+    finally:
+        print("[CLEANUP] Start cleanup")
+
+        try:
+            if model_sdf is not None:
+                model_sdf.unpersist(blocking=False)
+                print("[CLEANUP] Spark model_sdf unpersisted")
+        except Exception as e:
+            print(f"[CLEANUP][WARN] model_sdf unpersist failed: {e}")
+
+        try:
+            spark.catalog.clearCache()
+            print("[CLEANUP] Spark cache cleared")
+        except Exception as e:
+            print(f"[CLEANUP][WARN] clearCache failed: {e}")
+
+        try:
+            del raw
+        except Exception:
+            pass
+
+        try:
+            del model_df
+        except Exception:
+            pass
+
+        try:
+            del model_sdf
+        except Exception:
+            pass
+
+        try:
+            spark.stop()
+            print("[CLEANUP] Spark stopped")
+        except Exception as e:
+            print(f"[CLEANUP][WARN] spark.stop failed: {e}")
+
+        gc.collect()
+        print("[CLEANUP] Python GC collected")
 
 
 if __name__ == "__main__":
