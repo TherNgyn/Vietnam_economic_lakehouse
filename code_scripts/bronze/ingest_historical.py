@@ -78,32 +78,7 @@ def upload_csv(local_file_path):
         logger.error(f"Error uploading {local_file_path}: {e}")
         return False
 
-def upload_excel(local_file_path):
-    try:
-        file_name = os.path.basename(local_file_path)
-        file_size = os.path.getsize(local_file_path)
-        rel_path = os.path.relpath(local_file_path, HISTORICAL_DATASET_PATH)
-        parts = Path(rel_path).parts
-        
-        year_folder = "unknown"
-        for part in parts:
-            if part.isdigit() and len(part) == 4:
-                year_folder = part
-                break
-                
-        object_name = f"historical/economic_report_excel_files/{year_folder}/{file_name}"
-        
-        minio_client.fput_object(
-            MINIO_BUCKET,
-            object_name,
-            local_file_path
-        )
-        
-        logger.info(f"{'excel_report':15} | {file_name:30} | Year: {year_folder} | {file_size/1024:.1f}KB")
-        return True
-    except Exception as e:
-        logger.error(f"Error uploading excel {local_file_path}: {e}")
-        return False
+
 
 def ingest_all_historical():
     ensure_bucket()
@@ -142,11 +117,7 @@ def ingest_all_historical():
         logger.info(f"Found {len(excel_files)} Excel files\n")
         excel_uploaded = 0
         excel_failed = 0
-        for excel_file in excel_files:
-            if upload_excel(excel_file):
-                excel_uploaded += 1
-            else:
-                excel_failed += 1
+        
         print("\n" + "-" * 80)
         logger.info(f"Excel Ingestion completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         logger.info(f"Successfully uploaded Excel: {excel_uploaded} files")

@@ -316,7 +316,7 @@ if __name__ == "__main__":
         logger.info(f"Loading configuration from {yaml_path}")
         with open(yaml_path, 'r', encoding='utf-8') as f:
             config = yaml.safe_load(f)
-        logger.info(f"✅ Loaded configuration successfully")
+        logger.info(f"Loaded configuration successfully")
         
         # Process currencies from YAML
         if 'currencies' in config and config['currencies']:

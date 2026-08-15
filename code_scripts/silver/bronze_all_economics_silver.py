@@ -178,7 +178,7 @@ def process_cpi(df=None):
         cpi_mom_df = pd.DataFrame(cpi_mom_rows).sort_values(['year', 'month']).reset_index(drop=True)
         
         cpi_mom_df['cpi_mom'] = pd.to_numeric(cpi_mom_df['cpi_mom'], errors='coerce')
-        cpi_mom_df['inflation'] = cpi_mom_df['cpi_mom'].diff()
+        cpi_mom_df['inflation'] = cpi_mom_df['cpi_mom'] - 100.0
         cpi_mom_df['avg_year'] = cpi_mom_df.groupby('year')['cpi_mom'].transform('mean')
         cpi_mom_output = cpi_mom_df[['date', 'cpi_mom', 'inflation', 'unit_cpi', 'unit_inflation', 'source']].copy()
         
@@ -282,15 +282,10 @@ def clean_broad_money(df=None):
 
     df['broad_money'] = pd.to_numeric(df['broad_money'], errors='coerce')
     df['policy_rate'] = pd.to_numeric(df['policy_rate'], errors='coerce')
-    
-    # Forward-fill và Backward-fill chuỗi thời gian
     df['broad_money'] = df['broad_money'].ffill().bfill()
     df['policy_rate'] = df['policy_rate'].ffill().bfill()
-
-    # Định dạng chuỗi date thành String để đồng bộ schema
     df['date_str'] = df['date'].dt.strftime('%Y-%m-%d')
 
-    # Xử lý Broad Money
     broad_money_df = df[['date_str', 'broad_money']].copy()
     broad_money_df.columns = ['date', 'broad_money']
     broad_money_df['indicator'] = 'broad_money'

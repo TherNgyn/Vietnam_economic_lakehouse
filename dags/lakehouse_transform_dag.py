@@ -4,7 +4,8 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime, timedelta
-
+import pendulum
+VN_TZ = pendulum.timezone("Asia/Ho_Chi_Minh")
 
 def check_bronze_gap(**context):
     from minio import Minio
@@ -59,7 +60,7 @@ def decide_backfill(**context):
 
 with DAG(
     dag_id='lakehouse_transform',
-    start_date=datetime(2025, 1, 1),
+    start_date=datetime(2025, 1, 1, tzinfo=VN_TZ),
     schedule='0 6 * * *',
     catchup=False,
     default_args={

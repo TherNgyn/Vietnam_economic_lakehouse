@@ -26,11 +26,6 @@ from pyspark.sql import DataFrame as SparkDataFrame
 from pyspark.sql import functions as F
 
 from shared.spark import get_spark_session
-
-# ====================================================================
-# THEME / COLOR CONSTANTS
-# ====================================================================
-
 COLOR_BACKGROUND = "#081A36"
 COLOR_CARD = "#102B55"
 COLOR_BORDER = "#2C6FB8"
@@ -38,10 +33,9 @@ COLOR_HEADER = "#1B4F9C"
 COLOR_ACCENT = "#3FA9F5"
 COLOR_POSITIVE = "#2ECC71"
 COLOR_NEGATIVE = "#E74C3C"
-COLOR_TEXT = "#EAF2FB"
-COLOR_TEXT_MUTED = "#9FB7D8"
+COLOR_TEXT = "#FFFFFF"
+COLOR_TEXT_MUTED = "#FFFFFF"
 
-# Bảng màu rời rạc dùng cho các biểu đồ phân loại theo Sector
 DISCRETE_PALETTE = [
     "#3FA9F5",
     "#2ECC71",
@@ -57,16 +51,75 @@ DISCRETE_PALETTE = [
 
 CHART_PLOT_BG = "#090A44"
 CHART_PAPER_BG = "#090A44"
-CHART_FONT_COLOR = "#1A1A1A"
+CHART_FONT_COLOR = "#FFFFFF"
+TITLE_FONT_COLOR = "#FFFFFF"
+
+TERM_MAP = {
+    "sector": "Khu vực kinh tế",
+    "sub_sector": "Phân ngành",
+
+    "market_value": "GDP theo giá hiện hành",
+    "constant_value": "GDP theo giá so sánh năm 2010",
+
+    "market_qoq_growth_rate": "Tăng trưởng quý theo giá hiện hành",
+    "market_yoy_growth_rate": "Tăng trưởng năm theo giá hiện hành",
+    "real_qoq_growth_rate": "Tăng trưởng quý theo giá so sánh 2010",
+    "real_yoy_growth_rate": "Tăng trưởng năm theo giá so sánh 2010",
+
+    "sector_share_pct": "Tỷ trọng phân ngành trong khu vực kinh tế",
+    "gdp_share_pct": "Tỷ trọng phân ngành trong GDP",
+}
+
+LABEL_MAP = {
+    "dashboard_title": "GDP Growth Performance Dashboard - Trang Theo Dõi Tăng Trưởng GDP",
+    "dashboard_subtitle": "Theo dõi tăng trưởng GDP theo Khu vực kinh tế / Phân ngành và Năm / Quý",
+
+    "year": "Year - Năm",
+    "quarter": "Quarter - Quý",
+    "sector": "Sector - Khu vực kinh tế",
+    "sub_sector": "Sub-sector - Phân ngành",
+
+    "market_gdp": "Market GDP - <br>GDP theo giá hiện hành (Tỷ đồng)",
+    "real_gdp_2010": "Real GDP / 2010 GDP - <br>GDP theo giá so sánh năm 2010 (Tỷ đồng)",
+    "avg_qoq_growth": "Avg QoQ Growth (%) - <br>Trung bình tăng trưởng GDP theo quý",
+    "avg_yoy_growth": "Avg YoY Growth (%) - <br>Trung bình tăng trưởng GDP theo năm",
+    "top_growing_sub_sector": "Top Growing Sub-sector - <br>Phân ngành tăng trưởng cao nhất",
+    "gdp_share": "GDP Share (%) - <br>Tỷ trọng GDP đóng góp",
+
+    "gdp_trend": "GDP Trend - Xu hướng tổng GDP theo quý",
+    "growth_trend": "Growth Trend - Xu hướng tăng trưởng GDP theo quý",
+    "gdp_by_sector": "GDP by Sector - GDP theo khu vực kinh tế",
+    "sector_share": "Sector Share - Tỷ trọng GDP theo khu vực kinh tế",
+    "top_10_growth": "Top 10 Growth (Real YoY) - Top 10 phân ngành có GDP so sánh tăng trưởng cao nhất",
+    "top_gdp_share": "Top GDP Share - Top 10 phân ngành có tỷ trọng GDP cao nhất",
+    "sector_structure": "Sector Structure (Treemap) - Cấu trúc GDP theo khu vực kinh tế và phân ngành",
+    "drilldown": "Drill-down: Sub-sector Analysis - Phân tích chi tiết phân ngành",
 
 
-# ====================================================================
-# CSS INJECTION
-# ====================================================================
+    "market_gdp_series": "Market GDP - GDP theo giá hiện hành",
+    "real_gdp_series": "Real GDP - GDP theo giá so sánh năm 2010",
+    "market_qoq": "Market QoQ - Tăng trưởng quý theo giá hiện hành",
+    "market_yoy": "Market YoY - Tăng trưởng năm theo giá hiện hành",
+
+    "quarter_axis": "Quarter - Quý",
+    "market_gdp_axis": "Market GDP - GDP theo giá hiện hành",
+    "real_yoy_growth_axis": "Real YoY Growth (%) - Tăng trưởng GDP hàng năm theo giá so sánh",
+    "gdp_share_axis": "GDP Share (%) - Tỷ trọng GDP",
+    "sector_axis": "Sector - Khu vực kinh tế",
+    "sub_sector_axis": "Sub-sector - Phân ngành",
+
+    "col_sub_sector": "Sub-sector - Phân ngành",
+    "col_market_gdp": "Market GDP - GDP hiện hành",
+    "col_real_gdp": "Real GDP - GDP so sánh 2010",
+    "col_yoy_growth": "YoY Growth (%) - Tăng trưởng năm",
+    "col_qoq_growth": "QoQ Growth (%) - Tăng trưởng quý",
+    "col_gdp_share": "GDP Share (%) - Tỷ trọng GDP",
+
+    "drilldown_select": "Sector - Chọn khu vực kinh tế để xem chi tiết phân ngành",
+}
 
 def inject_custom_css() -> None:
-    """Inject CSS tuỳ chỉnh cho toàn bộ dashboard GDP Growth.
-
+    """
     Tạo giao diện đồng bộ tone màu tối (dark navy), card bo góc, có
     shadow nhẹ, border xanh dương, đồng nhất với dashboard Sales
     Performance.
@@ -150,7 +203,57 @@ def inject_custom_css() -> None:
         .kpi-negative {{
             color: {COLOR_NEGATIVE};
         }}
+        .stSelectbox label,
+        .stSelectbox label p {{
+            color: {COLOR_TEXT} !important;
+        }}
+        .stSelectbox div[data-baseweb="select"] * {{
+            color: {COLOR_TEXT} !important;
+        }}
 
+        .stSelectbox div[data-baseweb="select"] > div {{
+            background-color: {COLOR_CARD} !important;
+            border-color: {COLOR_BORDER} !important;
+        }}
+
+        .stSelectbox div[data-baseweb="select"] input {{
+            color: {COLOR_TEXT} !important;
+        }}
+
+        .stSelectbox div[data-baseweb="select"] input::placeholder {{
+            color: {COLOR_TEXT} !important;
+            opacity: 1 !important;
+        }}
+        .stMultiSelect label,
+        .stMultiSelect label p {{
+            color: {COLOR_TEXT} !important;
+        }}
+        .stMultiSelect div[data-baseweb="select"] * {{
+            color: {COLOR_TEXT} !important;
+        }}
+
+        .stMultiSelect div[data-baseweb="select"] input {{
+            color: {COLOR_TEXT} !important;
+        }}
+
+        .stMultiSelect div[data-baseweb="select"] > div {{
+            background-color: {COLOR_CARD} !important;
+            border-color: {COLOR_BORDER} !important;
+        }}
+
+        div[data-baseweb="popover"] {{
+            background-color: {COLOR_CARD} !important;
+        }}
+
+        div[data-baseweb="popover"] * {{
+            color: {COLOR_TEXT} !important;
+        }}
+
+        ul[role="listbox"],
+        li[role="option"] {{
+            background-color: {COLOR_CARD} !important;
+            color: {COLOR_TEXT} !important;
+        }}
         .gdp-chart-wrapper {{
             background-color: {COLOR_CARD};
             border: 1px solid {COLOR_BORDER};
@@ -204,17 +307,14 @@ def render_header() -> None:
     st.markdown(
         """
         <div class="gdp-header">
-            <h1>GDP Growth Performance Dashboard</h1>
-            <p>Theo dõi tăng trưởng GDP theo Sector / Sub-sector / Quarter</p>
+            <h1>GDP Growth Performance Dashboard - Trang Theo Dõi Tăng Trưởng GDP</h1>
+            <p>Theo dõi tăng trưởng GDP theo Khu vực kinh tế / Phân ngành và Năm / Quý</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
 
-# ====================================================================
-# DATA LOADING (SPARK)
-# ====================================================================
 @st.cache_data(show_spinner="Đang tải dữ liệu GDP Growth...")
 def load_data() -> pd.DataFrame:
     """Truy vấn dữ liệu GDP Growth từ Gold Mart bằng Spark.
@@ -341,10 +441,6 @@ def load_data() -> pd.DataFrame:
 #     return pdf
 
 
-# ====================================================================
-# FILTER OPTIONS & APPLY FILTERS
-# ====================================================================
-
 def get_filter_options(df: pd.DataFrame) -> dict[str, list[Any]]:
     """Lấy danh sách giá trị duy nhất cho từng bộ lọc.
 
@@ -370,8 +466,6 @@ def get_filter_options(df: pd.DataFrame) -> dict[str, list[Any]]:
         "sub_sector": sorted(df["sub_sector_name"].dropna().unique().tolist()),
         "unit": sorted(df["unit"].dropna().unique().tolist()),
     }
-
-
 def apply_filters(
     df: pd.DataFrame,
     years: list[Any],
@@ -415,10 +509,73 @@ def apply_filters(
     return filtered
 
 
-# ====================================================================
-# RENDER FILTERS
-# ====================================================================
+def get_filter_options(df: pd.DataFrame) -> dict[str, list[Any]]:
+    """Lấy danh sách giá trị duy nhất cho từng bộ lọc.
 
+    Args:
+        df: DataFrame nguồn (chưa lọc).
+
+    Returns:
+        dict: Mapping tên filter -> danh sách giá trị (đã sort).
+    """
+    if df.empty:
+        return {
+            "year": [],
+            "quarter": [],
+            "sector": [],
+            "sub_sector": [],
+            "unit": [],
+        }
+
+    return {
+        "year": sorted(df["year"].dropna().unique().tolist()),
+        "quarter": sorted(df["quarter"].dropna().unique().tolist()),
+        "sector": sorted(df["sector_name"].dropna().unique().tolist()),
+        "sub_sector": sorted(df["sub_sector_name"].dropna().unique().tolist()),
+        "unit": sorted(df["unit"].dropna().unique().tolist()),
+    }
+
+
+def apply_filters(
+    df: pd.DataFrame,
+    years: list[Any],
+    quarters: list[Any],
+    sectors: list[Any],
+    sub_sectors: list[Any],
+) -> pd.DataFrame:
+    """Áp dụng các bộ lọc toàn cục lên DataFrame.
+
+    Nếu một filter để trống (danh sách rỗng) thì coi như chọn tất cả
+    giá trị của cột đó.
+
+    Args:
+        df: DataFrame nguồn.
+        years: Danh sách năm được chọn.
+        quarters: Danh sách quý được chọn.
+        sectors: Danh sách sector được chọn.
+        sub_sectors: Danh sách sub-sector được chọn.
+        units: Danh sách đơn vị được chọn.
+
+    Returns:
+        pd.DataFrame: DataFrame đã lọc.
+    """
+    if df.empty:
+        return df
+
+    filtered = df.copy()
+
+    if years:
+        filtered = filtered[filtered["year"].isin(years)]
+    if quarters:
+        filtered = filtered[filtered["quarter"].isin(quarters)]
+    if sectors:
+        filtered = filtered[filtered["sector_name"].isin(sectors)]
+    if sub_sectors:
+        filtered = filtered[filtered["sub_sector_name"].isin(sub_sectors)]
+
+    return filtered
+
+# filter
 def render_filters(df: pd.DataFrame) -> pd.DataFrame:
     """Render khu vực bộ lọc toàn cục và trả về DataFrame đã lọc.
 
@@ -429,30 +586,29 @@ def render_filters(df: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: DataFrame sau khi áp dụng filter người dùng chọn.
     """
     options = get_filter_options(df)
+    with st.container(border=True):
+    # st.markdown('<div class="gdp-card">', unsafe_allow_html=True)
+        col1, col2, col3, col4 = st.columns(4)
 
-    st.markdown('<div class="gdp-card">', unsafe_allow_html=True)
-    col1, col2, col3, col4, col5 = st.columns(5)
+        with col1:
+            years = st.multiselect(LABEL_MAP["year"], options["year"], default=[])
 
-    with col1:
-        years = st.multiselect("Year", options["year"], default=[])
-    with col2:
-        quarters = st.multiselect("Quarter", options["quarter"], default=[])
-    with col3:
-        sectors = st.multiselect("Sector", options["sector"], default=[])
-    with col4:
-        sub_sectors = st.multiselect("Sub-sector", options["sub_sector"], default=[])
-    with col5:
-        units = st.multiselect("Unit", options["unit"], default=[])
+        with col2:
+            quarters = st.multiselect(LABEL_MAP["quarter"], options["quarter"], default=[])
 
-    st.markdown("</div>", unsafe_allow_html=True)
+        with col3:
+            sectors = st.multiselect(LABEL_MAP["sector"], options["sector"], default=[])
 
-    return apply_filters(df, years, quarters, sectors, sub_sectors, units)
+        with col4:
+            sub_sectors = st.multiselect(LABEL_MAP["sub_sector"], options["sub_sector"], default=[])
+    
+
+    # st.markdown("</div>", unsafe_allow_html=True)
+
+    return apply_filters(df, years, quarters, sectors, sub_sectors)
 
 
-# ====================================================================
 # KPI HELPERS
-# ====================================================================
-
 def _format_number(value: float) -> str:
     """Format số lớn theo dạng rút gọn (K, M, B, T)."""
     if pd.isna(value):
@@ -512,36 +668,53 @@ def render_kpis(df: pd.DataFrame) -> None:
 
     market_gdp = df["market_value"].sum()
     real_gdp = df["constant_value"].sum()
-    avg_qoq = df["real_qoq_growth_rate"].mean()
-    avg_yoy = df["real_yoy_growth_rate"].mean()
+    avg_qoq = df["market_qoq_growth_rate"].mean()
+    avg_yoy = df["market_yoy_growth_rate"].mean()
     avg_gdp_share = df["gdp_share_pct"].mean()
 
     top_growing = "N/A"
+    # if not df["real_yoy_growth_rate"].dropna().empty:
+    #     top_row = df.loc[df["real_yoy_growth_rate"].mean().idxmax()]
+    #     top_growing = f"{top_row['sub_sector_name']} ({top_row['real_yoy_growth_rate'].mean():.2f}%)"
+    #     top_gdp_share = top_row["gdp_share_pct"].mean()
     if not df["real_yoy_growth_rate"].dropna().empty:
-        top_row = df.loc[df["real_yoy_growth_rate"].idxmax()]
-        top_growing = f"{top_row['sub_sector_name']} ({top_row['real_yoy_growth_rate']:.2f}%)"
+       summary = (
+        df.groupby("sub_sector_name", as_index=False)
+        .agg(
+            real_yoy_growth_rate=("market_yoy_growth_rate", "mean"),
+            market_value=("market_value", "sum")
+        )
+    )
 
+    top_row = summary.loc[summary["real_yoy_growth_rate"].idxmax()]
+
+    top_growing = (
+        f"{top_row['sub_sector_name']} "
+        f"({top_row['real_yoy_growth_rate']:.2f}%)"
+    )
+
+    top_gdp_share = (
+        top_row["market_value"] / summary["market_value"].sum() * 100
+        if summary["market_value"].sum() > 0
+        else 0
+    )
     qoq_class = "kpi-positive" if avg_qoq >= 0 else "kpi-negative"
     yoy_class = "kpi-positive" if avg_yoy >= 0 else "kpi-negative"
 
     cols = st.columns(6)
     kpi_data = [
-        ("Market GDP", _format_number(market_gdp), ""),
-        ("Real GDP", _format_number(real_gdp), ""),
-        ("QoQ Growth", _format_percent(avg_qoq), qoq_class),
-        ("YoY Growth", _format_percent(avg_yoy), yoy_class),
-        ("GDP Share", _format_percent(avg_gdp_share), ""),
-        ("Top Growing Sub-sector", top_growing, "kpi-positive"),
+        (LABEL_MAP["market_gdp"], _format_number(market_gdp), ""),
+        (LABEL_MAP["real_gdp_2010"], _format_number(real_gdp), ""),
+        (LABEL_MAP["avg_qoq_growth"], _format_percent(avg_qoq), qoq_class),
+        (LABEL_MAP["avg_yoy_growth"], _format_percent(avg_yoy), yoy_class),
+        (LABEL_MAP["top_growing_sub_sector"], top_growing, "kpi-positive"),
+        (LABEL_MAP["gdp_share"], _format_percent(top_gdp_share), ""),
     ]
 
     for col, (label, value, css_class) in zip(cols, kpi_data):
         with col:
             st.markdown(_kpi_card(label, value, css_class), unsafe_allow_html=True)
 
-
-# ====================================================================
-# CHART STYLING HELPER
-# ====================================================================
 
 def _apply_chart_theme(fig: go.Figure, height: int = 380) -> go.Figure:
     """Áp dụng theme nền trắng đồng bộ cho mọi biểu đồ Plotly.
@@ -557,9 +730,23 @@ def _apply_chart_theme(fig: go.Figure, height: int = 380) -> go.Figure:
         plot_bgcolor=CHART_PLOT_BG,
         paper_bgcolor=CHART_PAPER_BG,
         font=dict(color=CHART_FONT_COLOR, size=12),
+        title=dict(
+            font=dict(color=TITLE_FONT_COLOR, size=16),
+            x=0,
+            xanchor="left",
+            y=0.99,
+            yanchor="top",
+        ),
         height=height,
-        margin=dict(l=40, r=30, t=50, b=40),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(l=70, r=30, t=85, b=50),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1,
+            font=dict(color=CHART_FONT_COLOR),
+        ),
     )
     return fig
 
@@ -568,10 +755,6 @@ def _empty_chart_placeholder(message: str = "Không có dữ liệu để hiển
     """Hiển thị placeholder khi DataFrame rỗng."""
     st.markdown(f'<div class="empty-state">{message}</div>', unsafe_allow_html=True)
 
-
-# ====================================================================
-# CHART FUNCTIONS
-# ====================================================================
 
 def chart_gdp_trend(df: pd.DataFrame) -> go.Figure:
     """Vẽ Line Chart: Market GDP & Real GDP theo Quarter."""
@@ -588,8 +771,8 @@ def chart_gdp_trend(df: pd.DataFrame) -> go.Figure:
             x=grouped["quarter_label"],
             y=grouped["market_value"],
             mode="lines+markers",
-            name="Market GDP",
-            line=dict(color=COLOR_ACCENT, width=3),
+            name = LABEL_MAP["market_gdp_series"],
+            line=dict(color=COLOR_ACCENT, width=1.5),
         )
     )
     fig.add_trace(
@@ -597,11 +780,11 @@ def chart_gdp_trend(df: pd.DataFrame) -> go.Figure:
             x=grouped["quarter_label"],
             y=grouped["constant_value"],
             mode="lines+markers",
-            name="Real GDP",
-            line=dict(color=COLOR_POSITIVE, width=3),
+            name=LABEL_MAP["real_gdp_series"],
+            line=dict(color=COLOR_POSITIVE, width=1.5),
         )
     )
-    fig.update_layout(title="GDP Trend")
+    fig.update_layout(title=LABEL_MAP["gdp_trend"], yaxis_title=LABEL_MAP["market_gdp_axis"], xaxis_title=LABEL_MAP["quarter_axis"])
     return _apply_chart_theme(fig)
 
 
@@ -612,8 +795,6 @@ def chart_growth_trend(df: pd.DataFrame) -> go.Figure:
         .agg(
             market_qoq_growth_rate=("market_qoq_growth_rate", "mean"),
             market_yoy_growth_rate=("market_yoy_growth_rate", "mean"),
-            real_qoq_growth_rate=("real_qoq_growth_rate", "mean"),
-            real_yoy_growth_rate=("real_yoy_growth_rate", "mean"),
         )
         .sort_values(["year", "quarter"])
     )
@@ -622,8 +803,6 @@ def chart_growth_trend(df: pd.DataFrame) -> go.Figure:
     series_config = [
         ("market_qoq_growth_rate", "Market QoQ", COLOR_ACCENT),
         ("market_yoy_growth_rate", "Market YoY", COLOR_POSITIVE),
-        ("real_qoq_growth_rate", "Real QoQ", COLOR_NEGATIVE),
-        ("real_yoy_growth_rate", "Real YoY", "#F5B041"),
     ]
 
     fig = go.Figure()
@@ -634,10 +813,10 @@ def chart_growth_trend(df: pd.DataFrame) -> go.Figure:
                 y=grouped[column],
                 mode="lines+markers",
                 name=name,
-                line=dict(color=color, width=2.5),
+                line=dict(color=color, width=1.5),
             )
         )
-    fig.update_layout(title="Growth Trend")
+    fig.update_layout(title=LABEL_MAP["growth_trend"], yaxis_title=LABEL_MAP["market_gdp_axis"], xaxis_title=LABEL_MAP["quarter_axis"])
     return _apply_chart_theme(fig)
 
 
@@ -657,23 +836,24 @@ def chart_gdp_by_sector(df: pd.DataFrame) -> go.Figure:
         color="sector_name",
         barmode="stack",
         color_discrete_sequence=DISCRETE_PALETTE,
-        title="GDP by Sector",
-        labels={"quarter_label": "Quarter", "market_value": "Market GDP", "sector_name": "Sector"},
+        title=LABEL_MAP["gdp_by_sector"],
+        labels={"quarter_label": LABEL_MAP["quarter"], "market_value": LABEL_MAP["market_gdp"], "sector_name": LABEL_MAP["sector"]},
     )
+    fig.update_layout(yaxis_title=LABEL_MAP["market_gdp_axis"], xaxis_title=LABEL_MAP["quarter_axis"])
     return _apply_chart_theme(fig)
 
 
 def chart_sector_share(df: pd.DataFrame) -> go.Figure:
     """Vẽ Donut Chart: Sector Share."""
-    grouped = df.groupby("sector_name", as_index=False).agg(gdp_share_pct=("gdp_share_pct", "mean"))
+    grouped = df.groupby("sector_name", as_index=False).agg(market_value=("market_value", "sum"))
 
     fig = px.pie(
         grouped,
         names="sector_name",
-        values="gdp_share_pct",
-        hole=0.55,
+        values="market_value",
+        hole=0.40,
         color_discrete_sequence=DISCRETE_PALETTE,
-        title="Sector Share",
+        title=LABEL_MAP["sector_share"],
     )
     fig.update_traces(textposition="inside", textinfo="percent+label")
     return _apply_chart_theme(fig)
@@ -696,8 +876,8 @@ def chart_top10_growth(df: pd.DataFrame) -> go.Figure:
         orientation="h",
         color="real_yoy_growth_rate",
         color_continuous_scale=[COLOR_NEGATIVE, COLOR_ACCENT, COLOR_POSITIVE],
-        title="Top 10 Growth (Real YoY)",
-        labels={"real_yoy_growth_rate": "Real YoY Growth (%)", "sub_sector_name": "Sub-sector"},
+        title=LABEL_MAP["top_10_growth"],
+        labels={"real_yoy_growth_rate": "Real YoY Growth (%)", "sub_sector_name": LABEL_MAP["sub_sector"]},
     )
     fig.update_coloraxes(showscale=False)
     return _apply_chart_theme(fig)
@@ -719,8 +899,8 @@ def chart_top_gdp_share(df: pd.DataFrame) -> go.Figure:
         y="sub_sector_name",
         orientation="h",
         color_discrete_sequence=[COLOR_ACCENT],
-        title="Top GDP Share",
-        labels={"gdp_share_pct": "GDP Share (%)", "sub_sector_name": "Sub-sector"},
+        title=LABEL_MAP["top_gdp_share"],
+        labels={"gdp_share_pct": "GDP Share (%)", "sub_sector_name": LABEL_MAP["sub_sector"]},
     )
     return _apply_chart_theme(fig)
 
@@ -729,71 +909,36 @@ def chart_treemap(df: pd.DataFrame) -> go.Figure:
     """Vẽ Treemap: Sector -> Sub-sector -> GDP Share."""
     grouped = (
         df.groupby(["sector_name", "sub_sector_name"], as_index=False)
-        .agg(gdp_share_pct=("gdp_share_pct", "sum"))
+        .agg(market_value=("market_value", "sum"))
     )
-    grouped = grouped[grouped["gdp_share_pct"] > 0]
+
+    grouped = grouped[grouped["market_value"] > 0]
+
+    grouped["sector_total"] = grouped.groupby("sector_name")["market_value"].transform("sum")
+
+    grouped["sector_share_pct"] = (
+        grouped["market_value"] / grouped["sector_total"] * 100
+    )
 
     fig = px.treemap(
         grouped,
         path=["sector_name", "sub_sector_name"],
-        values="gdp_share_pct",
+        values="market_value",
         color="sector_name",
         color_discrete_sequence=DISCRETE_PALETTE,
-        title="Sector Structure (Treemap)",
-    )
-    return _apply_chart_theme(fig, height=480)
-
-
-def chart_scatter_qoq_yoy(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Scatter: QoQ vs YoY, bubble size = GDP Share, color = Sector."""
-    grouped = (
-        df.groupby(["sub_sector_name", "sector_name"], as_index=False)
-        .agg(
-            real_qoq_growth_rate=("real_qoq_growth_rate", "mean"),
-            real_yoy_growth_rate=("real_yoy_growth_rate", "mean"),
-            gdp_share_pct=("gdp_share_pct", "mean"),
-        )
-    )
-    grouped["bubble_size"] = grouped["gdp_share_pct"].abs().fillna(0) + 1
-
-    fig = px.scatter(
-        grouped,
-        x="real_qoq_growth_rate",
-        y="real_yoy_growth_rate",
-        size="bubble_size",
-        color="sector_name",
-        hover_name="sub_sector_name",
-        color_discrete_sequence=DISCRETE_PALETTE,
-        title="QoQ vs YoY Growth",
-        labels={
-            "real_qoq_growth_rate": "QoQ Growth (%)",
-            "real_yoy_growth_rate": "YoY Growth (%)",
-            "sector_name": "Sector",
-        },
-    )
-    return _apply_chart_theme(fig)
-
-
-def chart_heatmap(df: pd.DataFrame) -> go.Figure:
-    """Vẽ Heatmap: Sub-sector (rows) x Quarter (columns) = real_yoy_growth_rate."""
-    grouped = df.copy()
-    grouped["quarter_label"] = "Q" + grouped["quarter"].astype(str) + " " + grouped["year"].astype(str)
-
-    pivot = grouped.pivot_table(
-        index="sub_sector_name",
-        columns="quarter_label",
-        values="real_yoy_growth_rate",
-        aggfunc="mean",
+        custom_data=["sector_share_pct"],
+        title=LABEL_MAP["sector_structure"],
     )
 
-    fig = px.imshow(
-        pivot,
-        color_continuous_scale=[COLOR_NEGATIVE, "#FFFFFF", COLOR_POSITIVE],
-        aspect="auto",
-        title="Growth by Quarter (Heatmap)",
-        labels=dict(x="Quarter", y="Sub-sector", color="Real YoY (%)"),
+    fig.update_traces(
+        hovertemplate=
+        "<b>%{label}</b><br>"
+        "Market Value: %{value:,.0f}<br>"
+        "Share in Sector: %{customdata[0]:.2f}%"
+        "<extra></extra>"
     )
-    return _apply_chart_theme(fig, height=460)
+    return _apply_chart_theme(fig, height=560)
+
 
 
 # ====================================================================
@@ -807,13 +952,12 @@ def _chart_card(render_fn, df: pd.DataFrame) -> None:
         render_fn: Hàm tạo Figure (nhận DataFrame, trả về go.Figure).
         df: DataFrame đầu vào cho biểu đồ.
     """
-    st.markdown('<div class="gdp-chart-wrapper">', unsafe_allow_html=True)
-    if df.empty:
-        _empty_chart_placeholder()
-    else:
-        fig = render_fn(df)
-        st.plotly_chart(fig, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    with st.container(border=True):
+        if df.empty:
+            _empty_chart_placeholder()
+        else:
+            fig = render_fn(df)
+            st.plotly_chart(fig, use_container_width=True)
 
 
 def render_trend_section(df: pd.DataFrame) -> None:
@@ -849,19 +993,9 @@ def render_ranking_section(df: pd.DataFrame) -> None:
         _chart_card(chart_top_gdp_share, df)
 
 
-def render_growth_section(df: pd.DataFrame) -> None:
-    """Render Row 5: Scatter (QoQ vs YoY) & Heatmap (Growth by Quarter)."""
-    st.markdown('<div class="gdp-section-title">Phân tích tăng trưởng</div>', unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    with col1:
-        _chart_card(chart_scatter_qoq_yoy, df)
-    with col2:
-        _chart_card(chart_heatmap, df)
-
-
 def render_drilldown_section(df: pd.DataFrame) -> None:
     """Render Row 6: Drill-down Sub-sector Analysis theo Sector được chọn."""
-    st.markdown('<div class="gdp-section-title">Drill-down: Sub-sector Analysis</div>', unsafe_allow_html=True)
+    st.markdown('<div class="gdp-section-title">Drill-down: Phân tích Phân ngành theo từng Khu vực kinh tế</div>', unsafe_allow_html=True)
 
     if df.empty:
         st.markdown('<div class="gdp-card">', unsafe_allow_html=True)
@@ -876,9 +1010,8 @@ def render_drilldown_section(df: pd.DataFrame) -> None:
         st.markdown("</div>", unsafe_allow_html=True)
         return
 
-    st.markdown('<div class="gdp-card">', unsafe_allow_html=True)
-    selected_sector = st.selectbox("Chọn Sector để xem chi tiết Sub-sector", sectors)
-    st.markdown("</div>", unsafe_allow_html=True)
+    with st.container(border=True):
+        selected_sector = st.selectbox("Chọn Khu vực kinh tế để xem chi tiết Phân ngành", sectors)
 
     sector_df = df[df["sector_name"] == selected_sector]
 
@@ -894,9 +1027,9 @@ def render_drilldown_section(df: pd.DataFrame) -> None:
         .sort_values("gdp_share_pct", ascending=False)
         .rename(
             columns={
-                "sub_sector_name": "Sub-sector",
-                "market_gdp": "Market GDP",
-                "real_gdp": "Real GDP",
+                "sub_sector_name": "Sub-sector - Phân ngành",
+                "market_gdp": "Market GDP - GDP theo giá hiện hành",
+                "real_gdp": "Real GDP - GDP theo giá so sánh 2010",
                 "real_yoy_growth_rate": "YoY Growth (%)",
                 "real_qoq_growth_rate": "QoQ Growth (%)",
                 "gdp_share_pct": "GDP Share (%)",
@@ -904,29 +1037,24 @@ def render_drilldown_section(df: pd.DataFrame) -> None:
         )
     )
 
-    st.markdown('<div class="gdp-chart-wrapper">', unsafe_allow_html=True)
-    if drilldown_table.empty:
-        _empty_chart_placeholder()
-    else:
-        st.dataframe(
-            drilldown_table.style.format(
-                {
-                    "Market GDP": "{:,.2f}",
-                    "Real GDP": "{:,.2f}",
-                    "YoY Growth (%)": "{:.2f}",
-                    "QoQ Growth (%)": "{:.2f}",
-                    "GDP Share (%)": "{:.2f}",
-                }
-            ),
-            use_container_width=True,
-            hide_index=True,
-        )
-    st.markdown("</div>", unsafe_allow_html=True)
-
-
-# ====================================================================
-# MAIN RENDER FUNCTION
-# ====================================================================
+    with st.container(border=True):
+        if drilldown_table.empty:
+            _empty_chart_placeholder()
+        else:
+            st.dataframe(
+                drilldown_table.style.format(
+                    {
+                        "Market GDP - GDP theo giá hiện hành": "{:,.2f}",
+                        "Real GDP - GDP theo giá so sánh 2010": "{:,.2f}",
+                        "YoY Growth (%)": "{:.2f}",
+                        "QoQ Growth (%)": "{:.2f}",
+                        "GDP Share (%)": "{:.2f}",
+                    }
+                ),
+                use_container_width=True,
+                hide_index=True,
+            )
+            
 
 def render_dashboard() -> None:
     """Render toàn bộ GDP Growth Performance Dashboard.

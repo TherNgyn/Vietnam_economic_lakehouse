@@ -24,10 +24,6 @@ from pyspark.sql import functions as F
 
 from shared.spark import get_spark_session
 
-# ============================================================
-# THEME / CSS
-# ============================================================
-
 COLOR_BACKGROUND = "#081A36"
 COLOR_CARD = "#102B55"
 COLOR_BORDER = "#2C6FB8"
@@ -435,14 +431,20 @@ def render_kpis(pdf: pd.DataFrame) -> None:
     avg_yoy = pdf["yoy_growth_rate"].mean()
 
     by_source = pdf.groupby("source_name")["investment_value"].sum()
+
     largest_source = by_source.idxmax()
-    largest_share = pdf["source_share_pct"].max()
+
+    largest_share = (
+        by_source.max() / by_source.sum() * 100
+        if by_source.sum() > 0
+        else 0
+    )
     num_sources = pdf["source_name"].nunique()
 
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    col1, col2, col3, col4, col5= st.columns(5)
 
     with col1:
-        st.metric("Total Investment", f"{total_investment:,.0f}")
+        st.metric("Total Investment (Nghìn tỷ đồng)", f"{total_investment:,.0f}")
     with col2:
         st.metric("Avg QoQ Growth", f"{avg_qoq:.2f}%")
     with col3:
@@ -451,8 +453,7 @@ def render_kpis(pdf: pd.DataFrame) -> None:
         st.metric("Largest Capital Source", f"{largest_source}")
     with col5:
         st.metric("Largest Source Share", f"{largest_share:.2f}%")
-    with col6:
-        st.metric("Number of Capital Sources", f"{num_sources}")
+ 
 
 
 # ============================================================
@@ -567,18 +568,47 @@ def render_structure_section(pdf: pd.DataFrame) -> None:
 
     with col2:
         _section_title("Treemap")
-        tree_df = pdf.groupby("source_name", as_index=False).agg(
-            investment_value=("investment_value", "sum"),
-            yoy_growth_rate=("yoy_growth_rate", "mean"),
+
+        tree_df = (
+            pdf.groupby("source_name", as_index=False)
+            .agg(
+                investment_value=("investment_value", "sum"),
+                yoy_growth_rate=("yoy_growth_rate", "mean"),
+            )
         )
+
+        # Tính tỷ trọng trên tổng vốn đầu tư
+        total_investment = tree_df["investment_value"].sum()
+        tree_df["investment_pct"] = (
+            tree_df["investment_value"] / total_investment * 100
+        )
+
         fig = px.treemap(
             tree_df,
             path=["source_name"],
-            values="investment_value",
+            values="investment_value",          # diện tích theo giá trị thực
             color="yoy_growth_rate",
             color_continuous_scale=["#E74C3C", "#F5A623", "#2ECC71"],
+            custom_data=[
+                "investment_value",
+                "investment_pct",
+                "yoy_growth_rate",
+            ],
         )
+
+        fig.update_traces(
+            texttemplate="<b>%{label}</b><br>%{customdata[1]:.1f}%",
+            hovertemplate="""
+        <b>%{label}</b><br><br>
+        Investment: %{customdata[0]:,.2f} Nghìn tỷ đồng<br>
+        Share: %{customdata[1]:.2f}%<br>
+        YoY Growth: %{customdata[2]:.2f}%<br>
+        <extra></extra>
+        """
+        )
+
         st.plotly_chart(_apply_chart_layout(fig), use_container_width=True)
+
         _section_end()
 
     # with col4:
